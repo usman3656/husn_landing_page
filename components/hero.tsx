@@ -12,14 +12,10 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 bg-dot-paper bg-dots [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"
       />
 
-      <div className="relative z-10 mx-auto max-w-page px-6 pb-12 pt-20 md:pb-16 md:pt-24">
+      <div className="relative z-10 mx-auto max-w-page px-6 pb-8 pt-8 md:pb-12 md:pt-12">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16">
           <div>
-            <div className="animate-fade-in-up">
-              <span className="eyebrow">{hero.eyebrow}</span>
-            </div>
-
-            <h1 className="mt-7 max-w-2xl text-5xl font-bold leading-[1.04] text-display text-ink animate-fade-in-up md:text-7xl">
+            <h1 className="max-w-2xl text-5xl font-bold leading-[1.04] text-display text-ink animate-fade-in-up md:text-7xl">
               {hero.headline}
             </h1>
 

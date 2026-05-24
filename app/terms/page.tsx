@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Husn",
+  title: "Terms of Use: Husn",
   description:
     "The terms that apply when you visit the Husn website, request a demo, or use the Husn service.",
   robots: { index: true, follow: true },
@@ -108,7 +108,7 @@ export default function TermsPage() {
             hello@husn.io
           </a>
           . Free pilots are time-boxed (typically 14 days) and convert to a
-          paid plan only with your explicit agreement &mdash; we will not
+          paid plan only with your explicit agreement, we will not
           auto-charge you.
         </p>
 
@@ -147,8 +147,8 @@ export default function TermsPage() {
           individual performance management. That means we will not permit
           customers to use Husn outputs to evaluate, rank, score,
           discipline, or otherwise manage the performance of named
-          individuals. Our purpose is operational alignment for teams &mdash;
-          giving program teams shared context &mdash; not surveillance. When
+          individuals. Our purpose is operational alignment for teams,
+          giving program teams shared context, not surveillance. When
           we publish a real product agreement, this restriction will be a
           binding term of service; until then, it is a public statement of how
           we intend to operate, and we will decline customers who tell us they
@@ -176,7 +176,7 @@ export default function TermsPage() {
         <p>
           The site relies on Vercel, Resend, Cal.com, Plausible, and PostHog.
           We do not control those providers. When you interact with their
-          components &mdash; for example, picking a slot on Cal.com &mdash;
+          components, for example, picking a slot on Cal.com,
           their own terms also apply to that interaction.
         </p>
 
@@ -221,7 +221,7 @@ export default function TermsPage() {
           principal place of business, without regard to conflict-of-laws
           rules. If you are a consumer in the EU/EEA, this does not deprive
           you of mandatory protections under your local law. We&rsquo;d much
-          rather resolve disputes by email first &mdash; please write to{" "}
+          rather resolve disputes by email first, please write to{" "}
           <a
             href="mailto:hello@husn.io"
             className="text-accent hover:underline"

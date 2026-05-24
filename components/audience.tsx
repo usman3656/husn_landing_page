@@ -6,25 +6,27 @@ export function Audience() {
   return (
     <section
       id="audience"
-      className="relative overflow-hidden border-b border-ink/[0.06] bg-paper"
+      className="relative flex min-h-screen items-center overflow-hidden border-b border-ink/[0.06] bg-paper"
     >
-      <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-5xl">
+      <div className="relative z-10 mx-auto w-full max-w-page px-6 py-12">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
             {audience.heading}
           </h2>
         </div>
 
-        <ul className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
+        <ul className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
           {audience.forItems.map((text, i) => {
             const Icon = ROLE_ICONS[i] ?? TpmIcon;
             return (
-              <li key={text} className="card group rounded-2xl p-6">
-                <div className="flex items-start gap-4">
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+              <li key={text} className="card group rounded-2xl p-8 md:p-10">
+                <div className="flex items-start gap-5">
+                  <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent transition-colors group-hover:bg-accent group-hover:text-white">
                     <Icon />
                   </span>
-                  <p className="text-base leading-relaxed text-ink">{text}</p>
+                  <p className="text-base leading-relaxed text-ink md:text-lg">
+                    {text}
+                  </p>
                 </div>
               </li>
             );

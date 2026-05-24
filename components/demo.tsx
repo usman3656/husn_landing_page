@@ -60,7 +60,7 @@ export function Demo() {
       <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
         <div className="grid gap-12 md:grid-cols-[1fr,1.1fr] md:items-center md:gap-16">
           <div>
-            <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-5xl">
+            <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
               {demo.heading}
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-ink-muted md:text-xl">{demo.sub}</p>
@@ -145,8 +145,7 @@ export function Demo() {
 function SuccessBlock() {
   return (
     <div className="relative py-4 text-center" role="status" aria-live="polite">
-      <span className="eyebrow">Thanks</span>
-      <h3 className="mt-4 text-2xl font-bold tracking-tightish text-ink">
+      <h3 className="text-2xl font-bold tracking-tightish text-ink">
         {demo.successHeading}
       </h3>
       <p className="mt-3 text-base leading-relaxed text-ink-muted">{demo.successBody}</p>

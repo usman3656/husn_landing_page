@@ -1,194 +1,411 @@
-type Node = {
+"use client";
+
+import { useRef, useState } from "react";
+
+type Integration = {
   name: string;
+  brand: string;
   Logo: () => React.ReactElement;
 };
 
-const NODES: Node[] = [
-  { name: "Slack", Logo: SlackLogo },
-  { name: "Notion", Logo: NotionLogo },
-  { name: "Gmail", Logo: GmailLogo },
-  { name: "Outlook", Logo: OutlookLogo },
-  { name: "Teams", Logo: TeamsLogo },
-  { name: "Drive", Logo: DriveLogo },
-  { name: "Docs", Logo: DocsLogo },
-  { name: "SharePoint", Logo: SharePointLogo },
-  { name: "PDFs", Logo: PdfLogo },
+const INNER: Integration[] = [
+  { name: "Slack", brand: "#611F69", Logo: SlackLogo },
+  { name: "Jira", brand: "#2684FF", Logo: JiraLogo },
+  { name: "Linear", brand: "#5E6AD2", Logo: LinearLogo },
+  { name: "GitHub", brand: "#181717", Logo: GitHubLogo },
+  { name: "Notion", brand: "#0F0F0F", Logo: NotionLogo },
+  { name: "Docs", brand: "#1A73E8", Logo: DocsLogo },
 ];
 
-const CENTER = 400;
-const RADIUS = 305;
+const OUTER: Integration[] = [
+  { name: "Gmail", brand: "#EA4335", Logo: GmailLogo },
+  { name: "Outlook", brand: "#0078D4", Logo: OutlookLogo },
+  { name: "Teams", brand: "#5059C9", Logo: TeamsLogo },
+  { name: "Drive", brand: "#0066DA", Logo: DriveLogo },
+  { name: "SharePoint", brand: "#036C70", Logo: SharePointLogo },
+  { name: "Confluence", brand: "#2684FF", Logo: ConfluenceLogo },
+  { name: "Figma", brand: "#F24E1E", Logo: FigmaLogo },
+  { name: "Zoom", brand: "#2D8CFF", Logo: ZoomLogo },
+  { name: "Asana", brand: "#F06A6A", Logo: AsanaLogo },
+  { name: "PDFs", brand: "#D93025", Logo: PdfLogo },
+];
 
-function nodePos(i: number, n: number) {
-  const angle = (i / n) * 2 * Math.PI - Math.PI / 2;
-  const x = CENTER + RADIUS * Math.cos(angle);
-  const y = CENTER + RADIUS * Math.sin(angle);
-  return { x, y, angle };
+type Placed = Integration & { ring: "inner" | "outer"; idx: number };
+
+const ALL: Placed[] = [
+  ...INNER.map((n, i) => ({ ...n, ring: "inner" as const, idx: i })),
+  ...OUTER.map((n, i) => ({ ...n, ring: "outer" as const, idx: i })),
+];
+
+const VIEW = 800;
+const C = 400;
+const R_INNER = 200;
+const R_OUTER = 315;
+
+function nodePosition(item: Placed) {
+  const total = item.ring === "inner" ? INNER.length : OUTER.length;
+  const offset = item.ring === "outer" ? Math.PI / OUTER.length : 0;
+  const r = item.ring === "inner" ? R_INNER : R_OUTER;
+  const a = (item.idx / total) * 2 * Math.PI - Math.PI / 2 + offset;
+  return { x: C + r * Math.cos(a), y: C + r * Math.sin(a) };
 }
 
-function curvePath(x: number, y: number, idx: number) {
-  const dx = x - CENTER;
-  const dy = y - CENTER;
-  const mx = CENTER + dx * 0.55;
-  const my = CENTER + dy * 0.55;
+function curveToCenter(x: number, y: number, idx: number) {
+  const dx = C - x;
+  const dy = C - y;
+  const mx = x + dx * 0.5;
+  const my = y + dy * 0.5;
   const perpX = -dy;
   const perpY = dx;
   const len = Math.hypot(perpX, perpY) || 1;
   const sign = idx % 2 === 0 ? 1 : -1;
-  const offset = 26 * sign;
-  const cx = mx + (perpX / len) * offset;
-  const cy = my + (perpY / len) * offset;
-  return `M ${CENTER} ${CENTER} Q ${cx} ${cy} ${x} ${y}`;
+  const off = 24 * sign;
+  const cx = mx + (perpX / len) * off;
+  const cy = my + (perpY / len) * off;
+  return `M ${x.toFixed(1)} ${y.toFixed(1)} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${C} ${C}`;
 }
 
 export function Integrations() {
-  const N = NODES.length;
+  const [hover, setHover] = useState<string | null>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [active, setActive] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  function onPointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    const el = containerRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const nx = (e.clientX - r.left) / r.width - 0.5;
+    const ny = (e.clientY - r.top) / r.height - 0.5;
+    setTilt({ x: nx, y: ny });
+  }
+  function onPointerEnter() {
+    setActive(true);
+  }
+  function onPointerLeave() {
+    setTilt({ x: 0, y: 0 });
+    setHover(null);
+    setActive(false);
+  }
+
+  const tiltStyle: React.CSSProperties = {
+    transform: `perspective(1400px) rotateX(${(-tilt.y * 5).toFixed(2)}deg) rotateY(${(tilt.x * 5).toFixed(2)}deg)`,
+    transformStyle: "preserve-3d",
+    transition: "transform 220ms ease",
+  };
+
   return (
-    <section className="relative overflow-hidden border-b border-ink/[0.06] bg-paper">
+    <section className="relative flex min-h-screen items-center overflow-hidden border-b border-ink/[0.06] bg-paper">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-dot-paper bg-dots [mask-image:radial-gradient(ellipse_at_center,black_22%,transparent_70%)] opacity-50"
       />
 
-      <div className="relative z-10 mx-auto max-w-page px-6 py-16 md:py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-5xl">
-            One connection, every tool your team uses.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-ink-muted md:text-xl">
-            Husn listens across Slack, Notion, Gmail, Outlook, Teams, Drive, Docs,
-            SharePoint, PDFs and many more — no new tool for your team to adopt.
-          </p>
-        </div>
+      <div className="relative z-10 mx-auto w-full max-w-page px-6 py-10">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.75fr,1.25fr] lg:gap-12">
+          <div className="max-w-md">
+            <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+              One connection, every tool your team uses.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink-muted md:text-xl">
+              Husn listens across Slack, Jira, Linear, GitHub, Notion, Google
+              Workspace and many more. Your team doesn&rsquo;t adopt a thing.
+            </p>
+          </div>
 
-        <div className="relative mx-auto mt-12 aspect-square w-full max-w-[680px]">
-          <svg
-            viewBox="0 0 800 800"
-            className="absolute inset-0 h-full w-full"
-            aria-hidden="true"
+          <div
+            ref={containerRef}
+            className="relative mx-auto aspect-square w-full max-w-[520px] lg:max-w-[640px]"
+            onPointerMove={onPointerMove}
+            onPointerEnter={onPointerEnter}
+            onPointerLeave={onPointerLeave}
+            role="img"
+            aria-label="Sixteen tools flowing into Husn"
           >
-            <defs>
-              <radialGradient id="centerHalo" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#2563EB" stopOpacity="0.22" />
-                <stop offset="55%" stopColor="#2563EB" stopOpacity="0.05" />
-                <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-              </radialGradient>
-              <linearGradient id="lineFade" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#2563EB" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#2563EB" stopOpacity="0.05" />
-              </linearGradient>
-              <radialGradient id="pulseDot" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#2563EB" stopOpacity="1" />
-                <stop offset="60%" stopColor="#2563EB" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-              </radialGradient>
-            </defs>
+          <div className="absolute inset-0" style={tiltStyle}>
+            <div
+              className="animate-spin absolute inset-0"
+              style={{
+                animationDuration: "240s",
+                animationPlayState: active ? "paused" : "running",
+              }}
+            >
+            <svg
+              viewBox={`0 0 ${VIEW} ${VIEW}`}
+              className="absolute inset-0 h-full w-full"
+              aria-hidden="true"
+            >
+              <defs>
+                <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#2563EB" stopOpacity="0.20" />
+                  <stop offset="55%" stopColor="#2563EB" stopOpacity="0.04" />
+                  <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                </radialGradient>
+                <radialGradient id="incoming" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#2563EB" stopOpacity="0.95" />
+                  <stop offset="55%" stopColor="#2563EB" stopOpacity="0.40" />
+                  <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                </radialGradient>
+                <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#2563EB" stopOpacity="0" />
+                  <stop offset="58%" stopColor="#60A5FA" stopOpacity="0.10" />
+                  <stop offset="78%" stopColor="#2563EB" stopOpacity="0.06" />
+                  <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
+                </radialGradient>
+              </defs>
 
-            <circle cx={CENTER} cy={CENTER} r="290" fill="url(#centerHalo)" />
+              {/* Soft brand halo */}
+              <circle cx={C} cy={C} r="300" fill="url(#halo)" />
 
-            <circle
-              cx={CENTER}
-              cy={CENTER}
-              r="200"
-              fill="none"
-              stroke="rgba(11,14,20,0.07)"
-              strokeDasharray="2 5"
-            />
-            <circle
-              cx={CENTER}
-              cy={CENTER}
-              r="320"
-              fill="none"
-              stroke="rgba(11,14,20,0.05)"
-              strokeDasharray="2 5"
-            />
+              {/* Faint orbital rings */}
+              <circle
+                cx={C}
+                cy={C}
+                r={R_INNER}
+                fill="none"
+                stroke="rgba(11,14,20,0.06)"
+                strokeDasharray="2 6"
+              />
+              <circle
+                cx={C}
+                cy={C}
+                r={R_OUTER}
+                fill="none"
+                stroke="rgba(11,14,20,0.05)"
+                strokeDasharray="2 6"
+              />
 
-            {NODES.map((_, i) => {
-              const { x, y } = nodePos(i, N);
-              const d = curvePath(x, y, i);
-              const id = `path-${i}`;
-              const dur = 3.4 + (i % 3) * 0.6;
+              {/* Slow-rotating inner tick band */}
+              <g>
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from={`0 ${C} ${C}`}
+                  to={`360 ${C} ${C}`}
+                  dur="80s"
+                  repeatCount="indefinite"
+                />
+                {Array.from({ length: 72 }).map((_, i) => {
+                  const a = (i / 72) * 2 * Math.PI;
+                  const inner = R_INNER - 5;
+                  const outer = R_INNER + 5;
+                  const x1 = (C + inner * Math.cos(a)).toFixed(2);
+                  const y1 = (C + inner * Math.sin(a)).toFixed(2);
+                  const x2 = (C + outer * Math.cos(a)).toFixed(2);
+                  const y2 = (C + outer * Math.sin(a)).toFixed(2);
+                  return (
+                    <line
+                      key={i}
+                      x1={x1}
+                      y1={y1}
+                      x2={x2}
+                      y2={y2}
+                      stroke="rgba(11,14,20,0.07)"
+                      strokeWidth="1"
+                    />
+                  );
+                })}
+              </g>
+
+              {/* Connection lines with inward-flowing particles */}
+              {ALL.map((node, i) => {
+                const { x, y } = nodePosition(node);
+                const d = curveToCenter(x, y, i);
+                const id = `flow-${node.ring}-${node.idx}`;
+                const isHovered = hover === node.name;
+                const dur = 6.0 + ((i * 0.41) % 3.0);
+                const begin = `${((i * 0.43) % 5).toFixed(2)}s`;
+                const lineColor = isHovered ? node.brand : "#2563EB";
+                const lineOp = isHovered ? 0.7 : 0.16;
+                return (
+                  <g key={id}>
+                    <path
+                      id={id}
+                      d={d}
+                      fill="none"
+                      stroke={lineColor}
+                      strokeOpacity={lineOp}
+                      strokeWidth={isHovered ? 1.8 : 1.1}
+                      strokeLinecap="round"
+                      style={{
+                        transition:
+                          "stroke 220ms ease, stroke-opacity 220ms ease, stroke-width 220ms ease",
+                      }}
+                    />
+                    {/* Soft incoming glow */}
+                    <circle
+                      r={isHovered ? 11 : 8}
+                      fill="url(#incoming)"
+                      opacity={isHovered ? 0.95 : 0.65}
+                    >
+                      <animateMotion
+                        dur={`${dur}s`}
+                        repeatCount="indefinite"
+                        begin={begin}
+                      >
+                        <mpath href={`#${id}`} />
+                      </animateMotion>
+                      <animate
+                        attributeName="opacity"
+                        values="0;0.95;0.95;0"
+                        keyTimes="0;0.15;0.85;1"
+                        dur={`${dur}s`}
+                        repeatCount="indefinite"
+                        begin={begin}
+                      />
+                    </circle>
+                    {/* Core particle (brand-tinted on hover) */}
+                    <circle
+                      r={isHovered ? 3.4 : 2.6}
+                      fill={isHovered ? node.brand : "#2563EB"}
+                    >
+                      <animateMotion
+                        dur={`${dur}s`}
+                        repeatCount="indefinite"
+                        begin={begin}
+                      >
+                        <mpath href={`#${id}`} />
+                      </animateMotion>
+                      <animate
+                        attributeName="opacity"
+                        values="0;1;1;0"
+                        keyTimes="0;0.1;0.9;1"
+                        dur={`${dur}s`}
+                        repeatCount="indefinite"
+                        begin={begin}
+                      />
+                    </circle>
+                  </g>
+                );
+              })}
+
+              {/* Soft glow behind the core */}
+              <circle cx={C} cy={C} r="110" fill="url(#centerGlow)" />
+            </svg>
+
+            {/* Integration node pills */}
+            {ALL.map((node) => {
+              const { x, y } = nodePosition(node);
+              const isHovered = hover === node.name;
+              const Logo = node.Logo;
+              const delay =
+                node.ring === "inner"
+                  ? node.idx * 60
+                  : INNER.length * 60 + node.idx * 50;
               return (
-                <g key={i}>
-                  <path id={id} d={d} fill="none" stroke="url(#lineFade)" strokeWidth="1.5" strokeLinecap="round" />
-                  <circle r="9" fill="url(#pulseDot)" opacity="0">
-                    <animateMotion dur={`${dur}s`} repeatCount="indefinite" begin={`${(i * 0.32) % 2.5}s`}>
-                      <mpath href={`#${id}`} />
-                    </animateMotion>
-                    <animate
-                      attributeName="opacity"
-                      values="0;1;1;0"
-                      keyTimes="0;0.1;0.85;1"
-                      dur={`${dur}s`}
-                      repeatCount="indefinite"
-                      begin={`${(i * 0.32) % 2.5}s`}
-                    />
-                  </circle>
-                  <circle r="2.6" fill="#2563EB" opacity="0">
-                    <animateMotion dur={`${dur}s`} repeatCount="indefinite" begin={`${(i * 0.32) % 2.5}s`}>
-                      <mpath href={`#${id}`} />
-                    </animateMotion>
-                    <animate
-                      attributeName="opacity"
-                      values="0;1;0"
-                      dur={`${dur}s`}
-                      repeatCount="indefinite"
-                      begin={`${(i * 0.32) % 2.5}s`}
-                    />
-                  </circle>
-                </g>
+                <div
+                  key={`${node.ring}-${node.idx}`}
+                  onMouseEnter={() => setHover(node.name)}
+                  className="absolute z-10 -translate-x-1/2 -translate-y-1/2 cursor-default select-none"
+                  style={{
+                    left: `${((x / VIEW) * 100).toFixed(3)}%`,
+                    top: `${((y / VIEW) * 100).toFixed(3)}%`,
+                  }}
+                  role="presentation"
+                >
+                  <div
+                    className="animate-spin"
+                    style={{
+                      animationDuration: "240s",
+                      animationDirection: "reverse",
+                      animationTimingFunction: "linear",
+                      animationPlayState: active ? "paused" : "running",
+                    }}
+                  >
+                  <div
+                    className="card flex items-center gap-2.5 rounded-full bg-white px-3.5 py-2 transition-all duration-200"
+                    style={{
+                      animation: "fade-in-up 0.6s ease-out both",
+                      animationDelay: `${delay}ms`,
+                      transform: isHovered
+                        ? "translateY(-2px) scale(1.06)"
+                        : undefined,
+                      boxShadow: isHovered
+                        ? `0 1px 0 rgba(11,14,20,0.04), 0 14px 30px -12px ${node.brand}80, 0 0 0 1px ${node.brand}55`
+                        : undefined,
+                    }}
+                  >
+                    <span
+                      className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors"
+                      style={{
+                        backgroundColor: isHovered
+                          ? `${node.brand}18`
+                          : undefined,
+                      }}
+                    >
+                      <Logo />
+                    </span>
+                    <span className="whitespace-nowrap text-sm font-semibold text-ink">
+                      {node.name}
+                    </span>
+                  </div>
+                  </div>
+                </div>
               );
             })}
-          </svg>
+            </div>
 
-          {NODES.map((node, i) => {
-            const angle = (i / N) * 2 * Math.PI - Math.PI / 2;
-            const top = `${50 + 38 * Math.sin(angle)}%`;
-            const left = `${50 + 38 * Math.cos(angle)}%`;
-            const Logo = node.Logo;
-            return (
-              <div
-                key={node.name}
-                className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
-                style={{ top, left }}
-              >
+            {/* Center - dark core with corona, status pulse, and orbital satellite */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+              <div className="relative">
+                {/* Subtle halo */}
                 <div
-                  className="card flex items-center gap-2.5 rounded-full bg-white px-3.5 py-2"
-                  style={{ animation: "fade-in-up 0.6s ease-out both", animationDelay: `${i * 60}ms` }}
+                  aria-hidden="true"
+                  className="absolute inset-0 -m-10 rounded-full bg-accent/[0.05] blur-2xl"
+                />
+                {/* Slow rotating dashed orbital */}
+                <div
+                  aria-hidden="true"
+                  className="animate-spin absolute -inset-6 rounded-full border border-dashed border-ink/12"
+                  style={{ animationDuration: "40s" }}
+                />
+
+                {/* The dark core */}
+                <div
+                  className="relative grid h-24 w-24 place-items-center overflow-hidden rounded-full md:h-28 md:w-28"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 32% 26%, #2A3340 0%, #14181F 48%, #0A0C12 100%)",
+                    boxShadow:
+                      "0 1px 0 rgba(255,255,255,0.08) inset, 0 14px 32px -14px rgba(11,14,20,0.40), 0 0 0 1px rgba(11,14,20,0.18)",
+                  }}
                 >
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-paper-dim">
-                    <Logo />
-                  </span>
-                  <span className="whitespace-nowrap text-sm font-semibold text-ink">
-                    {node.name}
+                  {/* Inner accent rim (faint) */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-[4px] rounded-full"
+                    style={{
+                      boxShadow:
+                        "inset 0 0 16px rgba(37,99,235,0.13), inset 0 0 1px rgba(147,197,253,0.20)",
+                    }}
+                  />
+                  {/* Subtle specular highlight (top) */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-3 top-3 h-8 rounded-full opacity-50"
+                    style={{
+                      background:
+                        "radial-gradient(50% 100% at 50% 0%, rgba(255,255,255,0.35), transparent 75%)",
+                    }}
+                  />
+
+                  {/* Wordmark */}
+                  <span className="relative text-xl font-bold tracking-tightish text-paper md:text-2xl">
+                    husn
                   </span>
                 </div>
               </div>
-            );
-          })}
-
-          <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 -m-8 rounded-full bg-accent/12 blur-3xl"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 -m-3 animate-ping rounded-full bg-accent/15"
-                style={{ animationDuration: "2.8s" }}
-              />
-              <div className="relative grid h-28 w-28 place-items-center rounded-full bg-ink ring-[6px] ring-paper md:h-32 md:w-32">
-                <p className="font-bold tracking-tightish text-paper text-2xl md:text-3xl">
-                  husn
-                </p>
-              </div>
             </div>
+          </div>
+
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+/* ---------- Logos ---------- */
 
 function SlackLogo() {
   return (
@@ -279,6 +496,105 @@ function PdfLogo() {
       <path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#D93025" />
       <path d="M14 2v5h5" fill="#F28B82" />
       <text x="12" y="17" textAnchor="middle" fontSize="5.5" fontWeight="800" fill="#FFFFFF" fontFamily="system-ui">PDF</text>
+    </svg>
+  );
+}
+
+function JiraLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <defs>
+        <linearGradient id="jiraG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#0052CC" />
+          <stop offset="100%" stopColor="#2684FF" />
+        </linearGradient>
+      </defs>
+      <path d="M11.5 2.5L2 12l4.6 4.6L12 11.4l5.4 5.2L22 12 11.5 2.5z" fill="url(#jiraG)" />
+      <path d="M11.5 8.7L17.4 14.6l-5.9 5.9-5.9-5.9 5.9-5.9z" fill="#2684FF" opacity="0.85" />
+    </svg>
+  );
+}
+
+function LinearLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+      <defs>
+        <linearGradient id="linG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#5E6AD2" />
+          <stop offset="100%" stopColor="#9CA3FF" />
+        </linearGradient>
+      </defs>
+      <path d="M2.5 12.5L11.5 21.5l9-9-3-3-6 6-6-6 6-6-3-3-6 6z" fill="url(#linG)" />
+    </svg>
+  );
+}
+
+function GitHubLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        fill="#181717"
+        d="M12 2C6.48 2 2 6.58 2 12.25c0 4.54 2.87 8.39 6.84 9.75.5.09.66-.22.66-.49v-1.7c-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 2.5-.34c.85.004 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9v2.81c0 .27.16.59.67.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"
+      />
+    </svg>
+  );
+}
+
+function ConfluenceLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <defs>
+        <linearGradient id="cfG1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#0052CC" />
+          <stop offset="100%" stopColor="#2684FF" />
+        </linearGradient>
+        <linearGradient id="cfG2" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#2684FF" />
+          <stop offset="100%" stopColor="#0052CC" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M2.5 18.5c1-2.4 5.2-3.4 9.2-1.2 4 2.1 8 1 10.3-1.5l-1.7 4.4c-2 2-5.8 2.6-9.4.6-3.6-2-7-1.4-8.4-2.3z"
+        fill="url(#cfG1)"
+      />
+      <path
+        d="M21.5 5.5c-1 2.4-5.2 3.4-9.2 1.2-4-2.1-8-1-10.3 1.5l1.7-4.4c2-2 5.8-2.6 9.4-.6 3.6 2 7 1.4 8.4 2.3z"
+        fill="url(#cfG2)"
+      />
+    </svg>
+  );
+}
+
+function FigmaLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
+      <path d="M9 2h3v6H9a3 3 0 1 1 0-6z" fill="#F24E1E" />
+      <path d="M12 2h3a3 3 0 1 1 0 6h-3V2z" fill="#FF7262" />
+      <path d="M9 8h3v6H9a3 3 0 1 1 0-6z" fill="#A259FF" />
+      <path d="M12 8a3 3 0 1 1 3 3 3 3 0 0 1-3-3z" fill="#1ABCFE" />
+      <path d="M9 14h3v3a3 3 0 1 1-3-3z" fill="#0ACF83" />
+    </svg>
+  );
+}
+
+function ZoomLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <rect x="2" y="7" width="20" height="10" rx="2.5" fill="#2D8CFF" />
+      <path d="M5 10h8.5v4H5z" fill="#FFFFFF" />
+      <path d="M14 11l4-1.6v5.2L14 13v-2z" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+function AsanaLogo() {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+      <circle cx="12" cy="6.5" r="3.2" fill="#F06A6A" />
+      <circle cx="6.8" cy="15.5" r="3.2" fill="#F06A6A" />
+      <circle cx="17.2" cy="15.5" r="3.2" fill="#F06A6A" />
     </svg>
   );
 }

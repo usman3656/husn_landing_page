@@ -26,7 +26,7 @@ export async function submitDemoRequest(input: DemoInput): Promise<DemoResult> {
 
   if (!endpoint || endpoint.includes("YOUR_FORM_ID")) {
     if (typeof window !== "undefined") {
-      const subject = encodeURIComponent(`Husn demo request — ${role}`);
+      const subject = encodeURIComponent(`Husn demo request: ${role}`);
       const body = encodeURIComponent(`Role: ${role}\nEmail: ${email}`);
       window.location.href = `mailto:hello@husn.io?subject=${subject}&body=${body}`;
       return { ok: true };
@@ -44,7 +44,7 @@ export async function submitDemoRequest(input: DemoInput): Promise<DemoResult> {
       body: JSON.stringify({
         role,
         email,
-        _subject: `Husn demo request — ${role}`,
+        _subject: `Husn demo request: ${role}`,
         _replyto: email,
       }),
     });

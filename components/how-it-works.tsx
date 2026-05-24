@@ -6,21 +6,21 @@ export function HowItWorks() {
   return (
     <section
       id="how"
-      className="relative overflow-hidden border-b border-ink/[0.06] bg-paper"
+      className="relative flex min-h-screen items-center overflow-hidden border-b border-ink/[0.06] bg-paper"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-dot-paper bg-dots [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)] opacity-50"
       />
 
-      <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
+      <div className="relative z-10 mx-auto w-full max-w-page px-6 py-12">
         <div className="max-w-2xl">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-5xl">
+          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
             {how.heading}
           </h2>
         </div>
 
-        <div className="relative mt-12">
+        <div className="relative mt-14">
           <svg
             aria-hidden="true"
             viewBox="0 0 1200 60"
@@ -56,26 +56,40 @@ export function HowItWorks() {
               return (
                 <li
                   key={s.number}
-                  className="card relative rounded-2xl p-7"
+                  className="card relative rounded-2xl p-8 md:p-10"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink text-paper">
+                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-ink text-paper">
                       <Icon />
                     </span>
-                    <span className="font-mono text-2xl font-bold tracking-tightish text-ink-subtle">
+                    <span className="font-mono text-3xl font-bold tracking-tightish text-ink-subtle">
                       {s.number}
                     </span>
                   </div>
-                  <h3 className="mt-6 text-xl font-bold tracking-tightish text-ink">
+                  <h3 className="mt-8 text-2xl font-bold tracking-tightish text-ink md:text-3xl">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-ink-muted">
+                  <p className="mt-4 text-base leading-relaxed text-ink-muted md:text-lg">
                     {s.body}
                   </p>
                 </li>
               );
             })}
           </ol>
+
+          <div className="mt-16 flex flex-col items-center gap-3 text-center">
+            <a
+              href="#demo"
+              className="btn-primary inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold"
+            >
+              Book a demo
+              <span aria-hidden="true">→</span>
+            </a>
+            <p className="text-sm text-ink-muted">
+              Be part of the team shaping Husn. Design partners get hands-on
+              access.
+            </p>
+          </div>
         </div>
       </div>
     </section>

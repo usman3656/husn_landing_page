@@ -45,7 +45,7 @@ export function CookieBanner() {
     >
       <p className="text-sm text-ink-muted">
         Plausible runs cookieless and is always on. With your consent we also use PostHog to learn
-        which parts of the page work — decline and the page still works fine.{" "}
+        which parts of the page work. Decline and the page still works fine.{" "}
         <a href="/privacy" className="font-medium text-accent underline underline-offset-4 hover:text-accent-deep">
           Privacy policy
         </a>

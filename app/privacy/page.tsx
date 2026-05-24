@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Husn",
+  title: "Privacy Policy: Husn",
   description:
     "How Husn collects, uses, and protects the information you share when visiting our website, signing up for a demo, or using the Husn service.",
   robots: { index: true, follow: true },
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
             hello@husn.io
           </a>
           . If you are in the EU/EEA and would prefer to write to a designated
-          contact, that same address is the right destination &mdash; we are a
+          contact, that same address is the right destination, we are a
           small team and reply ourselves.
         </p>
 
@@ -141,21 +141,21 @@ export default function PrivacyPage() {
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            <strong>Vercel</strong> &mdash; web hosting and edge delivery.
+            <strong>Vercel</strong>, web hosting and edge delivery.
           </li>
           <li>
-            <strong>Resend</strong> &mdash; transactional email and waitlist
+            <strong>Resend</strong>, transactional email and waitlist
             confirmations.
           </li>
           <li>
-            <strong>Cal.com</strong> &mdash; founder-call scheduling.
+            <strong>Cal.com</strong>, founder-call scheduling.
           </li>
           <li>
-            <strong>Plausible</strong> &mdash; cookie-free, aggregate page
+            <strong>Plausible</strong>, cookie-free, aggregate page
             analytics.
           </li>
           <li>
-            <strong>PostHog</strong> &mdash; event analytics, loaded only with
+            <strong>PostHog</strong>, event analytics, loaded only with
             your consent.
           </li>
         </ul>
@@ -201,7 +201,7 @@ export default function PrivacyPage() {
         <p>
           Waitlist submissions and call notes are kept until we either launch
           a product and convert you into an early user, or for up to 12 months
-          after launch &mdash; whichever happens first &mdash; unless you ask
+          after launch, whichever happens first, unless you ask
           us to delete them earlier. Aggregate analytics are retained per each
           provider&rsquo;s defaults. Server logs are kept for short
           operational windows by Vercel.
@@ -247,7 +247,7 @@ export default function PrivacyPage() {
         <p>
           We do not make automated decisions about you that produce legal or
           similarly significant effects. There is no scoring, profiling, or
-          automated rejection happening on this page &mdash; a human reads
+          automated rejection happening on this page, a human reads
           each waitlist submission.
         </p>
 
@@ -272,7 +272,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Right to opt out</strong> of sale or sharing of personal
-            information &mdash; though we do not sell or share it for
+            information, though we do not sell or share it for
             cross-context behavioral advertising in the first place.
           </li>
           <li>

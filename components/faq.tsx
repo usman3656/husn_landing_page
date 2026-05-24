@@ -8,7 +8,7 @@ export function Faq() {
     >
       <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
         <div className="max-w-2xl">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-5xl">
+          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
             {faq.heading}
           </h2>
         </div>

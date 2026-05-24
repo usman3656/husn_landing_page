@@ -79,19 +79,19 @@ export const faq = {
     },
     {
       q: "Is this another tool we have to adopt?",
-      a: "No. Your team stays in Jira, Slack, and your docs. Husn listens — it doesn't ask anyone to type updates somewhere new. The brief shows up in Slack DM (or as a Google Doc) before each meeting.",
+      a: "No. Your team stays in Jira, Slack, and your docs. Husn listens, it doesn't ask anyone to type updates somewhere new. The brief shows up in Slack DM (or as a Google Doc) before each meeting.",
     },
     {
       q: "How is this different from Atlas, Rovo, Copilot, or Jellyfish?",
-      a: "Those tools sit on top of one vendor's data (Atlas/Rovo: Atlassian; Copilot: Microsoft; Jellyfish: Git + Jira). Husn reconciles across vendors. The acknowledgement graph — who's affected, who's seen the change, who conflicts — is something none of them produce. The full comparison is above.",
+      a: "Those tools sit on top of one vendor's data (Atlas/Rovo: Atlassian; Copilot: Microsoft; Jellyfish: Git + Jira). Husn reconciles across vendors. The acknowledgement graph (who's affected, who's seen the change, who conflicts) is something none of them produce. The full comparison is above.",
     },
     {
       q: "What if our Jira is messy?",
-      a: "Most are. We onboard with a two-week shadow mode where Husn detects drift silently while you tune signal precision and add owners. Notifications turn on when you say so — not by default.",
+      a: "Most are. We onboard with a two-week shadow mode where Husn detects drift silently while you tune signal precision and add owners. Notifications turn on when you say so, not by default.",
     },
     {
       q: "What does Husn cost?",
-      a: "$890/program/month on the Team tier, $1,490/program/month on Growth, custom on Enterprise. Pricing scales with programs connected, not viewer seats — everyone on your team gets the brief at no extra cost. Full pricing above.",
+      a: "$890/program/month on the Team tier, $1,490/program/month on Growth, custom on Enterprise. Pricing scales with programs connected, not viewer seats. Everyone on your team gets the brief at no extra cost. Full pricing above.",
     },
     {
       q: "What's the smallest team that benefits?",
