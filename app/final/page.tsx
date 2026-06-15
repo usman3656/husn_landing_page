@@ -61,7 +61,7 @@ export default function Final() {
               <Cta href="#demo">Book a demo</Cta>
               <Cta href="#brief" ghost>See a sample brief</Cta>
             </div>
-            <p className={`${mono.className} finin mt-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)]`} style={{ animationDelay: "540ms" }}>Read only · sits above Slack, Jira, email, docs, meetings</p>
+            <p className={`${mono.className} finin mt-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)]`} style={{ animationDelay: "540ms" }}>Ask it anything · it never changes your tools</p>
           </div>
 
           <div id="brief" className="finin rounded-[2px] border border-[var(--mist)] bg-[var(--surface)]" style={{ animationDelay: "360ms", boxShadow: "0 1px 2px rgba(27,29,30,.06), 0 24px 48px -34px rgba(27,29,30,.2)" }}>
@@ -107,7 +107,7 @@ export default function Final() {
             <h2 className={`${serif.className} text-3xl font-medium leading-[1.1] md:text-5xl`}>One connection. Your whole stack.</h2>
             <p className="mt-5 text-lg leading-relaxed text-[var(--slate)]">
               Husn sits above the tools your team already uses and reconciles what they each
-              say against one another. Read only. Nothing to migrate.
+              say against one another. It never changes a thing. Nothing to migrate.
             </p>
             <div className="mt-7"><Cta href="#demo" ghost>See how it connects</Cta></div>
           </div>
@@ -134,7 +134,7 @@ export default function Final() {
 
       <Sec id="how" label="How it works" alt>
         <div className="grid gap-8 md:grid-cols-3">
-          {[["Connect", "To the tools you already use. Read only."], ["Discover", "It finds the pattern that is already there."], ["Brief", "What matters, who is affected, what to do next."]].map(([k, v], i) => (
+          {[["Connect", "To the tools you already use. It reads, never writes."], ["Discover", "It finds the pattern that is already there."], ["Brief", "What matters, who is affected, what to do next."]].map(([k, v], i) => (
             <div key={k}><span className={`${mono.className} text-[12px] text-[var(--slate)]`}>0{i + 1}</span><h3 className={`${serif.className} mt-2 text-xl`}>{k}</h3><p className="mt-2 text-[var(--slate)]">{v}</p></div>
           ))}
         </div>
@@ -144,11 +144,11 @@ export default function Final() {
 
       <Sec id="trust" label="Trust">
         <div className="grid gap-10 md:grid-cols-2 md:items-start">
-          <h2 className={`${serif.className} max-w-[18ch] text-3xl font-medium leading-[1.12] md:text-4xl`}>Read only. Husn watches and explains. It never acts in your tools.</h2>
+          <h2 className={`${serif.className} max-w-[18ch] text-3xl font-medium leading-[1.12] md:text-4xl`}>Ask Husn anything. It explains and answers, and never changes your tools.</h2>
           <ul className="space-y-5 border-[var(--mist)] md:border-l md:pl-10">
             {[
-              ["Read-only access", "Husn connects through read-only OAuth. It can see, never change."],
-              ["Never writes back", "It never posts, edits, or moves anything in your tools."],
+              ["Ask in plain language", "Talk to Husn like a colleague and get answers traced back to the source."],
+              ["It never writes back", "Husn reads and reasons. It never posts, edits, or moves anything in your tools."],
               ["Your data stays yours", "Nothing you connect is used to train models."],
               ["Above your stack", "It sits on top of what you use. Nothing to rip out or migrate."],
             ].map(([k, v]) => (
@@ -197,7 +197,7 @@ export default function Final() {
 
       <footer className="border-t border-[var(--mist)]">
         <div className={`${mono.className} mx-auto flex max-w-[1140px] flex-col items-start justify-between gap-2 px-6 py-8 text-[11px] uppercase tracking-[0.12em] text-[var(--slate)] md:flex-row md:items-center`}>
-          <span>Read only · sits above your tools, never inside them</span>
+          <span>Husn explains and answers · it never changes your tools</span>
           <span>Husn · {new Date().getFullYear()}</span>
         </div>
       </footer>
