@@ -7,10 +7,10 @@ export function Problem() {
     <section className="relative flex min-h-screen items-center overflow-hidden border-y border-ink/[0.06] bg-paper-dim">
       <div className="relative z-10 mx-auto w-full max-w-page px-6 py-12">
         <div className="max-w-3xl">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+          <h2 className="text-2xl font-bold leading-[1.15] text-display tracking-display text-ink md:text-5xl">
             {problem.heading}
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-ink-muted md:text-xl">
+          <p className="mt-5 text-base leading-relaxed text-ink-muted md:text-lg">
             {problem.body}
           </p>
         </div>
@@ -28,7 +28,7 @@ export function Problem() {
                     0{i + 1}
                   </span>
                 </div>
-                <p className="mt-8 text-base leading-relaxed text-ink md:text-lg">
+                <p className="mt-8 text-sm leading-relaxed text-ink md:text-base">
                   {b}
                 </p>
               </li>

@@ -8,7 +8,7 @@ export function Faq() {
     >
       <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
         <div className="max-w-2xl">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+          <h2 className="text-2xl font-bold leading-[1.15] text-display tracking-display text-ink md:text-5xl">
             {faq.heading}
           </h2>
         </div>
@@ -18,7 +18,7 @@ export function Faq() {
             <li key={i}>
               <details className="group">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 transition-colors hover:bg-paper-dim/60">
-                  <span className="text-base font-semibold text-ink md:text-lg">
+                  <span className="text-sm font-semibold text-ink md:text-base">
                     {item.q}
                   </span>
                   <span
@@ -28,7 +28,7 @@ export function Faq() {
                     +
                   </span>
                 </summary>
-                <p className="px-6 pb-6 text-base leading-relaxed text-ink-muted">
+                <p className="px-6 pb-6 text-sm leading-relaxed text-ink-muted">
                   {item.a}
                 </p>
               </details>

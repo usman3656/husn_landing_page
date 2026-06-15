@@ -13,13 +13,13 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-page px-6 pb-8 pt-8 md:pb-12 md:pt-12">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16">
           <div>
-            <h1 className="max-w-2xl text-5xl font-bold leading-[1.04] text-display text-ink animate-fade-in-up md:text-7xl">
+            <h1 className="max-w-2xl text-3xl font-bold leading-[1.08] text-display text-ink animate-fade-in-up md:text-6xl">
               {hero.headline}
             </h1>
 
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted animate-fade-in-up md:text-xl">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted animate-fade-in-up md:text-lg">
               {hero.sub}
             </p>
 
@@ -40,7 +40,7 @@ export function Hero() {
             </div>
 
             <div className="mt-10 flex items-center gap-5 animate-fade-in-up">
-              <p className="text-6xl font-bold leading-none tracking-tightish text-ink">
+              <p className="text-5xl font-bold leading-none tracking-tightish text-ink md:text-6xl">
                 {hero.feature.value}
               </p>
               <div className="border-l border-ink/10 pl-5">

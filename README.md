@@ -1,132 +1,127 @@
-# Foresio — Landing Page
+# Husn
 
-Phase 0 landing page for **Foresio** — an operational alignment layer for program teams.
+**The operational intelligence layer for project teams.**
 
-This repo contains the marketing site only. No product code lives here yet — see `PLAN.md` for the phased build plan.
+This repo is the marketing site at [husn.io](https://husn.io). The product backend lives in a separate repo (Phase 3). See `PLAN.md` for the roadmap and `AUDIT_LOG.md` for build history.
 
-## Stack
+---
 
-- Next.js 15 (App Router, TypeScript strict)
-- Tailwind CSS v3
+## The problem
+
+In any company over a few hundred people, work happens across Slack, Jira, Google, Microsoft, Confluence, and a dozen meeting tools. A launch date moves in Jira; the deck still says the old one. QA lives in a different channel and never sees the change. Security's review is stale because the architecture quietly shifted.
+
+By the time the status meeting catches the conflict, two weeks of work are wasted. Companies pay technical program managers $180K each to be human diff tools across these systems. They spend 25% of their week chasing status, and still miss things.
+
+## The product
+
+Husn reads continuously across the tools your team already uses. It maps the work into a structured graph, watches for drift (date conflicts, ownership gaps, status mismatches, decisions made in DMs that never made it to the doc), and writes a per-persona briefing every morning, with every claim sourced back to the original artifact.
+
+It is not a project tool. It is not a dashboard. It sits one layer above all of them, like a chief of staff who has already read the inbox.
+
+This is a step beyond the original "pre-sync brief" framing: Husn is an always-on alignment layer, not a meeting-prep utility.
+
+## Who it's for
+
+TPMs, program managers, chiefs of staff, and engineering leaders at companies of 500–8,000 employees running cross-functional programs across at least four tools. B2B SaaS, fintech, and healthtech first.
+
+## What you get
+
+- A daily briefing of what changed, what's at risk, and who hasn't acknowledged.
+- A defensible answer to "is project X on track?" in 60 seconds, with sources.
+- Conflicts surfaced before the status meeting, not during it.
+- One-click outreach to the person closest to the answer.
+
+Status meetings should not be where you discover problems. Husn catches drift before it costs you a quarter.
+
+---
+
+## Stack (this repo, marketing site only)
+
+- Next.js 15 (App Router, TypeScript strict, `output: "export"` → static)
 - React 19
-- Resend Audiences for waitlist (stubbed in dev)
-- Cal.com for founder bookings (stub link)
+- Tailwind CSS v3
+- Demo form: Formspree (`NEXT_PUBLIC_FORM_ENDPOINT`) with `mailto:hello@husn.io` fallback
 - Plausible (cookieless) + PostHog (consent-gated) for analytics
-- Vercel for hosting (recommended)
+- Deployed to GitHub Pages on every push to `main` via `.github/workflows/deploy.yml`
+- Custom domain `husn.io` via `public/CNAME`
 
-> Note: `pnpm` was the recommended package manager but required `sudo` to install in this environment; we shipped with `npm`. To migrate later, delete `node_modules` + `package-lock.json` and run `pnpm install`.
+See `DEPLOY.md` for the full deploy and DNS setup.
 
 ## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local      # fill in real values when ready
-npm run dev
+cp .env.example .env.local      # fill in NEXT_PUBLIC_FORM_ENDPOINT
+npm run dev                     # http://localhost:3000
 ```
-
-Open <http://localhost:3000>.
 
 ### Useful scripts
 
 - `npm run dev` — local dev server
-- `npm run build` — production build
-- `npm run start` — serve the production build
+- `npm run build` — production static export to `out/`
+- `npm run start` — serve a production build
 - `npm run typecheck` — TypeScript strict check
 - `npm run lint` — ESLint
 
 ## Environment variables
 
-All env vars in `.env.example` are **stubbed**. The page builds and runs without them; the form will log to the console and the Cal.com link points at a placeholder slug.
-
-Before public launch, set real values for:
-
 | Var | What it does | Where to get it |
 | --- | --- | --- |
-| `RESEND_API_KEY` | Authenticates with Resend | resend.com → API Keys |
-| `RESEND_AUDIENCE_ID` | Target Resend Audience for waitlist | resend.com → Audiences |
-| `RESEND_FROM_EMAIL` | Sender for welcome email | Verify a domain in Resend |
-| `SLACK_WEBHOOK_URL` | Notifies founder channel on signup | api.slack.com/apps → Incoming Webhooks |
-| `NEXT_PUBLIC_CAL_LINK` | Your Cal.com booking slug | cal.com (e.g. `foresio/founders`) |
+| `NEXT_PUBLIC_FORM_ENDPOINT` | Demo form submission endpoint | formspree.io → create form |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Domain for Plausible script | plausible.io |
 | `NEXT_PUBLIC_POSTHOG_KEY` | PostHog project API key | posthog.com → Project Settings |
 | `NEXT_PUBLIC_POSTHOG_HOST` | PostHog ingest host | Defaults to `https://us.i.posthog.com` |
 
-The stub-detection logic (in `lib/waitlist-action.ts` and `components/analytics.tsx`) treats any value containing `"stub"` as not-yet-configured.
+The page builds and runs without any of these set. The demo form falls back to a `mailto:hello@husn.io` link; analytics simply don't load. Stub-detection in `lib/waitlist-action.ts` and `components/analytics.tsx` treats any value containing `"stub"` as not-yet-configured.
+
+For GitHub Pages deploys, set `NEXT_PUBLIC_FORM_ENDPOINT` as a repo secret under **Settings → Secrets and variables → Actions**.
 
 ## File layout
 
 ```
 app/
-  layout.tsx          # root layout + skip link + cookie banner + analytics
-  page.tsx            # composes all home page sections
-  globals.css         # Tailwind base + small custom rules
-  privacy/page.tsx    # privacy policy (template, plain-English)
-  terms/page.tsx      # terms (incl. anti-performance-management clause)
+  layout.tsx            # root layout, skip link, cookie banner, analytics
+  page.tsx              # composes the home sections
+  globals.css           # Tailwind base + design-system primitives
+  privacy/page.tsx      # privacy policy (plain-English template)
+  terms/page.tsx        # terms (incl. anti-performance-management clause)
 components/
-  header.tsx          # sticky nav with logo + CTA
-  hero.tsx            # headline + dual CTA
-  problem.tsx         # the problem + 3 bullet stats
-  how-it-works.tsx    # 3-step explainer
-  features.tsx        # composes the three feature cards/mocks
-  mocks/
-    brief-mock.tsx    # pre-sync brief card
-    graph-mock.tsx    # acknowledgement graph
-    drift-mock.tsx    # G/Y/R drift timeline
-  integrations.tsx    # tools strip (v1 + v1.1)
-  security.tsx        # dark security section
-  faq.tsx             # six common questions
-  talk.tsx            # founders CTA + Cal.com link
-  waitlist.tsx        # wrapper for waitlist form
-  waitlist-form.tsx   # client-side form with validation
-  founder-note.tsx    # closing pull quote
-  footer.tsx          # legal links + copyright
-  cookie-banner.tsx   # consent banner (gates PostHog)
-  analytics.tsx       # Plausible + PostHog (consent-aware)
+  header.tsx            # sticky nav with wordmark + CTA
+  hero.tsx              # H1 + dual CTA + brief mockup
+  integrations.tsx      # 16 tools on two rings flowing into the dark Husn core
+  problem.tsx           # the problem framing + 3 drift bullets
+  how-it-works.tsx      # 3-step explainer + Book-a-demo CTA
+  audience.tsx          # who Husn is for (4 audience cards)
+  faq.tsx               # collapsible question list
+  demo.tsx              # qualifier form → Formspree
+  footer.tsx            # legal links + email
+  cookie-banner.tsx     # consent banner (gates PostHog only)
+  analytics.tsx         # Plausible + PostHog (consent-aware)
+  brand/
+    mark.tsx            # single brand glyph
+    wordmark.tsx        # mark + "Husn" lockup
 lib/
-  content.ts          # all copy in one place
-  free-email-providers.ts
-  waitlist-action.ts  # server action: validate → Resend → Slack
+  content.ts            # all copy in one place
+  waitlist-action.ts    # demo form action: validate → Formspree (or mailto fallback)
 ```
 
 ## Decisions reference
 
-The locked decisions for this landing page live in `QUESTIONS.md` (sections marked ✅). The phased roadmap is in `PLAN.md`. Independent audit findings against the plan and the build are in `AUDIT_LOG.md`.
-
-## Placeholder content — must be swapped before public launch
-
-The site is now written as a shipping product, but several elements are **fictional placeholders** and must be replaced with real values before going public:
-
-| Placeholder | File | Swap to |
-| --- | --- | --- |
-| Founder name + bio (Devan Patel) | `lib/content.ts` → `founder` | Real founder name, role, bio, LinkedIn URL, initials |
-| Founder portrait (gradient + initials monogram) | `components/founder-card.tsx` → `Portrait` | Real headshot — swap monogram for `<Image>` with `next/image` |
-| Customer logos (Northwind Logistics, Tessera Data, Cobalt Labs, Halcyon Health, Stellaris Fintech, Lumen Robotics) | `lib/content.ts` → `logos` | Real customer wordmarks (with their permission) OR remove the section until you have them |
-| Three testimonial quotes | `lib/content.ts` → `testimonials` | Real customer quotes with named/anonymized attribution they've signed off on |
-| Hero metric strip values (4.2× / 63% / 0) | `lib/content.ts` → `hero.metrics` | Real aggregate numbers from production telemetry |
-| Comparison table values (✓ / ✗ / "Limited") | `lib/content.ts` → `comparison.rows` | Verify against each competitor's current docs/marketing — they change |
-| SOC 2 Type II "in active observation" claim | `lib/content.ts` → `security.points[3]` | Only keep if you have actually onboarded with Vanta/Drata and an auditor — otherwise downgrade or remove |
-| Pricing ($890, $1,490) | `lib/content.ts` → `pricing.tiers` | Real prices once design partners convert |
-
-**Do not ship the site publicly without swapping these.** Fabricated customer quotes or unbacked SOC 2 claims are FTC Section 5 territory (Rite Aid, Everalbum precedents).
+The locked decisions for the landing page live in `QUESTIONS.md` (sections marked ✅). The phased roadmap is in `PLAN.md`. Independent audit findings are in `AUDIT_LOG.md`. Reviewer notes are in `CRITIQUE.md`.
 
 ## Pre-launch checklist
 
-- [ ] Register `foresio.ai` (foresio.com is taken — see `QUESTIONS.md` §9 Q38)
-- [ ] USPTO + EU trademark search on "Foresio"
-- [ ] Provision Resend, Cal.com, Plausible, PostHog accounts
-- [ ] Fill in real values in `.env.local` (and Vercel project env)
-- [ ] Sign up for Vercel, connect this repo, deploy
-- [ ] Custom domain + HTTPS configured on Vercel
-- [ ] Resend domain verified (SPF/DKIM records on `foresio.ai` DNS)
-- [ ] Slack incoming webhook into a `#waitlist` channel
-- [ ] Cal.com event type created (30-min founder call, three slots per week)
-- [ ] Lawyer skim of `privacy/page.tsx` and `terms/page.tsx` (templates, not legal advice)
-- [ ] Lighthouse run on production URL: target ≥90 perf, ≥95 a11y, ≥95 SEO, ≥95 best practices
-- [ ] Manual screen-reader pass on the form
-- [ ] Mobile device check (real iPhone + Android)
-- [ ] Distribution: outbound DMs, Rands / TPM Huddle Slack posts, Lenny / Pragmatic Engineer outreach
+- [ ] Custom domain configured on `husn.io` per `DEPLOY.md`
+- [ ] Formspree form created, `NEXT_PUBLIC_FORM_ENDPOINT` set in GitHub Actions secret
+- [ ] Plausible domain added
+- [ ] PostHog project created, consent banner verified
+- [ ] Lawyer skim of `app/privacy/page.tsx` and `app/terms/page.tsx`
+- [ ] Lighthouse on prod: ≥90 perf, ≥95 a11y, ≥95 SEO
+- [ ] Manual screen-reader pass on the demo form
+- [ ] Mobile pass on a real iPhone + Android
 
 ## Notes
 
-- The page uses fictional company names in mocks (Northwind Logistics, Acme Health, Tessera Data, Cobalt Labs). Do not replace with real customer names without permission.
-- `app/layout.tsx` declares `metadataBase: new URL("https://foresio.ai")`. Update if launching on a different domain.
+- `app/layout.tsx` declares `metadataBase: new URL("https://husn.io")`. Update if launching on a different domain.
+- The brief mockup in the hero uses fictional company names and changes. Don't replace with real customer names without written permission.
+- The integrations figure renders 16 tool logos for marketing; what Husn actually reads at v1 is locked in `QUESTIONS.md` §6 Q21.

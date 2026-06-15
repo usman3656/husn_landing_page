@@ -20,22 +20,22 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://husn.io"),
-  title: "Husn: The alignment layer for program teams",
+  title: "Husn: The operational intelligence layer for project teams",
   description:
-    "Husn watches Jira, Slack, and your docs for the changes your sync meetings keep discovering too late, and tells the right people 30 minutes before the meeting starts.",
+    "Husn reads continuously across Slack, Jira, Google, and Confluence, maps your work into a structured graph, and writes a sourced briefing every morning. Drift surfaces before the meeting, not during it.",
   openGraph: {
-    title: "Husn: The alignment layer for program teams",
+    title: "Husn: The operational intelligence layer for project teams",
     description:
-      "Cross-source drift detection, acknowledgement graphs, and pre-sync briefs for TPMs, EPMs, and PMO leaders.",
+      "An always-on drift intelligence layer for cross-functional teams. Maps your work across every tool, surfaces conflicts before the meeting, and writes a sourced briefing every morning.",
     url: "https://husn.io",
     siteName: "Husn",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Husn: The alignment layer for program teams",
+    title: "Husn: The operational intelligence layer for project teams",
     description:
-      "Cross-source drift detection, acknowledgement graphs, and pre-sync briefs for program teams.",
+      "The drift intelligence layer for teams whose work lives in too many tools. Reads, maps, and briefs daily.",
   },
   robots: { index: true, follow: true },
 };

@@ -10,7 +10,7 @@ export function Audience() {
     >
       <div className="relative z-10 mx-auto w-full max-w-page px-6 py-12">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+          <h2 className="text-2xl font-bold leading-[1.15] text-display tracking-display text-ink md:text-5xl">
             {audience.heading}
           </h2>
         </div>
@@ -24,7 +24,7 @@ export function Audience() {
                   <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent transition-colors group-hover:bg-accent group-hover:text-white">
                     <Icon />
                   </span>
-                  <p className="text-base leading-relaxed text-ink md:text-lg">
+                  <p className="text-sm leading-relaxed text-ink md:text-base">
                     {text}
                   </p>
                 </div>

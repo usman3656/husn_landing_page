@@ -104,10 +104,10 @@ export function Integrations() {
       <div className="relative z-10 mx-auto w-full max-w-page px-6 py-10">
         <div className="grid items-center gap-8 lg:grid-cols-[0.75fr,1.25fr] lg:gap-12">
           <div className="max-w-md">
-            <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+            <h2 className="text-2xl font-bold leading-[1.15] text-display tracking-display text-ink md:text-5xl">
               One connection, every tool your team uses.
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-muted md:text-xl">
+            <p className="mt-5 text-base leading-relaxed text-ink-muted md:text-lg">
               Husn listens across Slack, Jira, Linear, GitHub, Notion, Google
               Workspace and many more. Your team doesn&rsquo;t adopt a thing.
             </p>
@@ -313,7 +313,7 @@ export function Integrations() {
                     }}
                   >
                   <div
-                    className="card flex items-center gap-2.5 rounded-full bg-white px-3.5 py-2 transition-all duration-200"
+                    className="card flex items-center gap-0 rounded-full bg-white p-1 transition-all duration-200 sm:gap-2 sm:px-3 sm:py-1.5 md:gap-2.5 md:px-3.5 md:py-2"
                     style={{
                       animation: "fade-in-up 0.6s ease-out both",
                       animationDelay: `${delay}ms`,
@@ -326,7 +326,7 @@ export function Integrations() {
                     }}
                   >
                     <span
-                      className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors"
+                      className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors sm:h-6 sm:w-6 md:h-7 md:w-7"
                       style={{
                         backgroundColor: isHovered
                           ? `${node.brand}18`
@@ -335,7 +335,7 @@ export function Integrations() {
                     >
                       <Logo />
                     </span>
-                    <span className="whitespace-nowrap text-sm font-semibold text-ink">
+                    <span className="hidden whitespace-nowrap text-xs font-semibold text-ink sm:inline md:text-sm">
                       {node.name}
                     </span>
                   </div>
@@ -362,7 +362,7 @@ export function Integrations() {
 
                 {/* The dark core */}
                 <div
-                  className="relative grid h-24 w-24 place-items-center overflow-hidden rounded-full md:h-28 md:w-28"
+                  className="relative grid h-16 w-16 place-items-center overflow-hidden rounded-full sm:h-20 sm:w-20 md:h-28 md:w-28"
                   style={{
                     backgroundImage:
                       "radial-gradient(circle at 32% 26%, #2A3340 0%, #14181F 48%, #0A0C12 100%)",
@@ -390,7 +390,7 @@ export function Integrations() {
                   />
 
                   {/* Wordmark */}
-                  <span className="relative text-xl font-bold tracking-tightish text-paper md:text-2xl">
+                  <span className="relative text-sm font-bold tracking-tightish text-paper sm:text-base md:text-2xl">
                     husn
                   </span>
                 </div>

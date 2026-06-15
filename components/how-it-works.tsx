@@ -15,7 +15,7 @@ export function HowItWorks() {
 
       <div className="relative z-10 mx-auto w-full max-w-page px-6 py-12">
         <div className="max-w-2xl">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+          <h2 className="text-2xl font-bold leading-[1.15] text-display tracking-display text-ink md:text-5xl">
             {how.heading}
           </h2>
         </div>
@@ -66,10 +66,10 @@ export function HowItWorks() {
                       {s.number}
                     </span>
                   </div>
-                  <h3 className="mt-8 text-2xl font-bold tracking-tightish text-ink md:text-3xl">
+                  <h3 className="mt-8 text-xl font-bold tracking-tightish text-ink md:text-2xl">
                     {s.title}
                   </h3>
-                  <p className="mt-4 text-base leading-relaxed text-ink-muted md:text-lg">
+                  <p className="mt-4 text-sm leading-relaxed text-ink-muted md:text-base">
                     {s.body}
                   </p>
                 </li>

@@ -60,10 +60,10 @@ export function Demo() {
       <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
         <div className="grid gap-12 md:grid-cols-[1fr,1.1fr] md:items-center md:gap-16">
           <div>
-            <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+            <h2 className="text-2xl font-bold leading-[1.15] text-display tracking-display text-ink md:text-5xl">
               {demo.heading}
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-ink-muted md:text-xl">{demo.sub}</p>
+            <p className="mt-6 text-base leading-relaxed text-ink-muted md:text-lg">{demo.sub}</p>
           </div>
 
           <div className="relative rounded-3xl border border-ink/[0.08] bg-white p-7 shadow-card md:p-9">
