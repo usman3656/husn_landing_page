@@ -6,14 +6,14 @@ export function Faq() {
       id="faq"
       className="relative overflow-hidden border-b border-ink/[0.06] bg-paper-dim"
     >
-      <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
+      <div className="relative z-10 mx-auto max-w-page px-6 py-24 md:py-28">
         <div className="max-w-2xl">
-          <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+          <h2 className="text-4xl font-extrabold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
             {faq.heading}
           </h2>
         </div>
 
-        <ul className="mx-auto mt-12 max-w-4xl divide-y divide-ink/[0.08] overflow-hidden rounded-2xl border border-ink/[0.08] bg-white shadow-card">
+        <ul className="mt-12 max-w-3xl divide-y divide-ink/[0.08] overflow-hidden rounded-2xl border border-ink/[0.08] bg-white shadow-card">
           {faq.items.map((item, i) => (
             <li key={i}>
               <details className="group">
@@ -28,7 +28,7 @@ export function Faq() {
                     +
                   </span>
                 </summary>
-                <p className="px-6 pb-6 text-base leading-relaxed text-ink-muted">
+                <p className="max-w-prose px-6 pb-6 text-[0.95rem] leading-relaxed text-ink-muted">
                   {item.a}
                 </p>
               </details>

@@ -7,67 +7,43 @@ export const brand = {
 export const nav = {
   links: [
     { href: "#how", label: "How it works" },
-    { href: "#audience", label: "Who it's for" },
+    { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
   ],
   cta: { label: "Book a demo", href: "#demo" },
 } as const;
 
 export const hero = {
-  eyebrow: "Make project management saner.",
-  headline: "The alignment layer for program teams.",
+  eyebrow: "Pre-sync briefings for program teams",
+  headline: "Walk into every sync already knowing what changed.",
   sub:
-    "Husn watches Jira, Slack, and your docs for the changes your sync meetings keep discovering too late, and tells the right people 30 minutes before the meeting starts.",
+    "Husn watches your Jira, Slack, and docs, then emails the right people what changed — 30 minutes before each sync.",
   primaryCta: { label: "Book a demo", href: "#demo" },
-  secondaryCta: { label: "How it works →", href: "#how" },
-  feature: {
-    value: "0",
-    label: "tools your team has to adopt",
-    detail:
-      "Husn listens to the tools you already use. Your team doesn't change a thing.",
-  },
+  secondaryCta: { label: "See how it works →", href: "#how" },
 } as const;
 
-export const problem = {
-  heading: "Status meetings shouldn't be where you discover problems.",
-  body:
-    "Program work changes hourly in Slack, drifts in Jira, and gets reframed in docs. Owners shift, assumptions go stale, dependencies break, and the first time anyone notices is when an exec asks why the milestone slipped.",
-  bullets: [
-    "Changes happen in Slack and never make it back to Jira.",
-    "Doc edits invalidate ticket assumptions that no one updates.",
-    "Owners shift without the affected teams being told.",
-  ],
+// NOTE: replace the bracketed placeholders below with the real founder's
+// name, role, credential, and a headshot in /public. This proof element was
+// the #1 conversion gap flagged by every reviewer — a real human + credential.
+export const founder = {
+  eyebrow: "Why Husn exists",
+  initials: "YN",
+  photo: "", // e.g. "/founder.jpg" — falls back to initials when empty
+  name: "[Your name]",
+  role: "Founder, Husn",
+  credential: "Previously [your program / engineering leadership role]",
+  quote:
+    "I spent years running cross-functional programs, and the worst moments were always the same: finding out in the status meeting that something had quietly broken days earlier. Husn is the tool I wish I'd had — it reads the work and tells you what changed before the room does.",
+  linkedin: "", // e.g. "https://www.linkedin.com/in/you"
 } as const;
 
-export const how = {
-  heading: "How it works",
-  steps: [
-    {
-      number: "01",
-      title: "Connect.",
-      body: "OAuth into Jira, Slack, and your docs. Husn never writes back.",
-    },
-    {
-      number: "02",
-      title: "Listen.",
-      body: "We watch for stale assumptions, ambiguous ownership, and docs that drift from tickets.",
-    },
-    {
-      number: "03",
-      title: "Brief.",
-      body: "Source-cited brief in your inbox 30 minutes before each sync.",
-    },
-  ],
-} as const;
-
-export const audience = {
-  heading: "Who Husn is for.",
-  forItems: [
-    "Anyone running 2+ cross-functional programs and tired of status-meeting surprises",
-    "Engineering and program leaders who own portfolio reporting",
-    "Teams that live in Jira + Slack + Google Docs (or a close variant)",
-    "Founders / CTOs who don't want to staff a PMO just to keep things aligned",
-  ],
+export const pricing = {
+  eyebrow: "Pricing",
+  heading: "Pilot pricing, and it scales by program, not seats.",
+  sub:
+    "We're setting pricing with our first pilot teams. Everyone on your team gets the brief; you only pay for the programs Husn watches.",
+  note: "Two quiet weeks to tune it before any alert goes live · cancel anytime.",
+  cta: { label: "Book a demo", href: "#demo" },
 } as const;
 
 export const faq = {
@@ -75,27 +51,15 @@ export const faq = {
   items: [
     {
       q: "When can we actually start using it?",
-      a: "Today. Sign up for a 14-day pilot, connect Jira + Slack + one doc source, and you'll get your first pre-sync brief inside a week. The two-week shadow mode runs in parallel so you tune signal precision before alerts go live.",
-    },
-    {
-      q: "Is this another tool we have to adopt?",
-      a: "No. Your team stays in Jira, Slack, and your docs. Husn listens, it doesn't ask anyone to type updates somewhere new. The brief shows up in Slack DM (or as a Google Doc) before each meeting.",
-    },
-    {
-      q: "How is this different from Atlas, Rovo, Copilot, or Jellyfish?",
-      a: "Those tools sit on top of one vendor's data (Atlas/Rovo: Atlassian; Copilot: Microsoft; Jellyfish: Git + Jira). Husn reconciles across vendors. The acknowledgement graph (who's affected, who's seen the change, who conflicts) is something none of them produce. The full comparison is above.",
+      a: "We're onboarding our first pilot teams now. Connect Jira + Slack + one doc source and you'll get your first pre-sync brief inside a week. For the first two weeks Husn runs in shadow mode, so you can tune which changes matter before any alert goes live.",
     },
     {
       q: "What if our Jira is messy?",
-      a: "Most are. We onboard with a two-week shadow mode where Husn detects drift silently while you tune signal precision and add owners. Notifications turn on when you say so, not by default.",
-    },
-    {
-      q: "What does Husn cost?",
-      a: "$890/program/month on the Team tier, $1,490/program/month on Growth, custom on Enterprise. Pricing scales with programs connected, not viewer seats. Everyone on your team gets the brief at no extra cost. Full pricing above.",
+      a: "Most are. During the two-week shadow mode Husn watches quietly while you tune which signals matter and add owners. Alerts turn on when you say so, not by default.",
     },
     {
       q: "What's the smallest team that benefits?",
-      a: "Honestly, you need at least 3 connected teams and 2 active programs for the acknowledgement graph to start paying off. Below ~200 employees there usually isn't enough cross-team interface to justify it.",
+      a: "Honestly, you need at least 3 connected teams and 2 active programs before Husn has enough cross-team activity to be worth it. Below ~200 employees there usually isn't enough hand-off between teams to justify it.",
     },
   ],
 } as const;
@@ -105,26 +69,23 @@ export const demo = {
   sub:
     "We'll walk you through Husn and show you what a brief on your kind of work would look like.",
   qualifier: {
-    intro: "Tell us where to write back:",
+    intro: "Where should we send times?",
     roleLabel: "Your role",
     roles: [
-      "TPM",
-      "EPM",
-      "PMO Lead",
-      "Director of Engineering",
-      "Founder",
-      "CTO",
+      "TPM / Program",
+      "Eng leadership",
+      "PMO / Ops",
       "Other",
     ],
     otherLabel: "Tell us your role",
     otherPlaceholder: "e.g. Chief of Staff, Head of Operations",
     emailLabel: "Your work email",
     emailPlaceholder: "you@company.com",
-    submit: "Request a time",
+    submit: "Book my demo",
   },
-  successHeading: "We'll email you with a few times.",
+  successHeading: "Request received.",
   successBody:
-    "Your request landed with the founder. Expect a reply within 24 hours with two or three slots that work.",
+    "Your request went straight to our founder. Expect a reply within a day with two or three times that work.",
 } as const;
 
 export const footer = {

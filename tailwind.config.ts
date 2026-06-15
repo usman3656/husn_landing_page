@@ -33,14 +33,14 @@ const config: Config = {
           red: "#DC2626",
         },
         source: {
-          jira: "#2563EB",
+          jira: "#2684FF",
           slack: "#7C3AED",
           doc: "#525B6B",
         },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       letterSpacing: {
