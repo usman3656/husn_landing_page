@@ -57,10 +57,10 @@ export function Demo() {
         className="pointer-events-none absolute inset-0 bg-dot-paper bg-dots [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)] opacity-50"
       />
 
-      <div className="relative z-10 mx-auto max-w-page px-6 py-20 md:py-24">
+      <div className="relative z-10 mx-auto max-w-page px-6 py-24 md:py-28">
         <div className="grid gap-12 md:grid-cols-[1fr,1.1fr] md:items-center md:gap-16">
           <div>
-            <h2 className="text-4xl font-bold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
+            <h2 className="text-4xl font-extrabold leading-[1.05] text-display tracking-display text-ink md:text-6xl">
               {demo.heading}
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-ink-muted md:text-xl">{demo.sub}</p>
@@ -122,7 +122,7 @@ export function Demo() {
                   <button
                     type="submit"
                     disabled={pending || state.kind === "submitting"}
-                    className="btn-accent inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold disabled:opacity-60 disabled:hover:translate-y-0"
+                    className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold disabled:opacity-60 disabled:hover:translate-y-0"
                   >
                     {pending || state.kind === "submitting" ? "Sending…" : demo.qualifier.submit}
                     <span aria-hidden="true">→</span>
