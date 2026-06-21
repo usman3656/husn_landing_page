@@ -1,0 +1,588 @@
+[
+  {
+    "slug": "risk-management-dashboard",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Risk management dashboard",
+    "metaTitle": "Risk Management Dashboard | Husn",
+    "metaDescription": "A risk management dashboard that reads your actual work. Husn pulls risks from Jira, Slack, and docs and keeps each one current, with owner, impact, and source.",
+    "heroEyebrow": "For program and delivery leaders",
+    "heroHeadline": "A risk dashboard you do not maintain.",
+    "heroSubheadline": "Most risk dashboards are a list someone has to keep typing into. Husn reads the work that creates risk and keeps the dashboard reflecting it, so the view is current the moment you open it.",
+    "primaryPain": "A risk management dashboard is only useful if it is honest, and most are honest only on the day they were last edited. The work that creates new risk happens hourly in tickets and threads, while the dashboard updates on whatever cadence someone finds time for. The gap between the two is where bad surprises live.",
+    "painBullets": [
+      "The dashboard shows the risks someone remembered to log, not the ones forming right now in the work.",
+      "Severity and likelihood get set once and rarely revisited, so the picture drifts from reality within days.",
+      "When leadership asks what is most at risk, the answer comes from memory and a stale board, not from current signal."
+    ],
+    "whyHardHeading": "Why dashboards go stale",
+    "whyHard": [
+      "Risk is a moving quantity. A board that captures it once is accurate for about a day, then it begins to lie quietly.",
+      "The inputs are scattered across tools. The slipped date sits in Jira, the cause sits in Slack, the original promise sits in a doc.",
+      "Maintaining the board is real work, and it gets skipped first when a program is busy, which is exactly when risk is rising."
+    ],
+    "howHusnHelps": [
+      "Husn identifies risks from tickets, threads, and updates as they appear, then places each one on the dashboard with its source attached.",
+      "Every entry carries impact, the teams affected, and what changed, so you read the board and act rather than reopen each item to investigate.",
+      "The dashboard stays current on its own. You see the last hour of risk, not the state of the last manual edit."
+    ],
+    "briefing": {
+      "context": "Risk dashboard, refreshed this morning",
+      "items": [
+        {"text": "A high impact dependency lost its owner when a lead changed teams, and no one has picked it up in four days.", "tag": "Risk", "tone": "risk"},
+        {"text": "The likelihood on an integration risk rose after a vendor pushed their test window, but the board still shows it low.", "tag": "Changed", "tone": "changed"},
+        {"text": "A risk marked mitigated in the deck is still open in the linked ticket, with active discussion in Slack.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "3 risks moved - 2 owners unclear - 1 marked done that is not"
+    },
+    "useCases": [
+      {"title": "One live view", "body": "Replace the board someone updates on Fridays with a view that reflects what changed today across every workstream."},
+      {"title": "Honest severity", "body": "See when a risk has quietly grown more likely or more costly, instead of relying on a rating set weeks ago."},
+      {"title": "Source on every item", "body": "Open any risk and find the ticket, thread, and doc behind it, so a review becomes a decision rather than a hunt."}
+    ],
+    "idealFor": [
+      "Program and delivery managers",
+      "PMO and program directors",
+      "Heads of engineering and product",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "How is this different from a risk register?", "a": "A register stores what people type. This dashboard reflects what is happening, because Husn reads the work and keeps each risk current without anyone maintaining it."},
+      {"q": "Where do the risks come from?", "a": "From your existing tools. Husn reconciles Jira, Slack, and your docs, identifies the changes that raise risk, and traces each one back to its source."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and reasons only. It never posts, edits, assigns, or moves anything in Jira, Slack, or your documents."},
+      {"q": "How current is the board?", "a": "Continuously current. It reflects recent activity rather than the cadence of your status meetings or whoever last edited it."}
+    ],
+    "ctaHeadline": "Open a risk dashboard that is already current.",
+    "ctaText": "Connect your stack and Husn will show you the risks already forming across your work in about fifteen minutes.",
+    "related": ["program-risk-dashboard", "delivery-risk-management", "executive-status-report"]
+  },
+  {
+    "slug": "project-risk-assessment-template",
+    "type": "template",
+    "category": "project-risk",
+    "title": "Project risk assessment template",
+    "metaTitle": "Project Risk Assessment Template | Husn",
+    "metaDescription": "A clear project risk assessment template with likelihood, impact, score, owner, and mitigation. Plus how Husn keeps the assessment current from your real work.",
+    "heroEyebrow": "For project and program managers",
+    "heroHeadline": "A risk assessment that does not freeze in time.",
+    "heroSubheadline": "A template gives you the right fields to assess a risk. The harder part is reassessing as the project moves. Husn reads the work and keeps each rating reflecting current reality.",
+    "primaryPain": "A risk assessment is a snapshot of judgment at one moment. You score likelihood and impact at kickoff, assign an owner, write a mitigation, and then the project changes around the assessment while the numbers stay where you left them. By the time someone revisits the sheet, the highest scored risk is often no longer the one that matters most.",
+    "painBullets": [
+      "Scores are set early and rarely revisited, so a risk that has grown more likely still reads the same as it did at kickoff.",
+      "Mitigations get written once and not tracked, so the sheet says handled while the underlying issue is still live.",
+      "Owners move teams or leave, and the assessment keeps pointing at someone who no longer holds the risk."
+    ],
+    "whyHardHeading": "Why a template alone is not enough",
+    "whyHard": [
+      "Assessment is continuous work. Likelihood and impact change as the project moves, but a static sheet captures only the day it was filled in.",
+      "The evidence that should change a score lives in the work. A slipped ticket or a worried thread should raise a rating, but nothing connects them to the sheet.",
+      "As a portfolio grows, reassessing every risk by hand becomes impossible, so the assessment decays exactly when accurate scoring matters most."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs and fills the assessment fields automatically, so each row arrives with its source attached.",
+      "It identifies risks from tickets, threads, and updates as they form, then flags when likelihood or impact has changed since the last score.",
+      "Mitigation status stays honest, because Husn notices when the work behind a mitigation has stalled even though the sheet still says it is in progress."
+    ],
+    "briefing": {
+      "context": "Assessment, reconciled this morning",
+      "items": [
+        {"text": "A risk scored low at kickoff now shows three slipped tickets and a stalled mitigation, but its rating has not moved.", "tag": "Risk", "tone": "risk"},
+        {"text": "The impact on a data migration grew after scope was added post sign off, with no rescore attached.", "tag": "Changed", "tone": "changed"},
+        {"text": "A high score risk lists an owner who changed teams two weeks ago and has not been reassigned.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "3 ratings stale - 1 mitigation stalled - 1 owner gone"
+    },
+    "useCases": [
+      {"title": "Score once, stay current", "body": "Set likelihood and impact at kickoff and let Husn flag when the work has moved the rating, so you reassess what actually changed."},
+      {"title": "Honest mitigations", "body": "See when a mitigation marked in progress has gone quiet in the tickets, before a review assumes it is handled."},
+      {"title": "Owner continuity", "body": "Catch risks whose owner has moved on, so no high impact item sits with someone who no longer holds it."}
+    ],
+    "idealFor": [
+      "Project and program managers",
+      "Delivery and engineering leads",
+      "PMO and risk owners",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "What fields does the template include?", "a": "Risk description, category, likelihood, impact, a calculated score, owner, mitigation, and status. Enough to assess a risk fully without becoming a form no one fills in."},
+      {"q": "Does Husn fill it in for me?", "a": "Yes. Husn reads Jira, Slack, and your docs, populates the fields, and flags when a score or mitigation no longer matches the work behind it."},
+      {"q": "Will Husn change my tools?", "a": "No. Husn reads and reasons only. It never posts, edits, or moves anything in Jira, Slack, or your documents."},
+      {"q": "Can I keep my own scoring scale?", "a": "Yes. The template uses standard likelihood and impact fields, and Husn maps the work into whatever scale your organization already uses."}
+    ],
+    "ctaHeadline": "Keep your risk assessment honest after kickoff.",
+    "ctaText": "Connect your stack and Husn will fill in the assessment and show you which scores have already drifted, in about fifteen minutes.",
+    "templateContents": [
+      "Risk description: a plain statement of the risk and the assumption it threatens.",
+      "Category and likelihood: where the risk sits and how probable it is on your scale.",
+      "Impact and score: the cost if it lands and the combined rating that ranks it.",
+      "Owner: the single person accountable for tracking and responding.",
+      "Mitigation: the action in flight to reduce likelihood or impact.",
+      "Status: open, mitigated, accepted, or closed, kept current against the work."
+    ],
+    "related": ["risk-and-issue-log-template", "project-risk-register-template", "ai-project-risk-analysis"]
+  },
+  {
+    "slug": "risk-and-issue-log-template",
+    "type": "template",
+    "category": "project-risk",
+    "title": "Risk and issue log template",
+    "metaTitle": "Risk And Issue Log Template | Husn",
+    "metaDescription": "A combined risk and issue log template, RAID style. Plus how Husn keeps it current from Jira, Slack, and docs so open items never quietly fall off the log.",
+    "heroEyebrow": "For delivery managers and PMO leads",
+    "heroHeadline": "A risk and issue log that stays alive.",
+    "heroSubheadline": "A RAID log is easy to start and hard to keep honest. Husn reads the work and keeps risks, issues, assumptions, and dependencies reflecting what is actually open.",
+    "primaryPain": "A risk and issue log starts clean and slowly stops being trusted. Risks get added but rarely closed, issues get resolved in a thread without anyone updating the row, and dependencies sit on the log long after they have shifted. Within a few weeks the log is a mix of stale and live items, and no one is sure which is which.",
+    "painBullets": [
+      "Items go on the log and never come off, so it fills with closed work that no one had time to clear.",
+      "An issue gets resolved in Slack or a ticket, but the row stays open because updating the log is a separate chore.",
+      "Risks and issues blur together, so the log cannot tell you what is a present problem versus a future threat."
+    ],
+    "whyHardHeading": "Why a RAID log decays",
+    "whyHard": [
+      "A log is a side artifact. The real work happens in Jira and Slack, so the log lags whatever it is supposed to track.",
+      "Closing items is invisible work. There is no prompt when an issue is resolved elsewhere, so the row stays open by default.",
+      "As scope grows, the log grows faster than anyone can groom it, so trust in it erodes exactly when you need it most."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs and keeps each log entry current, opening new items and flagging ones that look resolved in the work.",
+      "It identifies risks and issues from tickets, threads, and updates as they form, then sorts them into the right RAID category with a source attached.",
+      "Dependencies on the log stay accurate, because Husn notices when a linked date or owner has moved even if the row was never touched."
+    ],
+    "briefing": {
+      "context": "RAID log, reconciled this morning",
+      "items": [
+        {"text": "An open issue on the log was resolved in a ticket six days ago, but the row is still flagged red.", "tag": "Changed", "tone": "changed"},
+        {"text": "A new blocker has been live in Slack for two days and is not on the log yet.", "tag": "Risk", "tone": "risk"},
+        {"text": "A dependency row still shows a date that moved last week, so two teams read it differently.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 resolved not closed - 1 missing item - 1 stale date"
+    },
+    "useCases": [
+      {"title": "One trusted log", "body": "Keep risks, assumptions, issues, and dependencies in one place that Husn grooms from the work, so the log stays worth opening."},
+      {"title": "Nothing falls off", "body": "Catch the blocker discussed in a thread that never made it onto the log, before it becomes the reason a date slips."},
+      {"title": "Clean closure", "body": "See items that look resolved in the work but are still open on the log, so the RAID reflects what is actually live."}
+    ],
+    "idealFor": [
+      "Delivery and program managers",
+      "PMO and project leads",
+      "Technical program managers",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "What does the template cover?", "a": "Risks, assumptions, issues, and dependencies in one RAID style log, each with owner, status, source, and a note on what changed."},
+      {"q": "How does Husn keep it current?", "a": "It reads Jira, Slack, and your docs, opens new items as they appear in the work, and flags rows that look resolved or out of date so the log stays honest."},
+      {"q": "Does Husn modify the log in our tools?", "a": "No. Husn reads and reasons only. It surfaces what changed and never posts, edits, or moves anything in Jira, Slack, or your documents."},
+      {"q": "Can it tell a risk from an issue?", "a": "Yes. Husn separates present problems from future threats and files each item in the right RAID category, so the log reflects what is happening now versus what might."}
+    ],
+    "ctaHeadline": "Keep your RAID log honest without grooming it.",
+    "ctaText": "Connect your stack and Husn will reconcile your risk and issue log against the actual work in about fifteen minutes.",
+    "templateContents": [
+      "Risks: future threats with likelihood, impact, owner, and mitigation.",
+      "Assumptions: stated beliefs the plan depends on, flagged when they break.",
+      "Issues: present problems that are already affecting delivery, with status.",
+      "Dependencies: cross team links with the date and owner they rely on.",
+      "Owner and status fields: kept current against tickets and threads.",
+      "Source and last changed: the work behind each row and when it last moved."
+    ],
+    "related": ["project-risk-assessment-template", "project-escalation-tracker", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "it-project-risk-management",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "IT project risk management",
+    "metaTitle": "IT Project Risk Management | Husn",
+    "metaDescription": "Manage delivery, integration, and cutover risk on IT projects. Husn reads Jira, Slack, and docs and surfaces the risks that threaten go live before they cost you.",
+    "heroEyebrow": "For IT delivery and program leads",
+    "heroHeadline": "See the cutover risk before cutover.",
+    "heroSubheadline": "IT projects fail at the seams, in integrations, environments, and the cutover weekend. Husn reads the work across teams and surfaces the risks that threaten go live while there is still time to act.",
+    "primaryPain": "On IT projects, the risks that hurt most are rarely in one team's backlog. They live in the handoff between a vendor and an internal team, in an environment that was supposed to be ready, in a cutover plan that assumed a date that has since moved. By the time these surface in a status meeting, the go live window is already at risk and the options are narrow.",
+    "painBullets": [
+      "Integration risk hides between teams, where no single backlog shows the full picture and no one owns the seam.",
+      "Environment and access blockers sit in tickets and threads for days before anyone connects them to the cutover date.",
+      "The cutover plan assumes dates and readiness that quietly drift, so the rehearsal is the first time the gaps appear."
+    ],
+    "whyHardHeading": "Why IT delivery risk is hard to see",
+    "whyHard": [
+      "IT projects span vendors, infrastructure, security, and product teams, and the worst risks cross between them where no one is reading end to end.",
+      "Readiness is implicit. An environment, a data load, or a sign off is assumed ready until someone checks, and the check often comes late.",
+      "Cutover compresses everything into a tight window, so a risk that was tolerable for months becomes critical in the final two weeks."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs across every team and identifies integration, environment, and cutover risks as they form, before the next meeting.",
+      "Each risk arrives with what changed, the teams affected, and the impact on go live, so you triage against the date rather than investigate from scratch.",
+      "It watches the readiness signals that predict a cutover slip, so a quiet blocker or a moved dependency reaches you while the window can still be protected."
+    ],
+    "briefing": {
+      "context": "Delivery risk, updated this morning",
+      "items": [
+        {"text": "A vendor pushed their integration test window four days, and the cutover plan still assumes the original date.", "tag": "Risk", "tone": "risk"},
+        {"text": "The staging environment ownership changed mid project, and a readiness ticket has sat unassigned for five days.", "tag": "Changed", "tone": "changed"},
+        {"text": "A data migration step marked ready in the plan is still blocked in the linked ticket, two weeks before cutover.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 cutover risk - 2 teams affected - 1 readiness item open"
+    },
+    "useCases": [
+      {"title": "Protect the go live date", "body": "See which risks actually threaten the cutover window, so the final two weeks are spent on the date and not on discovery."},
+      {"title": "Own the integration seam", "body": "Catch risk in the handoff between a vendor and an internal team, where no single backlog tells the full story."},
+      {"title": "Readiness, verified", "body": "Find the environment or sign off marked ready in the plan but still blocked in the work, before the rehearsal does."}
+    ],
+    "idealFor": [
+      "IT program and delivery managers",
+      "Technical program managers",
+      "Heads of engineering and infrastructure",
+      "PMO and program directors"
+    ],
+    "faq": [
+      {"q": "Does this work across vendors and internal teams?", "a": "Yes. Husn reads the tools your teams use and reconciles them, so integration risk that lives between a vendor and an internal team is visible in one place."},
+      {"q": "Where do the risks come from?", "a": "From the work itself. Husn reads Jira, Slack, and your docs, identifies delivery, integration, and cutover risk, and traces each one back to its source."},
+      {"q": "Does Husn touch our systems?", "a": "No. Husn reads and reasons only. It never posts, edits, or moves anything in Jira, Slack, or your documents, and it touches no infrastructure."},
+      {"q": "How does it help near cutover?", "a": "It watches readiness signals across teams and flags the blockers and moved dates that threaten go live, so you see them while the window can still be protected."}
+    ],
+    "ctaHeadline": "See what threatens go live before go live.",
+    "ctaText": "Connect your stack and Husn will surface the integration and cutover risks already forming on your IT project in about fifteen minutes.",
+    "related": ["software-project-risk-management", "change-impact-analysis", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "software-project-risk-management",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Software project risk management",
+    "metaTitle": "Software Project Risk Management | Husn",
+    "metaDescription": "Manage risk on software projects without a separate register. Husn reads Jira, Slack, and docs and surfaces scope, dependency, and quality risk as it forms.",
+    "heroEyebrow": "For engineering and delivery leads",
+    "heroHeadline": "Risk visibility that lives where the code does.",
+    "heroSubheadline": "Software risk shows up first in the tickets and threads, not in the register. Husn reads the work engineering already does and surfaces scope, dependency, and quality risk as it forms.",
+    "primaryPain": "On software projects, the risk register is the last place a risk appears. The signal is already in the work, in a ticket that keeps getting reopened, a thread where two teams disagree on an interface, a quietly growing bug count before a release. Engineers see these in passing, but no one is reading across all of them, so the register stays a step behind the codebase it is meant to protect.",
+    "painBullets": [
+      "Scope creeps in through tickets added after estimation, so the commitment drifts without a single decision anyone can point to.",
+      "Interface and dependency risk lives in design threads, where a disagreement between two teams predicts a slip no register is tracking.",
+      "Quality signals like reopened tickets and rising bug counts arrive late to anyone above the team, often after the release date is already at risk."
+    ],
+    "whyHardHeading": "Why software risk hides",
+    "whyHard": [
+      "The risk lives in the work, not the report. A reopened ticket or a stalled review is a leading indicator, but nothing rolls those up into a risk view.",
+      "Engineering generates more signal than anyone can read. The thread that matters is one of hundreds, and the slow ones are the ones missed.",
+      "Estimates and scope move continuously. A project can be on track on Monday and quietly over committed by Thursday without any meeting noticing."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs and identifies scope, dependency, and quality risk from the tickets and threads themselves, as they form.",
+      "Each risk arrives with what changed and who is affected, so a reopened ticket or a contested interface reaches you as a flagged risk, not a buried thread.",
+      "It tracks the leading indicators engineering already produces, so over committed scope and quiet quality drift surface before they become a slipped release."
+    ],
+    "briefing": {
+      "context": "Engineering risk, updated this morning",
+      "items": [
+        {"text": "A core ticket has been reopened three times this sprint, and the linked work now spans two teams with no shared owner.", "tag": "Risk", "tone": "risk"},
+        {"text": "Scope on the release grew by five tickets added after estimation, with no change to the committed date.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two teams are disagreeing on an API contract in a thread, eight days before the integration milestone.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 scope risk - 1 contested interface - 1 ticket churning"
+    },
+    "useCases": [
+      {"title": "Catch scope drift", "body": "See when tickets added after estimation have quietly grown the commitment, before the release date becomes the conversation."},
+      {"title": "Interface disagreements", "body": "Surface the design thread where two teams have not agreed on a contract, while there is still time before the integration."},
+      {"title": "Quality before release", "body": "Watch reopened tickets and rising bug counts roll up into a risk signal, instead of finding them in the release retro."}
+    ],
+    "idealFor": [
+      "Engineering managers and leads",
+      "Technical program managers",
+      "Heads of product and delivery",
+      "Staff and principal engineers"
+    ],
+    "faq": [
+      {"q": "Do we need a separate risk register?", "a": "No. Husn reads the work engineering already does in Jira, Slack, and docs, and surfaces risk from there, so the register is kept current rather than maintained by hand."},
+      {"q": "What kinds of risk does it catch?", "a": "Scope drift, dependency and interface risk, and quality signals like reopened tickets and rising bug counts, each traced back to the work that produced it."},
+      {"q": "Will it write to Jira or our repos?", "a": "No. Husn reads and reasons only. It never posts, edits, comments, or moves anything in Jira, Slack, your docs, or your code."},
+      {"q": "Does it add process for engineers?", "a": "No. Husn reads the work as it already happens. Engineers keep working in their tools, and the risk view assembles itself from that activity."}
+    ],
+    "ctaHeadline": "See software risk where it actually starts.",
+    "ctaText": "Connect your stack and Husn will surface the scope, dependency, and quality risks already forming in your engineering work in about fifteen minutes.",
+    "related": ["it-project-risk-management", "agile-risk-management", "engineering-health-dashboard"]
+  },
+  {
+    "slug": "delivery-risk-management",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Delivery risk management",
+    "metaTitle": "Delivery Risk Management | Husn",
+    "metaDescription": "Manage delivery risk across teams in one view. Husn reads Jira, Slack, and docs and surfaces the cross team risks that threaten dates, with who is affected.",
+    "heroEyebrow": "For delivery and program managers",
+    "heroHeadline": "Delivery risk that crosses teams, in one view.",
+    "heroSubheadline": "The risks that move dates rarely sit inside one team. Husn reads across every workstream and surfaces the cross team delivery risk that no single backlog shows.",
+    "primaryPain": "Delivery risk is a cross team problem solved with single team tools. Each team can see its own backlog clearly, but the risk that slips a date usually lives in the space between teams, in a handoff that did not happen, a dependency that moved, a commitment one team made that another never heard. No one is reading across all of them, so the exposure that matters most is the hardest to see.",
+    "painBullets": [
+      "Each team tracks its own delivery, so a risk that spans two teams falls into the gap where neither is looking.",
+      "Handoffs slip quietly. A team finishes late, and the receiving team plans against a date that no longer holds.",
+      "Commitments made in one team's thread never reach the team that depends on them, so the risk is invisible until the date is missed."
+    ],
+    "whyHardHeading": "Why cross team delivery risk hides",
+    "whyHard": [
+      "The risks that hurt most cross between teams, and cross team risk is exactly what single team tooling is not built to show.",
+      "Every team holds a fragment. One knows the date moved, another knows it depends on that date, and no one holds both halves.",
+      "As the number of parallel teams grows, the number of seams between them grows faster, so the surface where risk hides expands quietly."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs across every team and identifies delivery risk at the seams, where a handoff or dependency threatens a date.",
+      "Each risk arrives with the teams affected and what changed, so you see when one team's slip raises another team's risk while there is still time to act.",
+      "It catches the commitment made in one team's thread that the dependent team never heard, and surfaces it as a risk before the missed date makes it obvious."
+    ],
+    "briefing": {
+      "context": "Delivery risk, updated this morning",
+      "items": [
+        {"text": "A platform team's deliverable slipped three days, and two product teams are still building against the original handoff date.", "tag": "Risk", "tone": "risk"},
+        {"text": "A scope change agreed in one team's thread affects a dependent team that was not in the conversation.", "tag": "Changed", "tone": "changed"},
+        {"text": "A cross team handoff has no confirmed owner on the receiving side, four days before it is due.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 slipped handoff - 3 teams affected - 1 missing owner"
+    },
+    "useCases": [
+      {"title": "Mind the seams", "body": "See risk in the handoffs between teams, where neither backlog tells the full story, while a date can still be saved."},
+      {"title": "Slip with a ripple", "body": "Catch when one team's slip quietly raises another team's risk, so the dependent team replans before it builds on a date that moved."},
+      {"title": "Unheard commitments", "body": "Surface a commitment made in one team's thread that the dependent team never received, before the gap turns into a missed date."}
+    ],
+    "idealFor": [
+      "Delivery and program managers",
+      "Technical program managers",
+      "Heads of engineering and product",
+      "PMO and program directors"
+    ],
+    "faq": [
+      {"q": "How is this different from a single project view?", "a": "It reads across every team at once. The delivery risk that matters usually lives between teams, and Husn is built to show the seams rather than one backlog at a time."},
+      {"q": "Where does the risk signal come from?", "a": "From the work itself. Husn reconciles Jira, Slack, and your docs across teams, identifies delivery risk, and traces each one back to its source."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and reasons only. It never posts, edits, or moves anything in Jira, Slack, or your documents."},
+      {"q": "How current is the view?", "a": "Continuously current. It reflects recent activity across teams rather than the cadence of any one team's standup or status report."}
+    ],
+    "ctaHeadline": "See the delivery risk between your teams.",
+    "ctaText": "Connect your stack and Husn will surface the cross team delivery risks already forming across your workstreams in about fifteen minutes.",
+    "related": ["cross-team-dependency-tracker", "program-risk-dashboard", "program-drift-detection"]
+  },
+  {
+    "slug": "agile-risk-management",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Agile risk management",
+    "metaTitle": "Agile Risk Management | Husn",
+    "metaDescription": "Risk management that fits how agile teams work. Husn reads Jira, Slack, and docs and surfaces sprint and release risk without adding a register to maintain.",
+    "heroEyebrow": "For agile delivery and engineering leads",
+    "heroHeadline": "Risk management that fits the sprint.",
+    "heroSubheadline": "Agile teams do not stop to maintain a risk register, and they should not have to. Husn reads the work in the sprint and surfaces risk to the release without adding a ceremony.",
+    "primaryPain": "Agile risk lives at the speed of the sprint, but most risk processes run at the speed of a quarterly review. A risk that appears mid sprint, a story that keeps rolling over, a dependency that slipped into the next iteration, never makes it onto a register that nobody has time to update between standups. The result is that agile teams carry risk in their heads and lose it the moment attention moves.",
+    "painBullets": [
+      "Stories that roll over sprint after sprint are a clear risk signal, but nothing aggregates them into a view above the board.",
+      "Cross team dependencies break across sprint boundaries, where one team's next iteration is another team's blocker right now.",
+      "Risk discussed in standup or a thread evaporates by the next ceremony, because there is no place it lands that stays current."
+    ],
+    "whyHardHeading": "Why agile makes risk slippery",
+    "whyHard": [
+      "The cadence is fast and continuous, so a risk register that updates on a quarterly rhythm is always describing a sprint that has already ended.",
+      "Risk crosses team and iteration boundaries, where a dependency pushed to next sprint becomes a blocker for a team that needed it this one.",
+      "Agile rightly resists heavy process, so any risk practice that adds a ceremony gets dropped, and the risk goes untracked rather than tracked badly."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs and identifies risk from the work in the sprint itself, so rolled over stories and slipped dependencies surface without a new ritual.",
+      "Each risk arrives with what changed and who is affected, so a dependency pushed to next iteration reaches the team it blocks while they can still replan.",
+      "It keeps a risk view current between ceremonies, so what was discussed in standup is still visible at planning rather than lost to the next sprint."
+    ],
+    "briefing": {
+      "context": "Sprint risk, updated this morning",
+      "items": [
+        {"text": "A story central to the release has rolled over three sprints, and its dependency has now slipped into the next iteration too.", "tag": "Risk", "tone": "risk"},
+        {"text": "A team moved a shared component to next sprint, which makes it a blocker for a team that needed it this sprint.", "tag": "Changed", "tone": "changed"},
+        {"text": "A risk raised in standup two days ago has no owner and is not reflected anywhere the next planning will see it.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 rolling story - 2 teams affected - 1 risk with no owner"
+    },
+    "useCases": [
+      {"title": "Catch rolling stories", "body": "See the story that keeps moving to next sprint surfaced as a release risk, before the burndown makes it a problem."},
+      {"title": "Cross sprint dependencies", "body": "Catch when a team's next iteration is another team's current blocker, so the dependent team replans early."},
+      {"title": "Risk that survives ceremonies", "body": "Keep what was raised in standup visible at planning, instead of losing it between one ceremony and the next."}
+    ],
+    "idealFor": [
+      "Scrum masters and agile delivery leads",
+      "Engineering managers",
+      "Technical program managers",
+      "Heads of product and delivery"
+    ],
+    "faq": [
+      {"q": "Does this add a new ceremony?", "a": "No. Husn reads the work in your sprints as it already happens, so risk surfaces without a register to groom or a meeting to add."},
+      {"q": "What risk does it catch in an agile context?", "a": "Rolling stories, slipped cross team dependencies, and risks raised in standups or threads, each traced back to the work that produced it."},
+      {"q": "Will it write to our board?", "a": "No. Husn reads and reasons only. It never posts, edits, moves cards, or comments in Jira, Slack, or your documents."},
+      {"q": "Does it work across multiple teams?", "a": "Yes. Husn reads across teams and iterations, so a dependency pushed to next sprint by one team surfaces as a risk for the team that depends on it now."}
+    ],
+    "ctaHeadline": "Manage agile risk without a new ceremony.",
+    "ctaText": "Connect your stack and Husn will surface the sprint and release risks already forming in your teams in about fifteen minutes.",
+    "related": ["software-project-risk-management", "sprint-review-preparation", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "project-early-warning-system",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Project early warning system",
+    "metaTitle": "Project Early Warning System | Husn",
+    "metaDescription": "An early warning system for projects. Husn reads Jira, Slack, and docs and catches the quiet signals that predict a slip, while there is still time to act.",
+    "heroEyebrow": "For program and delivery leaders",
+    "heroHeadline": "Warning before the status turns red.",
+    "heroSubheadline": "Projects rarely fail suddenly. They drift first, in signals that no one is reading end to end. Husn watches the work and warns you while the slip is still preventable.",
+    "primaryPain": "By the time a project goes red, the warning signs have been present for weeks. A ticket that kept getting reopened, a thread that went quiet, a dependency that moved without anyone noticing. The signals were all there, scattered across tools, but no single person reads them end to end, so the first formal warning is the status meeting where the date is already gone.",
+    "painBullets": [
+      "The signals that predict a slip are quiet and scattered, so they never add up to a warning anyone acts on in time.",
+      "Status reporting is lagging by design. It tells you a project is red after it has turned, not while it is turning.",
+      "An aging blocker or a stalled decision sits unnoticed for days, because nothing watches for the absence of progress."
+    ],
+    "whyHardHeading": "Why early warning is hard",
+    "whyHard": [
+      "Leading indicators are subtle. A slowing thread or a reopened ticket means little alone, and the pattern only appears when something reads across all of them.",
+      "Risk is often the absence of something, a blocker that sits unassigned, a decision that does not get made, and absence is exactly what manual tracking misses.",
+      "The volume of signal across a program exceeds what any person can monitor, so the early warnings are precisely the ones that go unread."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs and watches the leading indicators of a slip, so a pattern of small signals reaches you as one early warning.",
+      "It catches absence as well as activity, flagging the blocker that has gone quiet and the decision that has stalled before either becomes the reason a date moves.",
+      "Each warning arrives with what changed and who is affected, so you act on a forming risk rather than discover a confirmed one in the next review."
+    ],
+    "briefing": {
+      "context": "Early warnings, updated this morning",
+      "items": [
+        {"text": "A blocker on the critical path has sat unassigned for six days in a thread leadership is not on.", "tag": "Watch", "tone": "watch"},
+        {"text": "A key ticket has been reopened twice this week, and progress on the linked work has stopped.", "tag": "Risk", "tone": "risk"},
+        {"text": "A decision the launch depends on was due Monday and has gone quiet, with the date still assumed.", "tag": "Changed", "tone": "changed"}
+      ],
+      "footer": "1 aging blocker - 1 stalled decision - 1 ticket churning"
+    },
+    "useCases": [
+      {"title": "Aging blockers", "body": "Catch the blocker that has gone quiet for a week before it becomes the reason a milestone slips."},
+      {"title": "Stalled decisions", "body": "See when a decision the project depends on has missed its date and gone silent, while there is still time to force it."},
+      {"title": "Patterns, not noise", "body": "Get one early warning when small signals add up, instead of watching a hundred threads hoping to notice in time."}
+    ],
+    "idealFor": [
+      "Technical program managers",
+      "Delivery and engineering leads",
+      "PMO and program directors",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "How is this different from status reporting?", "a": "Status reporting tells you a project is red after it turns. This watches the leading signals and warns you while the slip is still preventable."},
+      {"q": "What signals does it watch?", "a": "Reopened tickets, slowing threads, aging blockers, stalled decisions, and moved dependencies, read across Jira, Slack, and your docs and traced to their source."},
+      {"q": "Does it act in our tools?", "a": "No. Husn reads and reasons only. It surfaces warnings and never posts, edits, assigns, or moves anything in Jira, Slack, or your documents."},
+      {"q": "Will it bury us in alerts?", "a": "No. Husn warns when a pattern of signals adds up to real risk, with the source and impact attached, rather than firing on every change."}
+    ],
+    "ctaHeadline": "Get the warning while the slip is still preventable.",
+    "ctaText": "Connect your stack and Husn will surface the early warning signals already forming across your projects in about fifteen minutes.",
+    "related": ["program-drift-detection", "project-red-flag-tracker", "risk-burndown-tracking"]
+  },
+  {
+    "slug": "risk-burndown-tracking",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Risk burndown tracking",
+    "metaTitle": "Risk Burndown Tracking | Husn",
+    "metaDescription": "Track risk burndown over time, not just a snapshot. Husn reads Jira, Slack, and docs and shows whether your risk is actually retiring as the date approaches.",
+    "heroEyebrow": "For program and delivery leaders",
+    "heroHeadline": "Watch your risk actually retire.",
+    "heroSubheadline": "A risk list tells you what is open today. A burndown tells you whether risk is falling fast enough to make the date. Husn keeps the trend honest from the work itself.",
+    "primaryPain": "Most teams track which risks are open, but not whether risk is actually coming down. A project can hold steady at a handful of risks for weeks while the deadline approaches, and a static list will never show that the burndown has flatlined. Without a trend, you cannot tell a project that is retiring risk on schedule from one that is quietly carrying the same exposure into its final weeks.",
+    "painBullets": [
+      "A risk list is a snapshot. It shows what is open now but not whether the count and severity are falling over time.",
+      "Risks marked mitigated are not always retired in the work, so the burndown looks better than the project actually is.",
+      "New risk arrives as fast as old risk is closed, and without a trend that churn is invisible until the date is at hand."
+    ],
+    "whyHardHeading": "Why burndown is hard to keep honest",
+    "whyHard": [
+      "A real burndown needs history, and most risk tracking captures only the present, so there is no trend to read.",
+      "Mitigation status drifts from the work. A risk closed on the list can still be open in the tickets, which inflates the burndown.",
+      "Risk inflow is easy to miss. A flat count can hide steady churn, where every retired risk is replaced by a new one nobody flagged."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs and tracks risk over time, so you see the burndown trend rather than a single day's count.",
+      "It keeps mitigation honest, retiring a risk on the trend only when the work behind it has actually closed, not when a status field was set.",
+      "It identifies new risk as it forms from tickets, threads, and updates, so inflow shows up on the trend and a flat count never hides steady churn."
+    ],
+    "briefing": {
+      "context": "Risk burndown, updated this morning",
+      "items": [
+        {"text": "Open risk count has held flat for three weeks while the milestone moved closer, so the burndown has stalled.", "tag": "Risk", "tone": "risk"},
+        {"text": "Two risks marked mitigated last week are still open in their linked tickets, so the trend is overstated.", "tag": "Changed", "tone": "changed"},
+        {"text": "Three new risks formed this week as four were closed, so the flat count is hiding active churn.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Burndown stalled - 2 risks not truly closed - 3 new this week"
+    },
+    "useCases": [
+      {"title": "See the trend, not the snapshot", "body": "Track whether risk is falling fast enough to make the date, instead of reading a count that looks the same every week."},
+      {"title": "Honest retirement", "body": "Retire a risk on the burndown only when the work behind it has actually closed, so the trend reflects the project, not the status field."},
+      {"title": "Catch the churn", "body": "See new risk arriving as old risk is retired, so a flat count never hides a project quietly running in place."}
+    ],
+    "idealFor": [
+      "Program and delivery managers",
+      "Technical program managers",
+      "PMO and program directors",
+      "Heads of engineering and product"
+    ],
+    "faq": [
+      {"q": "What does risk burndown show?", "a": "How open risk count and severity change over time, so you can tell a project retiring risk on schedule from one carrying steady exposure toward its date."},
+      {"q": "How does Husn keep the trend honest?", "a": "It reads the work, retires a risk on the trend only when the linked work has closed, and adds new risk as it forms, so inflow and churn both show up."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and reasons only. It never posts, edits, or moves anything in Jira, Slack, or your documents."},
+      {"q": "Do we need to log risks for this to work?", "a": "No. Husn identifies risk from tickets, threads, and updates as it forms, so the burndown builds from the work rather than from manual entries."}
+    ],
+    "ctaHeadline": "See whether your risk is really coming down.",
+    "ctaText": "Connect your stack and Husn will show you the risk burndown trend across your projects in about fifteen minutes.",
+    "related": ["project-early-warning-system", "program-risk-dashboard", "project-health-score"]
+  },
+  {
+    "slug": "program-risk-dashboard",
+    "type": "solution",
+    "category": "project-risk",
+    "title": "Program risk dashboard",
+    "metaTitle": "Program Risk Dashboard | Husn",
+    "metaDescription": "A risk dashboard at program scope. Husn reads Jira, Slack, and docs across every workstream and surfaces the risks that cross teams, with impact and source.",
+    "heroEyebrow": "For program directors and PMO leads",
+    "heroHeadline": "Program risk, rolled up and kept current.",
+    "heroSubheadline": "A program is many projects whose risks interact. Husn reads across every workstream and gives you one dashboard that shows where the program is exposed, not where one project is.",
+    "primaryPain": "At program scope, the risk that matters is rarely visible from any one project. Each workstream reports its own status, but the program level exposure, where two projects share a dependency, where a slip in one cascades into three others, lives in the space between them. Assembling that picture by hand means waiting for every project to report, then reconciling versions that already disagree, and by then the program view is a week behind the program.",
+    "painBullets": [
+      "Each project reports its own risk, so the program dashboard is only as current and as honest as the slowest workstream.",
+      "Risks that cross projects, a shared dependency or a cascading slip, have no owner and appear on no single project's board.",
+      "Rolling up risk by hand means reconciling reports that disagree, so the program view is stale before it is even assembled."
+    ],
+    "whyHardHeading": "Why program scope is harder than project scope",
+    "whyHard": [
+      "A program is not a bigger project. Its worst risks are the interactions between workstreams, which no single project board is built to show.",
+      "Each project holds one fragment of the truth, and the program view requires reconciling all of them, which is exactly the work that lags.",
+      "The more workstreams a program runs, the more seams exist between them, so the surface where program level risk hides grows with every team added."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and your docs across every workstream and rolls risk up to program scope automatically, so the dashboard reflects the whole program, not the slowest report.",
+      "It identifies risks from tickets, threads, and updates as they form and flags the ones that cross projects, where a slip in one cascades into others.",
+      "Each risk arrives with the workstreams affected and what changed, so a program director triages exposure across the portfolio instead of reconciling project reports."
+    ],
+    "briefing": {
+      "context": "Program risk, rolled up this morning",
+      "items": [
+        {"text": "A shared platform dependency slipped, and three workstreams across the program are still planning against the original date.", "tag": "Risk", "tone": "risk"},
+        {"text": "A scope change in one project raised the integration risk for two others, with no program level rescore attached.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two workstreams report green this week, but their shared milestone is blocked in a thread neither board reflects.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 cascading slip - 3 workstreams affected - 1 hidden shared blocker"
+    },
+    "useCases": [
+      {"title": "One program view", "body": "Roll risk up across every workstream into one dashboard, current to the last hour, instead of waiting on each project to report."},
+      {"title": "Cross project cascades", "body": "See when a slip in one workstream raises risk in others, so the program acts on the cascade before it reaches the board."},
+      {"title": "Catch the false green", "body": "Find the shared milestone two projects both report green while it sits blocked, before the program inherits the surprise."}
+    ],
+    "idealFor": [
+      "Program and portfolio directors",
+      "PMO and program managers",
+      "Technical program managers",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "How is this different from a project risk dashboard?", "a": "It works at program scope. It rolls risk up across every workstream and surfaces the cross project exposure that no single project board can show."},
+      {"q": "Where does the program view come from?", "a": "From the work across teams. Husn reads Jira, Slack, and your docs, reconciles every workstream, and assembles the program view without waiting on reports."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and reasons only. It never posts, edits, or moves anything in Jira, Slack, or your documents."},
+      {"q": "How current is the dashboard?", "a": "Continuously current. It reflects recent activity across every workstream rather than the cadence of the slowest project report."}
+    ],
+    "ctaHeadline": "See program risk before the workstreams report it.",
+    "ctaText": "Connect your stack and Husn will roll your program risk up across every workstream in about fifteen minutes.",
+    "related": ["risk-management-dashboard", "portfolio-risk-management", "steering-committee-reporting"]
+  }
+]

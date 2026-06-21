@@ -1,0 +1,274 @@
+[
+  {
+    "slug": "meeting-preparation-checklist-program-managers",
+    "type": "template",
+    "category": "meeting-preparation",
+    "title": "Meeting preparation checklist for program managers",
+    "metaTitle": "Meeting Preparation Checklist for Program Managers | Husn",
+    "metaDescription": "A prep checklist program managers can run before any recurring sync. Cover what changed, open decisions, risks, dependencies, and owner shifts, then let Husn fill it in for you.",
+    "heroEyebrow": "For program managers who run the meeting",
+    "heroHeadline": "A prep checklist you can actually finish.",
+    "heroSubheadline": "Most prep checklists assume you have an hour to read every board and thread. This one is built to be filled from the work itself, so you walk in knowing what changed.",
+    "primaryPain": "Program managers know what good prep looks like. The trouble is that running the full checklist means reading Jira, scanning Slack, and reopening last week's notes, and the time to do that rarely exists. So the checklist sits unticked and the meeting becomes the prep.",
+    "painBullets": ["A real checklist asks you to confirm what changed across several tools, which is exactly the reading that never fits the calendar.", "Open decisions and quiet owner changes are the items most often skipped, because they take the longest to verify.", "When prep is rushed, the room finds the gaps live, and the meeting slows to the speed of catching up."],
+    "whyHardHeading": "Why the checklist breaks down at scale",
+    "whyHard": ["The more workstreams you carry, the longer each checklist item takes, so prep gets cut on the weeks it matters most.", "The change worth flagging is usually small and buried in a thread, the kind a quick skim will not surface.", "A checklist is only as good as the reading behind it, and that reading is the part nobody has time to repeat every week."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and fills the checklist for you, so you know what changed before the meeting starts.", "It flags the open decisions, risks, and owner shifts each item asks about, traced back to where they happened.", "You arrive with the checklist already complete and accurate, instead of half guessing in the last five minutes."],
+    "briefing": {
+      "context": "Pre meeting checklist, filled from the work",
+      "items": [
+        {"text": "A blocker you marked resolved last week is open again after a dependency slipped.", "tag": "Risk", "tone": "risk"},
+        {"text": "The owner of the data migration changed on Tuesday and no handover note exists.", "tag": "Changed", "tone": "changed"},
+        {"text": "An open decision from the last sync is still unrecorded and being debated in Slack.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Checklist complete - 4 items confirmed - 1 needs a decision"
+    },
+    "useCases": [
+      {"title": "Weekly program sync prep", "body": "Run the checklist in two minutes before your sync, with every item already confirmed against the work."},
+      {"title": "Standing up a new program", "body": "Use the same checklist each week so a new program builds a consistent prep habit from day one."},
+      {"title": "Covering for a colleague", "body": "Walk into a meeting you do not normally run with a filled checklist of what changed and what needs a decision."}
+    ],
+    "idealFor": ["Program and project managers", "Delivery managers", "PMO leads", "Chiefs of staff"],
+    "faq": [
+      {"q": "What is on the checklist?", "a": "What changed since last meeting, open decisions, risks and blockers, dependency status, owner changes, and the asks you need to put to the room."},
+      {"q": "Do I still have to read everything myself?", "a": "No. Husn reads Jira, Slack, and docs and fills each checklist item, with a source link so you can confirm anything in seconds."},
+      {"q": "Can I change which items appear?", "a": "Yes. The checklist is yours to shape, and Husn fills the items you keep against your actual program."},
+      {"q": "Does it write anything back to our tools?", "a": "No. Husn reads to fill the checklist and never writes to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Finish your prep before the meeting starts.",
+    "ctaText": "Connect your stack and Husn will fill your prep checklist for the next sync in about fifteen minutes, so you know what changed before you walk in.",
+    "templateContents": [
+      "What changed since last meeting, a short read of every shift across boards, threads, and docs.",
+      "Open decisions, the calls still waiting and who needs to make them.",
+      "Risks and blockers, what is at risk now and what is actively stuck.",
+      "Dependency status, which cross team handoffs moved and which are at risk.",
+      "Owner changes, where work changed hands and whether a handover happened.",
+      "Asks for the room, the few things you need decided or unblocked in this meeting."
+    ],
+    "related": ["meeting-preparation-ai", "project-update-meeting-template", "weekly-program-review-template"]
+  },
+  {
+    "slug": "executive-meeting-briefing-software",
+    "type": "tool",
+    "category": "meeting-preparation",
+    "title": "Executive meeting briefing software",
+    "metaTitle": "Executive Meeting Briefing Software | Husn",
+    "metaDescription": "Brief executives before the meeting, not during it. Husn reads Jira, Slack, and docs and writes a short read on what changed, what is at risk, and what needs a decision.",
+    "heroEyebrow": "For the people who brief the room",
+    "heroHeadline": "Brief the executive before the meeting.",
+    "heroSubheadline": "Executives walk into reviews with minutes to absorb a program. Husn writes the short, accurate read they need, so the meeting opens on decisions rather than status.",
+    "primaryPain": "Executives do not have time to read the boards, and the people who prepare them do not have time to reconstruct the week into a clean briefing. So executive meetings often open with a verbal status tour, and the real questions get raised after the decision was already due.",
+    "painBullets": ["Preparing an executive means distilling several tools into a page, which takes hours nobody has before a review.", "Briefings get padded with status that an executive does not need, while the one risk that matters gets a single line.", "When the brief is stale or partial, the executive learns the real situation in the room, which is the worst place to learn it."],
+    "whyHardHeading": "Why executive prep is hard to keep accurate",
+    "whyHard": ["The higher the meeting, the more programs feed into it, so each briefing pulls from more sources and dates faster.", "A briefing written by hand reflects what the author happened to notice, not necessarily what actually moved.", "Executives ask about exposure and decisions, but most prep time goes into formatting status that answers neither."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and writes a short executive brief on what changed since the last review, before the meeting.", "It leads with risk and the decisions waiting on the executive, so they walk in knowing where their attention is needed.", "Every line traces to a source, so when an executive asks why, the answer is one click away, not a scramble."],
+    "briefing": {
+      "context": "Executive brief, ahead of the steering review",
+      "items": [
+        {"text": "A program previously green has slipped two weeks and the date has not yet been communicated upward.", "tag": "Risk", "tone": "risk"},
+        {"text": "Scope on the platform workstream grew after a decision last week, with no budget impact recorded.", "tag": "Changed", "tone": "changed"},
+        {"text": "A vendor dependency is unconfirmed and the milestone it feeds is now the critical path.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Across 6 programs - 2 need a decision - 1 date moved"
+    },
+    "useCases": [
+      {"title": "Steering committee prep", "body": "Hand the executive a one read brief on every program before the committee meets, with risks surfaced up front."},
+      {"title": "Board readout prep", "body": "Prepare a leader for a board update with an accurate read of what changed and what is exposed across the portfolio."},
+      {"title": "Skip level reviews", "body": "Brief an executive ahead of a deep dive so the time goes to decisions, not a recap of where each team stands."}
+    ],
+    "idealFor": ["Chiefs of staff", "PMO and portfolio leaders", "Heads of engineering and product", "Executive assistants to delivery leaders"],
+    "faq": [
+      {"q": "Who is the brief written for?", "a": "The executive in the meeting. It is short, leads with risk and decisions, and skips the status detail a leader does not need."},
+      {"q": "How current is it?", "a": "It reflects the work as of when it is generated, shortly before the meeting, so the executive sees the situation as it stands now."},
+      {"q": "Can an executive trust a line in it?", "a": "Yes. Every item traces back to the Jira issue, Slack thread, or document it came from, so any claim can be checked."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn is read only. It writes the brief and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Send the executive in already briefed.",
+    "ctaText": "Connect your stack and Husn will write the executive brief for your next review in about fifteen minutes, so leadership knows what changed before the meeting.",
+    "related": ["executive-project-briefing", "steering-committee-reporting", "meeting-preparation-ai"]
+  },
+  {
+    "slug": "project-update-meeting-template",
+    "type": "template",
+    "category": "meeting-preparation",
+    "title": "Project update meeting template",
+    "metaTitle": "Project Update Meeting Template | Husn",
+    "metaDescription": "An agenda for a project update meeting that opens on what changed and what needs a decision. Use the template, then let Husn fill the update from Jira, Slack, and docs.",
+    "heroEyebrow": "For project update meetings that stay on point",
+    "heroHeadline": "An update meeting that opens on decisions.",
+    "heroSubheadline": "A good update meeting agenda keeps the room on what moved and what needs deciding. This template does that, and Husn fills the update for you so the meeting starts informed.",
+    "primaryPain": "Most project update meetings drift into a round of verbal status, where each person reports what they remember and the group spends the hour reconstructing the week. The agenda exists, but without the update written down ahead of time, the meeting fills with catch up instead of decisions.",
+    "painBullets": ["A blank agenda still needs someone to gather the actual update, which usually happens out loud in the meeting.", "Going person by person rewards whoever talks longest, not whichever change matters most.", "Decisions get raised late, after the status tour has already eaten the hour."],
+    "whyHardHeading": "Why update meetings drift off the agenda",
+    "whyHard": ["The more contributors in the room, the longer the status round runs, and the agenda gets abandoned in real time.", "The genuinely important update is often the quiet one that no contributor thinks to raise in their turn.", "Without a written update beforehand, every attendee is hearing the news for the first time, so the meeting moves at the pace of catching up."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and fills the update section of the agenda, so the room knows what changed before the meeting starts.", "It places the decisions and risks at the top of the agenda, so the meeting opens where it should.", "Everyone receives the same filled agenda ahead of time, so the update round is read, not recited."],
+    "briefing": {
+      "context": "Project update agenda, filled before the meeting",
+      "items": [
+        {"text": "The API milestone slipped after a third party delay, and the downstream date has not moved to match.", "tag": "Risk", "tone": "risk"},
+        {"text": "A scope change was agreed in Slack last week but never reflected on the board.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two tickets are blocked on the same review that has sat unactioned for four days.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Update ready - 5 items changed - 2 need a decision"
+    },
+    "useCases": [
+      {"title": "Recurring project update", "body": "Send the filled agenda before the meeting so the update round is reading, and the hour goes to decisions."},
+      {"title": "Cross team update", "body": "Give every team the same written update ahead of time, so nobody is hearing another team's news for the first time."},
+      {"title": "Client or sponsor update", "body": "Walk into a sponsor update with the agenda already filled by an accurate read of what actually changed."}
+    ],
+    "idealFor": ["Project and program managers", "Delivery managers", "Engineering and product leads", "Chiefs of staff"],
+    "faq": [
+      {"q": "What is in the template?", "a": "A short agenda that opens with what changed and what needs a decision, followed by risks, dependencies, and the asks for the room."},
+      {"q": "Who fills in the update?", "a": "Husn does. It reads Jira, Slack, and docs and fills the update section, with sources, so you are not gathering status by hand."},
+      {"q": "Can I keep my own agenda format?", "a": "Yes. The template is a starting point. Husn fills whichever sections you keep against your real project."},
+      {"q": "Does it write to our tools?", "a": "No. Husn reads to fill the agenda and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Start the update meeting already informed.",
+    "ctaText": "Connect your stack and Husn will fill your update agenda for the next meeting in about fifteen minutes, so the room knows what changed before it starts.",
+    "templateContents": [
+      "What changed since last meeting, the update at the top so decisions get the time.",
+      "Decisions needed, the calls this meeting exists to make.",
+      "Risks and blockers, what is exposed and what is stuck right now.",
+      "Dependencies, the cross team handoffs that moved or are at risk.",
+      "Actions and owners, who is doing what by when, carried from last time.",
+      "Asks for the room, what you need decided or unblocked before you leave."
+    ],
+    "related": ["meeting-preparation-ai", "weekly-program-review-template", "ai-project-status-report"]
+  },
+  {
+    "slug": "weekly-program-review-template",
+    "type": "template",
+    "category": "meeting-preparation",
+    "title": "Weekly program review template",
+    "metaTitle": "Weekly Program Review Template | Husn",
+    "metaDescription": "A weekly program review agenda built for cadence. Open on what changed since last week, review risk and dependencies, and let Husn fill the review from Jira, Slack, and docs.",
+    "heroEyebrow": "For the weekly program review",
+    "heroHeadline": "A weekly review that respects the cadence.",
+    "heroSubheadline": "A weekly review only works if prep fits inside a week. This template opens on what changed since last review, and Husn fills it so the meeting stays a review, not a rebuild.",
+    "primaryPain": "A weekly program review is supposed to be a quick read on what moved and what is now at risk. In practice, preparing it weekly means re-reading every workstream every seven days, which nobody sustains, so the review degrades into a live status meeting that runs long and decides little.",
+    "painBullets": ["Weekly cadence means weekly prep, and the reading required does not shrink just because the meeting is recurring.", "By week three, prep is being skipped, and the review turns into the same verbal status tour it was meant to replace.", "The week to week change, what slipped, what recovered, is exactly what a quick skim misses and a review needs."],
+    "whyHardHeading": "Why weekly reviews are hard to sustain",
+    "whyHard": ["A weekly meeting compounds, so unprepared prep becomes a standing weekly tax on the whole program team.", "Comparing this week to last week by hand means holding two states in your head, which rarely happens accurately.", "The more programs under review, the more each week's prep costs, so it is the first thing dropped when the week is full."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and fills the review with what changed since last week, so you know the delta before the meeting starts.", "It compares this week to the last review automatically, surfacing what slipped, what recovered, and what newly went at risk.", "Everyone gets the same filled review ahead of time, so the weekly meeting opens aligned and closes on decisions."],
+    "briefing": {
+      "context": "Weekly review, the change since last week",
+      "items": [
+        {"text": "A workstream that was on track last week now has two milestones at risk after a resourcing change.", "tag": "Risk", "tone": "risk"},
+        {"text": "A dependency flagged red last week is now resolved, freeing the integration milestone.", "tag": "Changed", "tone": "changed"},
+        {"text": "A decision logged last week has not produced any movement on the board since.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Week over week - 3 items moved - 1 newly at risk"
+    },
+    "useCases": [
+      {"title": "Weekly program review", "body": "Send the filled review before the meeting so the week's delta is read, and the hour goes to what to do about it."},
+      {"title": "Multi program cadence", "body": "Run the same weekly template across programs so each review reads the same way and comparisons hold."},
+      {"title": "Catching slippage early", "body": "See what moved from on track to at risk this week, before it becomes a date change you have to explain later."}
+    ],
+    "idealFor": ["Program managers", "Delivery and PMO leads", "Engineering and product leaders", "Chiefs of staff"],
+    "faq": [
+      {"q": "How is this different from a general program review template?", "a": "This one is built for weekly cadence. It centers on the week to week change and on prep light enough to repeat every seven days."},
+      {"q": "What does Husn add to the template?", "a": "It fills the review by reading Jira, Slack, and docs, comparing this week to last, so what changed since last review is ready before you meet."},
+      {"q": "Can I adjust the sections?", "a": "Yes. Keep the sections that fit your cadence, and Husn fills them against your real programs each week."},
+      {"q": "Does Husn write back to our tools?", "a": "No. Husn reads to fill the review and never writes to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Keep the weekly review weekly.",
+    "ctaText": "Connect your stack and Husn will fill your weekly review for the next meeting in about fifteen minutes, so you know what changed since last week before it starts.",
+    "templateContents": [
+      "Change since last review, the week over week delta at the top.",
+      "Status by workstream, where each stream stands and what moved.",
+      "Risks and blockers, what newly went at risk and what cleared this week.",
+      "Dependency status, the cross team handoffs that shifted in the last seven days.",
+      "Decisions and actions, what was decided last week and whether it moved.",
+      "Asks for the room, the calls this week's review needs to make."
+    ],
+    "related": ["program-review-template", "program-health-dashboard", "meeting-preparation-ai"]
+  },
+  {
+    "slug": "pmo-meeting-agenda",
+    "type": "template",
+    "category": "meeting-preparation",
+    "title": "PMO meeting agenda",
+    "metaTitle": "PMO Meeting Agenda Template | Husn",
+    "metaDescription": "A PMO meeting agenda that opens on portfolio change and risk. Use the template, then let Husn fill each program's status from Jira, Slack, and docs before you meet.",
+    "heroEyebrow": "For the PMO meeting",
+    "heroHeadline": "A PMO agenda the portfolio can fill.",
+    "heroSubheadline": "A PMO meeting covers many programs in little time. This agenda opens on portfolio risk and change, and Husn fills each program's status so the meeting reads, not recites.",
+    "primaryPain": "A PMO meeting has to cover a whole portfolio in an hour, so each program gets a few minutes of verbal status from whoever owns it. Without a written read ahead of time, the meeting becomes a round robin of updates, and the cross program risks that the PMO exists to catch get lost between programs.",
+    "painBullets": ["Covering every program in one meeting means each manager recites status, and the hour vanishes into updates.", "Risk that spans two programs is invisible in a per program round robin, because no single owner sees both sides.", "Pulling status from every program by hand before the PMO meets is a job nobody has time to finish."],
+    "whyHardHeading": "Why PMO meetings struggle to scale",
+    "whyHard": ["The more programs in the portfolio, the less time each gets, so the meeting skims and the real issues stay buried.", "Cross program dependencies and drift only show up when you read across programs, which a sequence of solo updates never does.", "Gathering a current read on every program each week is a coordination cost that grows with the portfolio."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs across programs and fills each line of the agenda, so the PMO knows what changed before the meeting starts.", "It surfaces risk and drift that cross program lines, the kind no single program owner would raise alone.", "The whole agenda arrives filled and current, so the meeting opens on what needs attention instead of touring status."],
+    "briefing": {
+      "context": "PMO agenda, filled across the portfolio",
+      "items": [
+        {"text": "Two programs depend on the same platform team, which is now overcommitted and slipping both.", "tag": "Risk", "tone": "risk"},
+        {"text": "A program moved from amber to red this week after a key milestone missed, with no escalation raised.", "tag": "Changed", "tone": "changed"},
+        {"text": "A decision needed from this PMO meeting has been pending across two prior sessions.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Across 8 programs - 2 cross program risks - 1 needs escalation"
+    },
+    "useCases": [
+      {"title": "Weekly PMO meeting", "body": "Send the filled agenda before the meeting so each program is read, and the hour goes to cross program decisions."},
+      {"title": "Portfolio risk review", "body": "Open the meeting on the risks that cross programs, surfaced from reading the whole portfolio rather than each program alone."},
+      {"title": "Escalation triage", "body": "Walk into the PMO meeting knowing which programs need escalation this week, before anyone has to ask."}
+    ],
+    "idealFor": ["PMO leaders and directors", "Portfolio managers", "Program managers", "Chiefs of staff"],
+    "faq": [
+      {"q": "What does the agenda cover?", "a": "Portfolio change and risk first, then per program status, cross program dependencies, escalations, and the decisions the PMO needs to make."},
+      {"q": "How does Husn fill it across programs?", "a": "It reads Jira, Slack, and docs across every connected program and fills each line, including risks that span more than one program."},
+      {"q": "Can the agenda match our governance?", "a": "Yes. Keep the sections your PMO runs on, and Husn fills them against your live portfolio each cycle."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads to fill the agenda and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Open the PMO meeting already current.",
+    "ctaText": "Connect your stack and Husn will fill your PMO agenda across every program in about fifteen minutes, so the room knows what changed before the meeting starts.",
+    "templateContents": [
+      "Portfolio change and risk, the cross program view at the top.",
+      "Program status, a current read on each program in the portfolio.",
+      "Cross program dependencies, the shared teams and handoffs at risk.",
+      "Escalations, which programs need a decision raised this cycle.",
+      "Decisions for the PMO, the calls this meeting exists to make.",
+      "Actions and owners, what was committed and whether it moved."
+    ],
+    "related": ["pmo-dashboard", "portfolio-health-dashboard", "meeting-preparation-ai"]
+  },
+  {
+    "slug": "stakeholder-meeting-preparation",
+    "type": "solution",
+    "category": "meeting-preparation",
+    "title": "Stakeholder meeting preparation",
+    "metaTitle": "Stakeholder Meeting Preparation Software | Husn",
+    "metaDescription": "Prepare for any stakeholder meeting in minutes. Husn reads Jira, Slack, and docs and writes an accurate read on what changed, what is at risk, and what each stakeholder will ask.",
+    "heroEyebrow": "For anyone facing a stakeholder",
+    "heroHeadline": "Ready for the stakeholder, not surprised.",
+    "heroSubheadline": "Stakeholders ask about what changed and what it means for them. Husn reads the work and writes that read for you, so you walk into the meeting prepared rather than guessing.",
+    "primaryPain": "Preparing for a stakeholder meeting means knowing the current state well enough to answer hard questions without notes. Getting there means reading every board and thread the stakeholder might raise, which rarely fits the calendar, so people walk in hoping the questions stay easy and improvise when they do not.",
+    "painBullets": ["Stakeholders ask pointed questions, and answering them well requires a current read that hand prep seldom delivers.", "The fact a stakeholder cares about is often the one buried in a thread you did not have time to reach.", "Being caught off guard in front of a stakeholder costs credibility that takes far longer to rebuild than to prepare."],
+    "whyHardHeading": "Why stakeholder prep is hard to get right",
+    "whyHard": ["Different stakeholders care about different things, so one generic status read leaves you exposed on whatever they actually ask.", "The state of the work moves up to the meeting, so prep done a day early is already partly stale when you sit down.", "The questions that matter most are the ones about what changed and what is at risk, which are the slowest to verify by hand."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and writes an accurate read on what changed, so you know the state before the stakeholder meeting starts.", "It surfaces the risks and decisions a stakeholder is most likely to raise, each traced to its source so you can stand behind every answer.", "You prepare in minutes from a current read, instead of hours of reading or the gamble of going in cold."],
+    "briefing": {
+      "context": "Stakeholder prep, an accurate read before you meet",
+      "items": [
+        {"text": "The feature this stakeholder sponsors slipped a sprint after a dependency moved, and they have not been told.", "tag": "Risk", "tone": "risk"},
+        {"text": "A commitment made to this stakeholder last month was quietly rescoped in a Slack thread.", "tag": "Changed", "tone": "changed"},
+        {"text": "An open question this stakeholder raised last time is still unresolved on the board.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Before the meeting - 3 things changed - 1 they will ask about"
+    },
+    "useCases": [
+      {"title": "Sponsor check ins", "body": "Walk into a sponsor meeting with a current read on what changed in their area and what is now at risk."},
+      {"title": "Cross functional stakeholders", "body": "Prepare for a stakeholder from another function with the exact slice of the work they care about, surfaced for you."},
+      {"title": "Difficult conversations", "body": "Go into a hard meeting knowing the slips and rescopes ahead of time, so you raise them rather than get caught by them."}
+    ],
+    "idealFor": ["Program and project managers", "Product and engineering leaders", "Chiefs of staff", "Founders and delivery leads"],
+    "faq": [
+      {"q": "How long does prep take with Husn?", "a": "A few minutes. Husn writes the read for you, so preparing is reading a short brief rather than re-reading every tool."},
+      {"q": "Can it focus on a specific stakeholder?", "a": "Yes. It surfaces the slice of the work a given stakeholder cares about, so you prepare for the questions they are likely to ask."},
+      {"q": "How current is the read?", "a": "It reflects the work as of when it is generated, shortly before the meeting, so you sit down knowing the state as it stands now."},
+      {"q": "Does Husn write back to our tools?", "a": "No. Husn reads to prepare you and never writes to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Walk into the stakeholder meeting prepared.",
+    "ctaText": "Connect your stack and Husn will write your stakeholder prep for the next meeting in about fifteen minutes, so you know what changed before it starts.",
+    "related": ["meeting-preparation-ai", "executive-project-briefing", "cross-functional-alignment-software"]
+  }
+]

@@ -26,11 +26,21 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+// Google Search Console HTML-tag verification. Set NEXT_PUBLIC_GSC_VERIFICATION
+// to the token Google gives you (the content value of the meta tag).
+const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://husn.io"),
   title: "Husn: The alignment layer for program teams",
   description:
     "Husn watches Jira, Slack, and your docs for the changes your sync meetings keep discovering too late, and tells the right people 30 minutes before the meeting starts.",
+  alternates: {
+    types: { "application/rss+xml": "https://husn.io/feed.xml" },
+  },
+  ...(GSC_VERIFICATION
+    ? { verification: { google: GSC_VERIFICATION } }
+    : {}),
   openGraph: {
     title: "Husn: The alignment layer for program teams",
     description:

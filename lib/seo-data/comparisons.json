@@ -1,0 +1,210 @@
+[
+  {
+    "slug": "husn-vs-jira-dashboards",
+    "type": "comparison",
+    "category": "executive-reporting",
+    "title": "Husn vs Jira dashboards",
+    "metaTitle": "Husn vs Jira Dashboards | Husn",
+    "metaDescription": "How Husn differs from Jira's built-in dashboards. Jira dashboards count issues inside Jira. Husn reads Jira, Slack, and docs together and tells you what changed and why.",
+    "heroEyebrow": "An honest comparison",
+    "heroHeadline": "Husn vs Jira dashboards.",
+    "heroSubheadline": "Jira dashboards are good at showing the state of issues inside Jira. Husn reads Jira alongside Slack and your documents and reasons across them, so you get meaning rather than a count. Here is how the two differ.",
+    "primaryPain": "A Jira dashboard answers the question of how many issues sit in each state, and it answers it well. The trouble is that a program does not live in Jira alone. The decision that changed the plan happened in Slack, the scope sits in a document, and a board of issue counts cannot tell you that a number moved because the work slipped or because someone closed stale tickets.",
+    "painBullets": ["Jira dashboards only see Jira, so a dependency that lives in Slack or a doc never shows up on the board.", "Gadgets report counts and burndowns, but a count rarely tells you the reason a number moved or whether it matters.", "Each board has to be built and tuned by hand, so the view reflects how someone set up the gadgets, not the current risk."],
+    "whyHardHeading": "Why a Jira board stops short",
+    "whyHard": ["A dashboard inside one tool can only reflect that tool, so cross system context, where most risk actually lives, is invisible to it.", "Issue counts and velocity charts describe motion, not meaning, so you still have to open tickets and read threads to learn what is going on.", "Gadgets are configured once and rarely revisited, so the board slowly drifts from the questions the program is now facing."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs together, so it sees the dependency or decision that a Jira only board cannot.", "It tells you what changed, why it matters, and who is affected, and traces every point back to the ticket, message, or document it came from.", "There are no gadgets to build. Husn reasons across the work and surfaces the risks that matter now, not the ones a board was tuned for last quarter."],
+    "briefing": {
+      "context": "What a Jira board would have missed",
+      "items": [
+        {"text": "A blocker was agreed in a Slack thread but never reflected in any Jira ticket.", "tag": "Risk", "tone": "risk"},
+        {"text": "Two teams now depend on an epic that lives outside the board you are watching.", "tag": "Changed", "tone": "changed"},
+        {"text": "Velocity looks steady on the gadget, but it is being held up by reopened work.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Reads beyond Jira - no gadgets to build - 2 risks the board cannot see"
+    },
+    "comparison": {
+      "competitor": "Jira dashboards",
+      "rows": [
+        {"dimension": "What it can see", "husn": "Jira, Slack, and documents read together.", "them": "Only the data that lives inside Jira."},
+        {"dimension": "What it reports", "husn": "What changed, why it matters, and who is affected.", "them": "Issue counts, burndowns, and velocity charts."},
+        {"dimension": "Setup", "husn": "Connect and read. No gadgets to configure.", "them": "Build and tune each gadget on every board by hand."},
+        {"dimension": "Cross system risk", "husn": "Surfaced, because Husn reasons across tools.", "them": "Missed, because the board sees one tool."},
+        {"dimension": "Why a number moved", "husn": "Explained and traced to its source.", "them": "Shown as a number, with the reason left to you."},
+        {"dimension": "Effect on your tools", "husn": "Read only. It never writes back to Jira.", "them": "Lives in Jira and reflects Jira only."}
+      ],
+      "summary": "Jira dashboards are a strong way to see the state of issues inside Jira, and if your work truly lives in one project there, they may be enough. Husn is a way to understand a program that spans Jira, Slack, and documents at once. If your board cannot see the decision that changed the plan, that is the gap Husn closes."
+    },
+    "useCases": [
+      {"title": "See past the board", "body": "Surface the blocker agreed in Slack or the scope change in a doc that a Jira gadget will never display."},
+      {"title": "Turn counts into meaning", "body": "Get the reason a number moved, not just the number, with a link back to the ticket or thread that caused it."},
+      {"title": "Skip the gadget tuning", "body": "Stop maintaining boards and let Husn surface the risks that matter now, read straight from the work."}
+    ],
+    "idealFor": ["Engineering and delivery managers", "TPMs and program managers", "Heads of engineering", "PMO leads running multi tool programs"],
+    "faq": [
+      {"q": "Does Husn replace our Jira dashboards?", "a": "It does not have to. Many teams keep their Jira boards for issue level tracking and use Husn for the cross tool picture, the reasons behind the numbers, and the risks that span Slack and docs."},
+      {"q": "Can Husn see things outside Jira?", "a": "Yes. That is the main difference. Husn reads Jira, Slack, and your documents together, so it surfaces dependencies and decisions that never make it onto a Jira board."},
+      {"q": "Is this just a smarter Jira gadget?", "a": "No. A gadget displays what is in Jira. Husn reasons across Jira, Slack, and docs to tell you what changed, why, and who is affected, and traces each point to its source."},
+      {"q": "Will Husn change anything in Jira?", "a": "No. Husn is read only. It never creates, edits, moves, or closes anything in Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "See what your Jira board cannot.",
+    "ctaText": "Connect your tools and Husn will show you, on your own programs, the risks and changes a Jira dashboard leaves out, in about fifteen minutes.",
+    "related": ["jira-dependency-management", "engineering-status-report", "program-health-dashboard"]
+  },
+  {
+    "slug": "husn-vs-manual-status-reports",
+    "type": "comparison",
+    "category": "executive-reporting",
+    "title": "Husn vs manual status reports",
+    "metaTitle": "Husn vs Manual Status Reports | Husn",
+    "metaDescription": "How Husn differs from writing status reports by hand. A hand written report carries real judgment but is slow and from memory. Husn reads the work and drafts it for you.",
+    "heroEyebrow": "An honest comparison",
+    "heroHeadline": "Husn vs manual status reports.",
+    "heroSubheadline": "A status report written by hand carries something a tool cannot fake, the judgment of someone who knows the program. The cost is the hours it takes and the gaps memory leaves. Husn reads the work and drafts the report, so the judgment is yours to apply, not to assemble from scratch.",
+    "primaryPain": "Writing a status report by hand is one of the most expensive habits in delivery. Someone spends part of a day reconstructing the week from memory and a dozen open tabs, and by the time the report is sent it is already a little out of date. The judgment in it is real and worth having, but it is wrapped in hours of low value assembly.",
+    "painBullets": ["A hand written report is built from memory and a quick scan of tools, so the items that did not come to mind simply do not appear.", "It takes real time to assemble, time the writer would rather spend on the work the report is about.", "By the time it is written and circulated, the situation has often moved on, so the reader acts on a stale picture."],
+    "whyHardHeading": "Why hand written reports drift",
+    "whyHard": ["Memory is selective under time pressure, so a report reflects what was top of mind, not necessarily what mattered most.", "The assembly work competes with delivery, so reports get rushed, skipped, or delegated to whoever has an hour free.", "A snapshot written on Thursday describes Thursday, and the reader usually opens it after the situation has changed again."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and drafts the report from the work itself, so nothing relevant is left out because someone forgot it.", "It does the assembly, so the writer's time goes to judgment and decisions rather than gathering and formatting.", "Every point traces to its source, so the reader can trust the draft and the writer can edit with confidence rather than rebuild from nothing."],
+    "briefing": {
+      "context": "What a hand written report would have missed",
+      "items": [
+        {"text": "A risk raised in Slack on Monday never made it into the weekly write up.", "tag": "Risk", "tone": "risk"},
+        {"text": "A dependency shifted after the report was drafted but before it was read.", "tag": "Changed", "tone": "changed"},
+        {"text": "An item marked done in the report is still open in the underlying ticket.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Drafted from the work - your judgment, not your hours - 2 items memory dropped"
+    },
+    "comparison": {
+      "competitor": "Manual status reports",
+      "rows": [
+        {"dimension": "Where the content comes from", "husn": "Read from Jira, Slack, and docs directly.", "them": "From memory and a quick scan of tools."},
+        {"dimension": "Time to produce", "husn": "Drafted in minutes, ready to edit.", "them": "Part of a day, every reporting cycle."},
+        {"dimension": "Completeness", "husn": "Built from the work, so little is forgotten.", "them": "Only as complete as what came to mind."},
+        {"dimension": "Human judgment", "husn": "Yours to apply to a draft Husn assembles.", "them": "Yours, but spent on assembly as well."},
+        {"dimension": "Freshness", "husn": "Reflects recent activity at the moment it runs.", "them": "Reflects when the writer last looked."},
+        {"dimension": "Traceability", "husn": "Every point links to its source.", "them": "Trust the writer remembered correctly."}
+      ],
+      "summary": "A status report written by hand carries judgment that is genuinely valuable, and the best reports are worth reading. Husn does not replace that judgment, it removes the hours of gathering around it. If your reports are thoughtful and on time, keep writing them. If they are rushed, from memory, or stale by the time they land, that is the gap Husn closes."
+    },
+    "useCases": [
+      {"title": "Stop reconstructing the week", "body": "Let Husn read the work and assemble the draft, so your time goes to the judgment a reader actually needs."},
+      {"title": "Catch what memory drops", "body": "Surface the risk raised in Slack or the ticket that quietly slipped, items a hand written report tends to miss."},
+      {"title": "Send something current", "body": "Produce the report close to when it is read, not a snapshot taken days earlier and circulated late."}
+    ],
+    "idealFor": ["TPMs and program managers", "Delivery managers", "Chiefs of staff", "Heads of product and engineering"],
+    "faq": [
+      {"q": "Does Husn replace the person who writes our reports?", "a": "No. It removes the gathering and drafting, not the judgment. The writer reviews and edits a draft built from the work instead of assembling one from memory."},
+      {"q": "Will the report still sound like us?", "a": "It is a draft to edit, not a final word. Husn assembles the facts and the reasoning so your team can shape the framing and add the judgment that matters."},
+      {"q": "How does Husn know what to include?", "a": "It reads Jira, Slack, and docs and surfaces what changed, what is at risk, and who is affected, then traces each point to its source so you can verify it."},
+      {"q": "Will it write anything back to our tools?", "a": "No. Husn is read only. It drafts a report for you and never posts, edits, or moves anything in Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Keep the judgment, drop the hours.",
+    "ctaText": "Connect your tools and Husn will draft a status report from your own programs, so you can see what it catches that a hand written one misses, in about fifteen minutes.",
+    "related": ["ai-project-status-report", "automated-status-reports", "executive-status-report"]
+  },
+  {
+    "slug": "husn-vs-spreadsheet-project-tracking",
+    "type": "comparison",
+    "category": "project-health",
+    "title": "Husn vs spreadsheet project tracking",
+    "metaTitle": "Husn vs Spreadsheet Project Tracking | Husn",
+    "metaDescription": "How Husn differs from tracking projects in a spreadsheet. A spreadsheet is flexible and familiar but manual and stale. Husn reads the work and keeps the picture current.",
+    "heroEyebrow": "An honest comparison",
+    "heroHeadline": "Husn vs spreadsheet project tracking.",
+    "heroSubheadline": "A spreadsheet bends to whatever you need it to be, which is exactly why people reach for it. The catch is that every cell is filled in by hand, so the tracker is only ever as current as the last person who updated it. Husn reads the work and keeps the picture current on its own.",
+    "primaryPain": "A project tracking spreadsheet starts as the most flexible tool in the building and slowly becomes the most demanding. Every status, date, and owner is typed in by a person, so the file is accurate the day it is built and drifting by the end of the week. The flexibility that made it easy to start is the same flexibility that lets it fall out of sync without anyone noticing.",
+    "painBullets": ["Every row is updated by hand, so the tracker reflects who remembered to type, not what the work is actually doing.", "A spreadsheet does not read Jira, Slack, or docs, so it never knows a date moved unless someone tells it.", "Flexibility cuts both ways, columns and conventions drift, and the file becomes hard to trust as it grows."],
+    "whyHardHeading": "Why a spreadsheet goes stale",
+    "whyHard": ["Manual entry competes with the work and loses, so the tracker is out of date within days of the last update.", "A cell holds whatever was typed, with no link to the ticket or thread behind it, so you cannot tell a fresh status from an old one.", "As the file grows, ownership of keeping it current blurs, and a tracker that everyone reads but no one maintains quietly stops being true."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs directly, so the picture stays current without anyone updating a row.", "It tells you what changed, why it matters, and who is affected, and traces every point to its source rather than to a typed in cell.", "It surfaces the cross project risk a flat spreadsheet cannot model, because Husn reasons across the work instead of holding values someone entered."],
+    "briefing": {
+      "context": "What a spreadsheet would have missed",
+      "items": [
+        {"text": "A delivery date moved in Jira while the tracker still shows the old one.", "tag": "Risk", "tone": "risk"},
+        {"text": "An owner left the team, so a whole column of statuses stopped being updated.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two workstreams depend on the same resource, which no single row can show.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Read from the work - no cells to fill in - 2 risks a flat file hides"
+    },
+    "comparison": {
+      "competitor": "Spreadsheet tracking",
+      "rows": [
+        {"dimension": "How it is updated", "husn": "Read from Jira, Slack, and docs directly.", "them": "Typed in by hand, row by row."},
+        {"dimension": "How current it stays", "husn": "Reflects recent activity without anyone updating it.", "them": "As current as the last person who edited it."},
+        {"dimension": "Connection to the work", "husn": "Reads the tickets, threads, and docs themselves.", "them": "Holds values someone entered, with no link back."},
+        {"dimension": "Cross project risk", "husn": "Surfaced, because Husn reasons across the work.", "them": "Hard to model in a flat grid of cells."},
+        {"dimension": "Flexibility", "husn": "Structured around what changed and why.", "them": "Bends to anything, and drifts just as easily."},
+        {"dimension": "Effect on your tools", "husn": "Read only. It never writes back to anything.", "them": "A separate file to keep in sync by hand."}
+      ],
+      "summary": "A spreadsheet is flexible, familiar, and perfectly good for a small, stable tracker that one person keeps honest. Husn is a way to know the state of the work without anyone typing it in. If your spreadsheet is current and trusted, keep it. If it is always a few days behind the real work, that is the gap Husn closes."
+    },
+    "useCases": [
+      {"title": "Retire the manual tracker", "body": "Stop maintaining rows by hand and read the current picture straight from Jira, Slack, and docs."},
+      {"title": "Find the stale cells", "body": "Surface the date that moved or the column that stopped updating when an owner left, drift a spreadsheet hides."},
+      {"title": "Keep the sheet, add the truth", "body": "Run Husn alongside an existing spreadsheet and let it flag where the typed in status and the work disagree."}
+    ],
+    "idealFor": ["Project and program managers", "Delivery managers", "PMO leads and coordinators", "Chiefs of staff"],
+    "faq": [
+      {"q": "Does Husn replace our tracking spreadsheet?", "a": "It can, or it can run alongside one. Some teams keep a spreadsheet for planning and use Husn to surface where the tracker and the actual work have diverged."},
+      {"q": "Do people still update the tracker?", "a": "They do not have to for Husn to be current, because it reads the work directly. Where you keep a spreadsheet, Husn shows where it disagrees with reality."},
+      {"q": "Is this just a spreadsheet with automation?", "a": "No. A spreadsheet holds what was typed. Husn reads Jira, Slack, and docs and reasons across them to tell you what changed, why, and who is affected."},
+      {"q": "Will Husn edit our files?", "a": "No. Husn is read only. It never writes to your spreadsheet, Jira, Slack, or documents. It reads the work and tells you what it found."}
+    ],
+    "ctaHeadline": "See what your tracker is hiding.",
+    "ctaText": "Connect your tools and Husn will show you, on your own programs, where a typed in spreadsheet has drifted from the work, in about fifteen minutes.",
+    "related": ["project-health-dashboard", "project-status-dashboard", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "husn-vs-status-meetings",
+    "type": "comparison",
+    "category": "meeting-preparation",
+    "title": "Husn vs status meetings",
+    "metaTitle": "Husn vs Status Meetings | Husn",
+    "metaDescription": "How Husn differs from relying on status meetings to find out what changed. Meetings build alignment but are expensive and periodic. Husn reads the work between them.",
+    "heroEyebrow": "An honest comparison",
+    "heroHeadline": "Husn vs status meetings.",
+    "heroSubheadline": "A status meeting does something a document cannot, it builds alignment and trust in the room. The problem is that it is also where a roomful of people reconstruct the week out loud, on a schedule. Husn reads the work between meetings, so the time you do spend together is for decisions, not recaps.",
+    "primaryPain": "Relying on the status meeting to find out what changed turns an expensive hour into a reporting cycle. Everyone gathers, each person narrates their week from memory, and the group spends most of the time getting on the same page about facts that already exist in the tools. The alignment is real and valuable, but it sits on top of a long, costly recap that did not need a meeting at all.",
+    "painBullets": ["A status meeting is the most expensive way to move information, a room of senior people taking turns to read out what already happened.", "It runs on a cadence, so anything urgent waits for the next meeting or interrupts everyone over Slack.", "The update is reconstructed from memory in the moment, so it carries the same gaps and optimism as any account told out loud."],
+    "whyHardHeading": "Why the status meeting strains",
+    "whyHard": ["Synchronous time is the scarcest resource a program has, and spending it on a recap means spending it on information that did not need everyone present.", "A weekly cadence sets the speed at which problems surface, so a risk that appears on Tuesday may not be discussed until the following Monday.", "Verbal updates are reconstructed live, so the meeting reflects what each person recalled and chose to raise, not the full state of the work."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and surfaces what changed before the meeting, so the recap is already done when people sit down.", "It does not wait for a cadence. Risks and changes surface as the work moves, so urgent items do not sit until the next slot.", "It prepares a briefing traced to its source, so the meeting can spend its time on the few decisions that genuinely need the room."],
+    "briefing": {
+      "context": "What the meeting would have spent its hour on",
+      "items": [
+        {"text": "A risk that surfaced on Tuesday has been waiting six days for the Monday slot.", "tag": "Risk", "tone": "risk"},
+        {"text": "A decision made in Slack changed the plan, but no one thought to raise it.", "tag": "Changed", "tone": "changed"},
+        {"text": "Half the agenda is a recap of work already visible in the tools.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Read between meetings - no cadence to wait for - 2 items the room would recap"
+    },
+    "comparison": {
+      "competitor": "Status meetings",
+      "rows": [
+        {"dimension": "What it is best at", "husn": "Knowing what changed and why, continuously.", "them": "Building alignment and trust in the room."},
+        {"dimension": "Cost", "husn": "Reads the work in the background, no time taken.", "them": "An hour of senior people, every cycle."},
+        {"dimension": "Timing", "husn": "Surfaces changes as the work moves.", "them": "Waits for the next scheduled slot."},
+        {"dimension": "Source of the update", "husn": "Read from Jira, Slack, and docs directly.", "them": "Reconstructed from memory, out loud."},
+        {"dimension": "What the meeting becomes", "husn": "Time freed for the decisions that need the room.", "them": "Largely a recap of what already happened."},
+        {"dimension": "Effect on your tools", "husn": "Read only. It never writes back to anything.", "them": "No tool effect, but a standing claim on calendars."}
+      ],
+      "summary": "A status meeting is the right place to build alignment, make calls together, and read the room, and the best ones are worth every minute. Husn does not replace that, it removes the recap that fills most of the hour. If your meetings are short and decision led, keep them. If they are mostly people reading out the week, that is the gap Husn closes."
+    },
+    "useCases": [
+      {"title": "Walk in already briefed", "body": "Replace the verbal recap with a briefing Husn read from the work, so the meeting starts at the decisions."},
+      {"title": "Stop waiting for the cadence", "body": "Surface a Tuesday risk on Tuesday, instead of holding it for the next scheduled slot."},
+      {"title": "Make meetings about choices", "body": "Hand the room a current, sourced picture so its time goes to the few calls that genuinely need everyone present."}
+    ],
+    "idealFor": ["TPMs and program managers", "Chiefs of staff", "PMO leads running standing reviews", "Delivery and engineering managers"],
+    "faq": [
+      {"q": "Does Husn replace our status meetings?", "a": "It does not replace the alignment a meeting builds. It replaces the recap. Teams use Husn to brief the room in advance so the meeting itself is shorter and about decisions."},
+      {"q": "What do our meetings cover instead?", "a": "The decisions, trade offs, and judgment calls that genuinely need people together, since the factual recap is already done by the time everyone sits down."},
+      {"q": "How does Husn prepare the briefing?", "a": "It reads Jira, Slack, and docs and surfaces what changed, what is at risk, and who is affected, then traces each point to its source so the room can trust it."},
+      {"q": "Will Husn post into our tools or channels?", "a": "No. Husn is read only. It prepares a briefing for you and never posts, edits, or moves anything in Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Give your meeting its hour back.",
+    "ctaText": "Connect your tools and Husn will brief you on your own programs before the next status meeting, so you can see how much of it was recap, in about fifteen minutes.",
+    "related": ["meeting-preparation-ai", "executive-meeting-briefing-software", "weekly-program-review-template"]
+  }
+]
