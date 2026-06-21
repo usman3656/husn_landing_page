@@ -1,0 +1,458 @@
+[
+  {
+    "slug": "dependency-tracking-software",
+    "type": "tool",
+    "category": "dependency-management",
+    "title": "Dependency tracking software",
+    "metaTitle": "Dependency Tracking Software | Husn",
+    "metaDescription": "Husn tracks dependencies live across Jira, Slack, and docs and alerts the team about to be blocked when the other side moves, before the list goes stale.",
+    "heroEyebrow": "For teams tracking many moving handoffs",
+    "heroHeadline": "Tracking that alerts before the block.",
+    "heroSubheadline": "Most tracking tools record a dependency and stop watching it. Husn keeps watching, so when one side shifts you hear about it while there is still time to act.",
+    "primaryPain": "A dependency list answers the wrong question. It tells you what people intended at the moment they typed it in, not what is true today. By the time the gap shows up, the team that was waiting has already lost the time it needed to react.",
+    "painBullets": [
+      "The list is accurate the day it is built and a little less accurate every day after, with no signal telling you which entries went stale.",
+      "Tracking the date is easy. Tracking whether the other side still plans to deliver on that date is the part nobody does.",
+      "When a dependency does slip, the alert comes from a frustrated person, not the tool, and it comes late."
+    ],
+    "whyHardHeading": "Why tracking falls behind the work",
+    "whyHard": [
+      "A dependency lives in two boards at once, and a tracker that watches one board misses every change made on the other.",
+      "The status that matters is intent, and intent changes in a Slack thread or a reprioritized ticket long before anyone updates the tracker.",
+      "Alerts based on dates fire when the date arrives, which is the moment it is already too late to do anything useful."
+    ],
+    "howHusnHelps": [
+      "Husn tracks each dependency from the live work across Jira, Slack, and docs, so a paused ticket or a quiet thread updates its state automatically.",
+      "It alerts the waiting team when the other side changes intent or timing, not when the deadline lands, so the warning arrives early enough to matter.",
+      "You see the current state of every tracked dependency in one place, with the source behind each change rather than a flat list of dates."
+    ],
+    "briefing": {
+      "context": "Dependency tracking, this week",
+      "items": [
+        {"text": "Checkout team moved the payments work that Fraud's rollout depends on, and the tracker still shows it on the original date.", "tag": "Risk", "tone": "risk"},
+        {"text": "A dependency marked green last week went quiet, with no commits and no replies for nine days.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two tracked dependencies now point at the same engineer, who is out next sprint.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "23 dependencies tracked - 4 drifting from plan - 2 teams to notify"
+    },
+    "useCases": [
+      {"title": "Live status, not a snapshot", "body": "See each dependency as it stands today, updated from the work, instead of a record that froze the day it was entered."},
+      {"title": "Early warning on slip", "body": "Get alerted when the other side goes quiet or changes course, before the date arrives and the block is locked in."},
+      {"title": "Triage what moved", "body": "Open the tracker to a short list of dependencies that changed state since you last looked, ranked by who is waiting on them."}
+    ],
+    "idealFor": [
+      "Technical program managers",
+      "Delivery managers",
+      "Release managers",
+      "Engineering team leads"
+    ],
+    "faq": [
+      {"q": "How does Husn track a dependency without me entering it?", "a": "It reads how teams block, reference, and hand off across Jira, Slack, and docs, then tracks the state of each dependency from the live work rather than a typed-in record."},
+      {"q": "What triggers an alert?", "a": "A change in the other side's timing or intent, such as a deferred ticket, a moved date, or a thread that signals reprioritization, not just the arrival of a deadline."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads only. It never edits tickets, creates links, or writes anything back to your systems."},
+      {"q": "How fast does the tracked state update?", "a": "It reflects new activity as Husn reads it, so a paused ticket or a quiet handoff shows up as a change without anyone updating a tracker."}
+    ],
+    "ctaHeadline": "Track dependencies that warn you early.",
+    "ctaText": "Connect your tools and Husn will track your live dependencies and alert the waiting team the moment the other side moves, in about fifteen minutes.",
+    "related": ["dependency-management-software", "blocker-tracking-software", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "release-dependency-management",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Release dependency management",
+    "metaTitle": "Release Dependency Management | Husn",
+    "metaDescription": "Husn finds the dependencies a release rests on across Jira, Slack, and docs, then warns you when one of them slips, so launch day is not the first time you learn it.",
+    "heroEyebrow": "For release and launch owners",
+    "heroHeadline": "Know what your release is waiting on.",
+    "heroSubheadline": "A release depends on more than its own backlog. Husn maps everything the launch rests on and tells you when any of it stops being on track.",
+    "primaryPain": "A release looks ready right up until the moment a thing it quietly depended on fails to arrive. The release owner is accountable for work owned by other teams, but has no live view of whether those teams are actually going to deliver in time.",
+    "painBullets": [
+      "Half the dependencies for a launch live on other teams' boards, where the release owner has no visibility and no warning.",
+      "Go or no-go meetings run on verbal assurances, and silence from a team gets read as readiness when it often means the opposite.",
+      "The dependency that sinks a release is usually a small enabling task that nobody flagged because it looked too minor to track."
+    ],
+    "whyHardHeading": "Why release dependencies slip through",
+    "whyHard": [
+      "A release pulls in work from teams that do not share your timeline, so their reprioritization is invisible to you until it bites.",
+      "Readiness is assessed at a point in time, but the inputs keep moving right up to the freeze, and the early check goes stale.",
+      "The risky dependencies are often downstream of other dependencies, so a slip two steps removed reaches the release with no warning."
+    ],
+    "howHusnHelps": [
+      "Husn assembles the full set of work a release depends on across Jira, Slack, and docs, including the enabling tasks owned by other teams.",
+      "It watches each of those dependencies and warns you when one moves, goes quiet, or gets deprioritized, well before the launch date.",
+      "It follows the chain, so a slip on a task the release depends on indirectly reaches you as a flagged risk, not a launch-day surprise."
+    ],
+    "briefing": {
+      "context": "Release readiness watch",
+      "items": [
+        {"text": "The feature flag service this release needs was deprioritized by Platform, and the release plan still assumes it is coming.", "tag": "Risk", "tone": "risk"},
+        {"text": "A localization handoff the launch depends on moved its delivery date out by a week.", "tag": "Changed", "tone": "changed"},
+        {"text": "The on-call rotation for launch week is not yet confirmed, with three days to freeze.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "14 release dependencies - 2 off track - 1 unconfirmed enabler"
+    },
+    "useCases": [
+      {"title": "Go or no-go with evidence", "body": "Enter the decision with a live readiness view of every dependency, not a round of verbal confirmations that may already be out of date."},
+      {"title": "Catch the small enabler", "body": "Surface the minor enabling task on another team's board that the release quietly rests on, before it becomes the reason you slip."},
+      {"title": "Freeze with confidence", "body": "Confirm that each external input is actually on track before the freeze, rather than discovering a gap once the window has closed."}
+    ],
+    "idealFor": [
+      "Release managers",
+      "Launch and go-to-market leads",
+      "Technical program managers",
+      "Engineering managers"
+    ],
+    "faq": [
+      {"q": "How does Husn know what a release depends on?", "a": "It infers the dependencies from how the release work references, blocks, and hands off to other teams across Jira, Slack, and docs, including enabling tasks no one logged."},
+      {"q": "Can it warn me before launch day?", "a": "Yes. Husn watches each dependency for slips, quiet periods, and deprioritization and flags them early, so the warning arrives while you still have room to react."},
+      {"q": "Does it follow indirect dependencies?", "a": "It does. Husn follows the chain, so a slip on something your release depends on through another team still reaches you as a flagged risk."},
+      {"q": "Does Husn change our release plan or tickets?", "a": "No. It reads only. Husn never edits tickets, moves dates, or writes anything back to your tools."}
+    ],
+    "ctaHeadline": "Stop learning about gaps on launch day.",
+    "ctaText": "Connect your tools and Husn will map what your release depends on and flag the inputs that are slipping, in about fifteen minutes.",
+    "related": ["critical-path-tracking", "dependency-risk-management", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "blocker-tracking-software",
+    "type": "tool",
+    "category": "dependency-management",
+    "title": "Blocker tracking software",
+    "metaTitle": "Blocker Tracking Software | Husn",
+    "metaDescription": "Husn surfaces blockers across Jira, Slack, and docs as they form, tracks who owns the fix, and flags the ones that have stalled, without anyone logging them by hand.",
+    "heroEyebrow": "For teams losing time to blockers",
+    "heroHeadline": "See blockers before standup does.",
+    "heroSubheadline": "Most blockers are visible in the work days before they reach a standup. Husn surfaces them as they form and tracks them until someone actually clears them.",
+    "primaryPain": "A blocker costs the most in the gap between when it starts and when it gets said out loud. Work quietly stalls, the person waiting assumes someone is handling it, and the blocker only becomes visible when a deadline forces it into a status update.",
+    "painBullets": [
+      "Blockers are reported when someone remembers to raise them, so the quiet ones sit unmentioned for days while work stalls.",
+      "Once raised, a blocker rarely has a clear owner for the resolution, so it bounces between teams without moving.",
+      "Nobody tracks how long a blocker has been open, so the ones that have stalled the longest get the least attention."
+    ],
+    "whyHardHeading": "Why blockers stay hidden",
+    "whyHard": [
+      "A blocker on one team is often caused by an unfinished task on another, and the two never appear in the same view.",
+      "Raising a blocker depends on the blocked person stopping to flag it, which is exactly what an overloaded person does not do.",
+      "Standups capture the blockers people choose to mention, not the ones forming quietly in stalled tickets and unanswered threads."
+    ],
+    "howHusnHelps": [
+      "Husn surfaces blockers from the work itself across Jira, Slack, and docs, including stalled tickets and unanswered requests that nobody raised.",
+      "It connects each blocker to the work on the other side that would clear it, so the resolution has an owner rather than bouncing.",
+      "It tracks how long each blocker has been open and flags the ones that have stalled, so age becomes a signal instead of a blind spot."
+    ],
+    "briefing": {
+      "context": "Blocker view, this week",
+      "items": [
+        {"text": "Frontend has been blocked on an API contract for eleven days, waiting on a Backend ticket that has not moved.", "tag": "Risk", "tone": "risk"},
+        {"text": "A blocker raised last week was reassigned to a third team, and ownership of the fix is now unclear.", "tag": "Changed", "tone": "changed"},
+        {"text": "A QA environment request has sat unanswered in a shared channel for four days.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "16 active blockers - 3 stalled over a week - 2 without an owner"
+    },
+    "useCases": [
+      {"title": "Find the quiet blockers", "body": "Surface the stalled tickets and unanswered requests that are blocking work but never got raised in a standup or a status update."},
+      {"title": "Give each blocker an owner", "body": "Connect a blocker to the work that would clear it, so resolution lands with a team instead of circling between several."},
+      {"title": "Escalate by age", "body": "See which blockers have been open longest and act on them first, instead of reacting to whichever one is loudest today."}
+    ],
+    "idealFor": [
+      "Delivery managers",
+      "Scrum masters",
+      "Technical program managers",
+      "Engineering team leads"
+    ],
+    "faq": [
+      {"q": "Do we have to log blockers for Husn to track them?", "a": "No. Husn surfaces blockers from how work stalls and requests go unanswered across Jira, Slack, and docs, including the ones nobody raised."},
+      {"q": "How does it know who should resolve a blocker?", "a": "It connects the blocker to the work on the other side that would clear it, so the resolution points at a team rather than bouncing around."},
+      {"q": "Can it tell me which blockers have stalled?", "a": "Yes. Husn tracks how long each blocker has been open and flags the ones that have sat too long, so age becomes something you can act on."},
+      {"q": "Does Husn change ticket status or assignees?", "a": "No. It reads only. Husn never edits tickets, reassigns work, or writes anything back to your tools."}
+    ],
+    "ctaHeadline": "Catch the blocker while it still costs little.",
+    "ctaText": "Connect your tools and Husn will surface active blockers, track their age, and point each one at an owner, in about fifteen minutes.",
+    "related": ["dependency-tracking-software", "project-escalation-tracker", "team-handoff-tracking"]
+  },
+  {
+    "slug": "critical-path-tracking",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Critical path tracking",
+    "metaTitle": "Critical Path Tracking | Husn",
+    "metaDescription": "Husn keeps your critical path current from the live work across Jira, Slack, and docs, and warns you when something on it slips or a new item moves onto it.",
+    "heroEyebrow": "For owners of delivery dates",
+    "heroHeadline": "A critical path that stays true.",
+    "heroSubheadline": "The critical path you drew at kickoff is not the one you are on now. Husn keeps it current from the work and tells you when the path itself shifts.",
+    "primaryPain": "A critical path is usually mapped once, early, and then quietly diverges from reality as the work moves. The item you are watching most closely may no longer be the one that decides the date, and the item that now does may be one nobody is watching at all.",
+    "painBullets": [
+      "The critical path is built at planning time and rarely rebuilt, so it reflects an early estimate rather than where the work actually is.",
+      "As tasks slip and re-sequence, a task that used to have slack becomes the constraint, and nobody notices the path has moved.",
+      "Keeping a critical path current by hand across many teams is constant work that gets abandoned within a few weeks of kickoff."
+    ],
+    "whyHardHeading": "Why the path drifts from reality",
+    "whyHard": [
+      "The path runs through work owned by several teams, so a slip on one board changes the constraint without anyone updating the plan.",
+      "Slack is what makes a task non-critical, and slack erodes silently, so the moment a task joins the critical path passes unobserved.",
+      "Recomputing the path means knowing the true state of every task on it, which no single person has across a large program."
+    ],
+    "howHusnHelps": [
+      "Husn keeps the critical path current from the live state of the work across Jira, Slack, and docs, rather than from a one-time plan.",
+      "When a task on the path slips, or a task with shrinking slack moves onto it, Husn flags the change and what it does to your date.",
+      "It follows the path across team boundaries, so a slip several teams upstream reaches you as a warning about your delivery date."
+    ],
+    "briefing": {
+      "context": "Critical path watch",
+      "items": [
+        {"text": "A migration task on the critical path slipped two days, pushing the program end date with it.", "tag": "Risk", "tone": "risk"},
+        {"text": "A task that had a week of slack is now on the critical path after an upstream re-sequence.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two critical-path tasks are queued behind the same reviewer this sprint.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "9 tasks on the path - 1 slipped - 1 newly critical"
+    },
+    "useCases": [
+      {"title": "Watch the right task", "body": "See which task is actually deciding your date today, instead of watching the one that was critical at kickoff."},
+      {"title": "Catch newly critical work", "body": "Get flagged the moment a task with shrinking slack joins the critical path, before it silently becomes your constraint."},
+      {"title": "Trace the date back", "body": "When the end date moves, see exactly which task on the path caused it and which team owns that task."}
+    ],
+    "idealFor": [
+      "Technical program managers",
+      "Delivery managers",
+      "Program management offices",
+      "Engineering program leads"
+    ],
+    "faq": [
+      {"q": "How does Husn keep the critical path current?", "a": "It reads the live state of the work across Jira, Slack, and docs and recomputes the path as tasks move, rather than holding the plan you drew at kickoff."},
+      {"q": "Will it tell me when a task becomes critical?", "a": "Yes. When a task's slack erodes and it moves onto the critical path, Husn flags it, so you learn about the new constraint as it forms."},
+      {"q": "Does it work across multiple teams?", "a": "It does. Husn follows the path across team boundaries, so a slip upstream reaches you as a warning about your own delivery date."},
+      {"q": "Does Husn edit our schedule?", "a": "No. It reads only. Husn never changes dates, reschedules tasks, or writes anything back to your tools."}
+    ],
+    "ctaHeadline": "Always know what decides your date.",
+    "ctaText": "Connect your tools and Husn will keep your critical path current and flag every task that threatens your delivery date, in about fifteen minutes.",
+    "related": ["release-dependency-management", "project-early-warning-system", "program-drift-detection"]
+  },
+  {
+    "slug": "team-handoff-tracking",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Team handoff tracking",
+    "metaTitle": "Team Handoff Tracking | Husn",
+    "metaDescription": "Husn tracks handoffs between teams across Jira, Slack, and docs, surfacing the ones that stalled, got dropped, or never landed, so work does not die in the gap.",
+    "heroEyebrow": "For work that crosses many teams",
+    "heroHeadline": "Track the work between the teams.",
+    "heroSubheadline": "Work stalls most often in the gap between one team finishing and another picking up. Husn tracks those handoffs and surfaces the ones that did not land.",
+    "primaryPain": "A handoff is the moment a piece of work changes hands, and it is exactly where ownership goes vague. The sending team believes they are done, the receiving team has not started, and the work sits in the gap with no one accountable until someone downstream notices it never arrived.",
+    "painBullets": [
+      "A handoff is agreed in a meeting or a thread and then assumed complete, with no check that the receiving team actually picked it up.",
+      "Ownership is clear on each side and undefined in the middle, so a dropped handoff has no owner and no alarm.",
+      "The receiving team is often busy with other work, so a handoff can sit untouched for weeks before anyone realizes it stalled."
+    ],
+    "whyHardHeading": "Why handoffs get dropped",
+    "whyHard": [
+      "The sending and receiving teams live on different boards, so neither system shows the handoff as a single piece of work with one status.",
+      "A handoff feels finished to the sender the moment they pass it on, which removes the very attention it needs to actually complete.",
+      "Across many teams there are dozens of handoffs in flight, and no one is responsible for watching the spaces between them."
+    ],
+    "howHusnHelps": [
+      "Husn tracks handoffs from how teams pass work across Jira, Slack, and docs, following each one from where it leaves to where it should land.",
+      "It surfaces handoffs that stalled, got dropped, or were never acknowledged by the receiving team, before the gap turns into a delay.",
+      "It shows each handoff as one item with a status across both sides, so the space between teams stops being invisible."
+    ],
+    "briefing": {
+      "context": "Handoff watch, this week",
+      "items": [
+        {"text": "Design signed off a spec and handed it to Engineering twelve days ago, and no ticket has been opened to pick it up.", "tag": "Risk", "tone": "risk"},
+        {"text": "A handoff from Backend to Mobile was acknowledged but the receiving work was then deprioritized this sprint.", "tag": "Changed", "tone": "changed"},
+        {"text": "A spec handed to QA references an environment that is not yet provisioned.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "12 handoffs in flight - 2 not picked up - 1 stalled after acknowledgment"
+    },
+    "useCases": [
+      {"title": "Catch the dropped handoff", "body": "Surface work that one team finished and handed off, but that the receiving team never picked up, before anyone downstream notices."},
+      {"title": "One status across both sides", "body": "See each handoff as a single item spanning both teams, instead of two disconnected tickets on two different boards."},
+      {"title": "Close the gap at the seam", "body": "Watch the spaces between teams where ownership goes vague, so work does not sit untouched in the seam for weeks."}
+    ],
+    "idealFor": [
+      "Delivery managers",
+      "Cross functional program leads",
+      "Technical program managers",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "How does Husn know a handoff happened?", "a": "It reads how teams pass work across Jira, Slack, and docs, following each handoff from where it leaves one team to where it should land on another."},
+      {"q": "Can it tell me when a handoff was not picked up?", "a": "Yes. Husn surfaces handoffs that the receiving team never acknowledged or started, so a dropped one becomes visible before it turns into a delay."},
+      {"q": "Does it show both sides of a handoff?", "a": "It does. Husn presents each handoff as a single item with one status spanning both teams, rather than two tickets that never reference each other."},
+      {"q": "Does Husn create or move the receiving work?", "a": "No. It reads only. Husn never opens tickets, assigns work, or writes anything back to your tools."}
+    ],
+    "ctaHeadline": "Stop losing work in the gap between teams.",
+    "ctaText": "Connect your tools and Husn will track your handoffs and surface the ones that stalled or were never picked up, in about fifteen minutes.",
+    "related": ["blocker-tracking-software", "cross-functional-alignment-software", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "dependency-risk-management",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Dependency risk management",
+    "metaTitle": "Dependency Risk Management | Husn",
+    "metaDescription": "Husn turns dependencies into managed risk, reading Jira, Slack, and docs to rank which dependencies are most likely to slip and warn the teams that would be hurt.",
+    "heroEyebrow": "For owners of delivery risk",
+    "heroHeadline": "Manage the risk a dependency carries.",
+    "heroSubheadline": "Every dependency is a bet on another team. Husn tracks which of those bets is going wrong and tells the side that would be hurt, before it is.",
+    "primaryPain": "A dependency is a risk wearing a friendly name. It looks like a line in a plan, but it is really an exposure to a team you do not control. Most organizations track the line and ignore the exposure, so the dependency that was always going to slip is treated the same as the one that never will, right up until it fails.",
+    "painBullets": [
+      "Dependencies are recorded as facts, not as risks, so none of them carry a likelihood, an owner, or a contingency.",
+      "Every dependency looks equally safe in a list, which means attention spreads evenly instead of concentrating on the ones likely to slip.",
+      "The team carrying the exposure is the downstream one, but the signals that the bet is going wrong all live on the upstream team's board."
+    ],
+    "whyHardHeading": "Why dependency risk goes unmanaged",
+    "whyHard": [
+      "Judging the risk in a dependency means knowing how the team you depend on is actually tracking, which is information you rarely have.",
+      "Risk is dynamic, so a dependency that was low risk last month can become the most likely point of failure without the register changing.",
+      "Second-order dependencies multiply the exposure, and the compound risk of a chain is invisible when each link is assessed alone."
+    ],
+    "howHusnHelps": [
+      "Husn treats each dependency as a risk, reading Jira, Slack, and docs to judge how the team you depend on is actually tracking against the commitment.",
+      "It ranks dependencies by how likely they are to slip and how much depends on them, so attention concentrates where the exposure is highest.",
+      "When a dependency's risk rises, Husn warns the downstream team that carries the exposure, with the upstream signals that drove the change."
+    ],
+    "briefing": {
+      "context": "Dependency risk view",
+      "items": [
+        {"text": "Reporting depends on a data model that Platform has reopened twice this sprint, and the risk on that dependency is now high.", "tag": "Risk", "tone": "risk"},
+        {"text": "A dependency rated low last month rose as the upstream team lost two engineers to an incident.", "tag": "Changed", "tone": "changed"},
+        {"text": "A chain of three dependencies all rest on a single unstaffed task two teams upstream.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "21 dependencies assessed - 4 high risk - 1 fragile chain found"
+    },
+    "useCases": [
+      {"title": "Rank the risky ones", "body": "See which dependencies are most likely to slip and carry the most downstream weight, so you manage exposure instead of maintaining a flat list."},
+      {"title": "Warn the exposed team", "body": "Tell the downstream team that carries the risk when the upstream signals turn, while there is still time to plan around it."},
+      {"title": "Find the fragile chain", "body": "Surface a chain of dependencies that all rest on a single shaky task, so a compound risk does not stay hidden in the links."}
+    ],
+    "idealFor": [
+      "Technical program managers",
+      "Program management offices",
+      "Delivery risk owners",
+      "Heads of engineering"
+    ],
+    "faq": [
+      {"q": "How does Husn assess the risk in a dependency?", "a": "It reads how the team you depend on is tracking across Jira, Slack, and docs, then judges the likelihood of a slip from the live signals rather than a static rating."},
+      {"q": "How does it decide which dependencies matter most?", "a": "Husn ranks them by how likely each is to slip and how much downstream work rests on it, so attention concentrates on the highest exposure."},
+      {"q": "Can it handle risk in a chain of dependencies?", "a": "Yes. Husn follows the chain and surfaces compound risk, so a fragile task several teams upstream shows up as a risk to everything that rests on it."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. It reads only. Husn never edits tickets, sets risk fields, or writes anything back to your systems."}
+    ],
+    "ctaHeadline": "Treat every dependency as the risk it is.",
+    "ctaText": "Connect your tools and Husn will rank your dependencies by risk and warn the exposed teams when the odds turn, in about fifteen minutes.",
+    "related": ["release-dependency-management", "delivery-risk-management", "project-early-warning-system"]
+  },
+  {
+    "slug": "roadmap-dependency-management",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Roadmap dependency management",
+    "metaTitle": "Roadmap Dependency Management | Husn",
+    "metaDescription": "Husn maps the dependencies between roadmaps across Jira, Slack, and docs and warns you when one team's reprioritization breaks a commitment another roadmap was built on.",
+    "heroEyebrow": "For leaders aligning many roadmaps",
+    "heroHeadline": "When one roadmap moves, you know.",
+    "heroSubheadline": "Roadmaps are planned in parallel but depend on each other in practice. Husn maps those links and warns you when a change on one breaks an assumption on another.",
+    "primaryPain": "Roadmaps are built as if each team controls its own outcome, but one team's roadmap almost always rests on commitments inside another's. When a team reprioritizes its roadmap, it rarely traces which other roadmaps assumed the thing it just dropped, so the break only surfaces a quarter later when the dependent work cannot start.",
+    "painBullets": [
+      "Each team plans its own roadmap in isolation, so the cross-roadmap dependencies that hold the plan together are never written down.",
+      "A reprioritization on one roadmap looks like a local decision, but it can quietly invalidate a commitment three other roadmaps were built on.",
+      "Roadmap dependencies are set at planning and never revisited, so by mid-quarter the plan rests on assumptions that are no longer true."
+    ],
+    "whyHardHeading": "Why roadmaps break each other quietly",
+    "whyHard": [
+      "Roadmaps live in different docs and boards at different altitudes, so no single view shows how one quarter's plan depends on another's.",
+      "The dependency is between a planned item and an assumption, and assumptions are exactly what teams forget to record or revisit.",
+      "Reprioritization is constant, and a change that is reasonable for one roadmap can be quietly destructive for another that depended on it."
+    ],
+    "howHusnHelps": [
+      "Husn maps dependencies between roadmaps from how teams reference and commit to each other across Jira, Slack, and docs, including the unspoken assumptions.",
+      "When a team reprioritizes, Husn traces which other roadmaps assumed the thing that moved and warns the ones whose plan just changed.",
+      "It keeps the cross-roadmap picture current through the quarter, so a plan built on an assumption is flagged when the assumption breaks."
+    ],
+    "briefing": {
+      "context": "Roadmap dependency watch",
+      "items": [
+        {"text": "Platform dropped a Q3 API from its roadmap, and the Mobile and Partnerships roadmaps both committed to features that assumed it.", "tag": "Risk", "tone": "risk"},
+        {"text": "Data pushed a foundational item to next quarter, shifting two roadmaps that were sequenced behind it.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two roadmaps both promise the same shared capability in the same quarter without coordinating.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "8 cross-roadmap dependencies - 2 broken by reprioritization - 3 roadmaps affected"
+    },
+    "useCases": [
+      {"title": "Plan across roadmaps", "body": "Enter planning with a true map of how each roadmap depends on others, so commitments are sequenced against reality rather than hope."},
+      {"title": "Catch reprioritization fallout", "body": "When a team reshuffles its roadmap, see immediately which other roadmaps just lost an assumption they were built on."},
+      {"title": "Hold the quarter together", "body": "Keep the cross-roadmap dependencies current through the quarter, so a plan does not silently rest on something that already moved."}
+    ],
+    "idealFor": [
+      "Heads of product",
+      "Program management offices",
+      "Technical program managers",
+      "Chiefs of staff"
+    ],
+    "faq": [
+      {"q": "How does Husn find dependencies between roadmaps?", "a": "It reads how teams reference and commit to each other across Jira, Slack, and docs, then maps where one roadmap rests on another, including unwritten assumptions."},
+      {"q": "What happens when a team reprioritizes?", "a": "Husn traces which other roadmaps assumed the item that moved and warns the affected ones, so the break surfaces in the moment rather than a quarter later."},
+      {"q": "Does it stay current through the quarter?", "a": "Yes. Husn keeps the cross-roadmap picture live, so a plan built on an assumption gets flagged the moment that assumption changes."},
+      {"q": "Does Husn edit our roadmaps?", "a": "No. It reads only. Husn never moves roadmap items, edits plans, or writes anything back to your tools."}
+    ],
+    "ctaHeadline": "See how your roadmaps depend on each other.",
+    "ctaText": "Connect your tools and Husn will map your cross-roadmap dependencies and flag the ones a reprioritization just broke, in about fifteen minutes.",
+    "related": ["cross-team-dependency-tracker", "program-drift-detection", "dependency-risk-management"]
+  },
+  {
+    "slug": "api-dependency-tracking",
+    "type": "tool",
+    "category": "dependency-management",
+    "title": "API dependency tracking",
+    "metaTitle": "API Dependency Tracking | Husn",
+    "metaDescription": "Husn tracks API and service dependencies between teams from Jira, Slack, and docs, flagging breaking changes and deprecations before they reach a consumer.",
+    "heroEyebrow": "For teams that consume each other's APIs",
+    "heroHeadline": "Track the APIs your teams rely on.",
+    "heroSubheadline": "An API is a promise between teams, and promises change. Husn tracks which teams depend on which services and warns consumers when the contract is about to move.",
+    "primaryPain": "When one team owns an API and several others build on it, a change to that API is a change to everyone downstream. The owning team makes the change for its own reasons, often without knowing who is still consuming the old contract, and the consumers find out when something breaks in their environment.",
+    "painBullets": [
+      "The team that owns a service rarely has a current list of who is consuming it, so a deprecation goes out without reaching the people it affects.",
+      "Breaking changes are decided inside the owning team's tickets and threads, invisible to the consumers until the change ships.",
+      "API contracts are documented once and then drift, so the spec a consumer integrated against no longer matches what the service returns."
+    ],
+    "whyHardHeading": "Why service dependencies surprise people",
+    "whyHard": [
+      "Producer and consumer sit on separate boards, so a planned breaking change on one is invisible to the team that integrated against it.",
+      "The dependency is on a contract, and a contract can change in a code review or a thread long before any ticket says it is changing.",
+      "With many services depending on each other, a change to one API can cascade through services that depend on it indirectly."
+    ],
+    "howHusnHelps": [
+      "Husn tracks which teams depend on which APIs and services from how they reference and integrate across Jira, Slack, and docs.",
+      "When an owning team plans a breaking change or deprecation, Husn flags it to the consumers still on the old contract, before it ships.",
+      "It follows service chains, so a change to one API reaches the teams that depend on it indirectly, not just the direct consumers."
+    ],
+    "briefing": {
+      "context": "API dependency view",
+      "items": [
+        {"text": "The Accounts team is planning a breaking change to an auth endpoint that three other services still call on the old contract.", "tag": "Risk", "tone": "risk"},
+        {"text": "A shared service marked an endpoint for deprecation next month, and two consuming teams have no migration ticket.", "tag": "Changed", "tone": "changed"},
+        {"text": "A service two hops upstream is changing a response shape that a downstream integration silently relies on.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "17 service dependencies - 1 breaking change planned - 3 consumers to notify"
+    },
+    "useCases": [
+      {"title": "Know your consumers", "body": "See which teams are still calling a service before you change it, instead of shipping a breaking change to consumers you forgot existed."},
+      {"title": "Warn before the break", "body": "Flag a planned breaking change or deprecation to every team still on the old contract, while there is time to migrate."},
+      {"title": "Trace the cascade", "body": "Follow a change through services that depend on each other, so a downstream team that relies on an API indirectly still gets warned."}
+    ],
+    "idealFor": [
+      "Platform and infrastructure teams",
+      "Engineering managers",
+      "Technical program managers",
+      "Service owners"
+    ],
+    "faq": [
+      {"q": "How does Husn track API dependencies?", "a": "It reads how teams reference, call, and integrate against each other's services across Jira, Slack, and docs, then keeps a current map of who depends on what."},
+      {"q": "Can it warn consumers about a breaking change?", "a": "Yes. When an owning team plans a breaking change or deprecation, Husn flags it to the consumers still on the old contract before the change ships."},
+      {"q": "Does it follow indirect service dependencies?", "a": "It does. Husn follows service chains, so a change to one API reaches teams that depend on it through another service, not just the direct callers."},
+      {"q": "Does Husn touch our code or services?", "a": "No. It reads only. Husn never edits code, changes contracts, or writes anything back to your tools or services."}
+    ],
+    "ctaHeadline": "Know who breaks when an API changes.",
+    "ctaText": "Connect your tools and Husn will map your service dependencies and warn consumers before a breaking change reaches them, in about fifteen minutes.",
+    "related": ["dependency-tracking-software", "release-dependency-management", "change-impact-analysis"]
+  }
+]

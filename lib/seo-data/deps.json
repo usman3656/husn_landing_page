@@ -1,0 +1,250 @@
+[
+  {
+    "slug": "dependency-management-software",
+    "type": "tool",
+    "category": "dependency-management",
+    "title": "Dependency management software",
+    "metaTitle": "Dependency Management Software | Husn",
+    "metaDescription": "Husn reads Jira, Slack, and your docs to find dependencies between teams, keep them current, and warn the side that is about to be blocked before it happens.",
+    "heroEyebrow": "For teams that hand off constantly",
+    "heroHeadline": "Software that watches your dependencies.",
+    "heroSubheadline": "Most dependency tools wait for someone to type the dependency in. Husn finds it from the work itself, then watches it for change.",
+    "primaryPain": "A dependency is only as good as the last time someone updated it. The work keeps moving, but the record of who depends on whom is frozen at the moment it was entered, so the tool that was supposed to protect a handoff quietly becomes a list of things that used to be true.",
+    "painBullets": ["Dependencies only exist in the tool if a person remembers to add them, which means the risky ones rarely get added.", "Once entered, nobody goes back to mark a dependency resolved, deferred, or broken, so the data ages out fast.", "The teams on either side of a dependency live in different boards, so neither sees the other change course."],
+    "whyHardHeading": "Why dependency tooling tends to fail",
+    "whyHard": ["Manual entry depends on the person who is most overloaded noticing the dependency and pausing to record it.", "The dependencies that hurt are the ones nobody wrote down, so a tool that only shows entered links shows you the safe ones.", "Keeping a dependency list accurate across many teams is constant maintenance that no one is staffed to do."],
+    "howHusnHelps": ["Husn surfaces dependencies automatically from how teams block, reference, and hand off across Jira, Slack, and documents, including the ones no one logged.", "It tracks the state of each dependency as the work moves, so a deferred ticket on one board shows up as a live risk on the other.", "When one side slips, Husn tells the side that was counting on it, with the change and the source it came from."],
+    "briefing": {
+      "context": "Dependency software view, this week",
+      "items": [
+        {"text": "Data team paused the pipeline work that Reporting's release needs, and Reporting has no link to it.", "tag": "Risk", "tone": "risk"},
+        {"text": "An infra ticket two teams upstream moved out a sprint, shifting a downstream commitment with it.", "tag": "Changed", "tone": "changed"},
+        {"text": "A handoff agreed in Slack last month was never entered as a dependency anywhere.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "19 dependencies tracked - 3 at risk - 6 unlogged found"
+    },
+    "useCases": [
+      {"title": "Replace the spreadsheet", "body": "Stop maintaining a dependency tab by hand. Husn keeps the list current from the work and flags what changed since you last looked."},
+      {"title": "Catch the unlogged ones", "body": "See dependencies that were agreed in chat or a doc but never entered into any tracker, before they turn into a block."},
+      {"title": "Weekly dependency review", "body": "Walk into your sync with a short list of what moved, what is at risk, and who is affected, instead of a stale register."}
+    ],
+    "idealFor": ["Technical program managers", "Delivery managers", "Engineering managers", "Program management offices"],
+    "faq": [
+      {"q": "How is this different from adding dependency links in Jira?", "a": "Jira links only exist if someone creates them. Husn infers dependencies from how teams actually block and reference each other, so it catches the ones nobody logged."},
+      {"q": "Does Husn keep dependencies up to date?", "a": "Yes. It tracks the state of each dependency as tickets move, conversations happen, and dates shift, rather than holding a snapshot from when it was entered."},
+      {"q": "Will it write to our tools?", "a": "No. Husn is read only. It never creates links, edits tickets, or changes anything in your systems."},
+      {"q": "What do we have to set up?", "a": "Connect Jira, Slack, and your document sources. Husn maps your live dependencies and starts flagging risks within about fifteen minutes."}
+    ],
+    "ctaHeadline": "See the dependencies you never logged.",
+    "ctaText": "Connect your tools and Husn will surface your live dependencies, including the unrecorded ones, and watch them for change.",
+    "related": ["cross-team-dependency-tracker", "project-dependency-dashboard", "jira-dependency-tracking"]
+  },
+  {
+    "slug": "project-dependency-dashboard",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Project dependency dashboard",
+    "metaTitle": "Project Dependency Dashboard | Husn",
+    "metaDescription": "A live dashboard of your project dependencies and their status. Husn reads Jira, Slack, and docs to show what each dependency needs, who owns it, and what is at risk.",
+    "heroEyebrow": "For program and delivery managers",
+    "heroHeadline": "A dependency view that stays true.",
+    "heroSubheadline": "A dashboard is only worth opening if it reflects reality. Husn keeps every project dependency current and marks the ones that just moved.",
+    "primaryPain": "Most dependency dashboards are built once, look impressive in the kickoff, and start decaying the next day. By the time someone needs it to make a call, half the statuses are guesses and the colors no longer mean anything.",
+    "painBullets": ["The status column is filled in by hand, so it reflects opinion and the last update, not the current state of the work.", "Dependencies that were never entered do not appear, so the dashboard looks complete while missing the dangerous ones.", "Refreshing it means chasing owners across teams, which is exactly the work the dashboard was supposed to remove."],
+    "whyHardHeading": "Why dependency dashboards go stale",
+    "whyHard": ["A dashboard reflects whatever was typed in, so it is always one update behind the work it describes.", "Status on a dependency is a judgment call, and the people best placed to make it are too busy to keep it current.", "Cross project dependencies cross tool boundaries, so no single board has the whole picture to render."],
+    "howHusnHelps": ["Husn builds the dashboard from how teams actually depend on each other across Jira, Slack, and docs, then surfaces dependencies you never recorded.", "Each dependency carries a live status that updates as tickets move and dates change, so the view reflects now, not last week.", "When a dependency shifts, Husn marks it and tells the project that was counting on it, with the change and its source."],
+    "briefing": {
+      "context": "Dependency dashboard, this week",
+      "items": [
+        {"text": "The shared design system update that two projects depend on slipped a sprint and neither owner flagged it.", "tag": "Risk", "tone": "risk"},
+        {"text": "A vendor integration moved its delivery date, changing the critical path for the launch project.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two projects are both expecting the same API change in the same week.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "23 dependencies shown - 4 at risk - 5 projects affected"
+    },
+    "useCases": [
+      {"title": "Status meetings", "body": "Open one view that is already accurate, instead of spending the first twenty minutes confirming whether the statuses are real."},
+      {"title": "Single project deep dive", "body": "See everything one project depends on, with the current state of each and which ones just changed."},
+      {"title": "Cross project conflicts", "body": "Spot two projects relying on the same resource or change in the same window before they collide."}
+    ],
+    "idealFor": ["Program managers", "Delivery managers", "Project management offices", "Heads of engineering"],
+    "faq": [
+      {"q": "Where does the status on each dependency come from?", "a": "From the work itself. Husn reads ticket movement, conversations, and date changes across your tools, so status reflects the current state rather than a manual entry."},
+      {"q": "Will dependencies we never entered show up?", "a": "Yes. Husn surfaces dependencies from how teams reference and block each other, so the dashboard includes ones that were never logged anywhere."},
+      {"q": "Does it change our boards?", "a": "No. Husn reads only. The dashboard reflects your tools without ever writing back to them."},
+      {"q": "How current is the view?", "a": "It updates as the underlying work moves, and Husn highlights what changed since you last looked so you are not rereading the whole board."}
+    ],
+    "ctaHeadline": "Open a dashboard that is already right.",
+    "ctaText": "Connect your tools and Husn will build a live dependency dashboard, surface the hidden ones, and flag what is at risk.",
+    "related": ["project-dependency-register", "dependency-management-software", "cross-team-dependency-tracker"]
+  },
+  {
+    "slug": "dependency-mapping-template",
+    "type": "template",
+    "category": "dependency-management",
+    "title": "Dependency mapping template",
+    "metaTitle": "Dependency Mapping Template | Husn",
+    "metaDescription": "A clean template for mapping dependencies between teams, with owner, dependent, needed-by date, status, and risk. Plus how Husn keeps the map current after you fill it in.",
+    "heroEyebrow": "For TPMs and delivery leads",
+    "heroHeadline": "A dependency map worth maintaining.",
+    "heroSubheadline": "Start with a template that captures what a dependency actually needs. Then let Husn keep it true as the work moves.",
+    "primaryPain": "A dependency mapping exercise produces a beautiful artifact in a planning room, and then it dies. The fields are right, the structure is sound, but nobody owns keeping it accurate, so it becomes a record of intentions from a date that has passed.",
+    "painBullets": ["A good template still relies on a person to revisit every row and update it, which rarely happens after week one.", "The map captures the dependencies known in the room, not the ones that formed later in chat or in a doc.", "Risk and status are point in time judgments, so they age the moment the meeting ends."],
+    "whyHardHeading": "Why a template alone is not enough",
+    "whyHard": ["The structure is the easy part. The hard part is keeping every row honest as dates slip and priorities change.", "Dependencies that emerge after the mapping session never make it into the template unless someone notices and adds them.", "Maintaining the map by hand across many teams is recurring work that competes with everything else on the list."],
+    "howHusnHelps": ["Use the template to frame your thinking, then connect Husn to keep the same fields current from Jira, Slack, and docs.", "Husn surfaces dependencies that form after the mapping session, including ones no one entered, so the map does not freeze in time.", "When a needed-by date or status changes, Husn updates the row and warns the dependent team before the gap turns into a block."],
+    "briefing": {
+      "context": "Mapped dependencies, this week",
+      "items": [
+        {"text": "A row marked green now reads red, the upstream item moved past its needed-by date and the owner has not said so.", "tag": "Risk", "tone": "risk"},
+        {"text": "An owning team changed hands, so the dependency now points at a team that does not know it exists.", "tag": "Changed", "tone": "changed"},
+        {"text": "A new dependency formed in Slack last week and is not on the map yet.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "16 rows mapped - 2 past needed-by - 1 new found"
+    },
+    "useCases": [
+      {"title": "Planning sessions", "body": "Run the mapping exercise with a clean structure that forces the right questions about owner, dependent, and needed-by date."},
+      {"title": "Quarterly handover", "body": "Hand the map to the next quarter with confidence that it reflects the current state, not the state it was created in."},
+      {"title": "Risk reviews", "body": "Sort by the risk field to focus a review on the dependencies most likely to slip, with the reason attached."}
+    ],
+    "idealFor": ["Technical program managers", "Delivery managers", "Project leads", "Program management offices"],
+    "templateContents": [
+      "Upstream item: the work or deliverable being depended on, named clearly enough that both teams agree on it.",
+      "Downstream item: the work that cannot proceed until the upstream item lands.",
+      "Owning team: who is responsible for delivering the upstream item.",
+      "Dependent team: who is counting on it and will be blocked if it slips.",
+      "Needed-by date: the date the downstream work actually needs it, not a hopeful target.",
+      "Status and risk: current state of the dependency and how likely it is to miss, with a short reason."
+    ],
+    "faq": [
+      {"q": "Can I use the template without Husn?", "a": "Yes. The structure stands on its own. Husn is for when you want the map to stay accurate after the planning session instead of decaying."},
+      {"q": "How does Husn keep the map current?", "a": "It reads how teams block and hand off across Jira, Slack, and docs, then updates the same fields, including dependencies that were never entered."},
+      {"q": "What fields should every dependency have?", "a": "An owning team, a dependent team, a clear needed-by date, and a current status with risk. Those four turn a list into something you can act on."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. It reads only. It updates the map and warns the right people, but it never writes back to your boards or documents."}
+    ],
+    "ctaHeadline": "Map it once, keep it true.",
+    "ctaText": "Fill in the template, then connect Husn to keep every row current and surface the dependencies you would have missed.",
+    "related": ["program-dependency-register", "cross-team-dependency-tracker", "project-dependency-dashboard"]
+  },
+  {
+    "slug": "program-dependency-register",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Program dependency register",
+    "metaTitle": "Program Dependency Register | Husn",
+    "metaDescription": "A program level register of dependencies kept current automatically. Husn reads Jira, Slack, and docs to track every cross team dependency in your program and flag risk.",
+    "heroEyebrow": "For program managers and PMO leaders",
+    "heroHeadline": "A program register that stays current.",
+    "heroSubheadline": "At program scale, a static register is a liability. Husn keeps the full set of dependencies across your workstreams accurate and surfaces the ones at risk.",
+    "primaryPain": "A program dependency register starts as a disciplined artifact and becomes a museum piece. With many workstreams feeding into shared milestones, the register cannot keep pace with the work by hand, so leaders end up trusting a document that no longer matches the program.",
+    "painBullets": ["At program scale there are too many dependencies for any one person to keep updated across every workstream.", "Cross workstream dependencies form and dissolve faster than anyone can edit a central document.", "By the time the register is reviewed in a steering meeting, several entries are already wrong."],
+    "whyHardHeading": "Why program registers fall behind",
+    "whyHard": ["A program aggregates many teams, and each one changes its plan on its own cadence, so the register is always chasing.", "The dependencies that threaten a program milestone are often second order, hidden two workstreams away from where they bite.", "Centralizing the register means someone has to reconcile what every tool says, which is more than a manual job at this scale."],
+    "howHusnHelps": ["Husn assembles the register from how workstreams actually depend on each other across Jira, Slack, and docs, surfacing dependencies no one logged.", "It keeps every entry current as work moves, so the register a steering committee reads matches the program as it stands today.", "When a dependency threatens a milestone, Husn traces it to the workstreams affected and warns them, with the change and its source."],
+    "briefing": {
+      "context": "Program register, this week",
+      "items": [
+        {"text": "A shared platform milestone three workstreams depend on slipped, and the program timeline has not been adjusted.", "tag": "Risk", "tone": "risk"},
+        {"text": "A workstream rescoped its delivery, removing a component another workstream was building on.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two workstreams are both blocked waiting on the same external approval.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "34 dependencies registered - 5 at risk - 3 milestones exposed"
+    },
+    "useCases": [
+      {"title": "Steering committee prep", "body": "Bring a register that is accurate to the meeting, so the conversation is about decisions rather than data quality."},
+      {"title": "Milestone protection", "body": "See every dependency feeding a program milestone and which ones put the date at risk, traced to the workstream responsible."},
+      {"title": "Workstream onboarding", "body": "Show a new workstream lead exactly what they depend on and who depends on them, without a week of archaeology."}
+    ],
+    "idealFor": ["Program managers", "PMO leaders", "Portfolio managers", "Chiefs of staff"],
+    "faq": [
+      {"q": "How is this different from a project dependency register?", "a": "It works at program scope. It spans many workstreams and shared milestones, where the dangerous dependencies are the ones that cross workstream boundaries."},
+      {"q": "How does the register stay current?", "a": "Husn tracks how workstreams depend on each other across your tools and updates entries as the work moves, including dependencies that were never recorded."},
+      {"q": "Can it tie dependencies to milestones?", "a": "Yes. Husn connects each dependency to the milestones it feeds, so a slip several workstreams away reaches you as a milestone risk."},
+      {"q": "Does Husn write to our systems?", "a": "No. It is read only. It keeps the register and warns the right people, but it never edits tickets, milestones, or documents."}
+    ],
+    "ctaHeadline": "Trust the register again.",
+    "ctaText": "Connect your program's tools and Husn will build a live dependency register, surface the hidden ones, and flag every milestone at risk.",
+    "related": ["project-dependency-register", "portfolio-risk-management", "dependency-mapping-template"]
+  },
+  {
+    "slug": "jira-dependency-tracking",
+    "type": "tool",
+    "category": "dependency-management",
+    "title": "Jira dependency tracking",
+    "metaTitle": "Jira Dependency Tracking | Husn",
+    "metaDescription": "Track dependencies in and around Jira, including the ones nobody linked. Husn reads Jira, Slack, and docs to monitor every dependency and warn you before a block lands.",
+    "heroEyebrow": "For teams running on Jira",
+    "heroHeadline": "Track the links Jira never made.",
+    "heroSubheadline": "Jira can hold a dependency link, but only if someone creates it. Husn tracks the dependencies that exist whether or not anyone clicked the button.",
+    "primaryPain": "Dependency tracking in Jira assumes the link exists. In practice, the most consequential dependencies live in a Slack thread or a comment, never formalized as a blocker, so Jira shows a clean board while a team three steps away is about to be blocked by something Jira cannot see.",
+    "painBullets": ["A Jira dependency only counts if someone remembered to mark it as a blocker, which the busiest people rarely do.", "Once a link exists, nobody monitors it, so a deferred ticket on one side does not alert the other.", "Dependencies that span teams or boards are invisible in a single project's view of blockers."],
+    "whyHardHeading": "Why Jira blockers miss the real dependencies",
+    "whyHard": ["Blocker links are manual, so the dependencies that get tracked are the obvious ones, not the risky unlinked ones.", "Jira shows you a link exists but does not watch it change, so a dependency can go bad silently.", "The agreement that creates a dependency usually happens in conversation, and Jira never hears it."],
+    "howHusnHelps": ["Husn reads Jira alongside Slack and docs to surface dependencies automatically, including the ones that were never linked as blockers.", "It monitors each dependency as tickets move and dates shift, so a slip on one board reaches the team relying on it as a warning.", "When a dependency turns risky, Husn tells the dependent team what changed and which ticket or thread it came from."],
+    "briefing": {
+      "context": "Jira dependency watch, this week",
+      "items": [
+        {"text": "A ticket Mobile depends on was moved to next sprint, but it was never linked as a blocker, so Mobile has no signal.", "tag": "Risk", "tone": "risk"},
+        {"text": "A linked blocker upstream changed its fix version, shifting the date the downstream team was planning around.", "tag": "Changed", "tone": "changed"},
+        {"text": "A dependency agreed in a Slack thread last week has no matching link in Jira.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "27 dependencies tracked - 3 at risk - 9 unlinked found"
+    },
+    "useCases": [
+      {"title": "Find the unlinked ones", "body": "Surface dependencies that exist in conversation or comments but were never marked as Jira blockers, before they block someone."},
+      {"title": "Monitor existing blockers", "body": "Get told when a linked dependency changes state or date, instead of finding out when the downstream ticket stalls."},
+      {"title": "Cross board dependencies", "body": "Track dependencies that span projects and boards, which a single project's blocker view will never show you."}
+    ],
+    "idealFor": ["Technical program managers", "Engineering managers", "Scrum masters", "Release managers"],
+    "faq": [
+      {"q": "Does Husn replace Jira blocker links?", "a": "No. It complements them. Husn tracks dependencies whether or not a link exists, so the unlinked ones stop slipping through."},
+      {"q": "How does it find unlinked dependencies?", "a": "By reading how teams reference and hand off across Jira, Slack, and docs. If a dependency is real, Husn surfaces it even without a blocker link."},
+      {"q": "Will Husn create or edit links in Jira?", "a": "No. It is strictly read only. It tracks and warns, but it never creates links, moves tickets, or edits anything in Jira."},
+      {"q": "What does monitoring a dependency mean here?", "a": "Husn watches each dependency for changes in date, status, or scope and tells the dependent team when one turns risky, with the source."}
+    ],
+    "ctaHeadline": "Track every dependency, linked or not.",
+    "ctaText": "Connect Jira, Slack, and your docs, and Husn will surface the unlinked dependencies and monitor all of them for risk.",
+    "related": ["jira-dependency-management", "cross-team-dependency-tracker", "dependency-management-software"]
+  },
+  {
+    "slug": "cross-functional-dependency-management",
+    "type": "solution",
+    "category": "dependency-management",
+    "title": "Cross functional dependency management",
+    "metaTitle": "Cross Functional Dependency Management | Husn",
+    "metaDescription": "Manage dependencies across product, engineering, and business functions. Husn reads Jira, Slack, and docs to surface cross functional dependencies and flag the ones at risk.",
+    "heroEyebrow": "For leaders coordinating across functions",
+    "heroHeadline": "Dependencies that cross every function.",
+    "heroSubheadline": "The hardest dependencies run between functions that do not share a tool or a vocabulary. Husn reads across all of them and tells each function when the other moves.",
+    "primaryPain": "Product, engineering, and the business each track their own work in their own way, and the dependencies between them live in the gaps. Marketing plans a launch around an engineering date nobody confirmed, legal is waiting on a decision product thinks is already made, and none of it shows up until something stalls.",
+    "painBullets": ["Each function uses different tools and terms, so a dependency that crosses them has no shared place to live.", "Business commitments often depend on engineering work that the business cannot see, and the reverse is just as common.", "Cross functional dependencies are agreed in meetings and then never tracked anywhere durable."],
+    "whyHardHeading": "Why cross functional dependencies are the worst",
+    "whyHard": ["Functions speak different languages, so a dependency that is obvious to engineering is invisible to the business, and back.", "There is no shared system of record across functions, so the dependency has nowhere to be tracked consistently.", "The cost of a missed cross functional dependency lands late, usually at a launch, when there is no time left to recover."],
+    "howHusnHelps": ["Husn reads across the tools each function uses, Jira, Slack, and docs, and surfaces the dependencies that run between them automatically.", "It translates a change in one function into a warning the other function understands, so an engineering slip reaches marketing as a launch risk.", "When a cross functional dependency turns risky, Husn tells the function that was counting on it, with what changed and where it came from."],
+    "briefing": {
+      "context": "Cross functional watch, this week",
+      "items": [
+        {"text": "Marketing scheduled the launch around an engineering date that engineering quietly moved back two weeks.", "tag": "Risk", "tone": "risk"},
+        {"text": "A pricing decision the business was waiting on was made in a product doc but never communicated.", "tag": "Changed", "tone": "changed"},
+        {"text": "Legal review and the engineering cutover are both planned for the same final week.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "21 cross functional dependencies - 4 at risk - 3 functions affected"
+    },
+    "useCases": [
+      {"title": "Launch coordination", "body": "Confirm that every function a launch depends on, from engineering to legal to marketing, is actually aligned on the same dates."},
+      {"title": "Decision dependencies", "body": "Track the decisions one function is waiting on from another and see the moment one is made, or quietly stalls."},
+      {"title": "Function to function handoffs", "body": "See where work passes between functions and catch a slip before the receiving function plans around something that moved."}
+    ],
+    "idealFor": ["Chiefs of staff", "Heads of product", "Program managers", "Founders"],
+    "faq": [
+      {"q": "How does Husn see dependencies across functions?", "a": "It reads the tools each function uses, Jira, Slack, and docs, and infers the dependencies that run between them, including ones never written down."},
+      {"q": "What about functions that do not use Jira?", "a": "Husn reads the conversations and documents where business and product work lives, so a dependency does not need a ticket to be tracked."},
+      {"q": "How does a change reach the other function?", "a": "Husn translates the change into terms the dependent function cares about, so an engineering slip arrives as a launch risk, not a ticket number."},
+      {"q": "Does it write to any of our tools?", "a": "No. Husn is read only across every function. It surfaces and warns, but it never edits tickets, docs, or messages."}
+    ],
+    "ctaHeadline": "Close the gaps between functions.",
+    "ctaText": "Connect the tools each function uses and Husn will surface the dependencies between them and flag the ones putting a date at risk.",
+    "related": ["cross-functional-alignment-software", "cross-team-dependency-tracker", "change-impact-analysis"]
+  }
+]

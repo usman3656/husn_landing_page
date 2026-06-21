@@ -1,0 +1,546 @@
+[
+  {
+    "slug": "one-page-project-status-report",
+    "type": "template",
+    "category": "executive-reporting",
+    "title": "One-page project status report",
+    "metaTitle": "One-Page Project Status Report | Husn",
+    "metaDescription": "A one-page project status template that fits on a single screen: headline, status, key changes, risks, decisions needed, and next milestone. Husn fills it from your tools.",
+    "heroEyebrow": "Everything that matters, one page",
+    "heroHeadline": "One page, the whole truth.",
+    "heroSubheadline": "A status report should fit on one screen and still say something. This template holds the six things a reader needs, and Husn can fill it from the work so it stays current.",
+    "primaryPain": "Most one-pagers are one page in name only, then a second page of caveats and a third of charts nobody opens, because no one was willing to decide what to leave out.",
+    "painBullets": [
+      "The headline ends up below the fold, so a busy reader closes the page before they reach the line that mattered.",
+      "Risks and decisions get folded into a paragraph of progress, where they read as background instead of a prompt to act.",
+      "The single page is accurate the day it ships and wrong by the next meeting, because nobody updates a static document."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "Fitting a real project onto one page forces choices about what to cut, and under deadline those choices fall to whoever is least informed.",
+      "A one-pager per project is fine. Forty of them, kept current by hand every week, is a job no one has time for.",
+      "The discipline that keeps a page short is the first thing to go when the news is bad, which is exactly when brevity helps the reader most."
+    ],
+    "howHusnHelps": [
+      "Husn reads Jira, Slack, and docs and fills each section of the page, leading with the headline and the decisions, not the activity.",
+      "It keeps the page current as the work moves, so the version someone opens on Thursday reflects Thursday, not Monday.",
+      "Every line on the page links back to the issue, message, or document behind it, so a reader can check any claim without leaving the page."
+    ],
+    "briefing": {
+      "context": "One-page status, this week",
+      "items": [
+        {"text": "The next milestone slipped four days and now lands after the demo it was meant to support.", "tag": "Decision", "tone": "risk"},
+        {"text": "A risk that was amber last week is now red after the staging environment failed twice.", "tag": "Changed", "tone": "changed"},
+        {"text": "A dependency on the platform team has no committed date and no owner since the reorg.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 page - 1 decision needed - 1 milestone at risk"
+    },
+    "useCases": [
+      {"title": "Weekly distribution", "body": "Send one page per project that opens with the headline and ends with the next milestone, ready to read in under a minute."},
+      {"title": "Quick stakeholder check-in", "body": "Hand a sponsor a single page that answers where things stand without scheduling a meeting to explain it."},
+      {"title": "Standard format across teams", "body": "Give every team the same six sections so a reader knows where to look no matter whose project it is."}
+    ],
+    "idealFor": ["Delivery and program managers", "TPMs and EPMs", "Chiefs of staff", "Heads of engineering and product"],
+    "faq": [
+      {"q": "What sections does the one-pager include?", "a": "Headline, status, key changes, risks, decisions needed, and next milestone. Six sections that hold what a reader needs and nothing they do not."},
+      {"q": "Can Husn keep the page up to date?", "a": "Yes. Husn reads across Jira, Slack, and docs and refreshes each section as the work moves, so the page reflects the current state, not last week's."},
+      {"q": "Can I verify what is on the page?", "a": "Yes. Every line links back to the source it came from, so any claim can be checked in a click."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Put the whole project on one honest page.",
+    "ctaText": "See the one-page status Husn would write from your own tools, in about fifteen minutes.",
+    "related": ["weekly-executive-project-summary", "automated-status-reports", "project-summary-generator"],
+    "templateContents": [
+      "Headline: the one sentence a reader would repeat if they only remembered one thing.",
+      "Status: overall health with a plain reason, not a color alone.",
+      "Key changes: what moved since the last report, and why it moved.",
+      "Risks: what could go wrong, how likely, and who is watching it.",
+      "Decisions needed: the specific calls waiting on a leader, with the cost of waiting.",
+      "Next milestone: the next date that matters and the confidence behind it."
+    ]
+  },
+  {
+    "slug": "monthly-project-status-report-template",
+    "type": "template",
+    "category": "executive-reporting",
+    "title": "Monthly project status report template",
+    "metaTitle": "Monthly Project Status Report Template | Husn",
+    "metaDescription": "A monthly project status report template that captures the arc of the month, not just the last week. Husn assembles it from Jira, Slack, and docs and traces every line.",
+    "heroEyebrow": "The month, not just the last week",
+    "heroHeadline": "A monthly report that remembers the month.",
+    "heroSubheadline": "Monthly reports are usually a weekly update with a wider date range. This template captures what changed across the whole month, and Husn can assemble it from the work itself.",
+    "primaryPain": "By the time the monthly report is due, most people only remember the last few days clearly, so the report over-weights recent noise and quietly forgets the decisions and drift that defined the month.",
+    "painBullets": [
+      "Early-month risks that resolved or worsened go unmentioned, so the reader cannot see the trajectory, only the endpoint.",
+      "Whoever writes it reconstructs four weeks from memory and a few Slack threads, which means the account is partial by design.",
+      "The format drifts every month, so a reader cannot compare this month to the last without re-reading both in full."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "A month is long enough that no single person holds the whole arc in their head, so the report becomes a stitch of partial views.",
+      "Compiling a true monthly picture by hand takes days, which means it starts late and ships in a rush at the worst possible moment.",
+      "Across a portfolio, monthly reporting multiplies into a recurring scramble that pulls senior people off the work to describe the work."
+    ],
+    "howHusnHelps": [
+      "Husn reads across the full month of Jira, Slack, and docs and assembles the report from what actually happened, not from memory.",
+      "It surfaces the changes, decisions, and risks that defined the month, including the ones that resolved before anyone wrote them down.",
+      "The structure stays the same month to month, so a reader can compare the trend, and every line traces back to its source."
+    ],
+    "briefing": {
+      "context": "Monthly status, this period",
+      "items": [
+        {"text": "Scope grew steadily across the month, adding eleven tickets that no one decision approved in one place.", "tag": "Changed", "tone": "changed"},
+        {"text": "A risk flagged in week one was closed in week three, but the mitigation moved a deadline that still stands.", "tag": "Decision", "tone": "risk"},
+        {"text": "Two owners changed mid-month, and the handover for one is still incomplete.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "4 weeks - 2 decisions needed - 1 handover open"
+    },
+    "useCases": [
+      {"title": "Monthly steering input", "body": "Bring a steering group a report that shows the month's arc, so the discussion is about direction, not last Tuesday."},
+      {"title": "Sponsor and finance updates", "body": "Give finance and sponsors a consistent monthly account they can compare period over period without re-learning the format."},
+      {"title": "Portfolio roll-up", "body": "Produce a monthly report per program in one shape, so a portfolio view assembles without reconciling ten different layouts."}
+    ],
+    "idealFor": ["PMO leaders", "Program and delivery managers", "VPs running multiple programs", "Chiefs of staff"],
+    "faq": [
+      {"q": "How is this different from a weekly report?", "a": "A weekly report captures the last few days. This one captures the arc of the month, including changes that resolved before anyone wrote them down. Husn assembles it from the full period."},
+      {"q": "Where does the monthly picture come from?", "a": "From a month of Jira, Slack, and documents. Husn reads across them and reconciles what they each say before it writes the report."},
+      {"q": "Can I compare one month to the next?", "a": "Yes. The structure stays consistent every month, so the same sections appear in the same place and the trend is easy to read."},
+      {"q": "Does Husn post anything to our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Report the whole month, not the last week.",
+    "ctaText": "See the monthly status Husn would write from your own tools, in about fifteen minutes.",
+    "related": ["one-page-project-status-report", "weekly-executive-project-summary", "automated-status-reports"],
+    "templateContents": [
+      "Month in one paragraph: the trajectory, said plainly, before any detail.",
+      "Key changes this month: scope, dates, and ownership that moved, with the reason behind each.",
+      "Risks opened and closed: what emerged, what resolved, and what the mitigations cost.",
+      "Decisions made and pending: calls taken this month and the ones still waiting.",
+      "Milestones hit and missed: planned versus actual, with confidence on what comes next.",
+      "Outlook for next month: the dates and dependencies that will define the period ahead."
+    ]
+  },
+  {
+    "slug": "quarterly-business-review-template",
+    "type": "template",
+    "category": "executive-reporting",
+    "title": "Quarterly business review template",
+    "metaTitle": "Quarterly Business Review Template | Husn",
+    "metaDescription": "A QBR template for programs and portfolios that leads with outcomes, decisions, and risk, not a slide tour. Husn assembles the quarter from Jira, Slack, and docs.",
+    "heroEyebrow": "For the quarterly review that decides",
+    "heroHeadline": "A QBR built on what happened.",
+    "heroSubheadline": "A quarterly review should account for a quarter, not narrate a deck. This template holds outcomes, commitments, risk, and the calls ahead, and Husn can ground it in the actual work.",
+    "primaryPain": "QBR decks are usually built in the final week by pulling old slides forward and editing the dates, so the review measures how well the team can assemble a deck, not how the quarter actually went.",
+    "painBullets": [
+      "Commitments made at the last QBR go unchecked, so no one closes the loop on what was promised three months ago.",
+      "The deck leads with accomplishments and tucks the hard calls into an appendix nobody reaches before time runs out.",
+      "Each program presents in its own format, so the portfolio view is impossible to assemble in the room."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "A quarter spans hundreds of changes across many tools, and no slide author can reconstruct that honestly from memory in a week.",
+      "QBR prep pulls senior people off delivery for days to build slides, which is the most expensive way to describe work that already happened.",
+      "When every program reports differently, leadership spends the review reconciling formats instead of making the decisions the review exists for."
+    ],
+    "howHusnHelps": [
+      "Husn reads the full quarter across Jira, Slack, and docs and drafts the review from what happened, including how last quarter's commitments landed.",
+      "It leads with outcomes against plan, the risks that shaped the quarter, and the decisions the next quarter needs, in one consistent shape.",
+      "Every figure and claim links back to its source, so a leader can interrogate any line without waiting for a follow-up email."
+    ],
+    "briefing": {
+      "context": "Quarterly review, this quarter",
+      "items": [
+        {"text": "Two of the three commitments from last QBR were met. The third slipped a quarter and was never formally re-baselined.", "tag": "Decision", "tone": "risk"},
+        {"text": "Headcount moved between two programs mid-quarter, shifting the delivery profile that the plan assumed.", "tag": "Changed", "tone": "changed"},
+        {"text": "A cross-program dependency surfaced in month two still has no owner heading into the new quarter.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "3 programs - 2 decisions needed - 1 commitment slipped"
+    },
+    "useCases": [
+      {"title": "Quarterly leadership review", "body": "Open the review with outcomes against plan and the calls ahead, so the room spends its time deciding, not catching up."},
+      {"title": "Portfolio QBR", "body": "Bring every program into one format, so leadership reads the portfolio as a whole instead of program by program."},
+      {"title": "Commitment tracking", "body": "Show how last quarter's promises landed, traced to the work, so accountability carries from one review to the next."}
+    ],
+    "idealFor": ["VPs running multiple programs", "PMO leaders", "Chiefs of staff", "Founders and CEOs"],
+    "faq": [
+      {"q": "What does the QBR template cover?", "a": "Outcomes against plan, how last quarter's commitments landed, the risks that shaped the quarter, and the decisions the next quarter needs. It leads with the calls, not the accomplishments."},
+      {"q": "Can it track commitments across quarters?", "a": "Yes. Husn carries forward what was promised at the last review and shows how each one actually landed, traced to the work."},
+      {"q": "How does it handle a whole portfolio?", "a": "Every program is drafted in the same structure, so the portfolio assembles in one shape without reconciling separate decks in the room."},
+      {"q": "Does Husn write back to our tools?", "a": "No. Husn reads and explains only. It never writes to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Run the quarter's review on the quarter's reality.",
+    "ctaText": "See the QBR Husn would assemble from your own tools, in about fifteen minutes.",
+    "related": ["board-reporting-template", "project-portfolio-report", "quarterly-planning-preparation"],
+    "templateContents": [
+      "Quarter at a glance: outcomes against plan in one honest paragraph.",
+      "Commitments review: what was promised last quarter and how each one landed.",
+      "Key results and metrics: the numbers that mattered, with the change since last quarter.",
+      "Risks and issues: what shaped the quarter and what carries into the next.",
+      "Decisions for the quarter ahead: the specific calls leadership needs to make now.",
+      "Outlook and dependencies: the dates and cross-program ties that define next quarter."
+    ]
+  },
+  {
+    "slug": "project-portfolio-report",
+    "type": "solution",
+    "category": "executive-reporting",
+    "title": "Project portfolio report",
+    "metaTitle": "Project Portfolio Report | Husn",
+    "metaDescription": "One report across an entire project portfolio, drawn from Jira, Slack, and docs. Husn reconciles every program into one view so leaders see risk and drift in one place.",
+    "heroEyebrow": "The whole portfolio, one view",
+    "heroHeadline": "Every program, one honest report.",
+    "heroSubheadline": "A portfolio report is only useful if every program tells the truth in the same shape. Husn reads each one and reconciles them into a single view leaders can act on.",
+    "primaryPain": "A portfolio report is usually a folder of slide decks in different formats, collected the week it is due, so leadership reads ten separate stories instead of one portfolio and cannot tell which programs actually need them.",
+    "painBullets": [
+      "Each program rates its own health, so a green in one team and a green in another mean entirely different things.",
+      "The reds get softened on the way up, so the portfolio looks calmer at the top than it is on the ground.",
+      "Cross-program risks fall between the decks, because each report only covers its own slice and no one owns the seams."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "A few projects can be tracked in a head or a spreadsheet. A portfolio cannot, and the cost of missing one rising risk grows with the count.",
+      "Normalizing many programs into one comparable view by hand is slow and political, so it either ships late or ships smoothed.",
+      "The risks that hurt most at portfolio level live between programs, exactly where single-program reporting has no eyes."
+    ],
+    "howHusnHelps": [
+      "Husn reads each program across Jira, Slack, and docs and reconciles them into one report where health means the same thing everywhere.",
+      "It surfaces the programs that changed, the risks that rose, and the dependencies that cross teams, so attention goes where it is needed.",
+      "Every program's line traces back to its own source, so a leader can drill from the portfolio view into the evidence in a click."
+    ],
+    "briefing": {
+      "context": "Portfolio report, this week",
+      "items": [
+        {"text": "Two of nine programs moved from amber to red this week, both for reasons outside their own teams.", "tag": "Decision", "tone": "risk"},
+        {"text": "A shared platform dependency now sits on the critical path of three separate programs.", "tag": "Changed", "tone": "changed"},
+        {"text": "One program self-reports green while its largest milestone has quietly slipped twice.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "9 programs - 2 decisions needed - 1 shared dependency"
+    },
+    "useCases": [
+      {"title": "Portfolio leadership review", "body": "Open the meeting with the programs that changed and the risks that cross teams, so the room starts on the few that need it."},
+      {"title": "Investment and prioritization", "body": "See an honest health picture across every program before moving budget or people, traced to the work, not the pitch."},
+      {"title": "Early warning across teams", "body": "Catch a risk that spans programs while it is still small, instead of meeting it when it has reached the critical path."}
+    ],
+    "idealFor": ["PMO leaders", "VPs running multiple programs", "Chiefs of staff", "Heads of engineering and product"],
+    "faq": [
+      {"q": "How does Husn compare programs fairly?", "a": "It reads each program from the same sources and applies the same definition of health, so a green in one team means what it means in another."},
+      {"q": "Can it catch risks that cross programs?", "a": "Yes. Husn sees the seams between programs, so a shared dependency or a risk that spans teams surfaces instead of falling between decks."},
+      {"q": "Can a leader drill into a single program?", "a": "Yes. Every line in the portfolio view links back to that program's own Jira, Slack, and documents, so you can verify any claim."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "See the whole portfolio tell one honest story.",
+    "ctaText": "See the portfolio report Husn would assemble from your own tools, in about fifteen minutes.",
+    "related": ["portfolio-health-dashboard", "portfolio-risk-management", "program-health-dashboard"]
+  },
+  {
+    "slug": "cio-dashboard",
+    "type": "solution",
+    "category": "executive-reporting",
+    "title": "CIO dashboard",
+    "metaTitle": "CIO Dashboard | Husn",
+    "metaDescription": "A CIO view across every IT initiative, drawn from Jira, Slack, and docs. Husn reconciles delivery, risk, and dependencies into one read so technology leadership sees what changed.",
+    "heroEyebrow": "For technology leadership",
+    "heroHeadline": "Every IT initiative in one read.",
+    "heroSubheadline": "A CIO answers for delivery across many teams and vendors at once. Husn reads the work itself and reconciles it into one view of what changed, what is at risk, and what needs a call.",
+    "primaryPain": "A CIO dashboard is usually fed by manual status fields that teams update on Friday afternoons, so the green tiles reflect what people typed, not what the work is doing, and the gap shows up only when something breaks.",
+    "painBullets": [
+      "Status fields are entered by hand, so the dashboard is as honest as the person filling them in and as fresh as the last time they remembered.",
+      "Vendor and cross-team dependencies sit outside any one team's tracker, so the dashboard is blind to the seams where IT delivery actually fails.",
+      "By the time a red tile appears, the problem has usually been visible in Slack and Jira for a week, just not where leadership was looking."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "IT spans infrastructure, security, platform, and product work in different tools, so a single honest view requires reading across all of them, not one.",
+      "Manual dashboards decay the moment attention moves elsewhere, and a CIO's attention is pulled in twenty directions at once.",
+      "The failures that reach a CIO are usually dependency and handover failures between teams, which is exactly what per-team status fields cannot see."
+    ],
+    "howHusnHelps": [
+      "Husn reads across the Jira projects, Slack channels, and docs behind every initiative and builds the view from the work, not from status fields.",
+      "It surfaces the initiatives that changed, the risks that rose, and the dependencies between teams and vendors, so the seams stop being blind spots.",
+      "Every tile traces back to its source, so a CIO can move from a red signal to the Jira issue or Slack thread behind it in one click."
+    ],
+    "briefing": {
+      "context": "CIO view, this week",
+      "items": [
+        {"text": "The identity migration is now blocking two product initiatives that were reporting green on their own.", "tag": "Decision", "tone": "risk"},
+        {"text": "A vendor SLA was renegotiated last week, changing a delivery date baked into the platform roadmap.", "tag": "Changed", "tone": "changed"},
+        {"text": "A security remediation has been open past its committed window with no escalation logged.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "12 initiatives - 1 decision needed - 1 vendor change"
+    },
+    "useCases": [
+      {"title": "Weekly technology read", "body": "Start the week with one view of every initiative, built from the work, so the standing report reflects reality and not last Friday's entries."},
+      {"title": "Vendor and cross-team risk", "body": "See the dependencies between internal teams and vendors that no single tracker owns, before a missed handover becomes an outage."},
+      {"title": "Board and executive prep", "body": "Bring an accurate account of IT delivery to the leadership table without three days of chasing teams for status updates."}
+    ],
+    "idealFor": ["CIOs and IT leaders", "Heads of engineering", "PMO leaders", "Chiefs of staff"],
+    "faq": [
+      {"q": "How is this different from a manual IT dashboard?", "a": "A manual dashboard shows what teams typed into status fields. Husn builds the view from the work itself across Jira, Slack, and docs, so it reflects what is happening, not what was reported."},
+      {"q": "Can it see vendor and cross-team dependencies?", "a": "Yes. Husn reads across teams and surfaces the dependencies and handovers that live between trackers, which is where IT delivery most often slips."},
+      {"q": "Can a CIO verify a red signal?", "a": "Yes. Every tile links back to the Jira issue, Slack message, or document behind it, so any signal can be traced to its evidence."},
+      {"q": "Does Husn write to our systems?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "See every IT initiative as it actually is.",
+    "ctaText": "See the CIO view Husn would build from your own tools, in about fifteen minutes.",
+    "related": ["portfolio-health-dashboard", "program-health-dashboard", "it-project-risk-management"]
+  },
+  {
+    "slug": "engineering-status-report",
+    "type": "solution",
+    "category": "executive-reporting",
+    "title": "Engineering status report",
+    "metaTitle": "Engineering Status Report | Husn",
+    "metaDescription": "An engineering status report built from Jira, Slack, and docs, not pulled from a manager's memory. Husn surfaces blockers, drift, and what needs a decision, traced to the source.",
+    "heroEyebrow": "For the people shipping software",
+    "heroHeadline": "Engineering status from the work itself.",
+    "heroSubheadline": "An engineering report should reflect what the code and the tickets are doing, not what a manager could recall on Friday. Husn reads the work and writes the status, traced to the source.",
+    "primaryPain": "Engineering status is usually a manager translating Jira boards and Slack threads into prose at the end of the week, which means the report is one person's summary of a moving system and the blockers most worth raising are the ones easiest to leave out.",
+    "painBullets": [
+      "Blockers that have sat for days read as a single calm line, because the report flattens duration into a status word.",
+      "Scope creep arrives one ticket at a time and never shows up as a decision, so the report calls a growing backlog steady progress.",
+      "The report describes activity, sprint velocity and tickets closed, when leadership needs to know what is at risk and what choice it forces."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "Engineering reality lives across many Jira projects, repos, and Slack channels, and no manager holds all of it accurately in their head at once.",
+      "Writing an honest status by hand competes directly with shipping, so it gets compressed under deadline exactly when the signal matters most.",
+      "The things that hurt delivery, silent blockers and creeping scope, are precisely the things a hand-written summary tends to smooth over."
+    ],
+    "howHusnHelps": [
+      "Husn reads across Jira, Slack, and docs and writes the engineering status from the work, leading with blockers, drift, and what needs a decision.",
+      "It surfaces how long a blocker has sat and where scope quietly grew, instead of flattening both into a single reassuring word.",
+      "Every line traces back to the issue, message, or document it came from, so an engineering leader can verify any claim in a click."
+    ],
+    "briefing": {
+      "context": "Engineering status, this week",
+      "items": [
+        {"text": "A blocker on the payments service has sat unresolved for six days while three dependent tickets wait behind it.", "tag": "Decision", "tone": "risk"},
+        {"text": "Sprint scope grew by nine points after mid-sprint additions that no planning session reviewed.", "tag": "Changed", "tone": "changed"},
+        {"text": "A flaky test suite is masking failures that may already be in the release candidate.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "3 squads - 1 decision needed - 1 blocker aging"
+    },
+    "useCases": [
+      {"title": "Weekly engineering read", "body": "Give leadership a status that opens with blockers and risks, not velocity charts, so the conversation starts on what could stop the release."},
+      {"title": "Release readiness", "body": "See whether the work actually supports the date, with aging blockers and hidden scope surfaced before the go or no-go call."},
+      {"title": "Cross-squad view", "body": "Read several squads in one report built from their own boards and channels, instead of stitching together separate manager summaries."}
+    ],
+    "idealFor": ["Heads of engineering", "Engineering managers", "TPMs and delivery managers", "VPs of engineering"],
+    "faq": [
+      {"q": "How is this different from sprint metrics?", "a": "Velocity and tickets closed describe activity. Husn leads with blockers, drift, and the decisions a release needs, drawn from the same boards but framed for a leader."},
+      {"q": "Where does the report get its facts?", "a": "From your Jira projects, Slack channels, and engineering docs. Husn reads across them and reconciles what they say before it writes a line."},
+      {"q": "Can it show how long a blocker has sat?", "a": "Yes. Husn surfaces the duration of a blocker rather than flattening it into a status word, so aging problems stop reading as calm."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Report engineering on what the work is doing.",
+    "ctaText": "See the engineering status Husn would write from your own tools, in about fifteen minutes.",
+    "related": ["engineering-health-dashboard", "blocker-tracking-software", "product-status-report"]
+  },
+  {
+    "slug": "product-status-report",
+    "type": "solution",
+    "category": "executive-reporting",
+    "title": "Product status report",
+    "metaTitle": "Product Status Report | Husn",
+    "metaDescription": "A product status report drawn from Jira, Slack, and docs that connects the roadmap to what is actually moving. Husn surfaces slips, scope changes, and decisions, traced to source.",
+    "heroEyebrow": "For the people owning outcomes",
+    "heroHeadline": "Product status the roadmap can trust.",
+    "heroSubheadline": "A product report should connect the roadmap to what the work is actually doing. Husn reads across teams and tells you where commitments and reality have drifted apart, and what to do about it.",
+    "primaryPain": "Product status often lives in two places that disagree: a roadmap deck that says what was promised and a set of Jira boards that show what is happening, and the report rarely reconciles the two, so commitments drift from delivery without anyone naming the gap.",
+    "painBullets": [
+      "A roadmap date a customer was told can slip in the backlog for weeks before the product report ever mentions it.",
+      "Discovery and delivery sit in different tools and conversations, so a report covers one and assumes the other.",
+      "The report tracks features shipped when the question leadership has is whether the committed outcomes are still on track."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "Product reality spans roadmaps, Jira, design docs, and Slack, and reconciling what they each claim by hand is slow and easy to skip.",
+      "Commitments are made in one forum and delivered in another, so the drift between promise and progress has no single owner watching it.",
+      "When several teams contribute to one product line, no single PM holds the full truth, so the report becomes a hopeful stitch of partial views."
+    ],
+    "howHusnHelps": [
+      "Husn reads the roadmap, Jira, Slack, and docs together and reports where what was committed and what is moving have drifted apart.",
+      "It surfaces the slips, scope changes, and decisions behind the roadmap, not just the features that shipped this sprint.",
+      "Every line traces back to its source, so a product leader can see exactly which ticket or thread put a commitment at risk."
+    ],
+    "briefing": {
+      "context": "Product status, this week",
+      "items": [
+        {"text": "A roadmap commitment shared with a key account now depends on work that slipped two sprints in the backlog.", "tag": "Decision", "tone": "risk"},
+        {"text": "Discovery on the next bet expanded scope that the committed quarter does not have room for.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two squads are building toward the same outcome with no agreement on which approach ships.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "1 product line - 1 decision needed - 1 commitment at risk"
+    },
+    "useCases": [
+      {"title": "Weekly product read", "body": "Show leadership where the roadmap and the work agree and where they have drifted, so the conversation is about commitments, not features shipped."},
+      {"title": "Customer commitment tracking", "body": "Catch a promised date slipping in the backlog while there is still time to manage the account, not after the deadline passes."},
+      {"title": "Cross-squad product line", "body": "Read several squads contributing to one product as a single status, instead of trusting each to summarize its own slice."}
+    ],
+    "idealFor": ["Heads of product", "Product managers", "Chiefs of staff", "VPs running multiple programs"],
+    "faq": [
+      {"q": "How is this different from a feature changelog?", "a": "A changelog lists what shipped. Husn reports where committed outcomes and the actual work have drifted apart, drawn from the roadmap and the boards together."},
+      {"q": "Can it catch a roadmap date slipping?", "a": "Yes. Husn reconciles roadmap commitments against what the backlog is doing, so a date drifting in Jira surfaces before it reaches the customer."},
+      {"q": "Where does it get its information?", "a": "From your roadmap, Jira, Slack, and product docs. Husn reads across them and reconciles what they each say before it writes the report."},
+      {"q": "Does Husn write back to our tools?", "a": "No. Husn reads and explains only. It never writes to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Keep the roadmap honest about the work.",
+    "ctaText": "See the product status Husn would write from your own tools, in about fifteen minutes.",
+    "related": ["roadmap-dependency-management", "engineering-status-report", "okr-status-report"]
+  },
+  {
+    "slug": "automated-status-reports",
+    "type": "tool",
+    "category": "executive-reporting",
+    "title": "Automated status reports",
+    "metaTitle": "Automated Status Reports | Husn",
+    "metaDescription": "Automated status reports written from the work itself, not from a form someone fills in. Husn reads Jira, Slack, and docs and drafts the report, with every line traced to source.",
+    "heroEyebrow": "Reports that write themselves from the work",
+    "heroHeadline": "Status reports, drawn from the work.",
+    "heroSubheadline": "Automating a status report should mean reading the work and writing the truth, not pre-filling a template with stale fields. Husn drafts the report from Jira, Slack, and docs, and traces every line.",
+    "primaryPain": "Most status automation just templates the chore: it pulls ticket counts into a slide and still leaves a person to write the part that matters, so what gets automated is the easy half and the judgment is left undone or rushed.",
+    "painBullets": [
+      "A report stitched from raw ticket counts tells you volume, not meaning, so a reader still cannot see what changed or what needs them.",
+      "Pre-filled fields go stale the moment the work moves, so the automated report can be confidently wrong by the time it lands.",
+      "The hard part, deciding what is worth surfacing, is exactly the part dashboards leave to a human at the end of a long week."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "Counting tickets is easy to automate. Reading across tools to find what changed and what it means is the part that actually takes judgment.",
+      "An automated report that surfaces noise instead of signal trains readers to ignore it, which is worse than no report at all.",
+      "Reports are needed most often and at the most altitudes precisely where doing them by hand does not scale, so the gap is structural."
+    ],
+    "howHusnHelps": [
+      "Husn reads across Jira, Slack, and docs and drafts the whole report, including the judgment part, leading with what changed and what needs a decision.",
+      "It reconciles what the tools each say before it writes, so the automated report reflects the real state and not a stale status field.",
+      "Every line links back to the issue, message, or document behind it, so an automated report stays verifiable instead of opaque."
+    ],
+    "briefing": {
+      "context": "Automated report, this week",
+      "items": [
+        {"text": "A milestone moved in Jira on Tuesday and the change had not reached any human-written update before this report.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two workstreams that report green individually share a dependency that is now at risk.", "tag": "Decision", "tone": "risk"},
+        {"text": "An owner left the company last week and three open items still list them as accountable.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Generated from source - 1 decision needed - 0 manual edits"
+    },
+    "useCases": [
+      {"title": "Recurring weekly reporting", "body": "Replace the Friday write-up with a report that drafts itself from the work, so the time goes to acting on it, not assembling it."},
+      {"title": "Reporting across many teams", "body": "Produce a consistent report per team without each one stopping to write its own, so the roll-up assembles in one shape."},
+      {"title": "On-demand status", "body": "Ask for the current state at any moment and get a report drawn from where the work actually is, not from the last manual update."}
+    ],
+    "idealFor": ["TPMs and EPMs", "PMO leaders", "Delivery and program managers", "Chiefs of staff"],
+    "faq": [
+      {"q": "How is this different from a dashboard that auto-fills a template?", "a": "A template fills fields with counts and leaves the meaning to a person. Husn writes the report, including what changed and what needs a decision, from the work itself."},
+      {"q": "How current is an automated report?", "a": "It reflects the state of the work at the moment it is generated, drawn live from Jira, Slack, and docs, not from fields someone last touched on Friday."},
+      {"q": "Can I trust an automated report?", "a": "Every line traces back to the source it came from, so an automated report is as verifiable as a hand-written one, in a click."},
+      {"q": "Does the automation write to our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Automate the report, including the judgment.",
+    "ctaText": "See the report Husn would generate from your own tools, in about fifteen minutes.",
+    "related": ["project-status-reporting-software", "project-summary-generator", "ai-project-status-report"]
+  },
+  {
+    "slug": "project-summary-generator",
+    "type": "tool",
+    "category": "executive-reporting",
+    "title": "Project summary generator",
+    "metaTitle": "Project Summary Generator | Husn",
+    "metaDescription": "Generate an accurate project summary from Jira, Slack, and docs in seconds. Husn reads the work and writes the summary at the altitude you ask for, with every line traced to source.",
+    "heroEyebrow": "An accurate summary, on demand",
+    "heroHeadline": "A project summary in seconds, not hours.",
+    "heroSubheadline": "Writing a good summary means reading everything first, which is why it rarely gets done well. Husn reads across the work and generates the summary at the altitude you ask for, traced to source.",
+    "primaryPain": "A summary is only as good as the reading behind it, and nobody has time to read every Jira ticket, Slack thread, and doc before they write, so most summaries are written from the slice the author happened to see.",
+    "painBullets": [
+      "The summary reflects what its author remembered, so two people summarizing the same project produce two different projects.",
+      "Generic summary tools paraphrase whatever text you paste in, which means they inherit the blind spots of the input instead of correcting them.",
+      "Without a link back to the source, a summary is a claim you have to trust, which is exactly what a busy reader cannot afford to do."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "A real summary requires reading across every tool the project lives in, and that reading is the slow part no generic generator actually does.",
+      "Summaries are needed at many altitudes, a line for a CEO and a page for a sponsor, and rewriting the same facts by hand for each is wasteful.",
+      "An ungrounded summary that sounds confident but cannot be checked is worse than none, because it spreads a story no one can verify."
+    ],
+    "howHusnHelps": [
+      "Husn reads across Jira, Slack, and docs and generates the summary from the full picture, not from whatever slice you remembered to include.",
+      "It writes at the altitude you ask for, a sentence or a page, from the same underlying read, so the level changes without the facts shifting.",
+      "Every line in the summary links back to the issue, message, or document it came from, so any claim can be verified in a click."
+    ],
+    "briefing": {
+      "context": "Generated summary, on request",
+      "items": [
+        {"text": "The summary surfaced a dependency the requester did not know existed, now on the critical path.", "tag": "Decision", "tone": "risk"},
+        {"text": "Two source documents described the launch scope differently. The summary flagged the conflict instead of picking one.", "tag": "Changed", "tone": "changed"},
+        {"text": "A decision recorded in Slack was never reflected in the project doc the team works from.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Read across sources - 1 conflict flagged - traced to origin"
+    },
+    "useCases": [
+      {"title": "Catching up fast", "body": "Generate an accurate summary of a project you just inherited or stepped into, drawn from the work, not from a colleague's recollection."},
+      {"title": "Summaries at any altitude", "body": "Ask for a one-line version for a leader or a full page for a sponsor from the same read, so the facts hold across every level."},
+      {"title": "Pre-meeting prep", "body": "Generate a current summary before a meeting so the room starts from the same accurate picture instead of competing recollections."}
+    ],
+    "idealFor": ["TPMs and EPMs", "Chiefs of staff", "Delivery and program managers", "Founders and CEOs"],
+    "faq": [
+      {"q": "How is this different from pasting notes into a summarizer?", "a": "A generic summarizer paraphrases the text you give it. Husn reads across your Jira, Slack, and docs first, so the summary covers what you would have missed, not just what you pasted."},
+      {"q": "Can it write at different levels of detail?", "a": "Yes. Ask for a sentence or a page from the same underlying read, and the altitude changes while the facts stay consistent."},
+      {"q": "Can I verify what the summary says?", "a": "Yes. Every line links back to the source it came from, so any claim in the summary can be checked in a click."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Get a summary you did not have to read for.",
+    "ctaText": "See the project summary Husn would generate from your own tools, in about fifteen minutes.",
+    "related": ["ai-generated-project-summaries", "automated-status-reports", "standup-summary-software"]
+  },
+  {
+    "slug": "okr-status-report",
+    "type": "solution",
+    "category": "executive-reporting",
+    "title": "OKR status report",
+    "metaTitle": "OKR Status Report | Husn",
+    "metaDescription": "An OKR status report that connects objectives to the work actually moving them. Husn reads Jira, Slack, and docs and shows where progress and the OKRs have drifted apart.",
+    "heroEyebrow": "Objectives, against the real work",
+    "heroHeadline": "OKR status, grounded in the work.",
+    "heroSubheadline": "OKRs are usually updated by self-rated confidence in a spreadsheet. Husn connects each key result to the work actually moving it, and shows where the score and the reality have drifted apart.",
+    "primaryPain": "OKR check-ins typically run on a color and a number that an owner sets by feel, disconnected from the Jira and Slack where the work lives, so a key result can read on track for weeks while the work behind it has stalled.",
+    "painBullets": [
+      "Confidence scores are self-reported, so optimism and politics shape the number as much as the actual progress does.",
+      "The OKR lives in one tool and the work lives in another, so nobody is watching whether the two still agree.",
+      "By the time a green key result is admitted to be red, the quarter is usually too far gone to recover it."
+    ],
+    "whyHardHeading": "Why this gets hard at scale",
+    "whyHard": [
+      "Tying an objective to the specific work moving it means reading across many tickets and threads, which a quarterly spreadsheet update never does.",
+      "Self-rated confidence drifts from reality slowly and invisibly, so the gap is widest exactly when no one is looking for it.",
+      "Across many teams and objectives, checking each score against the underlying work by hand is impossible, so the scores go unchallenged."
+    ],
+    "howHusnHelps": [
+      "Husn reads across Jira, Slack, and docs and connects each key result to the work actually moving it, so the score has evidence behind it.",
+      "It surfaces where a confident OKR and the underlying work have drifted apart, while there is still a quarter left to act.",
+      "Every assessment links back to the issues and threads it draws from, so a leader can see why a key result is on or off track."
+    ],
+    "briefing": {
+      "context": "OKR status, this quarter",
+      "items": [
+        {"text": "A key result rated green has had no underlying work move in three weeks, and the quarter is half gone.", "tag": "Decision", "tone": "risk"},
+        {"text": "The scope of an objective shifted in a planning thread but the key results were never updated to match.", "tag": "Changed", "tone": "changed"},
+        {"text": "Two objectives depend on the same team, whose capacity was cut after the targets were set.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "3 objectives - 1 decision needed - 1 score drifting"
+    },
+    "useCases": [
+      {"title": "Mid-quarter check-in", "body": "Review OKRs against the work that is actually moving them, so a drifting key result surfaces while the quarter can still be saved."},
+      {"title": "Leadership OKR review", "body": "Bring leadership scores grounded in evidence, not self-rated confidence, so the conversation is about reality instead of optimism."},
+      {"title": "Connecting strategy to delivery", "body": "Show which objectives have real work behind them and which are stalling, so attention and capacity move to where outcomes are at risk."}
+    ],
+    "idealFor": ["Heads of product and engineering", "Chiefs of staff", "Founders and CEOs", "VPs running multiple programs"],
+    "faq": [
+      {"q": "How is this different from a confidence score?", "a": "A confidence score is a feeling an owner records. Husn connects each key result to the work moving it, so the status rests on evidence, not optimism."},
+      {"q": "Can it catch an OKR drifting off track?", "a": "Yes. Husn surfaces when a key result rated green has no underlying work moving, so the drift shows up while there is still a quarter left to act."},
+      {"q": "Where does it draw its evidence?", "a": "From your Jira, Slack, and documents. Husn reads across them and ties the work it finds back to each objective and key result."},
+      {"q": "Does Husn change anything in our tools?", "a": "No. Husn reads and explains only. It never writes back to Jira, Slack, or your documents."}
+    ],
+    "ctaHeadline": "Score OKRs on the work, not on a feeling.",
+    "ctaText": "See the OKR status Husn would write from your own tools, in about fifteen minutes.",
+    "related": ["okr-health-tracking", "product-status-report", "leadership-status-report"]
+  }
+]

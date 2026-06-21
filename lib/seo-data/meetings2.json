@@ -1,0 +1,290 @@
+[
+  {
+    "slug": "sprint-review-preparation",
+    "type": "solution",
+    "category": "meeting-preparation",
+    "title": "Sprint review preparation",
+    "metaTitle": "Sprint Review Preparation for Delivery Teams | Husn",
+    "metaDescription": "Walk into the sprint review knowing what shipped, what slipped, and what changed since planning. Husn reads Jira, Slack, and docs and writes the prep so the demo runs on outcomes.",
+    "heroEyebrow": "For teams running a sprint review or demo",
+    "heroHeadline": "Know what shipped before the review.",
+    "heroSubheadline": "A sprint review should show what the team delivered against what it committed. Husn reconstructs that from the work, so you open on outcomes instead of opening Jira live.",
+    "primaryPain": "Preparing a sprint review means reconciling the sprint goal against what actually closed, then explaining the gap. Done properly that takes an afternoon of clicking through tickets, so most reviews are assembled in the ten minutes before, and the board gets read out loud while everyone waits.",
+    "painBullets": ["Committed scope and shipped scope drift apart over two weeks, and nobody reconciles the two until the room is watching.", "Items that were cut, deferred, or pulled in mid sprint are the hardest to recall, and they are exactly what stakeholders ask about.", "When prep is rushed, the demo turns into a live tour of the board, and the actual outcomes get lost in the scrolling."],
+    "whyHardHeading": "Why sprint reviews get harder to prep",
+    "whyHard": ["A two week sprint generates more change than anyone tracks in their head, so the recap is always partial and usually optimistic.", "Scope that moved quietly, a deferred story or a swapped priority, never makes it into the summary unless someone goes looking.", "Reviews repeat every sprint, so an hour of scramble each time becomes a permanent cost the team keeps paying."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and writes a brief on what closed, what slipped, and what changed against the sprint goal, before the review.", "It surfaces the scope that moved mid sprint, so the cuts and swaps are stated plainly instead of discovered in the room.", "You walk in with an accurate read of the sprint, so the review opens on what was delivered and what to do next."],
+    "briefing": {
+      "context": "Pre sprint review brief, before the demo",
+      "items": [
+        {"text": "Two stories committed at planning were deferred mid sprint and are not in the demo scope.", "tag": "Changed", "tone": "changed"},
+        {"text": "A ticket marked done still has an open code review thread flagging a regression.", "tag": "Risk", "tone": "risk"},
+        {"text": "An acceptance criterion was renegotiated in Slack and the linked story was never updated.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Against the sprint goal - 6 items closed - 2 deferred"
+    },
+    "useCases": [
+      {"title": "Sprint review and demo", "body": "Open the review with an accurate read of what shipped against the goal, so the demo runs on outcomes, not a board tour."},
+      {"title": "Reporting up after the sprint", "body": "Hand a manager a clear account of committed versus delivered in two minutes, with the deferred work named."},
+      {"title": "Catching scope drift early", "body": "See the stories that moved mid sprint before the review, so the changes are explained rather than discovered live."}
+    ],
+    "idealFor": ["Scrum masters and delivery leads", "Engineering and product managers", "Agile coaches", "Anyone running a sprint review"],
+    "faq": [
+      {"q": "What does the sprint review brief cover?", "a": "What closed against the sprint goal, what was deferred or cut, what changed mid sprint, and any item marked done with open questions, each traced to its source."},
+      {"q": "When does it arrive?", "a": "Ahead of the review, with time to read it. The default is shortly before each sprint review, and the timing is yours to set."},
+      {"q": "Does Husn replace the demo itself?", "a": "No. Husn prepares you with an accurate read of the sprint. The team still runs the demo and shows the working software."},
+      {"q": "Does it change anything in Jira?", "a": "No. Husn reads the board to write the brief and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Open the sprint review on outcomes.",
+    "ctaText": "Connect your stack and Husn will write the prep brief for your next sprint review in about fifteen minutes, so you know what shipped before you walk in.",
+    "related": ["retrospective-preparation", "standup-summary-software", "engineering-status-report"]
+  },
+  {
+    "slug": "quarterly-planning-preparation",
+    "type": "solution",
+    "category": "meeting-preparation",
+    "title": "Quarterly planning preparation",
+    "metaTitle": "Quarterly Planning Preparation for Program Teams | Husn",
+    "metaDescription": "Go into quarterly and PI planning knowing where last quarter actually landed. Husn reads Jira, Slack, and docs and writes a brief on carryover, drift, and open dependencies.",
+    "heroEyebrow": "For teams heading into quarterly or PI planning",
+    "heroHeadline": "Plan the quarter from where things stand.",
+    "heroSubheadline": "Good planning starts with an honest read of where the last quarter landed. Husn assembles that from the work, so the room plans from reality instead of from the slide that was due first.",
+    "primaryPain": "Quarterly planning works only if everyone agrees where things actually are. In practice each team arrives with its own optimistic summary, and the first day goes to reconciling carryover, half finished commitments, and dependencies that quietly changed, before any real planning can begin.",
+    "painBullets": ["Carryover from the last quarter is rarely tallied honestly, so plans get built on capacity that is already committed.", "Cross team dependencies shift over a quarter, and the stale version is what shows up in the planning deck.", "Each team self reports its status, and the gaps between those reports only surface once the planning room hits them."],
+    "whyHardHeading": "Why planning prep breaks down at scale",
+    "whyHard": ["A full quarter of change across many teams is too much for any one person to reconcile by hand before the session.", "The commitments that slipped are the ones least likely to be volunteered, yet they are the ones that distort the next plan.", "Planning happens four times a year and sets the agenda for everything after, so a shaky starting picture costs the whole quarter."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and writes a brief on carryover, drift, and open dependencies, before the planning session.", "It reconciles what each team says against what the work shows, so the room starts from one honest baseline.", "You walk in knowing what is genuinely done and what is still committed, so the new plan is built on real remaining capacity."],
+    "briefing": {
+      "context": "Pre planning brief, ahead of the quarter",
+      "items": [
+        {"text": "Three initiatives marked complete last quarter still have open scope carrying into this one.", "tag": "Changed", "tone": "changed"},
+        {"text": "A dependency another team is planning around was descoped two weeks ago and not communicated.", "tag": "Risk", "tone": "risk"},
+        {"text": "A commitment in the planning deck was already renegotiated in Slack but the deck still shows the old number.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Across the quarter - 9 carryover items - 3 dependencies changed"
+    },
+    "useCases": [
+      {"title": "Quarterly and PI planning", "body": "Start the session from one reconciled baseline of where the last quarter landed, so the day goes to planning, not reconciliation."},
+      {"title": "Capacity and carryover review", "body": "See exactly what is still committed before you plan new work, so the quarter is not over allocated on day one."},
+      {"title": "Pre planning prep for leads", "body": "Hand each lead an honest read of their area before they build their slice of the plan."}
+    ],
+    "idealFor": ["Program and portfolio managers", "Release train engineers", "Engineering and product leaders", "Chiefs of staff"],
+    "faq": [
+      {"q": "What does the planning brief cover?", "a": "Carryover from last quarter, where commitments actually landed, drift against the prior plan, and dependencies that changed, each traced to its source."},
+      {"q": "Does it work for PI planning as well as quarterly?", "a": "Yes. The brief reconciles where things stand regardless of the cadence, so it fits PI planning, quarterly planning, or any periodic reset."},
+      {"q": "Does Husn build the plan for us?", "a": "No. Husn gives you an honest starting picture. The teams still set the goals and shape the plan in the room."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads to write the brief and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Plan the quarter from reality.",
+    "ctaText": "Connect your stack and Husn will write a planning brief on carryover and drift before your next quarterly session in about fifteen minutes.",
+    "related": ["program-drift-detection", "cross-team-dependency-tracker", "executive-project-briefing"]
+  },
+  {
+    "slug": "one-on-one-meeting-preparation",
+    "type": "solution",
+    "category": "meeting-preparation",
+    "title": "One on one meeting preparation",
+    "metaTitle": "One on One Meeting Preparation for Managers | Husn",
+    "metaDescription": "Walk into a one on one already knowing what moved in your report's work. Husn reads Jira, Slack, and docs and writes a short brief on what changed since you last spoke.",
+    "heroEyebrow": "For managers running regular one on ones",
+    "heroHeadline": "Know what moved before the one on one.",
+    "heroSubheadline": "A one on one is better when you already know what happened in your report's work. Husn reads it and writes that part, so the time goes to the person, not to a status recap.",
+    "primaryPain": "A useful one on one needs you to know what changed in your report's area since you last met, but checking that across boards and threads for every report rarely fits the week. So the meeting opens with a verbal status update, and the conversation that actually matters gets squeezed into what is left.",
+    "painBullets": ["Catching up on each report's work before every one on one is reading that quietly never gets done.", "Without prep, the meeting starts as a status report, which is the least valuable thing a one on one can be.", "A report stuck on a blocker or quietly handed extra scope is easy to miss until it has already become a problem."],
+    "whyHardHeading": "Why one on one prep slips",
+    "whyHard": ["The more people you manage, the more areas you would need to read before each one on one, so prep is the first thing cut.", "The signal worth raising is often small, a stalled ticket or a tense thread, and a quick skim will never surface it.", "One on ones recur weekly or biweekly per report, so unprepared meetings compound into a standing drain on your time and theirs."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and writes a short brief on what moved in your report's area since you last met.", "It flags where someone is blocked, overloaded, or waiting on a decision, so you can open on that instead of asking for a recap.", "You arrive already knowing the status, so the one on one can be about coaching, context, and unblocking, not catching up."],
+    "briefing": {
+      "context": "Pre one on one brief, since you last met",
+      "items": [
+        {"text": "Their main ticket has been blocked on another team for five days with no update.", "tag": "Risk", "tone": "risk"},
+        {"text": "They picked up scope from a departing colleague this week on top of their existing load.", "tag": "Changed", "tone": "changed"},
+        {"text": "A decision they raised in Slack last week is still unanswered and is holding up their work.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Since you last met - 4 things changed - 1 to unblock"
+    },
+    "useCases": [
+      {"title": "Weekly one on ones", "body": "Open knowing what moved in your report's work, so the time goes to the conversation, not a status readout."},
+      {"title": "Spotting an overloaded report", "body": "See when someone has quietly taken on extra scope or stalled on a blocker, before it shows up as burnout or a slip."},
+      {"title": "Skip levels and new reports", "body": "Prepare for a one on one with someone whose work you do not follow daily, with an accurate read in two minutes."}
+    ],
+    "idealFor": ["Engineering and product managers", "Team leads", "Directors and heads of function", "Anyone running regular one on ones"],
+    "faq": [
+      {"q": "What does the one on one brief cover?", "a": "What moved in your report's area since you last met, where they are blocked or waiting, and any change in their scope or load, traced to its source."},
+      {"q": "Is this surveillance of my reports?", "a": "No. Husn reads the same work signals you could read yourself, just faster, so you arrive informed. It reports on the work, not on people."},
+      {"q": "When does the brief arrive?", "a": "Ahead of the meeting, with time to read it. The default is shortly before each one on one, and the timing is yours to set."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads to write the brief and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Make the one on one about the person.",
+    "ctaText": "Connect your stack and Husn will write a prep brief for your next one on one in about fifteen minutes, so you know what moved before you sit down.",
+    "related": ["meeting-preparation-ai", "leadership-meeting-prep", "standup-summary-software"]
+  },
+  {
+    "slug": "leadership-meeting-prep",
+    "type": "solution",
+    "category": "meeting-preparation",
+    "title": "Leadership meeting prep",
+    "metaTitle": "Leadership Meeting Prep for Heads of Function | Husn",
+    "metaDescription": "Go into the leadership meeting knowing what changed across every program. Husn reads Jira, Slack, and docs and writes a brief on risk, drift, and the decisions you owe the room.",
+    "heroEyebrow": "For leaders who sit in the weekly leadership meeting",
+    "heroHeadline": "Walk into the room already current.",
+    "heroSubheadline": "A leadership meeting works when everyone arrives current on their area. Husn reads across your programs and writes that brief, so the room spends its hour on decisions, not on going around for updates.",
+    "primaryPain": "Leadership meetings are expensive, an hour of senior time every week, yet much of it goes to each leader recounting what happened in their area. Staying current across several programs to prepare properly is more reading than the week allows, so people summarize from memory and the important shifts get smoothed over.",
+    "painBullets": ["Each leader covers several workstreams, so being genuinely current before the meeting means more reading than the calendar holds.", "The round the table format rewards whoever speaks well, while the quiet risk in a program nobody asks about goes unspoken.", "Decisions get deferred because the context to make them was never assembled, so the same items return week after week."],
+    "whyHardHeading": "Why leadership prep is hard at this level",
+    "whyHard": ["The more the organization grows, the more programs each leader owns, so the gap between what they know and what changed widens every week.", "At leadership level the costly changes are cross program, the kind no single board shows and no one leader sees alone.", "This meeting sets direction for everyone below it, so a room that opens uninformed sends that fog down the whole organization."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs across your programs and writes a brief on what changed, what is at risk, and what needs a decision, before the meeting.", "It connects changes that span teams, so a cross program risk is on the page instead of waiting for someone to notice it.", "Every leader arrives current on their area and yours, so the meeting opens on the few decisions that actually need the room."],
+    "briefing": {
+      "context": "Pre leadership meeting brief, across programs",
+      "items": [
+        {"text": "A slip in the platform program now puts two dependent launches at risk this quarter.", "tag": "Risk", "tone": "risk"},
+        {"text": "Ownership of a shared service moved between two of your teams with no decision recorded.", "tag": "Changed", "tone": "changed"},
+        {"text": "A budget decision deferred at the last two meetings is now blocking three teams from hiring.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Across your programs - 5 changes - 2 need a decision"
+    },
+    "useCases": [
+      {"title": "Weekly leadership meeting", "body": "Arrive current across every program, so the hour goes to the decisions that need the room, not to going around for updates."},
+      {"title": "Spotting cross program risk", "body": "See where a change in one program threatens another, before it surfaces as a missed launch at the next review."},
+      {"title": "Preparing the chief of staff", "body": "Give the person who runs the meeting a clear read of what changed and what to put on the agenda."}
+    ],
+    "idealFor": ["Heads of engineering and product", "VPs and directors", "Chiefs of staff", "PMO and portfolio leaders"],
+    "faq": [
+      {"q": "What does the leadership brief cover?", "a": "What changed across your programs, what is at risk, the decisions the meeting owes, and the cross program shifts no single board shows, each traced to its source."},
+      {"q": "Can it cover programs I do not run directly?", "a": "Yes. Husn reads across the programs you connect, so you arrive current on your own area and on the ones that affect it."},
+      {"q": "When does the brief arrive?", "a": "Ahead of the meeting, with time to read it. The default is shortly before each leadership meeting, and the timing is yours to set."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads to write the brief and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Make leadership hours count.",
+    "ctaText": "Connect your stack and Husn will write a cross program brief for your next leadership meeting in about fifteen minutes, so the room opens already current.",
+    "related": ["executive-project-briefing", "portfolio-risk-management", "program-health-dashboard"]
+  },
+  {
+    "slug": "project-kickoff-meeting-template",
+    "type": "template",
+    "category": "meeting-preparation",
+    "title": "Project kickoff meeting template",
+    "metaTitle": "Project Kickoff Meeting Template | Husn",
+    "metaDescription": "A kickoff agenda that covers goals, roles, timeline, dependencies, risks, and comms, then a way to keep it true. Husn tracks what changes against the kickoff once the work begins.",
+    "heroEyebrow": "For anyone kicking off a new project",
+    "heroHeadline": "Start the project on one page.",
+    "heroSubheadline": "A good kickoff agrees the goal, the roles, the timeline, and the risks in one room. This template covers all of it, and Husn keeps watch on what drifts from it once delivery starts.",
+    "primaryPain": "A kickoff sets the shared understanding a project runs on, but most kickoffs cover scope and timeline and skip dependencies, risks, and who owns what. Then the decisions made in the room are never written down, so within weeks the team is relitigating what they thought they agreed.",
+    "painBullets": ["Kickoffs lean on goals and dates and rush past dependencies and risks, which are the things that sink the project later.", "Roles get named verbally and never recorded, so accountability is fuzzy the first time something falls between two people.", "Whatever was agreed in the room lives only in memory, so the project drifts from its own kickoff without anyone noticing."],
+    "whyHardHeading": "Why kickoffs fail to hold",
+    "whyHard": ["A kickoff covers a lot at once, so without a structure the hard topics, dependencies and risks, are the ones that get dropped.", "The agreements made at kickoff are exactly what teams forget first, and there is rarely a record to check them against.", "Nothing connects the kickoff to the work that follows, so the project drifts from its starting plan with no signal until a deadline slips."],
+    "howHusnHelps": ["Use this template to run a kickoff that covers goals, roles, timeline, dependencies, risks, and the communication plan in one place.", "Husn reads Jira, Slack, and docs once the work begins and tracks what changes against what the kickoff agreed.", "When an owner shifts, a dependency moves, or a risk materializes, Husn tells the right people, so the project stays anchored to its kickoff."],
+    "briefing": {
+      "context": "Post kickoff brief, three weeks in",
+      "items": [
+        {"text": "A dependency named at kickoff has no owner yet and is now on the critical path.", "tag": "Risk", "tone": "risk"},
+        {"text": "The role assigned to a workstream at kickoff changed hands with no handover recorded.", "tag": "Changed", "tone": "changed"},
+        {"text": "A milestone agreed in the kickoff is already two weeks behind in the plan.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Against the kickoff - 3 items drifted - 1 needs an owner"
+    },
+    "useCases": [
+      {"title": "Running the kickoff", "body": "Walk the room through goals, roles, timeline, dependencies, risks, and comms, so nothing important is skipped."},
+      {"title": "Holding the project to its kickoff", "body": "Let Husn flag when the work drifts from what was agreed, so the kickoff stays a live reference, not a forgotten doc."},
+      {"title": "Onboarding people who missed it", "body": "Hand a latecomer the kickoff record plus what has changed since, so they catch up without a long meeting."}
+    ],
+    "idealFor": ["Project and program managers", "Delivery leads", "Engineering and product managers", "Anyone kicking off a new project"],
+    "faq": [
+      {"q": "What does the kickoff template cover?", "a": "Goals and scope, roles and responsibilities, timeline and milestones, dependencies, risks, and the communication plan, in one agenda you can run as written."},
+      {"q": "How does Husn keep the kickoff current?", "a": "It reads Jira, Slack, and docs after kickoff and flags when an owner, dependency, milestone, or risk drifts from what the room agreed."},
+      {"q": "Can we adapt the template?", "a": "Yes. The sections are yours to shape for the project, and Husn tracks against whatever you agree in the room."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads to track drift against the kickoff and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Kick off on one page and keep it true.",
+    "ctaText": "Run your kickoff with this template, then connect your stack and Husn will flag what drifts from it in about fifteen minutes of setup.",
+    "related": ["cross-team-dependency-tracker", "program-drift-detection", "project-risk-register-template"],
+    "templateContents": [
+      "Goals and scope: the outcome the project is for, what is in scope, and what is explicitly out",
+      "Roles and responsibilities: who owns each workstream, who decides, and who is consulted",
+      "Timeline and milestones: the key dates, the sequence between them, and what each milestone proves",
+      "Dependencies: what this project needs from other teams and what others need from it, with owners",
+      "Risks: the known risks at the start, their likely impact, and who is watching each one",
+      "Communication plan: which updates go to whom, how often, and where decisions get recorded"
+    ]
+  },
+  {
+    "slug": "retrospective-preparation",
+    "type": "solution",
+    "category": "meeting-preparation",
+    "title": "Retrospective preparation",
+    "metaTitle": "Retrospective Preparation for Delivery Teams | Husn",
+    "metaDescription": "Run a retro on what actually happened, not just what people recall. Husn reads Jira, Slack, and docs and writes a brief on the slips, blockers, and changes from the sprint.",
+    "heroEyebrow": "For teams running a retrospective",
+    "heroHeadline": "Retro on what actually happened.",
+    "heroSubheadline": "A retro is only as honest as the memory in the room. Husn reads the sprint and writes a brief on what really slipped, blocked, and changed, so the discussion starts from the record.",
+    "primaryPain": "Retrospectives run on recall, and recall favors whatever happened most recently or most loudly. The blocker that cost three days in week one is forgotten by week two, so the team keeps surfacing the same easy themes and never reaches the patterns that actually slowed it down.",
+    "painBullets": ["What gets discussed is what people remember, and recency bias means the early sprint problems quietly vanish.", "The quieter friction, a slow review cycle or a recurring handoff delay, rarely surfaces because no one is reading the record.", "Without data the retro drifts toward opinion, and the same vague action items reappear sprint after sprint."],
+    "whyHardHeading": "Why retros run on incomplete memory",
+    "whyHard": ["A sprint produces more events than anyone holds in their head, so the retro works from a fraction of what occurred.", "The patterns worth fixing are spread across many small moments, the kind only a reading of the full record reveals.", "Retros recur every sprint, so a discussion built on partial memory repeats the same conclusions and never compounds into real change."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and writes a brief on what actually slipped, blocked, and changed across the sprint, before the retro.", "It surfaces the quiet friction the team would otherwise forget, like repeated handoff delays or stories that bounced back from review.", "The retro starts from the record instead of from memory, so the conversation reaches real patterns and the action items have teeth."],
+    "briefing": {
+      "context": "Pre retro brief, across the sprint",
+      "items": [
+        {"text": "Four stories bounced back from code review at least twice, costing roughly five days total.", "tag": "Watch", "tone": "watch"},
+        {"text": "The team was blocked on the same external dependency in week one and again in week two.", "tag": "Risk", "tone": "risk"},
+        {"text": "Scope was added mid sprint on two occasions without a corresponding change to the goal.", "tag": "Changed", "tone": "changed"}
+      ],
+      "footer": "This sprint - 3 patterns surfaced - 1 recurring blocker"
+    },
+    "useCases": [
+      {"title": "Sprint retrospective", "body": "Open the retro with a record of what actually happened, so the team discusses real patterns instead of recent memories."},
+      {"title": "Finding recurring friction", "body": "See the delays that show up sprint after sprint, like slow reviews or repeated handoffs, so you can fix the cause, not the symptom."},
+      {"title": "Project and program retros", "body": "Prepare a longer retro by reading across weeks of work, so the lessons come from the full record, not the last few days."}
+    ],
+    "idealFor": ["Scrum masters and delivery leads", "Engineering and product managers", "Agile coaches", "Anyone facilitating a retrospective"],
+    "faq": [
+      {"q": "What does the retro brief cover?", "a": "What slipped, what blocked the team, what changed mid sprint, and the recurring friction across the sprint, each traced to where it happened."},
+      {"q": "Does this replace the retro discussion?", "a": "No. Husn gives the team an honest starting record. The conversation, the reflection, and the action items still come from the people in the room."},
+      {"q": "When does the brief arrive?", "a": "Ahead of the retro, with time to read it. The default is shortly before each retrospective, and the timing is yours to set."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads to write the brief and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Retro on the record, not just memory.",
+    "ctaText": "Connect your stack and Husn will write a retro brief on what actually happened this sprint in about fifteen minutes of setup.",
+    "related": ["sprint-review-preparation", "standup-summary-software", "program-drift-detection"]
+  },
+  {
+    "slug": "standup-summary-software",
+    "type": "tool",
+    "category": "meeting-preparation",
+    "title": "Standup summary software",
+    "metaTitle": "Standup Summary Software for Delivery Teams | Husn",
+    "metaDescription": "Software that reads Jira, Slack, and docs and summarizes what changed overnight, so standup runs on blockers and decisions instead of a round of status updates.",
+    "heroEyebrow": "For teams that want standup to be short and useful",
+    "heroHeadline": "Standup on what changed overnight.",
+    "heroSubheadline": "Most of standup is each person reading their status out loud. Husn reads Jira, Slack, and docs and summarizes what actually moved, so the team can spend the time on blockers instead.",
+    "primaryPain": "Standup is meant to surface blockers, but it usually becomes a round of status updates that are already visible on the board. The team spends fifteen minutes hearing what each person did, and the one thing that needs attention, a new blocker or a slipped dependency, gets the same airtime as everything else.",
+    "painBullets": ["The status part of standup repeats what the board already shows, so most of the meeting adds nothing new.", "A genuine blocker gets the same thirty seconds as routine progress, so urgent things do not stand out.", "Distributed and async teams lose standup entirely, and the shared picture of what changed goes with it."],
+    "whyHardHeading": "Why standup stops working at scale",
+    "whyHard": ["The bigger the team, the longer the round of updates, so the meeting grows while the useful part stays the same size.", "What actually needs the team is a small fraction of what gets said, and that fraction is buried in the routine.", "Standup runs every single day, so even a few wasted minutes compound into a large standing cost across the team and the year."],
+    "howHusnHelps": ["Husn reads Jira, Slack, and docs and posts a short summary of what changed since the last standup, so nobody has to read their status out loud.", "It leads with new blockers, slipped items, and changes that need a decision, so the meeting starts on what matters.", "Async and distributed teams get the same summary in writing, so the shared picture holds even without a live standup."],
+    "briefing": {
+      "context": "Daily standup summary, since yesterday",
+      "items": [
+        {"text": "A ticket on the critical path moved to blocked overnight, waiting on a review from another team.", "tag": "Risk", "tone": "risk"},
+        {"text": "An estimate on an in progress story doubled after a thread surfaced hidden complexity.", "tag": "Changed", "tone": "changed"},
+        {"text": "A question raised in the team channel yesterday is still unanswered and holding up one story.", "tag": "Watch", "tone": "watch"}
+      ],
+      "footer": "Since yesterday - 5 items moved - 1 new blocker"
+    },
+    "useCases": [
+      {"title": "Daily standup", "body": "Open with the summary on screen, so the team skips the status round and goes straight to blockers and decisions."},
+      {"title": "Async standup", "body": "Give a distributed team a written summary of what changed each day, so the shared picture survives without a live call."},
+      {"title": "Catching up after time off", "body": "Read a few days of summaries in two minutes to see what moved while you were out, without scrolling every board."}
+    ],
+    "idealFor": ["Scrum masters and delivery leads", "Engineering and product managers", "Distributed and async teams", "Anyone tired of status round standups"],
+    "faq": [
+      {"q": "What does the standup summary cover?", "a": "What changed since the last standup, new blockers, items that slipped, and questions or decisions waiting on the team, each traced to its source."},
+      {"q": "Does Husn run or attend the standup?", "a": "No. Husn posts the summary before standup so the team can use the live time for blockers. It does not join, record, or run the meeting."},
+      {"q": "Does it work for async teams?", "a": "Yes. The summary is written and posted where the team works, so it serves a daily standup or a fully async one equally well."},
+      {"q": "Does it change anything in our tools?", "a": "No. Husn reads to write the summary and never writes back to Jira, Slack, or docs."}
+    ],
+    "ctaHeadline": "Give standup back to the blockers.",
+    "ctaText": "Connect your stack and Husn will post a daily summary of what changed before your next standup in about fifteen minutes of setup.",
+    "related": ["meeting-preparation-ai", "blocker-tracking-software", "engineering-status-report"]
+  }
+]
