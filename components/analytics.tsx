@@ -7,6 +7,9 @@ import { getConsent } from "@/components/cookie-banner";
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
+// Google Analytics 4. Uses cookies, so it is gated behind the same consent as
+// PostHog. Set NEXT_PUBLIC_GA_ID to a measurement id like "G-XXXXXXXXXX".
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 function realKey(k: string | undefined): k is string {
   return Boolean(k && !k.includes("stub"));
@@ -35,6 +38,24 @@ export function Analytics() {
           src="https://plausible.io/js/script.js"
           strategy="afterInteractive"
         />
+      )}
+
+      {/* Google Analytics 4: consent-gated (sets cookies) */}
+      {realKey(GA_ID) && consent === "granted" && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="ga4-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `}
+          </Script>
+        </>
       )}
 
       {/* PostHog: consent-gated */}

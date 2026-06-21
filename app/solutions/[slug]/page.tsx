@@ -60,7 +60,10 @@ export async function generateMetadata({
   return {
     title: page.metaTitle,
     description: page.metaDescription,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      types: { "application/rss+xml": "https://husn.io/feed.xml" },
+    },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
@@ -154,6 +157,27 @@ export default async function SolutionPage({
     })),
   };
 
+  // Breadcrumb structured data: Home / Solutions / This page.
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://husn.io/" },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Solutions",
+        item: "https://husn.io/solutions/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: page.title,
+        item: `https://husn.io/solutions/${slug}/`,
+      },
+    ],
+  };
+
   return (
     <div
       style={theme}
@@ -162,6 +186,10 @@ export default async function SolutionPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Header - mirrors the homepage chrome */}
@@ -181,6 +209,32 @@ export default async function SolutionPage({
           <Cta href="/#demo">Book a demo</Cta>
         </div>
       </header>
+
+      {/* Breadcrumbs */}
+      <nav
+        aria-label="Breadcrumb"
+        className="border-b border-[var(--mist)]"
+      >
+        <ol
+          className={`${mono.className} mx-auto flex max-w-[1140px] flex-wrap items-center gap-2 px-6 py-3 text-[11px] uppercase tracking-[0.12em] text-[var(--slate)]`}
+        >
+          <li>
+            <Link href="/" className="hover:text-[var(--ink)]">
+              Home
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <Link href="/solutions/" className="hover:text-[var(--ink)]">
+              Solutions
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li className="text-[var(--ink)]" aria-current="page">
+            {page.title}
+          </li>
+        </ol>
+      </nav>
 
       {/* 1 - Hero */}
       <section className="border-b border-[var(--mist)]">

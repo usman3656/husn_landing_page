@@ -2073,14 +2073,32 @@ export function getAllSeoSlugs(): string[] {
   return seoPages.map((p) => p.slug);
 }
 
-// Resolve a page's related slugs into full records, skipping any that do not
-// exist so a typo never breaks the build.
-export function getRelatedPages(slug: string): SeoPage[] {
+// Resolve a page's related links into 3 to 5 full records. Declared related
+// slugs come first (invalid ones skipped), then we backfill from the same
+// category so every page always has a healthy internal-link block.
+export function getRelatedPages(slug: string, target = 4, max = 5): SeoPage[] {
   const page = bySlug[slug];
   if (!page) return [];
-  return page.related
-    .map((s) => bySlug[s])
-    .filter((p): p is SeoPage => Boolean(p) && p.slug !== slug);
+
+  const out: SeoPage[] = [];
+  const seen = new Set<string>([slug]);
+  const push = (p: SeoPage | undefined) => {
+    if (p && !seen.has(p.slug) && out.length < max) {
+      seen.add(p.slug);
+      out.push(p);
+    }
+  };
+
+  for (const s of page.related) push(bySlug[s]);
+
+  if (out.length < target) {
+    for (const p of seoPages) {
+      if (out.length >= target) break;
+      if (p.category === page.category) push(p);
+    }
+  }
+
+  return out;
 }
 
 // All pages in a category, in declaration order. Used by the /solutions index.

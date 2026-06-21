@@ -36,7 +36,10 @@ export const metadata: Metadata = {
   title: "Solutions | Husn",
   description:
     "Husn for project risk, executive reporting, meeting preparation, dependency management, and project health. Browse every solution, tool, template, and comparison.",
-  alternates: { canonical: "https://husn.io/solutions/" },
+  alternates: {
+    canonical: "https://husn.io/solutions/",
+    types: { "application/rss+xml": "https://husn.io/feed.xml" },
+  },
   openGraph: {
     title: "Solutions | Husn",
     description:
@@ -77,6 +80,30 @@ export default function SolutionsIndex() {
       style={theme}
       className="min-h-screen bg-[var(--paper)] text-[var(--ink)] antialiased"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://husn.io/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Solutions",
+                item: "https://husn.io/solutions/",
+              },
+            ],
+          }),
+        }}
+      />
+
       <header className="sticky top-0 z-40 border-b border-[var(--mist)] bg-[var(--paper)]/85 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1140px] items-center justify-between px-6">
           <Link href="/" className={`${serif.className} text-xl`}>
@@ -93,6 +120,23 @@ export default function SolutionsIndex() {
           <Cta href="/#demo">Book a demo</Cta>
         </div>
       </header>
+
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="border-b border-[var(--mist)]">
+        <ol
+          className={`${mono.className} mx-auto flex max-w-[1140px] flex-wrap items-center gap-2 px-6 py-3 text-[11px] uppercase tracking-[0.12em] text-[var(--slate)]`}
+        >
+          <li>
+            <Link href="/" className="hover:text-[var(--ink)]">
+              Home
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li className="text-[var(--ink)]" aria-current="page">
+            Solutions
+          </li>
+        </ol>
+      </nav>
 
       {/* Hero */}
       <section className="border-b border-[var(--mist)]">
