@@ -7,6 +7,7 @@
 
 import { Newsreader, IBM_Plex_Mono } from "next/font/google";
 import { OrbitalGraphic } from "@/components/orbital-graphic";
+import { Booking } from "@/components/booking";
 
 const serif = Newsreader({ subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], display: "swap" });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], display: "swap" });
@@ -187,10 +188,9 @@ export default function Final() {
       <section id="demo" className="border-t border-[var(--mist)]">
         <div className="mx-auto max-w-[1140px] px-6 py-20 text-center md:py-28">
           <h2 className={`${serif.className} text-3xl font-medium md:text-5xl`}>One version of reality. Then confident action.</h2>
-          <p className="mx-auto mt-4 max-w-[44ch] text-lg text-[var(--slate)]">See what Husn surfaces on your own organization in 15 minutes.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Cta href="#demo">Book a demo</Cta>
-            <Cta href="#brief" ghost>See a sample brief</Cta>
+          <p className="mx-auto mt-4 max-w-[44ch] text-lg text-[var(--slate)]">Pick a slot and we&apos;ll walk you through what Husn surfaces on your own organization. 30 minutes, no slides.</p>
+          <div className="mt-10">
+            <Booking />
           </div>
         </div>
       </section>
