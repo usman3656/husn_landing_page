@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Husn: ask across your whole stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#fcf7f0; --panel:#ffffff; --panel-2:#faf7f1;
+    --ink:#1c1e24; --ink-soft:#565b64; --ink-faint:#71767f;
+    --line:#ece7dd; --line-2:#e3ded3; --chip:#f5f1ea;
+    --accent:#f2693b; --approve:#4a57cf;
+    --green:#0e9159; --green-bg:#e6f4ec;
+    --amber:#9a680d; --amber-bg:#fbedd2;
+    --red:#ec5a4b; --teal:#268f83;
+    --shadow:0 1px 2px rgba(28,30,36,.04), 0 34px 80px -34px rgba(28,30,36,.30);
+    --sans:"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; display:grid; place-items:center; padding:40px 20px; }
+
+  .app{ width:min(760px,100%); background:var(--panel); border:1px solid var(--line);
+    border-radius:18px; box-shadow:var(--shadow); overflow:hidden; }
+
+  .apphead{ display:flex; align-items:center; gap:10px; padding:12px 18px; border-bottom:1px solid var(--line); background:var(--panel-2); }
+  .apphead .nav{ color:var(--ink-faint); font-size:15px; letter-spacing:2px; }
+  .agent{ display:flex; align-items:center; gap:8px; font-weight:700; font-size:13px; }
+  .agent .gd{ width:16px; height:16px; border-radius:5px; background:linear-gradient(140deg,var(--accent),#b4432a); }
+  .ro{ font-size:9.5px; font-weight:800; letter-spacing:.06em; color:var(--ink-faint); border:1px solid var(--line-2); border-radius:999px; padding:2px 7px; }
+  .apphead .max{ margin-left:auto; color:var(--ink-faint); }
+  .apphead .max svg{ width:15px; height:15px; }
+
+  .tabs{ display:flex; flex-wrap:wrap; gap:6px; padding:11px 16px; border-bottom:1px solid var(--line); }
+  .tab{ font-family:inherit; font-size:12.5px; font-weight:700; color:var(--ink-soft); padding:8px 15px; border-radius:999px; border:1px solid transparent; background:transparent; cursor:pointer; }
+  .tab:hover{ color:var(--ink); }
+  .tab.active{ background:var(--panel); color:var(--ink); border-color:var(--line-2); box-shadow:0 1px 2px rgba(28,30,36,.05); }
+  .tab .bar{ display:block; height:2px; border-radius:2px; margin-top:6px; background:var(--accent); transform:scaleX(0); transform-origin:left; }
+  .tab.active .bar{ animation:sweep var(--dwell,10s) linear forwards; }
+  @keyframes sweep{ to{ transform:scaleX(1); } }
+
+  .thread{ display:flex; flex-direction:column; gap:15px; padding:22px 24px 6px; min-height:326px; }
+  .q{ align-self:flex-end; max-width:80%; background:var(--chip); border:1px solid var(--line);
+    border-radius:15px 15px 5px 15px; padding:11px 15px; font-size:14px; font-weight:600; color:var(--ink);
+    opacity:0; transform:translateY(6px); transition:.45s cubic-bezier(.2,.7,.2,1); }
+  .q.in{ opacity:1; transform:none; }
+
+  .rows{ display:flex; flex-direction:column; gap:10px; }
+  .row{ display:flex; align-items:center; gap:11px; font-size:13.5px; color:var(--ink-soft);
+    opacity:0; transform:translateY(5px); transition:.4s cubic-bezier(.2,.7,.2,1); }
+  .row.in{ opacity:1; transform:none; }
+  .row .ic{ width:23px; height:23px; border-radius:8px; display:grid; place-items:center;
+    background:var(--chip); border:1px solid var(--line); flex:none; }
+  .row .ic svg{ width:13px; height:13px; }
+  .row .v{ color:var(--ink-faint); font-weight:600; }
+  .row .key{ font-weight:700; }
+
+  .answer{ font-size:14.5px; line-height:1.62; color:#31353d; font-weight:500;
+    border-top:1px solid var(--line); padding-top:15px; margin-top:2px;
+    opacity:0; transform:translateY(6px); transition:.5s cubic-bezier(.2,.7,.2,1); }
+  .answer.in{ opacity:1; transform:none; }
+  .answer .lbl{ display:inline-flex; align-items:center; gap:7px; font-size:10.5px; font-weight:800; letter-spacing:.08em; color:var(--ink-faint); margin-bottom:7px; }
+  .answer .lbl .gd{ width:13px; height:13px; border-radius:4px; background:linear-gradient(140deg,var(--accent),#b4432a); }
+  .hl{ background:color-mix(in srgb, var(--accent) 15%, transparent); border-radius:4px; padding:0 3px; font-weight:700; color:#8a3714; }
+
+  .composer{ display:flex; align-items:center; gap:10px; margin:8px 24px 20px; border:1px solid var(--line-2);
+    border-radius:13px; padding:9px 10px 9px 14px; background:var(--panel); }
+  .composer .txt{ flex:1; font-size:13.5px; color:var(--ink-faint); font-weight:500; }
+  .send{ width:31px; height:31px; border-radius:50%; background:var(--accent); border:0; display:grid; place-items:center; cursor:pointer; }
+  .send svg{ width:15px; height:15px; color:#fff; }
+
+  .caption{ width:min(760px,100%); margin:16px auto 0; text-align:center; color:var(--ink-faint); font-size:12.5px; font-weight:500; }
+  .live{ display:inline-flex; align-items:center; gap:7px; }
+  .live .p{ width:7px; height:7px; border-radius:50%; background:var(--accent); animation:ping 1.8s ease-out infinite; }
+  @keyframes ping{ 0%{ box-shadow:0 0 0 0 rgba(242,105,59,.5);} 70%{ box-shadow:0 0 0 7px rgba(242,105,59,0);} 100%{ box-shadow:0 0 0 0 rgba(242,105,59,0);} }
+
+  @media (max-width:520px){ .thread{ min-height:0; } }
+  @media (prefers-reduced-motion: reduce){
+    .q,.row,.answer{ transition:none; } .tab .bar{ animation:none; } .live .p{ animation:none; }
+  }
+</style>
+</head>
+<body>
+  <main class="app" aria-label="Husn answering questions by reading across connected tools, read-only">
+    <div class="apphead">
+      <span class="nav">&#8249;&#8250;</span>
+      <span class="agent"><span class="gd"></span> Husn agent</span>
+      <span class="ro">READ-ONLY</span>
+      <span class="max"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 15v5h-5M15 4h5v5M9 20H4v-5"/></svg></span>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Example questions"></nav>
+    <div class="thread" id="thread" aria-live="polite"></div>
+    <div class="composer">
+      <span class="txt">Ask anything about Solara&rsquo;s knowledge. Husn only reads, it never changes your tools.</span>
+      <button class="send" type="button" aria-label="Ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+    </div>
+  </main>
+
+  <p class="caption"><span class="live"><span class="p"></span> Husn reads across your stack</span>. Every answer traced to its source, nothing ever changed.</p>
+
+<script>
+(function(){
+  "use strict";
+  var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var ICONS = {
+    book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M18 3v18"/></svg>',
+    ticket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 4 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-4z"/></svg>',
+    bolt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
+    check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>',
+    chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+    hash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3 7 21M17 3l-2 18M4 8h16M3 16h16"/></svg>',
+    folder:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+    doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v4h4"/></svg>'
+  };
+
+  // Same class of problem Slite's search demo shows (read many tools -> one sourced answer),
+  // but a hotel-operations use case with original questions and answers. Every action is READ-ONLY.
+  var SCENARIOS = [
+    {
+      tab:"Front desk question",
+      q:"A guest’s prepaid rate is showing as unpaid at check-in. What should the desk do?",
+      rows:[
+        {ic:"book",   v:"Read",       key:"Prepaid rates reconciliation", rest:" in the front-desk guide"},
+        {ic:"ticket", v:"Reviewed",   key:"3 similar tickets", rest:" resolved this week"},
+        {ic:"bolt",   v:"Checked",    key:"the payment-gateway status", rest:" for the last hour"},
+        {ic:"check",  v:"Confirmed",  key:"the latest PMS sync", rest:""}
+      ],
+      answer:'This is a known <span class="hl">sync gap</span>: on prepaid channel bookings the charge posts to the gateway before the PMS marks the folio paid. Take no payment. Flag the folio as “prepaid, verify” and it clears on the next sync (usually under an hour).'
+    },
+    {
+      tab:"Revenue brief",
+      q:"Brief me on the Downtown property before tomorrow’s revenue call: occupancy, ADR, and any risks.",
+      rows:[
+        {ic:"chart",  v:"Pulled",          key:"occupancy for the next 14 nights", rest:" from the PMS"},
+        {ic:"chart",  v:"Reviewed",        key:"7 days of ADR", rest:" in the revenue tool"},
+        {ic:"hash",   v:"Cross-referenced",key:"#downtown-ops", rest:" in Slack"},
+        {ic:"doc",    v:"Read",            key:"the comp-set report", rest:""}
+      ],
+      answer:'Downtown is pacing at <span class="hl">82% occupancy</span> next week, ADR up 4% year on year. One risk: a 40-room group block is still <span class="hl">tentative</span> and expires Friday. Traced to the PMS, the revenue tool, #downtown-ops, and the comp-set report.'
+    },
+    {
+      tab:"Ops question",
+      q:"What’s our fire-safety inspection status across properties, with any open items?",
+      rows:[
+        {ic:"book",   v:"Read",            key:"the Safety & Compliance overview", rest:""},
+        {ic:"hash",   v:"Cross-referenced",key:"3 active #facilities threads", rest:" in Slack"},
+        {ic:"folder", v:"Pulled",          key:"the latest inspection reports", rest:" from Drive"},
+        {ic:"check",  v:"Verified",        key:"open work orders", rest:" in the maintenance log"}
+      ],
+      answer:'All five properties passed their last inspection. <span class="hl">Two open items</span>: Downtown’s alarm-panel re-test (due in 6 days) and Harbor’s extinguisher swap (in progress). Sources: the Safety &amp; Compliance overview, #facilities, Drive, and the maintenance log.'
+    }
+  ];
+
+  var thread = document.getElementById("thread");
+  var tabsEl = document.getElementById("tabs");
+  var current = 0, timers = [];
+  function DWELL(){ return 10000; }
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+
+  function renderTabs(){
+    tabsEl.innerHTML = "";
+    SCENARIOS.forEach(function(sc,i){
+      var b = document.createElement("button");
+      b.className = "tab" + (i===current?" active":"");
+      b.type="button"; b.setAttribute("role","tab"); b.setAttribute("aria-selected", i===current?"true":"false");
+      b.innerHTML = sc.tab + '<span class="bar"></span>';
+      b.style.setProperty("--dwell",(DWELL()/1000)+"s");
+      b.addEventListener("click", function(){ play(i); });
+      tabsEl.appendChild(b);
+    });
+  }
+
+  function play(index){
+    clearTimers();
+    current = index;
+    var sc = SCENARIOS[index];
+    renderTabs();
+
+    var rowsHtml = sc.rows.map(function(r){
+      return '<div class="row"><span class="ic">'+ICONS[r.ic]+'</span>'+
+             '<span><span class="v">'+r.v+'</span> <span class="key">'+r.key+'</span>'+r.rest+'</span></div>';
+    }).join("");
+
+    thread.innerHTML =
+      '<div class="q" id="q">'+sc.q+'</div>'+
+      '<div class="rows" id="rows">'+rowsHtml+'</div>'+
+      '<div class="answer" id="answer"><span class="lbl"><span class="gd"></span>HUSN</span><div>'+sc.answer+'</div></div>';
+
+    var q = document.getElementById("q");
+    var rows = thread.querySelectorAll(".row");
+    var answer = document.getElementById("answer");
+    var s = prefersReduced ? 0 : 1;
+
+    later(function(){ q.classList.add("in"); }, 250*s);
+    rows.forEach(function(row,i){ later(function(){ row.classList.add("in"); }, (900 + i*650)*s); });
+    later(function(){ answer.classList.add("in"); }, (900 + sc.rows.length*650 + 400)*s);
+
+    if(!prefersReduced){ later(function(){ play((index+1)%SCENARIOS.length); }, DWELL()); }
+  }
+
+  renderTabs();
+  play(0);
+})();
+</script>
+</body>
+</html>

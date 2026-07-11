@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Husn: your AI teammate in Slack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#fcf7f0;
+    --panel:#ffffff; --panel-2:#faf7f1;
+    --ink:#1c1e24; --ink-soft:#565b64; --ink-faint:#71767f;
+    --line:#ece7dd; --line-2:#e3ded3; --chip:#f5f1ea;
+    --accent:#f2693b; --green:#0e9159; --dark:#141017;
+    --mention:#fdeadf; --mention-ink:#b4432a;
+    --shadow:0 1px 2px rgba(28,30,36,.04), 0 34px 80px -34px rgba(28,30,36,.30);
+    --sans:"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ margin:0; font-family:var(--sans); -webkit-font-smoothing:antialiased; color:var(--ink);
+    min-height:100%; padding:34px 22px 60px; background:var(--bg); }
+
+  /* top nav pill */
+  .nav{ max-width:1000px; margin:0 auto 22px; background:var(--panel); border:1px solid var(--line); border-radius:16px;
+    display:flex; align-items:center; gap:20px; padding:13px 16px 13px 22px; box-shadow:0 1px 2px rgba(28,30,36,.04), 0 12px 30px -18px rgba(28,30,36,.22); }
+  .brand{ font-size:22px; font-weight:800; letter-spacing:-.03em; }
+  .nav .links{ display:flex; gap:22px; margin:0 auto; }
+  .nav .links a{ font-size:13.5px; font-weight:600; color:var(--ink-soft); text-decoration:none; }
+  .nav .cta{ background:var(--dark); color:#fff; font-size:13px; font-weight:700; border-radius:10px; padding:10px 16px; }
+
+  /* workspace card */
+  .stage{ max-width:1000px; margin:0 auto; }
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    box-shadow:var(--shadow); display:grid; grid-template-columns:216px 1fr; min-height:452px; }
+
+  /* sidebar */
+  .side{ background:var(--panel-2); border-right:1px solid var(--line); padding:18px 12px; }
+  .side .wshead{ display:flex; align-items:center; justify-content:space-between; font-weight:800; font-size:15px; margin:2px 6px 16px; }
+  .side .wshead svg{ width:14px; height:14px; color:var(--ink-faint); }
+  .side .grp{ display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; color:var(--ink-soft); margin:0 6px 6px; }
+  .side .grp svg{ width:11px; height:11px; }
+  .ch{ display:flex; align-items:center; gap:6px; padding:6px 9px; border-radius:8px; font-size:13.5px; color:var(--ink-soft); font-weight:500; cursor:pointer; }
+  .ch:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+  .ch .h{ color:var(--ink-faint); font-weight:600; }
+  .ch.active{ background:var(--chip); color:var(--ink); font-weight:700; }
+  .skel{ height:9px; border-radius:5px; background:var(--line); margin:12px 10px; }
+  .skel.s2{ width:60%; } .skel.s3{ width:75%; } .skel.s4{ width:50%; } .skel.s5{ width:68%; }
+
+  /* channel pane */
+  .pane{ display:flex; flex-direction:column; }
+  .panehead{ display:flex; align-items:center; gap:7px; padding:16px 22px; border-bottom:1px solid var(--line); font-weight:800; font-size:15px; }
+  .panehead .h{ color:var(--ink-faint); } .panehead svg{ width:13px; height:13px; color:var(--ink-faint); margin-left:2px; }
+  .thread{ padding:18px 22px; display:flex; flex-direction:column; gap:16px; }
+
+  .msg{ display:flex; gap:11px; opacity:0; transform:translateY(6px); transition:.4s cubic-bezier(.2,.7,.2,1); }
+  .msg.in{ opacity:1; transform:none; }
+  .msg .av{ width:36px; height:36px; border-radius:9px; flex:none; display:grid; place-items:center; color:#fff; font-weight:800; font-size:14px; }
+  .msg .av.bot{ background:linear-gradient(140deg,var(--accent),#b4432a); }
+  .msg .who{ font-weight:800; font-size:13.5px; }
+  .msg .app{ font-size:9px; font-weight:800; letter-spacing:.04em; color:var(--ink-faint); background:var(--chip); border:1px solid var(--line); border-radius:4px; padding:1px 5px; margin-left:6px; vertical-align:middle; }
+  .msg .time{ color:var(--ink-faint); font-weight:500; font-size:11.5px; margin-left:7px; }
+  .msg p{ margin:3px 0 0; font-size:14px; line-height:1.5; color:#31353d; font-weight:500; }
+  .mention{ color:var(--mention-ink); background:var(--mention); border-radius:4px; padding:0 4px; font-weight:700; }
+
+  .checks{ display:flex; flex-direction:column; gap:7px; margin-top:9px; }
+  .chk{ display:flex; align-items:center; gap:9px; font-size:13.5px; color:#31353d; font-weight:500;
+    opacity:0; transform:translateY(4px); transition:.32s cubic-bezier(.2,.7,.2,1); }
+  .chk.in{ opacity:1; transform:none; }
+  .chk .tick{ width:17px; height:17px; border-radius:5px; background:var(--green); display:grid; place-items:center; flex:none; }
+  .chk .tick svg{ width:11px; height:11px; color:#fff; }
+
+  .attach{ display:flex; align-items:center; gap:10px; margin-top:11px; border:1px solid var(--line-2); border-radius:10px; padding:10px 12px; max-width:340px;
+    opacity:0; transform:translateY(4px); transition:.32s cubic-bezier(.2,.7,.2,1); }
+  .attach.in{ opacity:1; transform:none; }
+  .attach .ic{ width:30px; height:30px; border-radius:7px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:11px; flex:none; }
+  .attach b{ font-size:12.5px; font-weight:700; display:block; } .attach small{ font-size:11px; color:var(--ink-faint); font-weight:500; }
+
+  .closing{ margin-top:11px; font-size:14px; line-height:1.5; color:#31353d; font-weight:500;
+    opacity:0; transform:translateY(4px); transition:.4s; }
+  .closing.in{ opacity:1; transform:none; }
+  .closing b{ color:var(--ink); font-weight:700; }
+
+  .reacts{ display:flex; gap:7px; margin-top:12px; opacity:0; transition:.4s; }
+  .reacts.in{ opacity:1; }
+  .react{ display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:700; color:var(--ink-soft);
+    background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:3px 9px; }
+  .react .add{ color:var(--ink-faint); }
+
+  .caption{ max-width:1000px; margin:22px auto 0; text-align:center; color:var(--ink-faint); font-size:13px; font-weight:600; }
+
+  @media (max-width:780px){
+    .nav .links{ display:none; }
+    .card{ grid-template-columns:1fr; } .side{ display:none; } .card{ min-height:0; }
+  }
+  @media (prefers-reduced-motion: reduce){ .msg,.chk,.attach,.closing,.reacts{ transition:none; } }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <span class="brand">husn</span>
+    <span class="links"><a>Product</a><a>Security</a><a>Enterprise</a><a>Resources</a><a>Solutions</a></span>
+    <span class="cta">Get started for free</span>
+  </nav>
+
+  <div class="stage">
+    <div class="card">
+      <aside class="side">
+        <div class="wshead">Solara Hotels <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="grp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg> Channels</div>
+        <div id="channels"></div>
+        <div class="skel s3"></div><div class="skel s2"></div><div class="skel s4"></div><div class="skel s5"></div><div class="skel s2"></div>
+      </aside>
+      <section class="pane">
+        <div class="panehead"><span class="h">#</span><span id="chname">general</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="thread" id="thread" aria-live="polite"></div>
+      </section>
+    </div>
+  </div>
+
+  <p class="caption">@husn in any channel. It does the work and reports back for you to review.</p>
+
+<script>
+(function(){
+  "use strict";
+  var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // An AI teammate that ACTS in Slack for a hotel group (Solara). Original copy, hotel-ops use case.
+  var CH = [
+    {
+      name:"general",
+      who:"Sofia Reyes", init: "S", avc:"#e8663d", wt:"8:41 AM", bt:"8:43 AM",
+      req:"a new front-desk hire starts Monday. Can you get her set up?",
+      summary:"Priya is set up and ready for Monday.",
+      checks:["PMS, email and door-access provisioned","9 onboarding tasks created in the onboarding tracker","2 shadow shifts booked with the team lead","Uniform ordered in her size"],
+      closing:"Welcome note <b>scheduled for Monday, 9:00 AM</b>.",
+      reacts:[["🎉","5"],["👍","2"]]
+    },
+    {
+      name:"revenue",
+      who:"Tom Becker", init:"T", avc:"#2f7fe0", wt:"10:18 AM", bt:"10:20 AM",
+      req:"reconcile last month’s folios and flag anything that looks off.",
+      summary:"Reconciled 1,240 folios across the PMS and Stripe.",
+      checks:["Refunds drafted for 12 double-charged folios","Month-end pack built and ready to send"],
+      attach:{ic:"X", color:"#1d7145", name:"Month-end-pack-Jun-2026", type:"Excel spreadsheet"},
+      closing:"Caught <b>~$2,400</b> in duplicate resort fees.",
+      reacts:[["🙏","2"],["✅","2"]]
+    },
+    {
+      name:"growth",
+      who:"Leo Martins", init:"L", avc:"#268f83", wt:"9:53 AM", bt:"9:55 AM",
+      req:"our Meta cost-per-booking spiked yesterday. Dig in and fix what you can.",
+      summary:"Found it. “Prospecting · Broad” burned 38% of spend at 3× the usual cost.",
+      checks:["Paused the campaign","Shifted budget to your two best performers","Tracker updated in the sheet"],
+      closing:"Projected cost-per-booking <b>$126 → $42</b>. Drafted 3 new creatives in the doc.",
+      reacts:[["🔥","3"],["🙌","2"]]
+    },
+    {
+      name:"support",
+      who:"Raj Patel", init:"R", avc:"#e0642f", wt:"1:12 PM", bt:"1:14 PM",
+      req:"we’re drowning in tickets about the booking-confirmation bug. Help.",
+      summary:"Triaged the queue. 23 tickets are the same confirmation-email timeout.",
+      checks:["Merged them into one thread","Drafted and queued replies to all 23","Filed a bug with a clean repro","Flagged it for the engineering team"],
+      attach:{ic:"ZD", color:"#03363d", name:"Zendesk · Confirmation-email timeout", type:"Merged view · 23 tickets"},
+      closing:"Median response time back <b>under 1 hour</b>.",
+      reacts:[["🙏","4"],["👍","1"]]
+    }
+  ];
+
+  var CHECK='<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>';
+  var thread=document.getElementById("thread"), chEl=document.getElementById("channels"), chname=document.getElementById("chname");
+  var current=0, timers=[];
+  function DWELL(){ return 9500; }
+  function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
+  function later(fn,ms){ timers.push(setTimeout(fn,ms)); }
+
+  function renderChannels(){
+    chEl.innerHTML="";
+    CH.forEach(function(c,i){
+      var d=document.createElement("div");
+      d.className="ch"+(i===current?" active":"");
+      d.setAttribute("role","button"); d.tabIndex=0;
+      d.setAttribute("aria-current", i===current?"true":"false");
+      d.innerHTML='<span class="h">#</span> '+c.name;
+      d.addEventListener("click",function(){ play(i); });
+      d.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); play(i); } });
+      chEl.appendChild(d);
+    });
+  }
+
+  function play(index){
+    clearTimers(); current=index; renderChannels();
+    var c=CH[index]; chname.textContent=c.name;
+
+    var checksHtml=c.checks.map(function(t){ return '<div class="chk"><span class="tick">'+CHECK+'</span>'+t+'</div>'; }).join("");
+    var attachHtml=c.attach ? '<div class="attach" id="attach"><span class="ic" style="background:'+c.attach.color+'">'+c.attach.ic+'</span><span><b>'+c.attach.name+'</b><small>'+c.attach.type+'</small></span></div>' : '';
+    var reactsHtml=c.reacts.map(function(r){ return '<span class="react">'+r[0]+' '+r[1]+'</span>'; }).join("")+'<span class="react add">☺ +</span>';
+
+    thread.innerHTML=
+      '<div class="msg" id="m1"><div class="av" style="background:'+c.avc+'">'+c.init+'</div>'+
+        '<div><span class="who">'+c.who+'</span><span class="time">'+c.wt+'</span>'+
+        '<p><span class="mention">@husn</span> '+c.req+'</p></div></div>'+
+      '<div class="msg" id="m2"><div class="av bot">✦</div>'+
+        '<div><span class="who">Husn</span><span class="app">APP</span><span class="time">'+c.bt+'</span>'+
+        '<p>'+c.summary+'</p>'+
+        '<div class="checks">'+checksHtml+'</div>'+attachHtml+
+        '<div class="closing" id="closing">'+c.closing+'</div>'+
+        '<div class="reacts" id="reacts">'+reactsHtml+'</div></div></div>';
+
+    var m1=document.getElementById("m1"), m2=document.getElementById("m2");
+    var chks=thread.querySelectorAll(".chk"), attach=document.getElementById("attach");
+    var closing=document.getElementById("closing"), reacts=document.getElementById("reacts");
+    var s=prefersReduced?0:1;
+
+    later(function(){ m1.classList.add("in"); }, 250*s);
+    later(function(){ m2.classList.add("in"); }, 1000*s);
+    var t=1500;
+    chks.forEach(function(ck){ later(function(){ ck.classList.add("in"); }, t*s); t+=520; });
+    if(attach){ later(function(){ attach.classList.add("in"); }, t*s); t+=520; }
+    later(function(){ closing.classList.add("in"); }, t*s); t+=450;
+    later(function(){ reacts.classList.add("in"); }, t*s);
+
+    if(!prefersReduced){ later(function(){ play((index+1)%CH.length); }, DWELL()); }
+  }
+
+  renderChannels(); play(0);
+})();
+</script>
+</body>
+</html>
