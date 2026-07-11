@@ -10,7 +10,7 @@
 <style>
   :root{
     color-scheme: light;
-    --bg:#fcf7f0;
+    --bg:#F6F4EF;
     --panel:#ffffff;
     --panel-2:#faf7f1;
     --ink:#1c1e24;
@@ -67,7 +67,7 @@
   .tools svg{ width:15px; height:15px; }
 
   /* doc body */
-  .doc{ grid-column:2; padding:24px 34px 10px; min-height:404px; position:relative; }
+  .doc{ grid-column:2; padding:24px 34px 22px; min-height:404px; position:relative; }
   .badges{ display:flex; gap:8px; margin-bottom:15px; }
   .badge{ display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; padding:4px 11px; border-radius:999px; }
   .badge svg{ width:12px; height:12px; }
@@ -94,7 +94,7 @@
 
   /* approval card */
   .approve{
-    position:absolute; left:34px; right:34px; bottom:16px;
+    position:relative; margin:16px 0 2px;
     background:var(--panel); border:1px solid color-mix(in srgb, var(--accent) 42%, var(--line));
     border-radius:15px; box-shadow:0 16px 34px -16px rgba(28,30,36,.30);
     padding:14px 16px; opacity:0; transform:translateY(14px);
@@ -141,7 +141,7 @@
 <body>
   <main class="app" aria-label="Husn keeping a knowledge base up to date, with human approval">
     <aside class="side">
-      <div class="ws"><span class="tile">So</span><span class="name">Solara Hotels</span><span class="huxn">Husn</span></div>
+      <div class="ws"><span class="tile">YC</span><span class="name">Your Company</span><span class="huxn">Husn</span></div>
       <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> Agent</div>
       <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg> Search</div>
       <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg> Agent triage</div>
@@ -171,7 +171,7 @@
     <nav class="tabs" id="tabs" role="tablist" aria-label="Views"></nav>
   </main>
 
-  <p class="caption"><span class="live"><span class="p"></span> Husn keeps every doc current</span>. It drafts the update, your team approves it.</p>
+  <p class="caption" style="display:none"></p>
 
 <script>
 (function(){
@@ -188,7 +188,7 @@
       title:"Cancellation Policy",
       meta:'Last reviewed: <span class="zone"><del>April 2024</del> <ins>June 2026</ins></span>',
       body:
-        '<h2>Overview</h2><p>How Solara handles guest cancellations across direct and channel bookings.</p>'+
+        '<h2>Overview</h2><p>How Your Company handles guest cancellations across direct and channel bookings.</p>'+
         '<h2>Windows</h2><ul>'+
         '<li><b>Free cancellation</b>: <span class="zone"><del>24 hours</del> <ins>48 hours</ins></span> before check-in</li>'+
         '<li><b>No-show</b>: first night charged to the card on file</li>'+
@@ -204,10 +204,10 @@
       title:"Channel Manager",
       meta:'Last reviewed: <span class="zone"><del>February 2025</del> <ins>June 2026</ins></span>',
       body:
-        '<p>How Solara syncs rooms and rates across every booking channel.</p>'+
+        '<p>How Your Company syncs rooms and rates across every booking channel.</p>'+
         '<h2><span class="zone"><del>Fax Reservations</del></span></h2>'+
         '<p><span class="zone"><del>Reservations received by fax are keyed into the PMS by the front desk within 30 minutes.</del></span></p>'+
-        '<h2>Direct Booking</h2><p>Availability and rates sync to the Solara website in real time.</p>',
+        '<h2>Direct Booking</h2><p>Availability and rates sync to the company website in real time.</p>',
       trigger:"Triggered by the PMS release after the new booking engine went live.",
       icon:"git", diff:'Remove <del>Fax Reservations</del> section',
       who:"You", whoColor:"#268f83"

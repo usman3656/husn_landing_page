@@ -40,7 +40,7 @@ export function Booking() {
       const w = window as CalendlyWindow;
       if (!w.Calendly || !ref.current) return;
       ref.current.innerHTML = ""; // guard against double-init in React strict mode
-      w.Calendly.initInlineWidget({ url: BOOKING_URL, parentElement: ref.current });
+      w.Calendly.initInlineWidget({ url: BOOKING_URL + (BOOKING_URL.includes("?") ? "&" : "?") + "hide_gdpr_banner=1", parentElement: ref.current });
     };
 
     const existing = document.getElementById("calendly-widget-script") as HTMLScriptElement | null;
@@ -74,8 +74,8 @@ export function Booking() {
     <div
       ref={ref}
       aria-label="Booking calendar"
-      className="mx-auto w-full max-w-[680px]"
-      style={{ minWidth: 320, height: 700 }}
+      className="mx-auto w-full max-w-[760px]"
+      style={{ minWidth: 320, height: 1000 }}
     />
   );
 }
