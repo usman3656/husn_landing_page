@@ -50,8 +50,7 @@ export default function Final() {
       <section className="border-b border-[var(--mist)]">
         <div className="mx-auto grid max-w-[1140px] gap-10 px-6 py-12 md:grid-cols-[0.72fr_1.28fr] md:items-center md:py-16">
           <div>
-            <span className={`${mono.className} finin block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`} style={{ animationDelay: "0ms" }}>Knowledge, answers, and action</span>
-            <h1 className={`${serif.className} finin mt-4 text-5xl font-medium leading-[1.03] tracking-[-0.01em] md:text-6xl`} style={{ animationDelay: "120ms" }}>Husn gives you superpowers.</h1>
+            <h1 className={`${serif.className} finin text-5xl font-medium leading-[1.03] tracking-[-0.01em] md:text-6xl`} style={{ animationDelay: "80ms" }}>Husn gives you superpowers.</h1>
             <p className="finin mt-6 max-w-[40ch] text-lg leading-relaxed text-[var(--slate)]" style={{ animationDelay: "220ms" }}>
               Husn keeps your docs current, answers from across your tools, and does real work in Slack. You approve everything.
             </p>
@@ -61,7 +60,7 @@ export default function Final() {
           </div>
 
           <div className="finin" style={{ animationDelay: "360ms" }}>
-            <iframe id="brief" src="/demos/self-maintaining-docs.html" title="Husn keeps your docs current" className="block w-full border-0 h-[484px] md:h-[506px]" />
+            <iframe id="brief" src="/demos/self-maintaining-docs.html" title="Husn keeps your docs current" className="block w-full border-0 h-[556px] md:h-[578px]" />
             <p className="mt-4 text-center text-sm leading-relaxed text-[var(--slate)]">Husn detects changes, updates documentation, and keeps teams aligned, with your approval.</p>
           </div>
         </div>
@@ -82,7 +81,6 @@ export default function Final() {
       <section className="border-b border-[var(--mist)]">
         <div className="mx-auto grid max-w-[1140px] items-center gap-10 px-6 py-20 md:grid-cols-[0.8fr_1.2fr] md:py-24">
           <div className="max-w-md">
-            <div className={`${mono.className} mb-6 text-[11px] uppercase tracking-[0.16em] text-[var(--slate)]`}>Integrations</div>
             <h2 className={`${serif.className} text-3xl font-medium leading-[1.1] md:text-5xl`}>One connection. Your whole stack.</h2>
             <p className="mt-5 text-lg leading-relaxed text-[var(--slate)]">
               Husn works across the tools you already use. Nothing to migrate. You approve anything it does.
@@ -110,7 +108,8 @@ export default function Final() {
         </div>
       </section>
 
-      <Sec id="how" label="How it works" alt>
+      <Sec id="how" label="" alt>
+        <h2 className={`${serif.className} mb-10 text-3xl font-medium leading-[1.1] md:text-5xl`}>How it works.</h2>
         <div className="grid gap-8 md:grid-cols-3">
           {[["Connect", "Connect the tools you already use. Setup takes minutes."], ["Work", "Husn keeps docs current, answers questions, and does the work."], ["Approve", "You review everything. Nothing goes out without your okay."]].map(([k, v], i) => (
             <div key={k}><span className={`${mono.className} text-[12px] text-[var(--slate)]`}>0{i + 1}</span><h3 className={`${serif.className} mt-2 text-xl`}>{k}</h3><p className="mt-2 text-[var(--slate)]">{v}</p></div>
@@ -120,7 +119,7 @@ export default function Final() {
         <div className="mt-8"><Cta href="#demo">Get a walkthrough</Cta></div>
       </Sec>
 
-      <Sec id="pricing" label="Pricing" alt>
+      <Sec id="pricing" label="" alt>
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div>
             <h2 className={`${serif.className} max-w-[16ch] text-3xl font-medium leading-[1.1] md:text-4xl`}>Simple pricing while we onboard our first teams.</h2>
@@ -167,7 +166,7 @@ function Sec({ id, label, alt, children }: { id?: string; label: string; alt?: b
   return (
     <section id={id} className={`border-b border-[var(--mist)] ${alt ? "bg-[var(--mist)]/35" : ""}`}>
       <div className="mx-auto max-w-[1140px] px-6 py-14 md:py-16">
-        <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--slate)]">{label}</div>
+        {label ? <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--slate)]">{label}</div> : null}
         {children}
       </div>
     </section>
