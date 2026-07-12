@@ -103,8 +103,7 @@ export default function Final() {
 
       <section id="teammate" className="border-b border-[var(--mist)]">
         <div className="mx-auto max-w-[1140px] px-6 py-20 md:py-24">
-          <h2 className={`${serif.className} text-3xl font-medium leading-[1.1] md:text-5xl`}>AI teammate in Slack.</h2>
-          <p className="mt-4 max-w-[40ch] text-lg leading-relaxed text-[var(--slate)]">Husn handles it for you.</p>
+          <h2 className={`${serif.className} text-3xl font-medium leading-[1.1] md:text-5xl`}>Let Husn handle it.</h2>
           <div className="mt-10">
             <iframe src="/demos/teammate.html" title="Husn as an AI teammate in Slack" className="mx-auto block w-full max-w-[1040px] border-0 h-[560px] md:h-[600px]" />
           </div>
@@ -130,10 +129,10 @@ export default function Final() {
           </div>
           <ul className="space-y-3.5 rounded-[2px] border border-[var(--mist)] bg-[var(--surface)] p-7">
             {[
-              "100% money-back guarantee, no questions asked.",
-              "If Husn has not saved your team hours and lifted efficiency after one month, we refund you in full.",
-              "Free integration and onboarding, included.",
-              "Cancel anytime.",
+              "100% First-Month Guarantee",
+              "Free Integration & Onboarding",
+              "Go Live in Days",
+              "Cancel Anytime",
             ].map((x) => (
               <li key={x} className="flex items-start gap-3 text-[var(--slate)]">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--blue)]" />

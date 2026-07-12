@@ -89,8 +89,8 @@
   .doc.edited ins{ animation:pop .55s cubic-bezier(.2,.7,.2,1) both; }
   @keyframes pop{ from{ opacity:0; transform:translateY(2px); filter:blur(2px);} to{ opacity:1; transform:none; filter:none; } }
 
-  .zone{ border-radius:11px; padding:2px 8px; margin:0 -8px; transition:box-shadow .45s ease, background .45s ease; }
-  .doc.editing .zone{ box-shadow:0 0 0 2px color-mix(in srgb, var(--accent) 48%, transparent); background:color-mix(in srgb, var(--accent) 7%, transparent); }
+  .zone{ border-radius:4px; padding:0 2px; margin:0 -2px; transition:background .4s ease; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+  .doc.editing .zone{ background:color-mix(in srgb, var(--accent) 13%, transparent); }
 
   /* approval card */
   .approve{
@@ -182,13 +182,13 @@
   // a section made obsolete by a system release, a gap surfaced in review, but a hotel-ops use case.
   var SCENARIOS = [
     {
-      tab:"Auto-updated doc", leaf:"leaf-retention",
+      tab:"Change Detection", leaf:"leaf-retention",
       crumb:'<span>Revenue &amp; Rates</span><span class="sep">/</span><b>Cancellation Policy</b>',
       badgeBefore:"outdated", badgeAfter:"verified",
       title:"Cancellation Policy",
       meta:'Last reviewed: <span class="zone"><del>April 2024</del> <ins>June 2026</ins></span>',
       body:
-        '<h2>Overview</h2><p>How Your Company handles guest cancellations across direct and channel bookings.</p>'+
+        '<h2>Overview</h2><p>How <b>Your Company</b> handles guest cancellations across direct and channel bookings.</p>'+
         '<h2>Windows</h2><ul>'+
         '<li><b>Free cancellation</b>: <span class="zone"><del>24 hours</del> <ins>48 hours</ins></span> before check-in</li>'+
         '<li><b>No-show</b>: first night charged to the card on file</li>'+
@@ -198,13 +198,13 @@
       who:"Nadia", whoColor:"#4a57cf"
     },
     {
-      tab:"Knowledge audit", leaf:"leaf-integrations",
+      tab:"Autonomous Investigation", leaf:"leaf-integrations",
       crumb:'<span>Reservations</span><span class="sep">/</span><b>Channel Manager</b>',
       badgeBefore:"outdated", badgeAfter:"verified",
       title:"Channel Manager",
       meta:'Last reviewed: <span class="zone"><del>February 2025</del> <ins>June 2026</ins></span>',
       body:
-        '<p>How Your Company syncs rooms and rates across every booking channel.</p>'+
+        '<p>How <b>Your Company</b> syncs rooms and rates across every booking channel.</p>'+
         '<h2><span class="zone"><del>Fax Reservations</del></span></h2>'+
         '<p><span class="zone"><del>Reservations received by fax are keyed into the PMS by the front desk within 30 minutes.</del></span></p>'+
         '<h2>Direct Booking</h2><p>Availability and rates sync to the company website in real time.</p>',
@@ -213,7 +213,7 @@
       who:"You", whoColor:"#268f83"
     },
     {
-      tab:"Agent-triggered review", leaf:"leaf-troubleshooting",
+      tab:"Agentic Execution", leaf:"leaf-troubleshooting",
       crumb:'<span>Front Desk</span><span class="sep">/</span><b>Troubleshooting</b>',
       badgeBefore:"outdated", badgeAfter:"self",
       title:"Troubleshooting",
