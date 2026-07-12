@@ -48,7 +48,7 @@ export default function Final() {
       </header>
 
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto grid max-w-[1140px] gap-12 px-6 py-16 md:grid-cols-[0.78fr_1.22fr] md:items-start md:py-20">
+        <div className="mx-auto grid max-w-[1140px] gap-10 px-6 py-12 md:grid-cols-[0.72fr_1.28fr] md:items-center md:py-16">
           <div>
             <span className={`${mono.className} finin block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`} style={{ animationDelay: "0ms" }}>Knowledge, answers, and action</span>
             <h1 className={`${serif.className} finin mt-4 text-5xl font-medium leading-[1.03] tracking-[-0.01em] md:text-6xl`} style={{ animationDelay: "120ms" }}>Husn gives you superpowers.</h1>
@@ -61,14 +61,14 @@ export default function Final() {
           </div>
 
           <div className="finin" style={{ animationDelay: "360ms" }}>
-            <iframe id="brief" src="/demos/self-maintaining-docs.html" title="Husn keeps your docs current" className="block w-full border-0 h-[600px] md:h-[640px]" />
+            <iframe id="brief" src="/demos/self-maintaining-docs.html" title="Husn keeps your docs current" className="block w-full border-0 h-[484px] md:h-[506px]" />
             <p className="mt-4 text-center text-sm leading-relaxed text-[var(--slate)]">Husn detects changes, updates documentation, and keeps teams aligned, with your approval.</p>
           </div>
         </div>
       </section>
 
       <section className="border-b border-[var(--mist)] bg-[var(--mist)]/35">
-        <div className="mx-auto flex max-w-[1140px] flex-col items-start gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-[1140px] flex-col items-start gap-6 px-6 py-9 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className={`${serif.className} text-2xl font-medium md:text-3xl`}>Built for teams juggling a dozen tools.</h2>
             <div className={`${mono.className} mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[12px] uppercase tracking-[0.1em] text-[var(--slate)]`}>
@@ -93,7 +93,7 @@ export default function Final() {
       </section>
 
       <section id="ask" className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-[1140px] px-6 py-14 md:py-16">
           <h2 className={`${serif.className} text-3xl font-medium leading-[1.1] md:text-5xl`}>Ask across your stack.</h2>
           <div className="mt-10">
             <iframe src="/demos/ask.html" title="Ask Husn across your stack" className="mx-auto block w-full max-w-[820px] border-0 h-[560px] md:h-[600px]" />
@@ -102,7 +102,7 @@ export default function Final() {
       </section>
 
       <section id="teammate" className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-[1140px] px-6 py-14 md:py-16">
           <h2 className={`${serif.className} text-3xl font-medium leading-[1.1] md:text-5xl`}>Let Husn handle it.</h2>
           <div className="mt-10">
             <iframe src="/demos/teammate.html" title="Husn as an AI teammate in Slack" className="mx-auto block w-full max-w-[1040px] border-0 h-[560px] md:h-[600px]" />
@@ -144,7 +144,7 @@ export default function Final() {
       </Sec>
 
       <section id="demo" className="border-t border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-20 text-center md:py-28">
+        <div className="mx-auto max-w-[1140px] px-6 py-14 text-center md:py-20">
           <h2 className={`${serif.className} text-3xl font-medium md:text-5xl`}>See Husn work on your own tools.</h2>
           <p className="mx-auto mt-4 max-w-[44ch] text-lg text-[var(--slate)]">Pick a slot and we&apos;ll show you Husn on your own stack.</p>
           <div className="mt-10">
@@ -166,7 +166,7 @@ export default function Final() {
 function Sec({ id, label, alt, children }: { id?: string; label: string; alt?: boolean; children: React.ReactNode }) {
   return (
     <section id={id} className={`border-b border-[var(--mist)] ${alt ? "bg-[var(--mist)]/35" : ""}`}>
-      <div className="mx-auto max-w-[1140px] px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-[1140px] px-6 py-14 md:py-16">
         <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--slate)]">{label}</div>
         {children}
       </div>
