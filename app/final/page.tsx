@@ -41,7 +41,7 @@ export default function Final() {
         <div className="mx-auto flex h-16 max-w-[1140px] items-center justify-between px-6">
           <span className={`${serif.className} text-xl`}>Husn</span>
           <nav className={`${mono.className} hidden gap-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)] md:flex`}>
-            <a href="#how">How it works</a><a href="#ask">See it work</a><a href="#pricing">Pricing</a>
+            <a href="#how">How it works</a><a href="#ask">See it work</a><a href="#pricing">Pricing</a><a href="/blog/">Blog</a>
           </nav>
           <Cta href="#demo">Book a demo</Cta>
         </div>

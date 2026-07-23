@@ -1,7 +1,8 @@
 import { seoPages } from "@/lib/seo-pages";
+import { getAllPosts } from "@/lib/blog";
 
-// Static RSS feed of every solution page. force-static so it is emitted as a
-// plain file under the static export.
+// Static RSS feed of every blog post and solution page. force-static so it is
+// emitted as a plain file under the static export.
 export const dynamic = "force-static";
 
 const BASE = "https://husn.io";
@@ -15,24 +16,35 @@ function esc(s: string): string {
 }
 
 export function GET() {
-  const items = seoPages
-    .map(
-      (p) => `    <item>
+  // Blog posts first (dated, newest first), then the solution pages.
+  const blogItems = getAllPosts().map(
+    (p) => `    <item>
+      <title>${esc(p.title)}</title>
+      <link>${BASE}/blog/${p.slug}/</link>
+      <guid isPermaLink="true">${BASE}/blog/${p.slug}/</guid>
+      <description>${esc(p.description)}</description>
+      <pubDate>${new Date(`${p.date}T00:00:00Z`).toUTCString()}</pubDate>
+    </item>`,
+  );
+
+  const solutionItems = seoPages.map(
+    (p) => `    <item>
       <title>${esc(p.title)}</title>
       <link>${BASE}/solutions/${p.slug}/</link>
       <guid isPermaLink="true">${BASE}/solutions/${p.slug}/</guid>
       <description>${esc(p.metaDescription)}</description>
     </item>`,
-    )
-    .join("\n");
+  );
+
+  const items = [...blogItems, ...solutionItems].join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Husn Solutions</title>
-    <link>${BASE}/solutions/</link>
+    <title>Husn</title>
+    <link>${BASE}/</link>
     <atom:link href="${BASE}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Husn solutions for project risk, executive reporting, meeting preparation, dependency management, and project health.</description>
+    <description>Writing and solutions from Husn: blog posts from the team, plus solution pages for project risk, executive reporting, meeting preparation, dependency management, and project health.</description>
     <language>en-us</language>
 ${items}
   </channel>
