@@ -110,7 +110,7 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { "@type": "Organization", name: post.author },
+    author: { "@type": "Person", name: post.author },
     publisher: { "@type": "Organization", name: "Husn", url: "https://husn.io/" },
     mainEntityOfPage: `https://husn.io/blog/${slug}/`,
   };

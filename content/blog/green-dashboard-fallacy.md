@@ -2,7 +2,7 @@
 title: "The Green Dashboard Fallacy: Why Your Tools Lie to You?"
 description: "Your tools are telling the truth, but they are not telling your truth. Here is why the green dashboard on Monday turns into a red crisis by Thursday."
 date: "2026-07-23"
-author: "The Husn team"
+author: "Qimra Fatima"
 ---
 
 If you are a leader in a modern, complex organization, you have a love-hate relationship with your dashboard.
