@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 const BASE = "https://husn.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/solutions/", "/blog/", "/privacy/", "/terms/"];
+  const staticRoutes = ["/", "/home/", "/solutions/", "/blog/", "/privacy/", "/terms/"];
   const solutionRoutes = getAllSeoSlugs().map(
     (slug) => `/solutions/${slug}/`,
   );
@@ -18,6 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}${path}`,
     changeFrequency: "weekly",
     priority:
-      path === "/" ? 1 : path === "/solutions/" || path === "/blog/" ? 0.8 : 0.7,
+      path === "/" || path === "/home/"
+        ? 1
+        : path === "/solutions/" || path === "/blog/"
+          ? 0.8
+          : 0.7,
   }));
 }
