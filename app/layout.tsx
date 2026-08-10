@@ -32,9 +32,9 @@ const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://husn.io"),
-  title: "Husn: The alignment layer for program teams",
+  title: "Husn: Referral records into EHR-ready context",
   description:
-    "Husn watches Jira, Slack, and your docs for the changes your sync meetings keep discovering too late, and tells the right people 30 minutes before the meeting starts.",
+    "Husn reads fragmented referral records, including scanned letters, external records, faxes, and emails, extracts what matters, matches it to the right patient, and prepares structured context for clinician review.",
   alternates: {
     types: { "application/rss+xml": "https://husn.io/feed.xml" },
   },
@@ -42,18 +42,18 @@ export const metadata: Metadata = {
     ? { verification: { google: GSC_VERIFICATION } }
     : {}),
   openGraph: {
-    title: "Husn: The alignment layer for program teams",
+    title: "Husn: Referral records into EHR-ready context",
     description:
-      "Cross-source drift detection, acknowledgement graphs, and pre-sync briefs for TPMs, EPMs, and PMO leaders.",
+      "A working MVP that reads, extracts, and structures referral information for clinician review, built from 40+ clinician interviews across the US and UK.",
     url: "https://husn.io",
     siteName: "Husn",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Husn: The alignment layer for program teams",
+    title: "Husn: Referral records into EHR-ready context",
     description:
-      "Cross-source drift detection, acknowledgement graphs, and pre-sync briefs for program teams.",
+      "Husn reads fragmented referral records and prepares structured context for clinician review.",
   },
   robots: { index: true, follow: true },
 };

@@ -175,8 +175,7 @@ export default async function BlogPostPage({
             className={`${mono.className} hidden gap-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)] md:flex`}
           >
             <Link href="/#how">How it works</Link>
-            <Link href="/#ask">See it work</Link>
-            <Link href="/#pricing">Pricing</Link>
+            <Link href="/#founders">Founders</Link>
             <Link href="/blog/" className="text-[var(--ink)]">
               Blog
             </Link>
@@ -270,11 +269,11 @@ export default async function BlogPostPage({
       <section className="border-t border-[var(--mist)]">
         <div className="mx-auto max-w-[1140px] px-6 py-20 text-center md:py-28">
           <h2 className={`${serif.className} text-3xl font-medium md:text-5xl`}>
-            See Husn on your own tools.
+            See Husn on a real referral scenario.
           </h2>
           <p className="mx-auto mt-4 max-w-[44ch] text-lg text-[var(--slate)]">
-            The fastest way to understand Husn is to point it at your own stack
-            for fifteen minutes.
+            The fastest way to understand Husn is a quick walkthrough on how
+            it reads and structures a referral.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Cta href="/#demo">Book a demo</Cta>
@@ -290,7 +289,7 @@ export default async function BlogPostPage({
         <div
           className={`${mono.className} mx-auto flex max-w-[1140px] flex-col items-start justify-between gap-2 px-6 py-8 text-[11px] uppercase tracking-[0.12em] text-[var(--slate)] md:flex-row md:items-center`}
         >
-          <span>Husn · knowledge, answers, and work across every tool</span>
+          <span>Husn · referral records into EHR-ready context</span>
           <span>Husn · {new Date().getFullYear()}</span>
         </div>
       </footer>

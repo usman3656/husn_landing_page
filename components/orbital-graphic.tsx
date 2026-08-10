@@ -6,25 +6,25 @@ type Integration = { name: string; brand: string; Logo: () => React.ReactElement
 type Placed = Integration & { ring: "inner" | "outer"; idx: number };
 
 const INNER: Integration[] = [
-  { name: "Slack", brand: "#611F69", Logo: SlackLogo },
-  { name: "Jira", brand: "#2684FF", Logo: JiraLogo },
-  { name: "Linear", brand: "#5E6AD2", Logo: LinearLogo },
-  { name: "GitHub", brand: "#181717", Logo: GitHubLogo },
-  { name: "Notion", brand: "#0F0F0F", Logo: NotionLogo },
-  { name: "Docs", brand: "#1A73E8", Logo: DocsLogo },
+  { name: "Referrals", brand: "#2C5CE6", Logo: LetterIcon },
+  { name: "Scans", brand: "#268F83", Logo: ScanIcon },
+  { name: "Faxes", brand: "#9A680D", Logo: FaxIcon },
+  { name: "GP notes", brand: "#5059C9", Logo: FolderIcon },
+  { name: "Discharges", brand: "#0E9159", Logo: FileCheckIcon },
+  { name: "Clinic notes", brand: "#71767F", Logo: NoteIcon },
 ];
 
 const OUTER: Integration[] = [
-  { name: "Gmail", brand: "#EA4335", Logo: GmailLogo },
-  { name: "Outlook", brand: "#0078D4", Logo: OutlookLogo },
-  { name: "Teams", brand: "#5059C9", Logo: TeamsLogo },
-  { name: "Drive", brand: "#0066DA", Logo: DriveLogo },
-  { name: "SharePoint", brand: "#036C70", Logo: SharePointLogo },
-  { name: "Confluence", brand: "#2684FF", Logo: ConfluenceLogo },
-  { name: "Figma", brand: "#F24E1E", Logo: FigmaLogo },
-  { name: "Zoom", brand: "#2D8CFF", Logo: ZoomLogo },
-  { name: "Asana", brand: "#F06A6A", Logo: AsanaLogo },
-  { name: "PDFs", brand: "#D93025", Logo: PdfLogo },
+  { name: "Labs", brand: "#268F83", Logo: FlaskIcon },
+  { name: "Radiology", brand: "#2C5CE6", Logo: ScanBeamIcon },
+  { name: "Pathology", brand: "#9A680D", Logo: MicroscopeIcon },
+  { name: "Emails", brand: "#5059C9", Logo: EnvelopeIcon },
+  { name: "EHR", brand: "#0E9159", Logo: DatabaseIcon },
+  { name: "Transfers", brand: "#71767F", Logo: FormIcon },
+  { name: "Meds", brand: "#EC5A4B", Logo: PillIcon },
+  { name: "Allergies", brand: "#9A680D", Logo: AlertIcon },
+  { name: "Visit notes", brand: "#2C5CE6", Logo: HistoryIcon },
+  { name: "Consults", brand: "#268F83", Logo: LetterIcon },
 ];
 
 const ALL: Placed[] = [
@@ -79,7 +79,7 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w
       onPointerEnter={() => setActive(true)}
       onPointerLeave={() => { setTilt({ x: 0, y: 0 }); setHover(null); setActive(false); }}
       role="img"
-      aria-label="The tools Husn reads, flowing into the core"
+      aria-label="The referral sources Husn reads, flowing into a structured summary"
     >
       <div className="absolute inset-0" style={tiltStyle}>
         <div className="animate-spin absolute inset-0" style={{ animationDuration: "240s", animationPlayState: active ? "paused" : "running" }}>
@@ -153,20 +153,22 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w
   );
 }
 
-/* ---------- Logos ---------- */
-function SlackLogo() { return (<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 14a2 2 0 1 1-2-2h2v2zm1 0a2 2 0 1 1 4 0v5a2 2 0 1 1-4 0v-5z" fill="#E01E5A" /><path d="M10 5a2 2 0 1 1 2-2v2h-2zm0 1a2 2 0 1 1 0 4H5a2 2 0 1 1 0-4h5z" fill="#36C5F0" /><path d="M19 10a2 2 0 1 1 2 2h-2v-2zm-1 0a2 2 0 1 1-4 0V5a2 2 0 1 1 4 0v5z" fill="#2EB67D" /><path d="M14 19a2 2 0 1 1-2 2v-2h2zm0-1a2 2 0 1 1 0-4h5a2 2 0 1 1 0 4h-5z" fill="#ECB22E" /></svg>); }
-function NotionLogo() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="#FFFFFF" stroke="#0F0F0F" strokeWidth="1.5" /><path d="M8 8v8M8 8l8 8M16 8v8" stroke="#0F0F0F" strokeWidth="1.8" strokeLinecap="round" /></svg>); }
-function GmailLogo() { return (<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 7l9 6 9-6v10a1 1 0 0 1-1 1h-3V11l-5 3.5L7 11v7H4a1 1 0 0 1-1-1V7z" fill="#EA4335" /><path d="M3 7l9 6 9-6v1.5L12 14.5 3 8.5V7z" fill="#C5221F" /></svg>); }
-function OutlookLogo() { return (<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="2" y="6" width="13" height="13" rx="1.5" fill="#0078D4" /><ellipse cx="8.5" cy="12.5" rx="3" ry="3.4" fill="#FFFFFF" /><ellipse cx="8.5" cy="12.5" rx="1.4" ry="1.7" fill="#0078D4" /><path d="M15 9l5 2.5v3L15 17V9z" fill="#28A8EA" /></svg>); }
-function TeamsLogo() { return (<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="6" width="11" height="12" rx="1.5" fill="#5059C9" /><path d="M5.5 9h6M8.5 9v6" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" /><circle cx="17.5" cy="9" r="2.2" fill="#7B83EB" /><path d="M14.5 12.5h6a1 1 0 0 1 1 1v3a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3v-3z" fill="#7B83EB" /></svg>); }
-function DriveLogo() { return (<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 3l-5 9 3 5 5-9-3-5z" fill="#0066DA" /><path d="M16 3H8l5 9h8l-5-9z" fill="#EA4335" /><path d="M6 17h10l3-5h-8l-5 5z" fill="#FBBC04" /><path d="M16 3l5 9-3 5-5-9 3-5z" fill="#00AC47" /></svg>); }
-function DocsLogo() { return (<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#1A73E8" /><path d="M14 2v5h5" fill="#A1C2FA" /><path d="M8 12h8M8 15h8M8 18h5" stroke="#FFFFFF" strokeWidth="1.4" strokeLinecap="round" /></svg>); }
-function SharePointLogo() { return (<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#036C70" /><circle cx="15" cy="13" r="5" fill="#1A9BA1" /><circle cx="13" cy="17" r="3.5" fill="#04787C" /></svg>); }
-function PdfLogo() { return (<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#D93025" /><path d="M14 2v5h5" fill="#F28B82" /></svg>); }
-function JiraLogo() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><defs><linearGradient id="og-jira" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#0052CC" /><stop offset="100%" stopColor="#2684FF" /></linearGradient></defs><path d="M11.5 2.5L2 12l4.6 4.6L12 11.4l5.4 5.2L22 12 11.5 2.5z" fill="url(#og-jira)" /><path d="M11.5 8.7L17.4 14.6l-5.9 5.9-5.9-5.9 5.9-5.9z" fill="#2684FF" opacity="0.85" /></svg>); }
-function LinearLogo() { return (<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><defs><linearGradient id="og-lin" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#5E6AD2" /><stop offset="100%" stopColor="#9CA3FF" /></linearGradient></defs><path d="M2.5 12.5L11.5 21.5l9-9-3-3-6 6-6-6 6-6-3-3-6 6z" fill="url(#og-lin)" /></svg>); }
-function GitHubLogo() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fillRule="evenodd" clipRule="evenodd" fill="#181717" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.54 2.87 8.39 6.84 9.75.5.09.66-.22.66-.49v-1.7c-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 2.5-.34c.85.004 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9v2.81c0 .27.16.59.67.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" /></svg>); }
-function ConfluenceLogo() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><defs><linearGradient id="og-cf1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#0052CC" /><stop offset="100%" stopColor="#2684FF" /></linearGradient></defs><path d="M2.5 18.5c1-2.4 5.2-3.4 9.2-1.2 4 2.1 8 1 10.3-1.5l-1.7 4.4c-2 2-5.8 2.6-9.4.6-3.6-2-7-1.4-8.4-2.3z" fill="url(#og-cf1)" /><path d="M21.5 5.5c-1 2.4-5.2 3.4-9.2 1.2-4-2.1-8-1-10.3 1.5l1.7-4.4c2-2 5.8-2.6 9.4-.6 3.6 2 7 1.4 8.4 2.3z" fill="url(#og-cf1)" /></svg>); }
-function FigmaLogo() { return (<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M9 2h3v6H9a3 3 0 1 1 0-6z" fill="#F24E1E" /><path d="M12 2h3a3 3 0 1 1 0 6h-3V2z" fill="#FF7262" /><path d="M9 8h3v6H9a3 3 0 1 1 0-6z" fill="#A259FF" /><path d="M12 8a3 3 0 1 1 3 3 3 3 0 0 1-3-3z" fill="#1ABCFE" /><path d="M9 14h3v3a3 3 0 1 1-3-3z" fill="#0ACF83" /></svg>); }
-function ZoomLogo() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="2.5" fill="#2D8CFF" /><path d="M5 10h8.5v4H5z" fill="#FFFFFF" /><path d="M14 11l4-1.6v5.2L14 13v-2z" fill="#FFFFFF" /></svg>); }
-function AsanaLogo() { return (<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="12" cy="6.5" r="3.2" fill="#F06A6A" /><circle cx="6.8" cy="15.5" r="3.2" fill="#F06A6A" /><circle cx="17.2" cy="15.5" r="3.2" fill="#F06A6A" /></svg>); }
+/* ---------- Icons ----------
+   Generic document/clinical glyphs — deliberately not real vendor logos,
+   since these nodes represent categories of referral source, not third-party
+   tools Husn has a relationship with. */
+function LetterIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="#2C5CE6" strokeWidth="1.6" /><path d="M3 6l9 7 9-7" fill="none" stroke="#2C5CE6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>); }
+function ScanIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3" fill="none" stroke="#268F83" strokeWidth="1.7" strokeLinecap="round" /><path d="M4 12h16" stroke="#268F83" strokeWidth="1.4" strokeDasharray="1.5 2.5" strokeLinecap="round" /></svg>); }
+function FaxIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="4" y="9" width="16" height="10" rx="1.5" fill="none" stroke="#9A680D" strokeWidth="1.6" /><path d="M7 9V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v4" fill="none" stroke="#9A680D" strokeWidth="1.6" /><path d="M8 13h4M8 16h6" stroke="#9A680D" strokeWidth="1.4" strokeLinecap="round" /></svg>); }
+function FolderIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z" fill="none" stroke="#5059C9" strokeWidth="1.6" strokeLinejoin="round" /></svg>); }
+function FileCheckIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="none" stroke="#0E9159" strokeWidth="1.6" strokeLinejoin="round" /><path d="M9 13l2 2 4-4" fill="none" stroke="#0E9159" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>); }
+function NoteIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="#71767F" strokeWidth="1.6" /><path d="M8 8h8M8 12h8M8 16h5" stroke="#71767F" strokeWidth="1.4" strokeLinecap="round" /></svg>); }
+function FlaskIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M9 2h6M10 2v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-3.5L14 8V2" fill="none" stroke="#268F83" strokeWidth="1.6" strokeLinejoin="round" /><path d="M7.5 15h9" stroke="#268F83" strokeWidth="1.4" /></svg>); }
+function ScanBeamIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" fill="none" stroke="#2C5CE6" strokeWidth="1.6" /><path d="M7 18v2M17 18v2" stroke="#2C5CE6" strokeWidth="1.6" strokeLinecap="round" /><circle cx="12" cy="11" r="3.4" fill="none" stroke="#2C5CE6" strokeWidth="1.4" /></svg>); }
+function MicroscopeIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M9 20h7M11 20v-4M7 12l4-4 5 5-2 2z" fill="none" stroke="#9A680D" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" /><circle cx="9" cy="8" r="1.6" fill="none" stroke="#9A680D" strokeWidth="1.4" /></svg>); }
+function EnvelopeIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="#5059C9" strokeWidth="1.6" /><path d="M3 7l9 6 9-6" fill="none" stroke="#5059C9" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>); }
+function DatabaseIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3" fill="none" stroke="#0E9159" strokeWidth="1.6" /><path d="M4 5.5V18c0 1.66 3.58 3 8 3s8-1.34 8-3V5.5" fill="none" stroke="#0E9159" strokeWidth="1.6" /><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" fill="none" stroke="#0E9159" strokeWidth="1.4" /></svg>); }
+function FormIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="#71767F" strokeWidth="1.6" /><rect x="7" y="7" width="3" height="3" rx="0.5" fill="none" stroke="#71767F" strokeWidth="1.3" /><path d="M12 8.5h5M7 14h10M7 17h7" stroke="#71767F" strokeWidth="1.3" strokeLinecap="round" /></svg>); }
+function PillIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3.5" y="9.5" width="17" height="7" rx="3.5" fill="none" stroke="#EC5A4B" strokeWidth="1.6" transform="rotate(-32 12 13)" /><path d="M9.3 9.2l5.4 7.6" stroke="#EC5A4B" strokeWidth="1.4" strokeLinecap="round" /></svg>); }
+function AlertIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 3l9 16H3z" fill="none" stroke="#9A680D" strokeWidth="1.6" strokeLinejoin="round" /><path d="M12 10v4" stroke="#9A680D" strokeWidth="1.6" strokeLinecap="round" /><circle cx="12" cy="17" r="0.9" fill="#9A680D" /></svg>); }
+function HistoryIcon() { return (<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="#2C5CE6" strokeWidth="1.6" /><path d="M12 7v5l3.5 2" stroke="#2C5CE6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>); }

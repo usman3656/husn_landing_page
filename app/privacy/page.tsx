@@ -4,39 +4,48 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy: Husn",
   description:
-    "How Husn collects, uses, and protects the information you share when visiting our website, signing up for a demo, or using the Husn service.",
+    "How Husn collects, uses, and protects the information you share when visiting our website or booking a demo. This site does not collect or process patient health information.",
   robots: { index: true, follow: true },
 };
 
 export default function PrivacyPage() {
   return (
-    <main
-      id="main"
-      className="max-w-3xl mx-auto px-6 py-16 text-ink prose-tight"
-    >
-      <div className="mb-8 text-sm">
-        <Link
-          href="/"
-          className="text-ink-muted hover:text-ink underline underline-offset-4"
-        >
-          &larr; Back to home
-        </Link>
-      </div>
+    <div className="min-h-screen bg-paper text-ink">
+      <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/85 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-[1140px] items-center justify-between px-6">
+          <Link href="/" className="text-xl font-medium">Husn</Link>
+          <nav className="hidden gap-6 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted md:flex">
+            <Link href="/#how">How it works</Link>
+            <Link href="/#founders">Founders</Link>
+            <Link href="/blog/">Blog</Link>
+          </nav>
+          <Link href="/#demo" className="inline-flex items-center gap-2 rounded-[2px] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90">Book a demo</Link>
+        </div>
+      </header>
 
+      <main
+        id="main"
+        className="max-w-3xl mx-auto px-6 py-16 text-ink prose-tight"
+      >
       <header className="mb-10 border-b border-ink/10 pb-6">
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
           Privacy Policy
         </h1>
-        <p className="mt-2 text-sm text-ink-muted">Last updated: 2026-05-16</p>
+        <p className="mt-2 text-sm text-ink-muted">Last updated: 2026-08-10</p>
+        <p className="mt-3 rounded-[2px] border border-ink/10 bg-ink/[0.03] px-4 py-3 text-sm text-ink-muted">
+          Draft. This policy is written for the current stage of the
+          business (a marketing website for a working MVP, no live product
+          yet) and is pending founder/legal review before being treated as
+          final.
+        </p>
       </header>
 
       <section className="space-y-4 text-ink-muted leading-relaxed">
         <p>
           This policy describes how Husn collects, uses, and protects the
-          information you share when you visit our website, request a demo, or
-          use the Husn service. We&rsquo;ve written it in plain English; it
-          is informational and does not replace legal advice. If anything is
-          unclear, email us at{" "}
+          information you share when you visit our website or book a demo.
+          We&rsquo;ve written it in plain English; it is informational and
+          does not replace legal advice. If anything is unclear, email us at{" "}
           <a
             href="mailto:hello@husn.io"
             className="text-accent hover:underline"
@@ -44,6 +53,17 @@ export default function PrivacyPage() {
             hello@husn.io
           </a>
           .
+        </p>
+        <p>
+          <strong>This website does not collect or process Protected
+          Health Information (PHI).</strong> No patient data is submitted
+          through this site. Any patient information shown on this site
+          (for example, in the illustrative product walkthrough) is
+          synthetic and used only to demonstrate how Husn works. Husn is
+          currently a working MVP in a demo environment; this policy will be
+          expanded with HIPAA-specific terms, a Business Associate
+          Agreement, and PHI-handling commitments before any pilot begins
+          processing real patient data.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -68,19 +88,14 @@ export default function PrivacyPage() {
           2. What we collect
         </h2>
         <p>
-          We collect only what you actively give us through the waitlist form
-          and what is needed to run a basic website. Specifically:
+          We collect only what you actively give us when you book a demo, and
+          what is needed to run a basic website. Specifically:
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            <strong>Waitlist form submissions.</strong> Your name, work email,
-            role, company, company size, and the checkboxes you tick describing
-            tools you use today. You provide this voluntarily when you sign up.
-          </li>
-          <li>
-            <strong>Founder-call bookings.</strong> If you book a call, our
-            scheduling provider (Cal.com) receives your name, email, and
-            chosen time slot.
+            <strong>Demo bookings.</strong> If you book a call, our scheduling
+            provider (Calendly) receives your name, email, and chosen time
+            slot.
           </li>
           <li>
             <strong>Page analytics.</strong> Aggregate, cookie-free metrics
@@ -89,20 +104,21 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Product-research event analytics.</strong> If you accept
-            our cookie banner, PostHog records anonymous interaction events
-            (clicks, scroll depth) so we can learn which messaging resonates.
-            If you do not accept, PostHog is not loaded.
+            our cookie banner, PostHog and Google Analytics record anonymous
+            interaction events (clicks, scroll depth) so we can learn which
+            messaging resonates. If you do not accept, neither is loaded.
           </li>
           <li>
             <strong>Standard server logs.</strong> Our hosting provider
-            (Vercel) processes connection metadata such as IP address and user
-            agent for short periods to deliver the site and prevent abuse.
+            (GitHub Pages) processes connection metadata such as IP address
+            and user agent for short periods to deliver the site and prevent
+            abuse.
           </li>
         </ul>
         <p>
           We do <strong>not</strong> collect special-category data, payment
-          information, or anything from a product, because there is no product
-          yet.
+          information, or patient health information of any kind through this
+          website.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -110,20 +126,14 @@ export default function PrivacyPage() {
         </h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            <strong>Operate the waitlist and reply to you.</strong> Legal
-            basis: your <em>consent</em> when you submit the form, and our{" "}
-            <em>legitimate interest</em> in following up with people who asked
-            to hear from us.
-          </li>
-          <li>
-            <strong>Schedule and conduct founder calls.</strong> Legal basis:
+            <strong>Schedule and conduct demo calls.</strong> Legal basis:
             performance of pre-contractual steps you requested, and your
             consent in booking.
           </li>
           <li>
             <strong>Understand traffic and improve messaging.</strong> Legal
             basis: legitimate interest (Plausible, cookie-free) and your
-            consent (PostHog, opt-in via banner).
+            consent (PostHog and Google Analytics, opt-in via banner).
           </li>
           <li>
             <strong>Keep the site secure and available.</strong> Legal basis:
@@ -141,22 +151,18 @@ export default function PrivacyPage() {
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            <strong>Vercel</strong>, web hosting and edge delivery.
+            <strong>GitHub Pages</strong>, web hosting.
           </li>
           <li>
-            <strong>Resend</strong>, transactional email and waitlist
-            confirmations.
-          </li>
-          <li>
-            <strong>Cal.com</strong>, founder-call scheduling.
+            <strong>Calendly</strong>, demo-call scheduling.
           </li>
           <li>
             <strong>Plausible</strong>, cookie-free, aggregate page
             analytics.
           </li>
           <li>
-            <strong>PostHog</strong>, event analytics, loaded only with
-            your consent.
+            <strong>PostHog</strong> and <strong>Google Analytics</strong>,
+            event analytics, loaded only with your consent.
           </li>
         </ul>
         <p>
@@ -177,11 +183,11 @@ export default function PrivacyPage() {
         <p>
           The landing page itself does not require cookies to function. The
           banner you see on first visit asks one question: whether to enable
-          PostHog event analytics. If you decline (or ignore it), PostHog is
-          not loaded and no analytics cookies are set. Plausible runs either
-          way because it does not use cookies and does not collect personal
-          data. You can change your choice at any time by clearing your site
-          data and revisiting the page.
+          PostHog and Google Analytics event analytics. If you decline (or
+          ignore it), neither is loaded and no analytics cookies are set.
+          Plausible runs either way because it does not use cookies and does
+          not collect personal data. You can change your choice at any time
+          by clearing your site data and revisiting the page.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -199,12 +205,12 @@ export default function PrivacyPage() {
           7. How long we keep things
         </h2>
         <p>
-          Waitlist submissions and call notes are kept until we either launch
+          Demo booking details and call notes are kept until we either launch
           a product and convert you into an early user, or for up to 12 months
-          after launch, whichever happens first, unless you ask
+          after your call, whichever happens first, unless you ask
           us to delete them earlier. Aggregate analytics are retained per each
           provider&rsquo;s defaults. Server logs are kept for short
-          operational windows by Vercel.
+          operational windows by GitHub Pages.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -248,7 +254,7 @@ export default function PrivacyPage() {
           We do not make automated decisions about you that produce legal or
           similarly significant effects. There is no scoring, profiling, or
           automated rejection happening on this page, a human reads
-          each waitlist submission.
+          each demo request.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -319,8 +325,8 @@ export default function PrivacyPage() {
         <p>
           As Husn evolves, this policy will change. We will update the
           &ldquo;Last updated&rdquo; date at the top, and if changes are
-          material we will email customers and notify users in-product before
-          they take effect.
+          material we will email anyone who has booked a demo or joined our
+          mailing list before they take effect.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -343,6 +349,14 @@ export default function PrivacyPage() {
           hello@husn.io.
         </p>
       </section>
-    </main>
+      </main>
+
+      <footer className="border-t border-ink/10">
+        <div className="mx-auto flex max-w-[1140px] flex-col items-start justify-between gap-2 px-6 py-8 text-[11px] font-medium uppercase tracking-[0.12em] text-ink-muted md:flex-row md:items-center">
+          <span>Husn · referral records into EHR-ready context</span>
+          <span>Husn · {new Date().getFullYear()}</span>
+        </div>
+      </footer>
+    </div>
   );
 }

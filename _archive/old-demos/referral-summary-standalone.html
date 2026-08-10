@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Husn: referral records into EHR-ready context</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#F6F4EF;
+    --panel:#ffffff;
+    --panel-2:#faf7f1;
+    --ink:#1c1e24;
+    --ink-soft:#565b64;
+    --ink-faint:#71767f;
+    --line:#ece7dd;
+    --line-2:#e3ded3;
+    --chip:#f5f1ea;
+    --accent:#2c5ce6;
+    --approve:#2c5ce6;
+    --green:#0e9159; --green-bg:#e6f4ec;
+    --amber:#9a680d; --amber-bg:#fbedd2;
+    --red:#ec5a4b;
+    --teal:#268f83; --teal-bg:#e4f2f0;
+    --shadow:0 1px 2px rgba(28,30,36,.04), 0 34px 80px -34px rgba(28,30,36,.30);
+    --sans:"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    display:grid; place-items:start center; padding:14px 16px;
+  }
+
+  .app{
+    width:min(980px,100%); background:var(--panel); border:1px solid var(--line);
+    border-radius:18px; box-shadow:var(--shadow); overflow:hidden;
+    display:grid; grid-template-columns:232px 1fr; grid-template-rows:auto 1fr auto;
+  }
+
+  /* sidebar */
+  .side{ grid-row:1 / 3; border-right:1px solid var(--line); background:var(--panel-2); padding:15px 11px; }
+  .ws{ display:flex; align-items:center; gap:9px; padding:5px 8px 14px; }
+  .ws .tile{ width:23px; height:23px; border-radius:7px; background:linear-gradient(150deg,#2b2f3a,#0e1013); color:#fff; font-size:11px; font-weight:800; display:grid; place-items:center; }
+  .ws .name{ font-size:14px; font-weight:700; letter-spacing:-.02em; }
+  .ws .huxn{ margin-left:auto; font-size:9.5px; font-weight:800; letter-spacing:.06em; color:var(--ink-faint); border:1px solid var(--line-2); border-radius:999px; padding:2px 7px; }
+  .nav{ display:flex; align-items:center; gap:9px; padding:7px 9px; border-radius:9px; font-size:13px; color:var(--ink-soft); font-weight:600; }
+  .nav svg{ width:15px; height:15px; opacity:.7; }
+  .nav.active{ background:var(--chip); color:var(--ink); }
+  .sec{ font-size:10px; font-weight:800; letter-spacing:.1em; color:var(--ink-faint); padding:15px 10px 6px; }
+  .leaf{ display:flex; align-items:center; gap:9px; padding:6px 9px 6px 14px; border-radius:9px; font-size:12.5px; color:var(--ink-soft); font-weight:500; }
+  .leaf .ico{ width:8px; height:8px; border-radius:2px; }
+  .leaf.active{ background:var(--chip); color:var(--ink); font-weight:700; }
+  .leaf.sub{ padding-left:27px; }
+
+  /* doc header */
+  .dochead{ grid-column:2; display:flex; align-items:center; gap:10px; padding:13px 20px; border-bottom:1px solid var(--line); }
+  .crumb{ display:flex; align-items:center; gap:9px; font-size:12.5px; color:var(--ink-soft); font-weight:600; }
+  .crumb .sep{ color:var(--ink-faint); font-weight:400; }
+  .crumb b{ color:var(--ink); font-weight:700; }
+  .tools{ margin-left:auto; display:flex; align-items:center; gap:15px; color:var(--ink-faint); }
+  .tools .share{ color:var(--ink-soft); font-weight:700; font-size:12.5px; }
+  .tools svg{ width:15px; height:15px; }
+
+  /* doc body */
+  .doc{ grid-column:2; padding:32px 34px 22px; min-height:404px; position:relative; }
+  .badges{ display:flex; gap:8px; margin-bottom:15px; }
+  .badge{ display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; padding:4px 11px; border-radius:999px; }
+  .badge svg{ width:12px; height:12px; }
+  .badge.verified{ background:var(--green-bg); color:var(--green); }
+  .badge.outdated{ background:var(--amber-bg); color:var(--amber); }
+  .badge.self{ background:var(--teal-bg); color:var(--teal); }
+  .doc h1{ margin:0 0 6px; font-size:23px; font-weight:800; letter-spacing:-.03em; line-height:1.1; }
+  .meta{ font-size:13px; color:var(--ink-soft); margin:0 0 12px; font-weight:500; }
+  .doc h2{ font-size:16px; font-weight:800; letter-spacing:-.02em; margin:13px 0 6px; }
+  .doc p, .doc li{ font-size:14px; line-height:1.65; color:#31353d; font-weight:500; }
+  .doc ul{ margin:7px 0; padding-left:20px; }
+  .doc li{ margin:2px 0; }
+  .doc li b{ color:var(--ink); font-weight:700; }
+
+  del{ color:var(--red); text-decoration:line-through; text-decoration-thickness:1.5px; }
+  ins{ color:var(--green); text-decoration:none; font-weight:700; }
+  .doc:not(.edited) ins{ display:none; }
+  .doc:not(.edited) del{ color:inherit; text-decoration:none; }
+  .doc.edited ins{ animation:none; }
+
+  .zone{ border-radius:4px; padding:0 2px; margin:0 -2px; transition:background .4s ease; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+  .doc.editing .zone{ background:color-mix(in srgb, var(--accent) 13%, transparent); }
+
+  /* review card */
+  .approve{
+    position:relative; margin:12px 0 2px;
+    background:var(--panel); border:1px solid color-mix(in srgb, var(--accent) 42%, var(--line));
+    border-radius:15px; box-shadow:0 16px 34px -16px rgba(28,30,36,.30);
+    padding:11px 14px; opacity:0; transform:translateY(14px);
+    transition:opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .approve.in{ opacity:1; transform:none; }
+  .approve .trigger{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--ink-soft); font-weight:600; }
+  .approve .trigger svg{ width:15px; height:15px; color:var(--accent); flex:none; }
+  .approve .diffrow{ display:flex; align-items:center; gap:11px; margin-top:8px; }
+  .approve .diff{ flex:1; background:var(--chip); border:1px solid var(--line); border-radius:10px; padding:9px 12px; font-size:13px; font-weight:600; }
+  .approve .btns{ display:flex; gap:8px; }
+  .btn{ font-family:inherit; font-size:12.5px; font-weight:700; border-radius:10px; padding:8px 15px; cursor:pointer; border:1px solid var(--line-2); background:var(--panel); color:var(--ink-soft); }
+  .btn.primary{ background:var(--approve); color:#fff; border-color:transparent; }
+  .avatar{ position:absolute; right:18px; top:-12px; display:flex; align-items:center; gap:6px; background:var(--ink); color:#fff; font-size:11px; font-weight:600; padding:3px 10px 3px 3px; border-radius:999px; }
+  .avatar .a{ width:19px; height:19px; border-radius:50%; display:grid; place-items:center; font-size:9px; font-weight:800; }
+
+  /* bottom tabs */
+  .tabs{ grid-column:1 / 3; display:flex; flex-wrap:wrap; gap:6px; padding:6px 14px 12px; }
+  .tab{ font-family:inherit; font-size:11.5px; font-weight:700; color:var(--ink-soft); padding:5px 12px; border-radius:999px; border:1px solid transparent; background:transparent; cursor:pointer; }
+  .tab:hover{ color:var(--ink); }
+  .tab.active{ background:var(--panel); color:var(--ink); border-color:var(--line-2); box-shadow:0 1px 2px rgba(28,30,36,.05); }
+  .tab .bar{ display:block; height:2px; border-radius:2px; margin-top:6px; background:var(--accent); transform:scaleX(0); transform-origin:left; }
+  .tab.active .bar{ animation:sweep var(--dwell,9s) linear forwards; }
+  @keyframes sweep{ to{ transform:scaleX(1); } }
+
+  @media (max-width:760px){
+    .app{ grid-template-columns:1fr; height:548px; }
+    .side{ display:none; }
+    .dochead,.doc,.tabs{ grid-column:1; }
+    .doc{ min-height:0; padding-bottom:12px; overflow:hidden; }
+    .approve{ position:static; margin-top:16px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .approve,.doc.edited ins,.zone{ transition:none; animation:none; }
+    .tab .bar{ animation:none; }
+  }
+</style>
+</head>
+<body>
+  <!--
+    Illustrative example. All names, IDs, and clinical details below are
+    synthetic and do not represent a real patient, referral, or institution.
+    Husn is a working MVP in a demo environment — this mock shows the
+    read -> extract -> match -> structure -> review pipeline described in
+    01_foundation/products.md, not a live clinical deployment.
+  -->
+  <main class="app" aria-label="Husn turning fragmented referral sources into a structured summary for clinician review">
+    <aside class="side">
+      <div class="ws"><span class="tile">RC</span><span class="name">Riverside Clinic</span><span class="huxn">Husn</span></div>
+      <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> Agent</div>
+      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg> Search</div>
+      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg> Referral triage</div>
+      <div class="sec">REFERRED PATIENTS</div>
+      <div class="leaf"><span class="ico" style="background:#8b8f99"></span> New Referrals</div>
+      <div class="leaf sub" id="leaf-extract"><span class="ico" style="background:#8b8f99"></span> Source Extraction</div>
+      <div class="leaf"><span class="ico" style="background:#2c5ce6"></span> Patient Records</div>
+      <div class="leaf sub" id="leaf-match"><span class="ico" style="background:#2c5ce6"></span> Patient Matching</div>
+      <div class="leaf"><span class="ico" style="background:#268f83"></span> Chart Prep</div>
+      <div class="leaf sub" id="leaf-review"><span class="ico" style="background:#268f83"></span> Ready for Review</div>
+    </aside>
+
+    <div class="dochead">
+      <div class="crumb" id="crumb"></div>
+      <div class="tools">
+        <span class="share">Share</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
+      </div>
+    </div>
+
+    <section class="doc" id="doc"></section>
+
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Views"></nav>
+  </main>
+
+<script>
+(function(){
+  "use strict";
+  var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Synthetic example only — fictional patient, no real institution or
+  // record format. Mirrors the pipeline in 01_foundation/products.md:
+  // read -> extract -> match to patient -> structure -> summarize for review.
+  var SCENARIOS = [
+    {
+      tab:"Source Extraction", leaf:"leaf-extract",
+      crumb:'<span>New Referrals</span><span class="sep">/</span><b>Source Extraction</b>',
+      badgeBefore:"outdated", badgeAfter:"verified",
+      title:"Referral — J. Whitfield",
+      meta:'Source: <span class="zone"><del>unread fax</del> <ins>referral letter, 3 pages</ins></span>',
+      body:
+        '<h2>Extracted so far</h2><ul>'+
+        '<li><b>Presenting complaint</b>: <span class="zone"><del>pending extraction</del> <ins>persistent cough, 6 weeks</ins></span></li>'+
+        '<li><b>Referring clinician</b>: <span class="zone"><del>pending extraction</del> <ins>Dr. A. Meyers, primary care</ins></span></li></ul>',
+      trigger:"New referral received. Reading attached documents.",
+      icon:"clock", diff:'<del>Unread</del> &rarr; <ins>Extracted</ins>',
+      who:"Husn", whoColor:"#2c5ce6"
+    },
+    {
+      tab:"Patient Matching", leaf:"leaf-match",
+      crumb:'<span>Patient Records</span><span class="sep">/</span><b>Patient Matching</b>',
+      badgeBefore:"outdated", badgeAfter:"verified",
+      title:"Patient Match",
+      meta:'Candidate record: <span class="zone"><del>2 possible matches</del> <ins>1 confirmed match</ins></span>',
+      body:
+        '<p>Matching the referral to an existing patient record using name, date of birth, and internal record ID.</p>'+
+        '<h2>Match basis</h2><p><span class="zone"><del>Name only (ambiguous)</del></span> <span class="zone"><ins>Name + date of birth + record ID (confirmed)</ins></span></p>',
+      trigger:"Cross-checking referral details against existing patient records.",
+      icon:"git", diff:'Confirmed match &middot; record MRN-88291',
+      who:"Husn", whoColor:"#2c5ce6"
+    },
+    {
+      tab:"Clinician Review", leaf:"leaf-review",
+      crumb:'<span>Chart Prep</span><span class="sep">/</span><b>Ready for Review</b>',
+      badgeBefore:"outdated", badgeAfter:"self",
+      title:"Structured Summary — Ready for Review",
+      meta:"Compiled from referral letter, GP summary, and prior visit notes.",
+      body:
+        '<h2>Summary</h2><p>Persistent cough (6 weeks), referred by primary care. Relevant history and current medications compiled below for review.</p>'+
+        '<h2><ins>Suggested chart entry</ins></h2>'+
+        '<p><ins>Structured context prepared — a clinician reviews and confirms before anything is added to the chart.</ins></p>',
+      trigger:"Summary ready. Nothing is added to the chart without clinician review.",
+      icon:"refresh", diff:'<ins>Flag for follow-up</ins> or <ins>send to chart draft</ins>',
+      who:"Dr. Rivera", whoColor:"#268f83"
+    }
+  ];
+
+  var ICONS = {
+    clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    git:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 4-6 2-6 6"/></svg>',
+    refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 1 0-.5 4"/><path d="M20 5v6h-6"/></svg>'
+  };
+  var BADGE = {
+    verified:'<span class="badge verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Extracted</span>',
+    outdated:'<span class="badge outdated"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Incomplete</span>',
+    self:'<span class="badge self"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 11a8 8 0 1 0-.5 4"/><path d="M20 5v6h-6"/></svg>Ready for review</span>'
+  };
+
+  var doc = document.getElementById("doc");
+  var tabsEl = document.getElementById("tabs");
+  var crumbEl = document.getElementById("crumb");
+  var current = 0, timers = [];
+
+  function DWELL(){ return 9000; }
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+
+  function setActiveLeaf(id){
+    ["leaf-extract","leaf-match","leaf-review"].forEach(function(x){
+      var n = document.getElementById(x); if(n) n.classList.toggle("active", x===id);
+    });
+  }
+
+  function renderTabs(){
+    tabsEl.innerHTML = "";
+    SCENARIOS.forEach(function(sc,i){
+      var b = document.createElement("button");
+      b.className = "tab" + (i===current?" active":"");
+      b.type="button"; b.setAttribute("role","tab"); b.setAttribute("aria-selected", i===current?"true":"false");
+      b.innerHTML = sc.tab + '<span class="bar"></span>';
+      b.style.setProperty("--dwell",(DWELL()/1000)+"s");
+      b.addEventListener("click", function(){ play(i); });
+      tabsEl.appendChild(b);
+    });
+  }
+
+  function play(index){
+    clearTimers();
+    current = index;
+    var sc = SCENARIOS[index];
+    crumbEl.innerHTML = sc.crumb;
+    setActiveLeaf(sc.leaf);
+    renderTabs();
+
+    doc.className = "doc";
+    doc.innerHTML =
+      '<div class="badges" id="badges">'+BADGE[sc.badgeBefore]+'</div>'+
+      '<h1>'+sc.title+'</h1>'+
+      '<p class="meta">'+sc.meta+'</p>'+
+      sc.body+
+      '<div class="approve" id="card">'+
+        '<span class="avatar"><span class="a" style="background:'+sc.whoColor+'">'+sc.who.charAt(0)+'</span>'+sc.who+'</span>'+
+        '<div class="trigger">'+ICONS[sc.icon]+sc.trigger+'</div>'+
+        '<div class="diffrow"><div class="diff">'+sc.diff+'</div>'+
+          '<div class="btns"><button class="btn" type="button">Flag for follow-up</button>'+
+          '<button class="btn primary" type="button">Send to chart draft</button></div></div>'+
+      '</div>';
+
+    var badges = document.getElementById("badges");
+    var card = document.getElementById("card");
+    var s = prefersReduced ? 0 : 1;
+
+    later(function(){ doc.classList.add("editing"); }, 800*s);
+    later(function(){ doc.classList.add("edited"); }, 1600*s);
+    later(function(){ card.classList.add("in"); }, 2500*s);
+    later(function(){
+      card.classList.remove("in");
+      doc.classList.remove("editing");
+      badges.innerHTML = BADGE[sc.badgeAfter];
+    }, 5400*s);
+
+    if(!prefersReduced){ later(function(){ play((index+1)%SCENARIOS.length); }, DWELL()); }
+  }
+
+  renderTabs();
+  play(0);
+})();
+</script>
+</body>
+</html>
