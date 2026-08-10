@@ -1,4 +1,3 @@
-import { seoPages } from "@/lib/seo-pages";
 import { getAllPosts } from "@/lib/blog";
 
 // Static RSS feed of every blog post and solution page. force-static so it is
@@ -16,7 +15,6 @@ function esc(s: string): string {
 }
 
 export function GET() {
-  // Blog posts first (dated, newest first), then the solution pages.
   const blogItems = getAllPosts().map(
     (p) => `    <item>
       <title>${esc(p.title)}</title>
@@ -27,16 +25,7 @@ export function GET() {
     </item>`,
   );
 
-  const solutionItems = seoPages.map(
-    (p) => `    <item>
-      <title>${esc(p.title)}</title>
-      <link>${BASE}/solutions/${p.slug}/</link>
-      <guid isPermaLink="true">${BASE}/solutions/${p.slug}/</guid>
-      <description>${esc(p.metaDescription)}</description>
-    </item>`,
-  );
-
-  const items = [...blogItems, ...solutionItems].join("\n");
+  const items = blogItems.join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -44,7 +33,7 @@ export function GET() {
     <title>Husn</title>
     <link>${BASE}/</link>
     <atom:link href="${BASE}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Writing and solutions from Husn: blog posts from the team, plus solution pages for project risk, executive reporting, meeting preparation, dependency management, and project health.</description>
+    <description>Writing from Husn.</description>
     <language>en-us</language>
 ${items}
   </channel>

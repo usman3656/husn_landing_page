@@ -30,7 +30,7 @@ const theme: React.CSSProperties = {
 export const metadata: Metadata = {
   title: "Blog | Husn",
   description:
-    "Writing from the team building Husn: keeping knowledge current, answering from across your tools, and putting an AI teammate to work.",
+    "Writing from the team building Husn: turning fragmented referral records into structured, EHR-ready context for clinician review.",
   alternates: {
     canonical: "https://husn.io/blog/",
     types: { "application/rss+xml": "https://husn.io/feed.xml" },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | Husn",
     description:
-      "Writing from the team building Husn: keeping knowledge current, answering from across your tools, and putting an AI teammate to work.",
+      "Writing from the team building Husn: turning fragmented referral records into structured, EHR-ready context for clinician review.",
     url: "https://husn.io/blog/",
     siteName: "Husn",
     type: "website",
@@ -101,8 +101,7 @@ export default function BlogIndex() {
             className={`${mono.className} hidden gap-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)] md:flex`}
           >
             <Link href="/#how">How it works</Link>
-            <Link href="/#ask">See it work</Link>
-            <Link href="/#pricing">Pricing</Link>
+            <Link href="/#founders">Founders</Link>
             <Link href="/blog/" className="text-[var(--ink)]">
               Blog
             </Link>
@@ -142,8 +141,8 @@ export default function BlogIndex() {
             Notes from the team building Husn.
           </h1>
           <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-[var(--slate)]">
-            On keeping knowledge current, answering from across your tools, and
-            what it takes to trust an AI teammate with real work.
+            On fragmented referral records, clinical validation, and what it
+            takes to build structured context clinicians can trust.
           </p>
         </div>
       </section>
@@ -198,11 +197,11 @@ export default function BlogIndex() {
       <section className="border-t border-[var(--mist)]">
         <div className="mx-auto max-w-[1140px] px-6 py-20 text-center md:py-28">
           <h2 className={`${serif.className} text-3xl font-medium md:text-5xl`}>
-            See Husn on your own tools.
+            See Husn on a real referral scenario.
           </h2>
           <p className="mx-auto mt-4 max-w-[44ch] text-lg text-[var(--slate)]">
-            The fastest way to understand Husn is to point it at your own stack
-            for fifteen minutes.
+            The fastest way to understand Husn is a quick walkthrough on how
+            it reads and structures a referral.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Cta href="/#demo">Book a demo</Cta>
@@ -215,7 +214,7 @@ export default function BlogIndex() {
         <div
           className={`${mono.className} mx-auto flex max-w-[1140px] flex-col items-start justify-between gap-2 px-6 py-8 text-[11px] uppercase tracking-[0.12em] text-[var(--slate)] md:flex-row md:items-center`}
         >
-          <span>Husn · knowledge, answers, and work across every tool</span>
+          <span>Husn · referral records into EHR-ready context</span>
           <span>Husn · {new Date().getFullYear()}</span>
         </div>
       </footer>

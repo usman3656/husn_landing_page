@@ -4,39 +4,49 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Use: Husn",
   description:
-    "The terms that apply when you visit the Husn website, request a demo, or use the Husn service.",
+    "The terms that apply when you visit the Husn website or request a demo.",
   robots: { index: true, follow: true },
 };
 
 export default function TermsPage() {
   return (
-    <main
-      id="main"
-      className="max-w-3xl mx-auto px-6 py-16 text-ink prose-tight"
-    >
-      <div className="mb-8 text-sm">
-        <Link
-          href="/"
-          className="text-ink-muted hover:text-ink underline underline-offset-4"
-        >
-          &larr; Back to home
-        </Link>
-      </div>
+    <div className="min-h-screen bg-paper text-ink">
+      <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/85 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-[1140px] items-center justify-between px-6">
+          <Link href="/" className="text-xl font-medium">Husn</Link>
+          <nav className="hidden gap-6 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted md:flex">
+            <Link href="/#how">How it works</Link>
+            <Link href="/#founders">Founders</Link>
+            <Link href="/blog/">Blog</Link>
+          </nav>
+          <Link href="/#demo" className="inline-flex items-center gap-2 rounded-[2px] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90">Book a demo</Link>
+        </div>
+      </header>
 
+      <main
+        id="main"
+        className="max-w-3xl mx-auto px-6 py-16 text-ink prose-tight"
+      >
       <header className="mb-10 border-b border-ink/10 pb-6">
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink">
           Terms of Use
         </h1>
-        <p className="mt-2 text-sm text-ink-muted">Last updated: 2026-05-16</p>
+        <p className="mt-2 text-sm text-ink-muted">Last updated: 2026-08-10</p>
+        <p className="mt-3 rounded-[2px] border border-ink/10 bg-ink/[0.03] px-4 py-3 text-sm text-ink-muted">
+          Draft. Written for the current stage of the business (a marketing
+          website for a working MVP, no live product yet) and pending
+          founder/legal review before being treated as final.
+        </p>
       </header>
 
       <section className="space-y-4 text-ink-muted leading-relaxed">
         <p>
-          These terms cover your use of the Husn landing page at
-          husn.io, joining the waitlist, and booking a founder call. There
-          is no Husn product yet, so these terms are intentionally light.
-          When we launch a product, there will be a separate, fuller agreement.
-          Questions:{" "}
+          These terms cover your use of the Husn website at husn.io and
+          booking a demo. There is no Husn product deployed to a live
+          clinical setting yet, so these terms are intentionally light.
+          When Husn moves into clinical pilots, there will be a separate,
+          fuller agreement covering PHI handling and a Business Associate
+          Agreement. Questions:{" "}
           <a
             href="mailto:hello@husn.io"
             className="text-accent hover:underline"
@@ -93,12 +103,12 @@ export default function TermsPage() {
         </ul>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
-          4. Demo requests, early-access signups, and pilots
+          4. Demo requests and pilot interest
         </h2>
         <p>
-          When you book a demo, sign up for early access, or start a pilot,
-          you&rsquo;re telling us you&rsquo;d like to hear from us. We may
-          follow up by email, invite you to a call, or share occasional
+          When you book a demo or tell us you&rsquo;re interested in a
+          pilot, you&rsquo;re telling us you&rsquo;d like to hear from us. We
+          may follow up by email, invite you to a call, or share occasional
           product updates. You can opt out any time by replying to any email
           or writing to{" "}
           <a
@@ -107,21 +117,25 @@ export default function TermsPage() {
           >
             hello@husn.io
           </a>
-          . Free pilots are time-boxed (typically 14 days) and convert to a
-          paid plan only with your explicit agreement, we will not
-          auto-charge you.
+          . Nothing on this site creates a pilot agreement, deployment
+          commitment, or payment obligation, pilot terms are negotiated
+          individually and documented in a separate written agreement before
+          any pilot begins.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
-          5. Confidentiality of founder calls
+          5. Confidentiality of demo and founder calls
         </h2>
         <p>
-          During founder calls we will sometimes share early ideas, mockups,
+          During demo calls we will sometimes share early ideas, mockups,
           and roadmap thinking. Please treat that material as confidential and
           do not share it externally. In return, anything you share with us
           about your team, processes, or pain points we treat as confidential
           and use only to inform product research. We will not quote you
-          publicly without your permission.
+          publicly without your permission, and any validation research we
+          reference publicly (such as clinician interview counts) is
+          reported in aggregate, not attributed to your organization without
+          consent.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -139,20 +153,20 @@ export default function TermsPage() {
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
-          7. Not for individual performance management
+          7. Not a substitute for clinical judgment
         </h2>
         <p>
-          This matters to us, so it gets its own section: any product Husn
-          eventually offers is <strong>not</strong> licensed for use in
-          individual performance management. That means we will not permit
-          customers to use Husn outputs to evaluate, rank, score,
-          discipline, or otherwise manage the performance of named
-          individuals. Our purpose is operational alignment for teams,
-          giving program teams shared context, not surveillance. When
-          we publish a real product agreement, this restriction will be a
-          binding term of service; until then, it is a public statement of how
-          we intend to operate, and we will decline customers who tell us they
-          want to use the product otherwise.
+          This matters to us, so it gets its own section: Husn is built to
+          read fragmented referral material and prepare structured context
+          <strong> for clinician review</strong>, not to make autonomous
+          clinical or diagnostic decisions. A clinician stays in the loop at
+          every step. Husn is currently a working MVP in a demo environment;
+          it has not completed clinical validation, security review, or
+          regulatory clearance for live clinical use. Nothing on this site
+          should be read as a claim that Husn is approved for, or currently
+          deployed in, active patient care. When we publish a real product
+          agreement, this will be a binding term of service; until then, it
+          is a public statement of how we intend to operate.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -174,10 +188,10 @@ export default function TermsPage() {
           9. Third-party services
         </h2>
         <p>
-          The site relies on Vercel, Resend, Cal.com, Plausible, and PostHog.
-          We do not control those providers. When you interact with their
-          components, for example, picking a slot on Cal.com,
-          their own terms also apply to that interaction.
+          The site relies on GitHub Pages, Calendly, Plausible, PostHog, and
+          Google Analytics. We do not control those providers. When you
+          interact with their components, for example, picking a slot on
+          Calendly, their own terms also apply to that interaction.
         </p>
 
         <h2 className="text-xl font-semibold text-ink mt-10">
@@ -250,6 +264,14 @@ export default function TermsPage() {
           your MSA, DPA, or any contractual question, email hello@husn.io.
         </p>
       </section>
-    </main>
+      </main>
+
+      <footer className="border-t border-ink/10">
+        <div className="mx-auto flex max-w-[1140px] flex-col items-start justify-between gap-2 px-6 py-8 text-[11px] font-medium uppercase tracking-[0.12em] text-ink-muted md:flex-row md:items-center">
+          <span>Husn · referral records into EHR-ready context</span>
+          <span>Husn · {new Date().getFullYear()}</span>
+        </div>
+      </footer>
+    </div>
   );
 }
