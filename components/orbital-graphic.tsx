@@ -126,11 +126,11 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w
             return (
               <div key={`${node.ring}-${node.idx}`} onMouseEnter={() => setHover(node.name)} className="absolute z-10 -translate-x-1/2 -translate-y-1/2 cursor-default select-none" style={{ left: `${((x / VIEW) * 100).toFixed(3)}%`, top: `${((y / VIEW) * 100).toFixed(3)}%` }} role="presentation">
                 <div className="animate-spin" style={{ animationDuration: "240s", animationDirection: "reverse", animationTimingFunction: "linear", animationPlayState: active ? "paused" : "running" }}>
-                  <div className="card flex items-center gap-2.5 rounded-full bg-white px-3.5 py-2 transition-all duration-200" style={{ animation: "fade-in-up 0.6s ease-out both", animationDelay: `${delay}ms`, transform: isHovered ? "translateY(-2px) scale(1.06)" : undefined, boxShadow: isHovered ? `0 1px 0 rgba(11,14,20,0.04), 0 14px 30px -12px ${node.brand}80, 0 0 0 1px ${node.brand}55` : undefined }}>
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors" style={{ backgroundColor: isHovered ? `${node.brand}18` : undefined }}>
+                  <div className="card flex items-center gap-0 rounded-full bg-white p-1.5 transition-all duration-200 sm:gap-2.5 sm:px-3.5 sm:py-2" style={{ animation: "fade-in-up 0.6s ease-out both", animationDelay: `${delay}ms`, transform: isHovered ? "translateY(-2px) scale(1.06)" : undefined, boxShadow: isHovered ? `0 1px 0 rgba(11,14,20,0.04), 0 14px 30px -12px ${node.brand}80, 0 0 0 1px ${node.brand}55` : undefined }}>
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors sm:h-7 sm:w-7" style={{ backgroundColor: isHovered ? `${node.brand}18` : undefined }}>
                       <Logo />
                     </span>
-                    <span className="whitespace-nowrap text-sm font-semibold text-ink">{node.name}</span>
+                    <span className="hidden whitespace-nowrap text-sm font-semibold text-ink sm:inline">{node.name}</span>
                   </div>
                 </div>
               </div>

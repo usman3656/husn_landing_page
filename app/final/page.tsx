@@ -9,6 +9,7 @@
    imply live clinical deployment, never imply autonomous clinical decisions,
    frame validation interviews/pilot interest as research, not customers. */
 
+import { useState } from "react";
 import { Newsreader, IBM_Plex_Mono } from "next/font/google";
 import { OrbitalGraphic } from "@/components/orbital-graphic";
 import { Booking } from "@/components/booking";
@@ -55,7 +56,16 @@ const FOUNDERS = [
   },
 ];
 
+const NAV_LINKS = [
+  ["#how", "How it works"],
+  ["#founders", "Founders"],
+  ["#pricing", "Pricing"],
+  ["/blog/", "Blog"],
+] as const;
+
 export default function Final() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div style={t} className="min-h-screen bg-[var(--paper)] text-[var(--ink)] antialiased">
       <style>{`@keyframes finin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.finin{animation:finin .7s cubic-bezier(.2,.7,.2,1) both}`}</style>
@@ -64,10 +74,40 @@ export default function Final() {
         <div className="mx-auto flex h-16 max-w-[1140px] items-center justify-between px-6">
           <span className={`${serif.className} text-xl`}>Husn</span>
           <nav className={`${mono.className} hidden gap-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)] md:flex`}>
-            <a href="#how">How it works</a><a href="#founders">Founders</a><a href="#pricing">Pricing</a><a href="/blog/">Blog</a>
+            {NAV_LINKS.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
           </nav>
-          <Cta href="#demo">Book a demo</Cta>
+          <div className="flex items-center gap-3">
+            <Cta href="#demo">Book a demo</Cta>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-[2px] border border-[var(--ink)]/25 text-[var(--ink)] md:hidden"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                {menuOpen ? (
+                  <path d="M3 3l12 12M15 3L3 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                ) : (
+                  <path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+        {menuOpen && (
+          <nav
+            id="mobile-nav"
+            className={`${mono.className} flex flex-col gap-1 border-t border-[var(--mist)] bg-[var(--paper)] px-6 py-4 text-[13px] uppercase tracking-[0.14em] text-[var(--slate)] md:hidden`}
+          >
+            {NAV_LINKS.map(([href, label]) => (
+              <a key={href} href={href} onClick={() => setMenuOpen(false)} className="py-2">
+                {label}
+              </a>
+            ))}
+          </nav>
+        )}
       </header>
 
       <section className="border-b border-[var(--mist)]">
