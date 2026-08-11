@@ -7,12 +7,12 @@ export const dynamic = "force-static";
 const BASE = "https://husn.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/blog/", "/privacy/", "/terms/"];
+  const staticRoutes = ["/", "/research/", "/research/publications/", "/blog/", "/privacy/", "/terms/"];
   const blogRoutes = getAllPosts().map((post) => `/blog/${post.slug}/`);
 
   return [...staticRoutes, ...blogRoutes].map((path) => ({
     url: `${BASE}${path}`,
     changeFrequency: "weekly",
-    priority: path === "/" ? 1 : path === "/blog/" ? 0.8 : 0.7,
+    priority: path === "/" ? 1 : path === "/blog/" || path === "/research/" ? 0.8 : 0.7,
   }));
 }

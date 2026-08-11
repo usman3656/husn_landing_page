@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Newsreader, IBM_Plex_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
-import { getAllPosts, formatDate } from "@/lib/blog";
 
-// Same faces as the homepage so the blog reads as part of the site.
+// Same faces as the homepage so this reads as part of the site.
 const serif = Newsreader({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -29,18 +28,15 @@ const theme: React.CSSProperties = {
 };
 
 export const metadata: Metadata = {
-  title: "Blog | Husn",
+  title: "Research & Publications | Husn",
   description:
-    "Writing from the team building Husn: turning fragmented referral records into structured, EHR-ready context for clinician review.",
-  alternates: {
-    canonical: "https://husn.io/blog/",
-    types: { "application/rss+xml": "https://husn.io/feed.xml" },
-  },
+    "Writing from the team building Husn, and research the founders have published elsewhere.",
+  alternates: { canonical: "https://husn.io/research/" },
   openGraph: {
-    title: "Blog | Husn",
+    title: "Research & Publications | Husn",
     description:
-      "Writing from the team building Husn: turning fragmented referral records into structured, EHR-ready context for clinician review.",
-    url: "https://husn.io/blog/",
+      "Writing from the team building Husn, and research the founders have published elsewhere.",
+    url: "https://husn.io/research/",
     siteName: "Husn",
     type: "website",
   },
@@ -70,9 +66,22 @@ function Cta({
   );
 }
 
-export default function BlogIndex() {
-  const posts = getAllPosts();
+const SECTIONS = [
+  {
+    href: "/blog/",
+    label: "Blog",
+    description:
+      "Notes on referral records, clinical validation, and what it takes to build structured context clinicians can trust.",
+  },
+  {
+    href: "/research/publications/",
+    label: "Publications",
+    description:
+      "Research from the founders, published elsewhere and linked from here as it comes out.",
+  },
+] as const;
 
+export default function ResearchHub() {
   return (
     <div
       style={theme}
@@ -87,7 +96,6 @@ export default function BlogIndex() {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://husn.io/" },
               { "@type": "ListItem", position: 2, name: "Research & Publications", item: "https://husn.io/research/" },
-              { "@type": "ListItem", position: 3, name: "Blog", item: "https://husn.io/blog/" },
             ],
           }),
         }}
@@ -106,14 +114,8 @@ export default function BlogIndex() {
             </Link>
           </li>
           <li aria-hidden="true">/</li>
-          <li>
-            <Link href="/research/" className="hover:text-[var(--ink)]">
-              Research &amp; Publications
-            </Link>
-          </li>
-          <li aria-hidden="true">/</li>
           <li className="text-[var(--ink)]" aria-current="page">
-            Blog
+            Research &amp; Publications
           </li>
         </ol>
       </nav>
@@ -124,63 +126,42 @@ export default function BlogIndex() {
           <span
             className={`${mono.className} block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`}
           >
-            Blog
+            Research &amp; Publications
           </span>
           <h1
-            className={`${serif.className} mt-3 max-w-[20ch] text-4xl font-medium leading-[1.05] tracking-[-0.01em] md:text-5xl`}
+            className={`${serif.className} mt-3 max-w-[22ch] text-4xl font-medium leading-[1.05] tracking-[-0.01em] md:text-5xl`}
           >
-            Notes from the team building Husn.
+            Writing and research from the team building Husn.
           </h1>
           <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-[var(--slate)]">
-            On fragmented referral records, clinical validation, and what it
-            takes to build structured context clinicians can trust.
+            Notes on the product, and research the founders have published elsewhere.
           </p>
         </div>
       </section>
 
-      {/* Posts */}
+      {/* Section tiles */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-16 md:py-20">
-          {posts.length === 0 ? (
-            <p className="text-lg text-[var(--slate)]">
-              Nothing published yet. Check back soon.
-            </p>
-          ) : (
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <Link
-                    href={`/blog/${post.slug}/`}
-                    className="group flex h-full flex-col rounded-[2px] border border-[var(--mist)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--ink)]/30"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span
-                        className={`${mono.className} text-[10px] uppercase tracking-[0.14em] text-[var(--slate)]`}
-                      >
-                        {formatDate(post.date)}
-                      </span>
-                      <span className="text-[var(--blue)] transition-transform group-hover:translate-x-0.5">
-                        &rarr;
-                      </span>
-                    </div>
-                    <h2
-                      className={`${serif.className} mt-3 text-xl leading-snug`}
-                    >
-                      {post.title}
-                    </h2>
-                    <p className="mt-3 text-sm leading-relaxed text-[var(--slate)]">
-                      {post.description}
-                    </p>
-                    <span
-                      className={`${mono.className} mt-auto pt-5 text-[10px] uppercase tracking-[0.14em] text-[var(--slate)]`}
-                    >
-                      {post.readingMinutes} min read
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
+        <div className="mx-auto grid max-w-[1140px] gap-4 px-6 py-16 sm:grid-cols-2 md:py-20">
+          {SECTIONS.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              className="group flex flex-col justify-between gap-8 rounded-[2px] border border-[var(--mist)] bg-[var(--surface)] p-8 transition-colors hover:border-[var(--ink)]/30"
+            >
+              <div>
+                <h2 className={`${serif.className} text-2xl leading-snug md:text-3xl`}>
+                  {s.label}
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-[var(--slate)]">
+                  {s.description}
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-[var(--blue)]">
+                View {s.label.toLowerCase()}
+                <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

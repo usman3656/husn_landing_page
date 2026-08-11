@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Integration = { name: string; brand: string; Logo: () => React.ReactElement };
 type Placed = Integration & { ring: "inner" | "outer"; idx: number };
@@ -52,11 +52,25 @@ function curveToCenter(x: number, y: number, idx: number) {
   return `M ${x.toFixed(1)} ${y.toFixed(1)} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${C} ${C}`;
 }
 
-export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w-[520px] lg:max-w-[640px]" }: { className?: string }) {
+// Labels are full pills at every width (never icon-only) — on phones the
+// diagram itself stays at its natural size and simply scrolls horizontally
+// inside `scrollRef` rather than shrinking labels to fit or overflowing the
+// page. min-w below is what guarantees that scroll: it's wider than a phone's
+// content column, so the browser gives this box real overflow to scroll.
+export function OrbitalGraphic({ className = "mx-auto aspect-square w-full min-w-[420px] max-w-[520px] lg:max-w-[640px]" }: { className?: string }) {
   const [hover, setHover] = useState<string | null>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [active, setActive] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Center the scroll position on mount so a narrow viewport opens on the
+  // middle of the diagram instead of its clipped left edge.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollLeft = (el.scrollWidth - el.clientWidth) / 2;
+  }, []);
 
   function onPointerMove(e: React.PointerEvent<HTMLDivElement>) {
     const el = containerRef.current;
@@ -72,6 +86,7 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w
   };
 
   return (
+    <div ref={scrollRef} className="w-full overflow-x-auto py-4">
     <div
       ref={containerRef}
       className={`relative ${className}`}
@@ -126,11 +141,11 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w
             return (
               <div key={`${node.ring}-${node.idx}`} onMouseEnter={() => setHover(node.name)} className="absolute z-10 -translate-x-1/2 -translate-y-1/2 cursor-default select-none" style={{ left: `${((x / VIEW) * 100).toFixed(3)}%`, top: `${((y / VIEW) * 100).toFixed(3)}%` }} role="presentation">
                 <div className="animate-spin" style={{ animationDuration: "240s", animationDirection: "reverse", animationTimingFunction: "linear", animationPlayState: active ? "paused" : "running" }}>
-                  <div className="card flex items-center gap-0 rounded-full bg-white p-1.5 transition-all duration-200 sm:gap-2.5 sm:px-3.5 sm:py-2" style={{ animation: "fade-in-up 0.6s ease-out both", animationDelay: `${delay}ms`, transform: isHovered ? "translateY(-2px) scale(1.06)" : undefined, boxShadow: isHovered ? `0 1px 0 rgba(11,14,20,0.04), 0 14px 30px -12px ${node.brand}80, 0 0 0 1px ${node.brand}55` : undefined }}>
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors sm:h-7 sm:w-7" style={{ backgroundColor: isHovered ? `${node.brand}18` : undefined }}>
+                  <div className="card flex items-center gap-2.5 rounded-full bg-white px-3.5 py-2 transition-all duration-200" style={{ animation: "fade-in-up 0.6s ease-out both", animationDelay: `${delay}ms`, transform: isHovered ? "translateY(-2px) scale(1.06)" : undefined, boxShadow: isHovered ? `0 1px 0 rgba(11,14,20,0.04), 0 14px 30px -12px ${node.brand}80, 0 0 0 1px ${node.brand}55` : undefined }}>
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-paper-dim transition-colors" style={{ backgroundColor: isHovered ? `${node.brand}18` : undefined }}>
                       <Logo />
                     </span>
-                    <span className="hidden whitespace-nowrap text-sm font-semibold text-ink sm:inline">{node.name}</span>
+                    <span className="whitespace-nowrap text-sm font-semibold text-ink">{node.name}</span>
                   </div>
                 </div>
               </div>
@@ -149,6 +164,7 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full max-w
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
