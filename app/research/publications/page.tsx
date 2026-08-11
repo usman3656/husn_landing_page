@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Newsreader, IBM_Plex_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
-import { getAllPosts, formatDate } from "@/lib/blog";
+import { getAllPublications, formatDate } from "@/lib/publications";
 
-// Same faces as the homepage so the blog reads as part of the site.
+// Same faces as the homepage so this reads as part of the site.
 const serif = Newsreader({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -29,18 +29,15 @@ const theme: React.CSSProperties = {
 };
 
 export const metadata: Metadata = {
-  title: "Blog | Husn",
+  title: "Publications | Husn",
   description:
-    "Writing from the team building Husn: turning fragmented referral records into structured, EHR-ready context for clinician review.",
-  alternates: {
-    canonical: "https://husn.io/blog/",
-    types: { "application/rss+xml": "https://husn.io/feed.xml" },
-  },
+    "Independent and published research from the Husn founders, linked from here as it comes out.",
+  alternates: { canonical: "https://husn.io/research/publications/" },
   openGraph: {
-    title: "Blog | Husn",
+    title: "Publications | Husn",
     description:
-      "Writing from the team building Husn: turning fragmented referral records into structured, EHR-ready context for clinician review.",
-    url: "https://husn.io/blog/",
+      "Independent and published research from the Husn founders, linked from here as it comes out.",
+    url: "https://husn.io/research/publications/",
     siteName: "Husn",
     type: "website",
   },
@@ -70,8 +67,8 @@ function Cta({
   );
 }
 
-export default function BlogIndex() {
-  const posts = getAllPosts();
+export default function PublicationsIndex() {
+  const publications = getAllPublications();
 
   return (
     <div
@@ -87,7 +84,7 @@ export default function BlogIndex() {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://husn.io/" },
               { "@type": "ListItem", position: 2, name: "Research & Publications", item: "https://husn.io/research/" },
-              { "@type": "ListItem", position: 3, name: "Blog", item: "https://husn.io/blog/" },
+              { "@type": "ListItem", position: 3, name: "Publications", item: "https://husn.io/research/publications/" },
             ],
           }),
         }}
@@ -113,7 +110,7 @@ export default function BlogIndex() {
           </li>
           <li aria-hidden="true">/</li>
           <li className="text-[var(--ink)]" aria-current="page">
-            Blog
+            Publications
           </li>
         </ol>
       </nav>
@@ -124,59 +121,60 @@ export default function BlogIndex() {
           <span
             className={`${mono.className} block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`}
           >
-            Blog
+            Publications
           </span>
           <h1
-            className={`${serif.className} mt-3 max-w-[20ch] text-4xl font-medium leading-[1.05] tracking-[-0.01em] md:text-5xl`}
+            className={`${serif.className} mt-3 max-w-[22ch] text-4xl font-medium leading-[1.05] tracking-[-0.01em] md:text-5xl`}
           >
-            Notes from the team building Husn.
+            Published research from the founders.
           </h1>
           <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-[var(--slate)]">
-            On fragmented referral records, clinical validation, and what it
-            takes to build structured context clinicians can trust.
+            Independent and published work from the founders, linked from here as it comes out.
           </p>
         </div>
       </section>
 
-      {/* Posts */}
+      {/* Publications */}
       <section className="border-b border-[var(--mist)]">
         <div className="mx-auto max-w-[1140px] px-6 py-16 md:py-20">
-          {posts.length === 0 ? (
+          {publications.length === 0 ? (
             <p className="text-lg text-[var(--slate)]">
               Nothing published yet. Check back soon.
             </p>
           ) : (
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <Link
-                    href={`/blog/${post.slug}/`}
-                    className="group flex h-full flex-col rounded-[2px] border border-[var(--mist)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--ink)]/30"
+            <ul className="flex flex-col gap-4">
+              {publications.map((pub) => (
+                <li key={pub.slug}>
+                  <a
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col gap-3 rounded-[2px] border border-[var(--mist)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--ink)]/30 md:flex-row md:items-start md:justify-between md:gap-8"
                   >
-                    <div className="flex items-center justify-between gap-2">
+                    <div>
                       <span
                         className={`${mono.className} text-[10px] uppercase tracking-[0.14em] text-[var(--slate)]`}
                       >
-                        {formatDate(post.date)}
+                        {formatDate(pub.date)}
+                        {pub.venue ? ` · ${pub.venue}` : ""}
                       </span>
-                      <span className="text-[var(--blue)] transition-transform group-hover:translate-x-0.5">
-                        &rarr;
-                      </span>
+                      <h2 className={`${serif.className} mt-2 text-xl leading-snug`}>
+                        {pub.title}
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--slate)]">
+                        {pub.description}
+                      </p>
+                      <p
+                        className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.14em] text-[var(--slate)]`}
+                      >
+                        {pub.authors.join(", ")}
+                      </p>
                     </div>
-                    <h2
-                      className={`${serif.className} mt-3 text-xl leading-snug`}
-                    >
-                      {post.title}
-                    </h2>
-                    <p className="mt-3 text-sm leading-relaxed text-[var(--slate)]">
-                      {post.description}
-                    </p>
-                    <span
-                      className={`${mono.className} mt-auto pt-5 text-[10px] uppercase tracking-[0.14em] text-[var(--slate)]`}
-                    >
-                      {post.readingMinutes} min read
+                    <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-[var(--blue)]">
+                      Read paper
+                      <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
                     </span>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

@@ -17,7 +17,7 @@ export default function TermsPage() {
           <nav className="hidden gap-6 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted md:flex">
             <Link href="/#how">How it works</Link>
             <Link href="/#founders">Founders</Link>
-            <Link href="/blog/">Blog</Link>
+            <Link href="/research/">Research &amp; Publications</Link>
           </nav>
           <Link href="/#demo" className="inline-flex items-center gap-2 rounded-[2px] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90">Book a demo</Link>
         </div>
