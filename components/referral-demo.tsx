@@ -190,7 +190,7 @@ export function ReferralDemo() {
         }
         .referral-demo *{ box-sizing:border-box; }
         .referral-demo .app{
-          width:100%; max-width:980px; background:var(--panel); border:1px solid var(--line);
+          width:100%; max-width:980px; height:560px; background:var(--panel); border:1px solid var(--line);
           border-radius:18px; box-shadow:var(--shadow); overflow:hidden;
           display:grid; grid-template-columns:232px 1fr; grid-template-rows:auto 1fr auto;
         }
@@ -214,7 +214,7 @@ export function ReferralDemo() {
         .referral-demo .tools{ margin-left:auto; display:flex; align-items:center; gap:15px; color:var(--ink-faint); }
         .referral-demo .tools .share{ color:var(--ink-soft); font-weight:700; font-size:12.5px; }
         .referral-demo .tools svg{ width:15px; height:15px; }
-        .referral-demo .doc{ grid-column:2; padding:32px 34px 22px; min-height:404px; position:relative; }
+        .referral-demo .doc{ grid-column:2; padding:32px 34px 22px; min-height:404px; overflow-y:auto; position:relative; }
         .referral-demo .badges{ display:flex; gap:8px; margin-bottom:15px; }
         .referral-demo .badge{ display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; padding:4px 11px; border-radius:999px; }
         .referral-demo .badge svg{ width:12px; height:12px; }

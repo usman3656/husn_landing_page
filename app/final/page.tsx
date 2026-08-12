@@ -66,10 +66,7 @@ export default function Final() {
       <section className="border-b border-[var(--mist)]">
         <div className="mx-auto grid max-w-[1140px] gap-10 px-6 py-12 md:grid-cols-[0.72fr_1.28fr] md:items-center md:py-16">
           <div>
-            <p className={`${mono.className} finin text-[11px] uppercase tracking-[0.14em] text-[var(--slate)]`} style={{ animationDelay: "0ms" }}>
-              For clinicians reviewing referred patients
-            </p>
-            <h1 className={`${serif.className} finin mt-3 text-5xl font-medium leading-[1.03] tracking-[-0.01em] md:text-6xl`} style={{ animationDelay: "80ms" }}>
+            <h1 className={`${serif.className} finin text-5xl font-medium leading-[1.03] tracking-[-0.01em] md:text-6xl`} style={{ animationDelay: "0ms" }}>
               Turn referral records into EHR-ready context.
             </h1>
             <p className="finin mt-6 max-w-[42ch] text-lg leading-relaxed text-[var(--slate)]" style={{ animationDelay: "220ms" }}>
@@ -77,17 +74,16 @@ export default function Final() {
             </p>
             <div className="finin mt-8 flex flex-wrap items-center gap-4" style={{ animationDelay: "420ms" }}>
               <Cta href="#demo">Book a demo</Cta>
-              <a href="#how" className="text-sm font-medium text-[var(--slate)] underline decoration-[var(--mist)] underline-offset-4 hover:text-[var(--ink)]">See how it works →</a>
+              <a href="#how" className="text-sm font-medium text-[var(--slate)] underline decoration-[var(--mist)] underline-offset-4 hover:text-[var(--ink)]">
+                See how it works <span className="md:hidden">↓</span><span className="hidden md:inline">→</span>
+              </a>
             </div>
-            <p className="finin mt-4 text-xs text-[var(--slate)]" style={{ animationDelay: "480ms" }}>
-              A working MVP in a demo environment, moving toward clinical pilots.
-            </p>
           </div>
 
           <div className="finin" style={{ animationDelay: "360ms" }}>
             <ReferralDemo />
-            <p className="mt-4 text-center text-sm leading-relaxed text-[var(--slate)]">
-              Illustrative example, synthetic data. Husn structures referral information for review, and a clinician always stays in the loop.
+            <p className="mt-4 text-center text-xs leading-relaxed text-[var(--slate)]">
+              A working MVP, synthetic data. A clinician always stays in the loop.
             </p>
           </div>
         </div>
@@ -97,8 +93,18 @@ export default function Final() {
         <div className="mx-auto flex max-w-[1140px] flex-col items-start gap-6 px-6 py-9 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className={`${serif.className} text-2xl font-medium md:text-3xl`}>Built for clinicians managing referred-patient caseloads.</h2>
-            <div className={`${mono.className} mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[12px] uppercase tracking-[0.1em] text-[var(--slate)]`}>
-              <span>Clinicians reviewing referrals</span><span>Referral &amp; care coordination teams</span><span>Hospital digital &amp; informatics leaders</span><span>Specialty practices &amp; clinics</span>
+            <div className={`${mono.className} mt-4 flex flex-wrap gap-2.5 text-[11px] uppercase tracking-[0.08em] text-[var(--slate)]`}>
+              {[
+                "Clinicians reviewing referrals",
+                "Referral & care coordination teams",
+                "Hospital digital & informatics leaders",
+                "Specialty practices & clinics",
+              ].map((p, i) => (
+                <span key={p} className="flex items-center gap-2 rounded-full border border-[var(--mist)] bg-[var(--surface)] px-3 py-1.5 shadow-[0_1px_2px_rgba(11,14,20,0.04)]">
+                  <span className="text-[var(--blue)]">{String(i + 1).padStart(2, "0")}</span>
+                  {p}
+                </span>
+              ))}
             </div>
           </div>
           <Cta href="#demo">Talk to our team</Cta>
@@ -113,7 +119,7 @@ export default function Final() {
               Husn reads scanned letters, external records, faxes, and emails, and structures what matters for review inside your EHR workflow.
             </p>
           </div>
-          <OrbitalGraphic className="mx-auto aspect-square w-full max-w-[520px]" />
+          <OrbitalGraphic className="mx-auto aspect-square w-full min-w-[420px] max-w-[520px]" />
         </div>
       </section>
 
@@ -146,7 +152,7 @@ export default function Final() {
         <div className="mt-8"><Cta href="#demo">Get a walkthrough</Cta></div>
       </Sec>
 
-      <Sec id="founders" label="Why we're building Husn">
+      <Sec id="founders" label="">
         <h2 className={`${serif.className} max-w-[20ch] text-3xl font-medium leading-[1.1] md:text-4xl`}>Built by people who&apos;ve sat with the problem.</h2>
         <p className="mt-4 max-w-[60ch] text-[var(--slate)]">
           Grounded in 40+ interviews with clinicians across the US and UK, and conversations with hospital digital leadership: validation research and pilot interest.

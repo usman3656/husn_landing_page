@@ -69,7 +69,7 @@ function Cta({
 const SECTIONS = [
   {
     href: "/blog/",
-    label: "Blog",
+    label: "Blogs",
     description:
       "Notes on referral records, clinical validation, and what it takes to build structured context clinicians can trust.",
   },
@@ -122,7 +122,7 @@ export default function ResearchHub() {
 
       {/* Hero */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-[1140px] px-6 py-10 md:py-20">
           <span
             className={`${mono.className} block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`}
           >
@@ -141,7 +141,7 @@ export default function ResearchHub() {
 
       {/* Section tiles */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto grid max-w-[1140px] gap-4 px-6 py-16 sm:grid-cols-2 md:py-20">
+        <div className="mx-auto grid max-w-[1140px] gap-4 px-6 py-10 sm:grid-cols-2 md:py-20">
           {SECTIONS.map((s) => (
             <Link
               key={s.href}
