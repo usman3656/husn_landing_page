@@ -74,7 +74,9 @@ export default function Final() {
             </p>
             <div className="finin mt-8 flex flex-wrap items-center gap-4" style={{ animationDelay: "420ms" }}>
               <Cta href="#demo">Book a demo</Cta>
-              <a href="#how" className="text-sm font-medium text-[var(--slate)] underline decoration-[var(--mist)] underline-offset-4 hover:text-[var(--ink)]">See how it works →</a>
+              <a href="#how" className="text-sm font-medium text-[var(--slate)] underline decoration-[var(--mist)] underline-offset-4 hover:text-[var(--ink)]">
+                See how it works <span className="md:hidden">↓</span><span className="hidden md:inline">→</span>
+              </a>
             </div>
           </div>
 
@@ -91,11 +93,18 @@ export default function Final() {
         <div className="mx-auto flex max-w-[1140px] flex-col items-start gap-6 px-6 py-9 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className={`${serif.className} text-2xl font-medium md:text-3xl`}>Built for clinicians managing referred-patient caseloads.</h2>
-            <div className={`${mono.className} mt-3 flex flex-wrap gap-1.5 text-[11px] uppercase tracking-[0.08em] text-[var(--slate)]`}>
-              <span className="rounded-full border border-[var(--mist)] px-2.5 py-1">Clinicians reviewing referrals</span>
-              <span className="rounded-full border border-[var(--mist)] px-2.5 py-1">Referral &amp; care coordination teams</span>
-              <span className="rounded-full border border-[var(--mist)] px-2.5 py-1">Hospital digital &amp; informatics leaders</span>
-              <span className="rounded-full border border-[var(--mist)] px-2.5 py-1">Specialty practices &amp; clinics</span>
+            <div className={`${mono.className} mt-4 flex flex-wrap gap-2.5 text-[11px] uppercase tracking-[0.08em] text-[var(--slate)]`}>
+              {[
+                "Clinicians reviewing referrals",
+                "Referral & care coordination teams",
+                "Hospital digital & informatics leaders",
+                "Specialty practices & clinics",
+              ].map((p, i) => (
+                <span key={p} className="flex items-center gap-2 rounded-full border border-[var(--mist)] bg-[var(--surface)] px-3 py-1.5 shadow-[0_1px_2px_rgba(11,14,20,0.04)]">
+                  <span className="text-[var(--blue)]">{String(i + 1).padStart(2, "0")}</span>
+                  {p}
+                </span>
+              ))}
             </div>
           </div>
           <Cta href="#demo">Talk to our team</Cta>
