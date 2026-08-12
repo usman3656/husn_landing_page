@@ -122,7 +122,7 @@ export default function ResearchHub() {
 
       {/* Hero */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-10 md:py-20">
+        <div className="mx-auto max-w-[1140px] px-6 py-8 md:py-12">
           <span
             className={`${mono.className} block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`}
           >
@@ -133,15 +133,12 @@ export default function ResearchHub() {
           >
             Writing and research from the team building Husn.
           </h1>
-          <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-[var(--slate)]">
-            Notes on the product, and research the founders have published elsewhere.
-          </p>
         </div>
       </section>
 
       {/* Section tiles */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto grid max-w-[1140px] gap-4 px-6 py-10 sm:grid-cols-2 md:py-20">
+        <div className="mx-auto grid max-w-[1140px] gap-4 px-6 py-8 sm:grid-cols-2 md:py-12">
           {SECTIONS.map((s) => (
             <Link
               key={s.href}
