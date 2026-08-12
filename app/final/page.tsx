@@ -83,7 +83,7 @@ export default function Final() {
           <div className="finin" style={{ animationDelay: "360ms" }}>
             <ReferralDemo />
             <p className="mt-4 text-center text-xs leading-relaxed text-[var(--slate)]">
-              A working MVP, synthetic data. A clinician always stays in the loop.
+              A walkthrough of how Husn reads, matches, and flags a referral for review.
             </p>
           </div>
         </div>

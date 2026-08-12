@@ -117,7 +117,7 @@ export default function PublicationsIndex() {
 
       {/* Hero */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-[1140px] px-6 py-8 md:py-12">
           <span
             className={`${mono.className} block text-[11px] uppercase tracking-[0.18em] text-[var(--blue)]`}
           >
@@ -129,14 +129,14 @@ export default function PublicationsIndex() {
             Published research from the founders.
           </h1>
           <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-[var(--slate)]">
-            Independent and published work from the founders, linked from here as it comes out.
+            Independent and published work from the founders.
           </p>
         </div>
       </section>
 
       {/* Publications */}
       <section className="border-b border-[var(--mist)]">
-        <div className="mx-auto max-w-[1140px] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-[1140px] px-6 py-8 md:py-12">
           {publications.length === 0 ? (
             <p className="text-lg text-[var(--slate)]">
               Nothing published yet. Check back soon.
