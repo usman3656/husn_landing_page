@@ -86,7 +86,10 @@ export function OrbitalGraphic({ className = "mx-auto aspect-square w-full min-w
   };
 
   return (
-    <div ref={scrollRef} className="w-full overflow-x-auto py-4">
+    <div
+      ref={scrollRef}
+      className="w-full overflow-x-auto overflow-y-hidden py-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:overflow-x-hidden"
+    >
     <div
       ref={containerRef}
       className={`relative ${className}`}
