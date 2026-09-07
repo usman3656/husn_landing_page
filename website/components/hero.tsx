@@ -1,35 +1,11 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import { hero } from "../content";
-import { ArrowButton, Button } from "./ui";
+import { ArrowButton, Button, Glyph } from "./ui";
 import heroImg from "../assets/hero.jpg";
-import uclLogo from "../assets/logos/ucl.svg";
-import harvardLogo from "../assets/logos/harvard.svg";
-import ibaLogo from "../assets/logos/iba-karachi.png";
 
 /* Full-bleed landscape with a dark wash, centred serif headline, lime CTA,
-   a client logo strip, and three dark stat cards that overlap the bottom edge. */
-
-// Logo files keyed by the `logo` value in content.ts. Each logo sits on a
-// white chip in its own colours, since some files have opaque backgrounds.
-const logos: Record<string, StaticImageData> = {
-  ucl: uclLogo,
-  harvard: harvardLogo,
-  "iba-karachi": ibaLogo,
-};
-
-function ClientLogo({ name, logo }: { name: string; logo: string | null }) {
-  const file = logo ? logos[logo] : undefined;
-  return (
-    <span className="flex h-16 items-center rounded-xl bg-white px-5 text-black shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)]">
-      {file ? (
-        <Image src={file} alt={name} title={name} className="h-9 w-auto max-w-[150px] object-contain md:h-10" />
-      ) : (
-        <span className="font-sans text-[18px] font-bold uppercase tracking-[0.06em]">{name}</span>
-      )}
-    </span>
-  );
-}
-
+   and three dark stat cards that overlap the bottom edge. Each card carries a
+   small badge that floats over its top edge. */
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-black text-white">
@@ -48,40 +24,33 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-[1266px] px-6 pb-16 pt-40 text-center md:px-10 md:pt-44">
         <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/70 px-3 py-1 text-sm">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M8 4L3 20M15 4l-5 16M21 4l-5 16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-          </svg>
+          <Glyph size={12} />
           {hero.pill}
         </span>
         <h1 className="mx-auto mt-5 max-w-[16ch] font-serif text-[44px] leading-[1.05] md:text-[64px] md:leading-[1.1]">
           {hero.headline}
         </h1>
-        <p className="mx-auto mt-3 font-serif text-[22px] leading-snug text-white/90 md:text-[32px]">
+        <p className="mx-auto mt-4 max-w-[30ch] font-serif text-[22px] leading-snug text-white/90 md:text-[30px]">
           {hero.sub}
         </p>
         <div className="mt-7">
           <Button href={hero.cta.href}>{hero.cta.label}</Button>
         </div>
 
-        <div id="clients" className="mt-24 scroll-mt-24 md:mt-32">
-          <p className="text-[15px] text-white/90">{hero.caption}</p>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {hero.clients.map((c) => (
-              <li key={c.name} className="flex items-center">
-                <ClientLogo name={c.name} logo={c.logo} />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <p className="mt-40 text-[15px] text-white/90 md:mt-56">{hero.caption}</p>
 
-        <ul className="mt-14 grid gap-5 text-left md:grid-cols-3">
+        <ul className="mt-12 grid gap-5 text-left md:grid-cols-3">
           {hero.stats.map((s) => (
             <li
               key={s.label}
-              className="flex items-end justify-between rounded-2xl border border-white/10 bg-[linear-gradient(180deg,#26271B_0%,#0C0C12_100%)] p-6 pt-24 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.7)]"
+              className="relative flex items-end justify-between rounded-2xl border border-white/10 bg-[linear-gradient(180deg,#26271B_0%,#0C0C12_100%)] p-6 pt-28 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.7)]"
             >
+              <span className="absolute left-1/2 top-6 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/60 px-4 py-2 font-sans text-[15px] font-semibold text-white/85">
+                <Glyph size={14} />
+                {s.badge}
+              </span>
               <div>
-                <p className="font-serif text-[44px] leading-none">{s.value}</p>
+                <p className="font-serif text-[56px] leading-none">{s.value}</p>
                 <p className="mt-3 text-[15px] text-white/70">{s.label}</p>
               </div>
               <ArrowButton href="#book" label={`${s.label}: book a call`} />

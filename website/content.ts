@@ -1,24 +1,24 @@
 // All copy for the husn.io single-page site lives here. Sections read from
 // this file only, so wording changes never touch markup.
 //
-// Positioning: Husn is a technical recruitment and offshore hiring partner.
-// The offer (shortlist in 3 working days, no advance payment, free
-// replacements, EOR payroll, background checks, technical interviews) is
-// modelled on the HR Ways service set; client names are Husn's own.
+// The pitch: hiring is slow and exhausting, and even after weeks of it you
+// often still don't end up with the best person. Husn searches the world for
+// any role, sends three people worth meeting, sends more if those aren't
+// right, and charges nothing until someone is hired.
 
 export const site = {
   name: "Husn",
   domain: "husn.io",
   url: "https://husn.io",
   email: "hello@husn.io",
-  title: "Husn: hire prescreened tech talent in 3 working days",
+  title: "Husn: extraordinary people, found for you",
   description:
-    "Husn is a technical recruitment partner. Prescreened engineers, assistants and operators in three working days, no advance payment, free replacements, and hire-and-pay payroll in the markets we recruit from.",
+    "Husn finds extraordinary talent anywhere in the world, for any role. Three candidates worth meeting, more if you need them, and you pay nothing until you hire.",
 } as const;
 
 export const nav = {
   links: [
-    { href: "#services", label: "Services" },
+    { href: "#services", label: "What we do" },
     { href: "#clients", label: "Clients" },
     { href: "#how", label: "How it works" },
     { href: "#faq", label: "FAQ" },
@@ -27,23 +27,15 @@ export const nav = {
 } as const;
 
 export const hero = {
-  pill: "No advance payments & free replacements",
-  headline: "The Technical Recruitment Partner",
-  sub: "Prescreened tech candidates in 3 working days.",
+  pill: "You only pay when you hire",
+  headline: "Hiring shouldn't take over your life.",
+  sub: "We search the world, send you three people worth meeting, and you pay nothing until you hire one.",
   cta: { label: "Start Hiring", href: "#book" },
-  caption: "Trusted by teams at",
-  // Logos live in website/assets/logos; a client without a file renders as a
-  // text wordmark until the file is added.
-  clients: [
-    { name: "UCL", logo: "ucl" },
-    { name: "Harvard", logo: "harvard" },
-    { name: "IBA Karachi", logo: "iba-karachi" },
-    { name: "ZM Converters", logo: null },
-  ],
+  caption: "Trusted by teams at universities, business schools and manufacturers.",
   stats: [
-    { value: "3 days", label: "To a prescreened shortlist" },
-    { value: "$0", label: "Advance payment" },
-    { value: "Free", label: "Candidate replacements" },
+    { badge: "Shortlist", value: "3", label: "Candidates worth interviewing" },
+    { badge: "Pricing", value: "$0", label: "Until the day you hire" },
+    { badge: "Guarantee", value: "More", label: "Candidates if those three aren't it" },
   ],
 } as const;
 
@@ -55,101 +47,106 @@ export type ServiceTile = {
 
 export const services = {
   label: "What we do",
-  heading: "What Husn can do for your team.",
+  heading: "Everything between “we need someone” and their first day.",
   tiles: [
     {
-      title: "Recruitment",
-      sub: "Prescreened tech candidates in 3 working days.",
+      title: "Search",
+      sub: "People you would never reach with a job ad.",
       items: [
-        "Requirement gathering",
-        "Sourcing and screening",
-        "Interview scheduling",
-        "Technical testing",
-        "Offer negotiation",
-        "Reference checks",
-        "Staff augmentation: vetted engineers, part-time or as a team",
+        "Any role, any level, any country",
+        "Screened for English, experience and your time zone",
+        "Three shortlisted candidates, with our notes",
+        "More candidates whenever you ask",
+      ],
+    },
+    {
+      title: "Interviews",
+      sub: "Skip the five-round process. Meet the finalists.",
+      items: [
+        "We run the first rounds and the tests",
+        "You meet three people, back to back, in one call",
+        "Recorded interviews and written feedback",
+        "Offer and negotiation handled for you",
       ],
     },
     {
       title: "Hire & Pay",
-      sub: "Employ talent anywhere without registering an entity.",
+      sub: "Employ them anywhere, without opening an office.",
       items: [
-        "Employer of Record",
-        "Multi-currency payroll, 10+ methods",
-        "Contractor management",
-        "Benefits and HRMS",
-        "Coworking space",
-      ],
-    },
-    {
-      title: "Background Checks",
-      sub: "Employment, education and identity verification.",
-      items: [
-        "Reference and past employment, 5–10 working days",
-        "Criminal record, 3–4 working days",
-        "Degree verification, 10–15 working days",
-        "National ID verification, 2–3 working days",
-      ],
-    },
-    {
-      title: "Technical Interviews",
-      sub: "Expert-led screening across every tech stack.",
-      items: [
-        "Choose from a range of interviewers",
-        "Recorded interviews with written feedback",
-        "Scheduling and candidate communication handled",
-        "Salary and benefits insight for the offer",
+        "We employ, you manage",
+        "Payroll in any currency, same day",
+        "Contracts, benefits and compliance",
+        "Reference and background checks on every hire",
       ],
     },
   ],
-  // Cards that sit on the two illustrated tiles.
+  // Cards floating on the three illustrated tiles.
   facts: [
     {
-      title: "Industries we hire for",
-      body: "Fintech, SaaS, healthcare, AI, banking, e-commerce, real estate, insurance, travel, logistics and digital agencies.",
+      title: "Where we look",
+      body: "Pakistan, India, North Africa, the Middle East, Europe, the UK and the US. Wherever the best person for the role happens to live.",
     },
     {
-      title: "Where the talent is",
-      body: "A talent base across Pakistan, India, the Middle East, the UK and the US, placed with companies in Saudi Arabia, the UAE, Europe and North America.",
+      title: "What you don't do",
+      body: "No job ads. No inbox full of resumes. No five rounds of interviews. You meet three people and pick one.",
+    },
+    {
+      title: "If it's not the right person",
+      body: "Tell us what was missing. We go back out and send more, and you still pay nothing until you hire.",
     },
   ],
 } as const;
 
 export const how = {
   label: "How it works",
-  heading: "How It Works (3 working days)",
+  heading: "Two calls. That's your part.",
   steps: [
     {
-      title: "Book a Call",
-      body: "A 20 minute call. Tell us the role, the stack, the budget and the start date.",
+      title: "Tell us the role",
+      body: "A 20 minute call. Who you need, what they will own, and when they should start.",
     },
     {
-      title: "Shortlist",
-      body: "Our recruiters send a prescreened batch of candidates in 3–4 working days.",
+      title: "We search",
+      body: "Our recruiters work through hundreds of profiles, calls and tests so you never have to.",
     },
     {
-      title: "Interviews",
-      body: "We schedule interviews around your feedback and run technical tests if you would rather not.",
+      title: "Meet three",
+      body: "One call, three finalists, back to back. Not the right fit? We send more.",
     },
     {
-      title: "Offer & Onboarding",
-      body: "We help place the offer, run the reference check, and get your hire started.",
+      title: "Hire and start",
+      body: "We handle the offer, the reference checks and the paperwork. You get a new colleague.",
     },
   ],
 } as const;
 
+export const clients = {
+  label: "Clients",
+  heading: "Teams that hire with Husn",
+  // Logos live in website/assets/logos; a client without a file renders as a
+  // text wordmark until the file is added. The line under each name is a
+  // plain description, not a result claim.
+  items: [
+    { name: "UCL", logo: "ucl", line: "University. London." },
+    { name: "Harvard", logo: "harvard", line: "University. Cambridge, Massachusetts." },
+    { name: "IBA Karachi", logo: "iba-karachi", line: "Business school. Karachi." },
+    { name: "ZM Converters", logo: null, line: "Packaging manufacturer. Pakistan." },
+  ],
+  cta: { label: "/ Start Hiring", href: "#book" },
+} as const;
+
 export const engagement = {
   label: "Pricing",
-  heading: "No charge until you hire",
+  heading: "You only pay when you hire",
   plans: [
     {
-      name: "Recruitment",
+      name: "Find & Hire",
       tag: "Success fee",
-      price: "Pay when your hire starts",
+      price: "Nothing until they start",
       items: [
-        "No advance payment, no minimum contract",
-        "Prescreened shortlist in 3 working days",
-        "Free replacement if it's not the right fit",
+        "No upfront fee, no retainer, no minimum contract",
+        "Three finalists, and more if you need them",
+        "Free replacement if it doesn't work out",
         "Reference check report with every hire",
       ],
       cta: { label: "/ Book a Call", href: "#book" },
@@ -160,9 +157,9 @@ export const engagement = {
       price: "We employ, you manage",
       items: [
         "We employ them, you skip payroll, taxes and compliance",
-        "Salaries in 10+ payment methods, same day, multi-currency",
-        "Benefits, HRMS and coworking on request",
-        "Background checks and technical interviews priced per check",
+        "Salaries in any currency, paid the same day",
+        "Contracts, benefits and equipment sorted",
+        "Month to month, cancel anytime",
       ],
       cta: { label: "/ Book a Call", href: "#book" },
     },
@@ -171,7 +168,7 @@ export const engagement = {
 
 export const band = {
   kicker: "Still deciding?",
-  heading: "Talk to us for 20 minutes.",
+  heading: "Twenty minutes. Then we start looking.",
   cta: { label: "Book a Call", href: "#book" },
 } as const;
 
@@ -182,41 +179,41 @@ export const faq = {
   asideCta: { label: "Get in Touch", href: "#book" },
   items: [
     {
-      q: "What services does Husn provide?",
-      a: "Recruitment, staff augmentation, technical interviews, hire and pay (employer of record and payroll), background verification, and dedicated software development teams.",
+      q: "What roles do you hire for?",
+      a: "Any role you would otherwise spend weeks recruiting for. Engineers, designers, marketers, salespeople, finance, operations, executive assistants, customer support. Junior to leadership.",
     },
     {
-      q: "How does hiring through Husn work?",
-      a: "You tell us the technology, joining period and salary range. We screen and shortlist candidates at our end, get their consent before sharing resumes, then handle interview scheduling, negotiation, reference checks and onboarding support.",
-    },
-    {
-      q: "Is Husn only for tech roles?",
-      a: "Mostly. We specialise in engineering, product, data and design roles, and also support non-tech and operational hires when a client needs them.",
+      q: "Where do the candidates come from?",
+      a: "Wherever the right person is. Most of our network is in Pakistan, India, North Africa and the Middle East, with candidates across Europe, the UK and the US as well.",
     },
     {
       q: "What does it cost?",
-      a: "Recruitment is a success fee with no advance payment. Hire and pay is a monthly fee per employee. Background checks and technical interviews are priced per check or per interview, with technical interviews starting at $60.",
+      a: "Nothing until you hire. Recruitment is a success fee paid when your hire starts. If we employ the person for you through Hire & Pay, that is a flat monthly fee per hire.",
     },
     {
-      q: "Where are your candidates based?",
-      a: "Our talent base spans Pakistan, India, the Middle East, the UK and the US. Candidates are screened for English, relevant experience and time-zone overlap with your team.",
+      q: "What if I don't like the three candidates?",
+      a: "Tell us what was missing. We go back and send more. You still pay nothing until you hire someone.",
+    },
+    {
+      q: "How much of my time does this take?",
+      a: "One 20 minute call to brief us and one call to meet the finalists. We do the searching, screening, first interviews, tests and reference checks.",
     },
     {
       q: "Do candidates pay anything?",
-      a: "No. Husn never charges candidates. We only charge the companies that hire.",
+      a: "No. We never charge candidates.",
     },
   ],
 } as const;
 
 export const book = {
   label: "Book a Call",
-  heading: "Let's build your team.",
-  sub: "Pick a slot. We'll ask what you're hiring for and come back with a shortlist.",
+  heading: "Let's find your person.",
+  sub: "Pick a slot. Tell us the role. We come back with three people worth meeting.",
 } as const;
 
 export const footer = {
   menu: [
-    { href: "#services", label: "Services" },
+    { href: "#services", label: "What we do" },
     { href: "#clients", label: "Clients" },
     { href: "#how", label: "How it works" },
     { href: "#faq", label: "FAQ" },

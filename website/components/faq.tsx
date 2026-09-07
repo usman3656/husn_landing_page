@@ -17,6 +17,7 @@ export function Faq() {
                 {faq.heading}
               </h2>
               <div className="mt-auto pt-16">
+                <hr className="mb-16 w-48 border-black/25" />
                 <p className="max-w-[28ch] text-[15px] leading-6 text-muted">{faq.aside}</p>
                 <div className="mt-4">
                   <Button href={faq.asideCta.href} variant="black">

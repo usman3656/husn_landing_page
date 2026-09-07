@@ -1,4 +1,4 @@
-import { footer, site } from "../content";
+import { footer } from "../content";
 import { Button, Glyph } from "./ui";
 
 /* Black footer inset from the page edges with rounded top corners: menu and
@@ -32,11 +32,6 @@ export function Footer() {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <a href={`mailto:${site.email}`} className="text-white/85 hover:text-white">
-                    {site.email}
-                  </a>
-                </li>
               </ul>
             </div>
             <div className="flex flex-wrap items-start gap-3 md:justify-end">

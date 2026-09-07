@@ -2,6 +2,7 @@ import { Nav } from "./components/nav";
 import { Hero } from "./components/hero";
 import { Services } from "./components/services";
 import { How } from "./components/how";
+import { Clients } from "./components/clients";
 import { Engagement } from "./components/engagement";
 import { Faq } from "./components/faq";
 import { Book } from "./components/book";
@@ -18,6 +19,7 @@ export function Website() {
         <Hero />
         <Services />
         <How />
+        <Clients />
         <Engagement />
         <Faq />
         <Book />

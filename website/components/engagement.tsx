@@ -31,7 +31,7 @@ export function Engagement() {
                     <span className="rounded-full bg-black/[0.06] px-3 py-1 text-[15px] text-muted">{p.tag}</span>
                   </div>
                   <p className="mt-6 font-serif text-[34px] leading-tight md:text-[40px]">{p.price}</p>
-                  <ul className="mt-10 space-y-3">
+                  <ul className="mt-24 space-y-3">
                     {p.items.map((it) => (
                       <Check key={it}>{it}</Check>
                     ))}
@@ -48,7 +48,7 @@ export function Engagement() {
 
       <div className="border-t border-black/10">
         <Frame className="!border-x-0 md:!border-x">
-          <div className="p-5 md:p-6">
+          <div>
             <div className="relative overflow-hidden rounded-2xl text-center text-white">
               <Image src={lakeImg} alt="" fill sizes="(min-width: 1266px) 1266px, 100vw" className="object-cover saturate-[1.1]" />
               <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
