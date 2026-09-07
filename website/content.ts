@@ -68,12 +68,12 @@ export const services = {
     },
     {
       title: "Guarantee",
-      sub: "Not the right person? We keep going.",
+      sub: "Nothing until they start.",
       items: [
-        "More candidates until you find the right one",
+        "No upfront fee, no retainer, no minimum contract",
+        "Three finalists, and more if you need them",
         "A free replacement if it doesn't work out",
-        "Reference checks on every hire",
-        "Nothing to pay until someone starts",
+        "A reference check report with every hire",
       ],
     },
   ],
@@ -125,21 +125,6 @@ export const clients = {
     { name: "IBA Karachi", logo: "iba-karachi" },
     { name: "ZM Converters", logo: "zm-converters" },
   ],
-} as const;
-
-export const engagement = {
-  heading: "Pay only when you hire.",
-  plan: {
-    name: "Find & Hire",
-    price: "Nothing until they start",
-    items: [
-      "No upfront fee, no retainer, no minimum contract",
-      "Three finalists, and more if you need them",
-      "A free replacement if it doesn't work out",
-      "A reference check report with every hire",
-    ],
-    cta: { label: "Book a Call", href: "#book" },
-  },
 } as const;
 
 export const band = {
