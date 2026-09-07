@@ -7,7 +7,7 @@ export function Faq() {
   return (
     <Section id="faq" className="scroll-mt-10 bg-greige">
       <Frame>
-        <div className="p-5">
+        <div className="px-5 py-10 md:py-14">
           <div className="grid gap-8 rounded-2xl bg-card p-7 md:grid-cols-[0.8fr_1.2fr] md:p-10">
             <div className="flex flex-col">
               <h2 className="max-w-[10ch] font-sans text-[40px] font-medium leading-[1.05] md:text-[48px]">
