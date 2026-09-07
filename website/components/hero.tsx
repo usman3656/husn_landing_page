@@ -1,10 +1,35 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { hero } from "../content";
 import { ArrowButton, Button } from "./ui";
 import heroImg from "../assets/hero.jpg";
+import uclLogo from "../assets/logos/ucl.svg";
+import harvardLogo from "../assets/logos/harvard.svg";
+import ibaLogo from "../assets/logos/iba-karachi.png";
 
 /* Full-bleed landscape with a dark wash, centred serif headline, lime CTA,
-   a logo strip, and three dark stat cards that overlap the bottom edge. */
+   a client logo strip, and three dark stat cards that overlap the bottom edge. */
+
+// Logo files keyed by the `logo` value in content.ts. Each logo sits on a
+// white chip in its own colours, since some files have opaque backgrounds.
+const logos: Record<string, StaticImageData> = {
+  ucl: uclLogo,
+  harvard: harvardLogo,
+  "iba-karachi": ibaLogo,
+};
+
+function ClientLogo({ name, logo }: { name: string; logo: string | null }) {
+  const file = logo ? logos[logo] : undefined;
+  return (
+    <span className="flex h-16 items-center rounded-xl bg-white px-5 text-black shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)]">
+      {file ? (
+        <Image src={file} alt={name} title={name} className="h-9 w-auto max-w-[150px] object-contain md:h-10" />
+      ) : (
+        <span className="font-sans text-[18px] font-bold uppercase tracking-[0.06em]">{name}</span>
+      )}
+    </span>
+  );
+}
+
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-black text-white">
@@ -40,13 +65,10 @@ export function Hero() {
 
         <div id="clients" className="mt-24 scroll-mt-24 md:mt-32">
           <p className="text-[15px] text-white/90">{hero.caption}</p>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
             {hero.clients.map((c) => (
-              <li
-                key={c}
-                className="font-sans text-[20px] font-bold uppercase tracking-[0.08em] text-white/85 md:text-[24px]"
-              >
-                {c}
+              <li key={c.name} className="flex items-center">
+                <ClientLogo name={c.name} logo={c.logo} />
               </li>
             ))}
           </ul>

@@ -32,7 +32,14 @@ export const hero = {
   sub: "Prescreened tech candidates in 3 working days.",
   cta: { label: "Start Hiring", href: "#book" },
   caption: "Trusted by teams at",
-  clients: ["UCL", "Harvard", "IBA Karachi", "ZM Converters"],
+  // Logos live in website/assets/logos; a client without a file renders as a
+  // text wordmark until the file is added.
+  clients: [
+    { name: "UCL", logo: "ucl" },
+    { name: "Harvard", logo: "harvard" },
+    { name: "IBA Karachi", logo: "iba-karachi" },
+    { name: "ZM Converters", logo: null },
+  ],
   stats: [
     { value: "3 days", label: "To a prescreened shortlist" },
     { value: "$0", label: "Advance payment" },
