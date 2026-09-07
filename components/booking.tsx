@@ -75,7 +75,7 @@ export function Booking() {
       ref={ref}
       aria-label="Booking calendar"
       className="mx-auto w-full max-w-[760px]"
-      style={{ minWidth: 320, height: 1000 }}
+      style={{ minWidth: 320, height: 760 }}
     />
   );
 }

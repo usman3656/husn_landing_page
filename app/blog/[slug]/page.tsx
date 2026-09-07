@@ -70,7 +70,7 @@ export async function generateMetadata({
 
 function Cta({
   children,
-  href = "/#demo",
+  href = "/#book",
   ghost = false,
 }: {
   children: React.ReactNode;
@@ -174,14 +174,14 @@ export default async function BlogPostPage({
           <nav
             className={`${mono.className} hidden gap-6 text-[11px] uppercase tracking-[0.14em] text-[var(--slate)] md:flex`}
           >
+            <Link href="/#services">Services</Link>
             <Link href="/#how">How it works</Link>
-            <Link href="/#ask">See it work</Link>
-            <Link href="/#pricing">Pricing</Link>
+            <Link href="/#faq">FAQ</Link>
             <Link href="/blog/" className="text-[var(--ink)]">
               Blog
             </Link>
           </nav>
-          <Cta href="/#demo">Book a demo</Cta>
+          <Cta href="/#book">Book a Call</Cta>
         </div>
       </header>
 
@@ -277,7 +277,7 @@ export default async function BlogPostPage({
             for fifteen minutes.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Cta href="/#demo">Book a demo</Cta>
+            <Cta href="/#book">Book a Call</Cta>
             <Cta href="/blog/" ghost>
               More from the blog
             </Cta>

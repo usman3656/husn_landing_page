@@ -19,14 +19,7 @@ git push -u origin main
 2. Under **Build and deployment** → **Source**: select **GitHub Actions**
 3. (No branch to pick — the workflow handles it)
 
-### 3. Add the form endpoint as a secret
-1. Sign up at https://formspree.io (free tier: 50 submissions/month)
-2. Create a new form → copy its endpoint (looks like `https://formspree.io/f/abcd1234`)
-3. In the repo: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
-4. Name: `NEXT_PUBLIC_FORM_ENDPOINT`, value: the Formspree URL
-5. (If you skip this, the demo form falls back to a `mailto:hello@husn.io` link — still works.)
-
-### 4. Point husn.io DNS at GitHub Pages
+### 3. Point husn.io DNS at GitHub Pages
 At your domain registrar (where you bought husn.io), set the following records on the **root** domain (`@`):
 
 | Type | Host | Value |
@@ -50,7 +43,7 @@ If you want `www.husn.io` to also work, add:
 
 DNS can take 10 min – 24 h to propagate.
 
-### 5. Verify the custom domain in GitHub
+### 4. Verify the custom domain in GitHub
 After the first deploy succeeds:
 1. **Settings** → **Pages**
 2. The `Custom domain` field should already say `husn.io` (because `public/CNAME` is in the repo).
@@ -59,7 +52,7 @@ After the first deploy succeeds:
 ## Local development
 
 ```bash
-cp .env.example .env.local      # then edit NEXT_PUBLIC_FORM_ENDPOINT
+cp .env.example .env.local      # then edit NEXT_PUBLIC_BOOKING_URL
 npm install
 npm run dev                     # http://localhost:3000
 ```
@@ -84,4 +77,4 @@ You can also trigger a deploy manually: **Actions** tab → **Deploy to GitHub P
 | `public/CNAME` | Tells GitHub Pages to serve at `husn.io` |
 | `public/.nojekyll` | Stops GitHub from running Jekyll on the output |
 | `.github/workflows/deploy.yml` | Build + publish on every push to `main` |
-| `lib/waitlist-action.ts` | Form submits to Formspree (or falls back to mailto) |
+| `components/booking.tsx` | Embedded Calendly scheduler (URL from `NEXT_PUBLIC_BOOKING_URL`) |

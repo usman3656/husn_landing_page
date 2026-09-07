@@ -1,8 +1,7 @@
-import { seoPages } from "@/lib/seo-pages";
 import { getAllPosts } from "@/lib/blog";
 
-// Static RSS feed of every blog post and solution page. force-static so it is
-// emitted as a plain file under the static export.
+// Static RSS feed of every blog post. force-static so it is emitted as a
+// plain file under the static export.
 export const dynamic = "force-static";
 
 const BASE = "https://husn.io";
@@ -16,8 +15,7 @@ function esc(s: string): string {
 }
 
 export function GET() {
-  // Blog posts first (dated, newest first), then the solution pages.
-  const blogItems = getAllPosts().map(
+  const items = getAllPosts().map(
     (p) => `    <item>
       <title>${esc(p.title)}</title>
       <link>${BASE}/blog/${p.slug}/</link>
@@ -27,26 +25,14 @@ export function GET() {
     </item>`,
   );
 
-  const solutionItems = seoPages.map(
-    (p) => `    <item>
-      <title>${esc(p.title)}</title>
-      <link>${BASE}/solutions/${p.slug}/</link>
-      <guid isPermaLink="true">${BASE}/solutions/${p.slug}/</guid>
-      <description>${esc(p.metaDescription)}</description>
-    </item>`,
-  );
-
-  const items = [...blogItems, ...solutionItems].join("\n");
-
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0">
   <channel>
-    <title>Husn</title>
-    <link>${BASE}/</link>
-    <atom:link href="${BASE}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Writing and solutions from Husn: blog posts from the team, plus solution pages for project risk, executive reporting, meeting preparation, dependency management, and project health.</description>
-    <language>en-us</language>
-${items}
+    <title>Husn Blog</title>
+    <link>${BASE}/blog/</link>
+    <description>Writing from the Husn team.</description>
+    <language>en</language>
+${items.join("\n")}
   </channel>
 </rss>`;
 
