@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { how } from "../content";
-import { Frame, Glyph, Label, Section } from "./ui";
+import { Frame, Glyph, Section } from "./ui";
 import valleyImg from "../assets/valley.jpg";
 
 /* Four numbered steps in a 2×2 arrangement around a central illustrated tile
-   that carries a mock intro-call window. */
+   that carries a mock intro-call window. Steps read left to right, then
+   down: 1 and 2 on the top row, 3 and 4 on the bottom row. */
 
 function Step({ n, title, body }: { n: number; title: string; body: string }) {
   return (
-    <div className="flex flex-col gap-4 p-7 md:p-8">
+    <div className="flex flex-col gap-3 p-7 md:p-8">
       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/15 text-sm">
         {n}
       </span>
@@ -43,23 +44,22 @@ export function How() {
   return (
     <Section id="how" className="scroll-mt-10 bg-greige">
       <Frame>
-        <div className="px-6 py-16 text-center md:py-20">
-          <Label>{how.label}</Label>
-          <h2 className="mt-5 font-serif text-[40px] leading-[1.05] md:text-[56px]">{how.heading}</h2>
+        <div className="px-6 py-10 text-center md:py-12">
+          <h2 className="font-serif text-[40px] leading-[1.05] md:text-[56px]">{how.heading}</h2>
         </div>
       </Frame>
       <div className="border-t border-black/10">
         <Frame className="!border-x-0 md:!border-x">
           <div className="grid md:grid-cols-[1fr_1.15fr_1fr] md:grid-rows-2">
             <div className="border-b border-black/10 md:border-r"><Step n={1} {...s1} /></div>
-            <div className="relative order-first min-h-[380px] border-b border-black/10 md:order-none md:row-span-2 md:border-b-0 md:border-r">
+            <div className="relative order-first min-h-[340px] border-b border-black/10 md:order-none md:row-span-2 md:border-b-0 md:border-r">
               <Image src={valleyImg} alt="" fill sizes="(min-width: 768px) 38vw, 100vw" className="object-cover saturate-[1.1]" />
               <div className="relative flex h-full items-center justify-center p-8">
                 <CallWindow />
               </div>
             </div>
-            <div className="border-b border-black/10"><Step n={3} {...s3} /></div>
-            <div className="border-b border-black/10 md:border-b-0 md:border-r"><Step n={2} {...s2} /></div>
+            <div className="border-b border-black/10"><Step n={2} {...s2} /></div>
+            <div className="border-b border-black/10 md:border-b-0 md:border-r"><Step n={3} {...s3} /></div>
             <div className="md:col-start-3"><Step n={4} {...s4} /></div>
           </div>
         </Frame>

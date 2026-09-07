@@ -3,8 +3,8 @@
 //
 // The pitch: hiring is slow and exhausting, and even after weeks of it you
 // often still don't end up with the best person. Husn searches the world for
-// any role, sends three people worth meeting, sends more if those aren't
-// right, and charges nothing until someone is hired.
+// any role, sends the three best vetted candidates, keeps sending more until
+// the right one is found, and charges nothing until someone is hired.
 
 export const site = {
   name: "Husn",
@@ -13,7 +13,7 @@ export const site = {
   email: "hello@husn.io",
   title: "Husn: extraordinary people, found for you",
   description:
-    "Husn finds extraordinary talent anywhere in the world, for any role. Three candidates worth meeting, more if you need them, and you pay nothing until you hire.",
+    "Husn finds extraordinary talent anywhere in the world, for any role. Interview the three best vetted candidates, get more until you find the right one, and pay nothing until you hire.",
 } as const;
 
 export const nav = {
@@ -31,11 +31,10 @@ export const hero = {
   headline: "Hiring shouldn't take over your life.",
   sub: "We search the world, send you three people worth meeting, and you pay nothing until you hire one.",
   cta: { label: "Start Hiring", href: "#book" },
-  caption: "Trusted by teams at universities, business schools and manufacturers.",
   stats: [
-    { badge: "Shortlist", value: "3", label: "Candidates worth interviewing" },
-    { badge: "Pricing", value: "$0", label: "Until the day you hire" },
-    { badge: "Guarantee", value: "More", label: "Candidates if those three aren't it" },
+    { value: "3", label: "Interview the 3 best vetted candidates only." },
+    { value: "$0", label: "Pay $0 until you actually hire someone." },
+    { value: "More", label: "We keep giving more candidates until you find the best one." },
   ],
 } as const;
 
@@ -46,7 +45,6 @@ export type ServiceTile = {
 };
 
 export const services = {
-  label: "What we do",
   heading: "Everything between “we need someone” and their first day.",
   tiles: [
     {
@@ -70,13 +68,13 @@ export const services = {
       ],
     },
     {
-      title: "Hire & Pay",
-      sub: "Employ them anywhere, without opening an office.",
+      title: "Guarantee",
+      sub: "Not the right person? We keep going.",
       items: [
-        "We employ, you manage",
-        "Payroll in any currency, same day",
-        "Contracts, benefits and compliance",
-        "Reference and background checks on every hire",
+        "More candidates until you find the best one",
+        "Free replacement if it doesn't work out",
+        "Reference checks on every hire",
+        "Nothing to pay until someone starts",
       ],
     },
   ],
@@ -84,7 +82,7 @@ export const services = {
   facts: [
     {
       title: "Where we look",
-      body: "Pakistan, India, North Africa, the Middle East, Europe, the UK and the US. Wherever the best person for the role happens to live.",
+      body: "A talent base across the US, Europe, South East Asia and the MENA region, placed with companies in North America, the UK, Saudi Arabia and the UAE.",
     },
     {
       title: "What you don't do",
@@ -98,12 +96,11 @@ export const services = {
 } as const;
 
 export const how = {
-  label: "How it works",
-  heading: "Two calls. That's your part.",
+  heading: "One call only: and they are hired.",
   steps: [
     {
       title: "Tell us the role",
-      body: "A 20 minute call. Who you need, what they will own, and when they should start.",
+      body: "Share the JD, or hop on a 20 minute call.",
     },
     {
       title: "We search",
@@ -121,59 +118,38 @@ export const how = {
 } as const;
 
 export const clients = {
-  label: "Clients",
   heading: "Teams that hire with Husn",
-  // Logos live in website/assets/logos; a client without a file renders as a
-  // text wordmark until the file is added. The line under each name is a
-  // plain description, not a result claim.
+  // Logo files live in website/assets/logos, keyed by `logo`.
   items: [
-    { name: "UCL", logo: "ucl", line: "University. London." },
-    { name: "Harvard", logo: "harvard", line: "University. Cambridge, Massachusetts." },
-    { name: "IBA Karachi", logo: "iba-karachi", line: "Business school. Karachi." },
-    { name: "ZM Converters", logo: null, line: "Packaging manufacturer. Pakistan." },
+    { name: "UCL", logo: "ucl" },
+    { name: "Harvard", logo: "harvard" },
+    { name: "IBA Karachi", logo: "iba-karachi" },
+    { name: "ZM Converters", logo: "zm-converters" },
   ],
-  cta: { label: "/ Start Hiring", href: "#book" },
 } as const;
 
 export const engagement = {
-  label: "Pricing",
   heading: "You only pay when you hire",
-  plans: [
-    {
-      name: "Find & Hire",
-      tag: "Success fee",
-      price: "Nothing until they start",
-      items: [
-        "No upfront fee, no retainer, no minimum contract",
-        "Three finalists, and more if you need them",
-        "Free replacement if it doesn't work out",
-        "Reference check report with every hire",
-      ],
-      cta: { label: "/ Book a Call", href: "#book" },
-    },
-    {
-      name: "Hire & Pay",
-      tag: "Monthly per hire",
-      price: "We employ, you manage",
-      items: [
-        "We employ them, you skip payroll, taxes and compliance",
-        "Salaries in any currency, paid the same day",
-        "Contracts, benefits and equipment sorted",
-        "Month to month, cancel anytime",
-      ],
-      cta: { label: "/ Book a Call", href: "#book" },
-    },
-  ],
+  plan: {
+    name: "Find & Hire",
+    price: "Nothing until they start",
+    items: [
+      "No upfront fee, no retainer, no minimum contract",
+      "Three finalists, and more if you need them",
+      "Free replacement if it doesn't work out",
+      "Reference check report with every hire",
+    ],
+    cta: { label: "/ Book a Call", href: "#book" },
+  },
 } as const;
 
 export const band = {
-  kicker: "Still deciding?",
-  heading: "Twenty minutes. Then we start looking.",
+  kicker: "Still not convinced?",
+  heading: "Just book a call.",
   cta: { label: "Book a Call", href: "#book" },
 } as const;
 
 export const faq = {
-  label: "FAQ",
   heading: "Frequently asked questions",
   aside: "Can't find the answer you're looking for? We're here to help.",
   asideCta: { label: "Get in Touch", href: "#book" },
@@ -184,11 +160,11 @@ export const faq = {
     },
     {
       q: "Where do the candidates come from?",
-      a: "Wherever the right person is. Most of our network is in Pakistan, India, North Africa and the Middle East, with candidates across Europe, the UK and the US as well.",
+      a: "Our talent base spans the US, Europe, South East Asia and the MENA region. We place them with companies in North America, the UK, Saudi Arabia and the UAE.",
     },
     {
       q: "What does it cost?",
-      a: "Nothing until you hire. Recruitment is a success fee paid when your hire starts. If we employ the person for you through Hire & Pay, that is a flat monthly fee per hire.",
+      a: "Nothing until you hire. You pay a success fee when your hire starts, and nothing before that.",
     },
     {
       q: "What if I don't like the three candidates?",
@@ -196,7 +172,7 @@ export const faq = {
     },
     {
       q: "How much of my time does this take?",
-      a: "One 20 minute call to brief us and one call to meet the finalists. We do the searching, screening, first interviews, tests and reference checks.",
+      a: "Share the JD or take one 20 minute call, then one call to meet the finalists. We do the searching, screening, first interviews, tests and reference checks.",
     },
     {
       q: "Do candidates pay anything?",
@@ -206,7 +182,6 @@ export const faq = {
 } as const;
 
 export const book = {
-  label: "Book a Call",
   heading: "Let's find your person.",
   sub: "Pick a slot. Tell us the role. We come back with three people worth meeting.",
 } as const;

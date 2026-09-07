@@ -1,63 +1,42 @@
 import Image, { type StaticImageData } from "next/image";
 import { clients } from "../content";
-import { Button, Frame, Label, Section } from "./ui";
+import { Frame, Section } from "./ui";
 import uclLogo from "../assets/logos/ucl.svg";
 import harvardLogo from "../assets/logos/harvard.svg";
 import ibaLogo from "../assets/logos/iba-karachi.png";
+import zmLogo from "../assets/logos/zm-converters.png";
 
-/* Client cards in the story-card style: logo, one plain descriptive line,
-   and a full-width black button. Logos are keyed by the `logo` value in
-   content.ts; a client without a file renders as a text wordmark. */
+/* A single quiet logo row. Every logo is rendered in the same dark grey with
+   multiply blending, so brand colours and white backgrounds disappear and the
+   marks sit inside the page instead of on top of it. */
 
 const logos: Record<string, StaticImageData> = {
   ucl: uclLogo,
   harvard: harvardLogo,
   "iba-karachi": ibaLogo,
+  "zm-converters": zmLogo,
 };
-
-function Logo({ name, logo }: { name: string; logo: string | null }) {
-  const file = logo ? logos[logo] : undefined;
-  if (!file) {
-    return <span className="font-sans text-[26px] font-bold uppercase tracking-tight">{name}</span>;
-  }
-  return <Image src={file} alt={name} title={name} className="h-12 w-auto max-w-[170px] object-contain" />;
-}
 
 export function Clients() {
   return (
     <Section id="clients" className="scroll-mt-10 bg-greige">
       <Frame>
-        <div className="px-6 py-16 text-center md:py-20">
-          <Label>{clients.label}</Label>
-          <h2 className="mx-auto mt-5 max-w-[18ch] font-serif text-[40px] leading-[1.05] md:text-[56px]">
-            {clients.heading}
-          </h2>
-        </div>
-      </Frame>
-      <div className="border-t border-black/10">
-        <Frame className="!border-x-0 md:!border-x">
-          <ul className="grid gap-px md:grid-cols-4">
-            {clients.items.map((c, i) => (
-              <li
-                key={c.name}
-                className={`p-5 ${i < clients.items.length - 1 ? "border-b border-black/10 md:border-b-0 md:border-r" : ""}`}
-              >
-                <div className="flex h-full flex-col rounded-2xl bg-card p-6">
-                  <div className="flex h-14 items-center">
-                    <Logo name={c.name} logo={c.logo} />
-                  </div>
-                  <p className="mt-6 text-[20px] leading-snug">{c.line}</p>
-                  <div className="mt-auto pt-12">
-                    <Button href={clients.cta.href} variant="black" block>
-                      {clients.cta.label}
-                    </Button>
-                  </div>
-                </div>
+        <div className="px-6 py-10 text-center md:py-12">
+          <h2 className="font-serif text-[40px] leading-[1.05] md:text-[56px]">{clients.heading}</h2>
+          <ul className="mx-auto mt-10 flex max-w-[1000px] flex-wrap items-center justify-center gap-x-16 gap-y-8">
+            {clients.items.map((c) => (
+              <li key={c.name} className="flex items-center">
+                <Image
+                  src={logos[c.logo]}
+                  alt={c.name}
+                  title={c.name}
+                  className="h-10 w-auto max-w-[200px] object-contain opacity-80 grayscale mix-blend-multiply md:h-12"
+                />
               </li>
             ))}
           </ul>
-        </Frame>
-      </div>
+        </div>
+      </Frame>
     </Section>
   );
 }

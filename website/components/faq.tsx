@@ -1,5 +1,5 @@
 import { faq } from "../content";
-import { Button, Frame, Label, Section } from "./ui";
+import { Button, Frame, Section } from "./ui";
 
 /* Two-column FAQ: heading and help aside on the left, native <details>
    accordion rows on the right so it works without JavaScript. */
@@ -7,17 +7,14 @@ export function Faq() {
   return (
     <Section id="faq" className="scroll-mt-10 bg-greige">
       <Frame>
-        <div className="p-5 md:p-6">
-          <div className="grid gap-10 rounded-2xl bg-card p-7 md:grid-cols-[0.8fr_1.2fr] md:p-10">
+        <div className="p-5">
+          <div className="grid gap-8 rounded-2xl bg-card p-7 md:grid-cols-[0.8fr_1.2fr] md:p-10">
             <div className="flex flex-col">
-              <div>
-                <Label>{faq.label}</Label>
-              </div>
-              <h2 className="mt-6 max-w-[10ch] font-sans text-[40px] font-medium leading-[1.05] md:text-[48px]">
+              <h2 className="max-w-[10ch] font-sans text-[40px] font-medium leading-[1.05] md:text-[48px]">
                 {faq.heading}
               </h2>
-              <div className="mt-auto pt-16">
-                <hr className="mb-16 w-48 border-black/25" />
+              <div className="pt-10">
+                <hr className="mb-8 w-48 border-black/25" />
                 <p className="max-w-[28ch] text-[15px] leading-6 text-muted">{faq.aside}</p>
                 <div className="mt-4">
                   <Button href={faq.asideCta.href} variant="black">
@@ -27,7 +24,7 @@ export function Faq() {
               </div>
             </div>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {faq.items.map((item, i) => (
                 <li key={item.q}>
                   <details open={i === 0} className="group rounded-xl bg-card2 px-5 py-4">

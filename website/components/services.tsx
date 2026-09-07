@@ -1,6 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 import { services } from "../content";
-import { Button, Check, Frame, Label, Section } from "./ui";
+import { Button, Check, Frame, Section } from "./ui";
 import meadowImg from "../assets/meadow.jpg";
 import ridgeImg from "../assets/ridge.jpg";
 import forestImg from "../assets/forest.jpg";
@@ -11,12 +11,12 @@ import forestImg from "../assets/forest.jpg";
 
 function Tile({ title, sub, items }: (typeof services.tiles)[number]) {
   return (
-    <div className="flex h-full flex-col gap-8 p-8 md:p-10">
+    <div className="flex h-full flex-col gap-6 p-8 md:p-10">
       <div>
         <h3 className="font-serif text-[36px] leading-none md:text-[44px]">{title}</h3>
-        <p className="mt-4 text-[17px] leading-snug text-muted">{sub}</p>
+        <p className="mt-3 text-[17px] leading-snug text-muted">{sub}</p>
       </div>
-      <ul className="space-y-3.5">
+      <ul className="space-y-3">
         {items.map((i) => (
           <Check key={i}>{i}</Check>
         ))}
@@ -35,7 +35,7 @@ function ImageTile({
   align: "top" | "bottom";
 }) {
   return (
-    <div className="relative min-h-[400px] overflow-hidden">
+    <div className="relative min-h-[360px] overflow-hidden">
       <Image src={img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover saturate-[1.1]" />
       <div className={`relative flex h-full flex-col p-6 md:p-8 ${align === "top" ? "justify-start" : "justify-end"}`}>
         <div className="rounded-2xl border border-black/10 bg-card3/95 p-6 shadow-[0_20px_40px_-24px_rgba(0,0,0,0.45)]">
@@ -53,18 +53,15 @@ function ImageTile({
 }
 
 export function Services() {
-  const [search, interviews, hirePay] = services.tiles;
+  const [search, interviews, guarantee] = services.tiles;
   const [where, whatYouDont, notRight] = services.facts;
   const cell = "border-b border-black/10";
   const right = "md:border-r";
   return (
     <Section id="services" className="scroll-mt-10 bg-greige">
       <Frame>
-        <div className="px-6 py-16 text-center md:py-20">
-          <Label>{services.label}</Label>
-          <h2 className="mx-auto mt-5 max-w-[20ch] font-serif text-[40px] leading-[1.05] md:text-[56px]">
-            {services.heading}
-          </h2>
+        <div className="px-6 py-10 text-center md:py-12">
+          <h2 className="mx-auto font-serif text-[40px] leading-[1.05] md:text-[56px]">{services.heading}</h2>
         </div>
       </Frame>
       <div className="border-t border-black/10">
@@ -76,7 +73,7 @@ export function Services() {
 
             <div className={`${cell} ${right} md:border-b-0`}><Tile {...interviews} /></div>
             <div className={`${cell} ${right} md:border-b-0`}><ImageTile img={forestImg} fact={notRight} align="top" /></div>
-            <div className="md:border-b-0"><Tile {...hirePay} /></div>
+            <div className="md:border-b-0"><Tile {...guarantee} /></div>
           </div>
         </Frame>
       </div>
